@@ -10,7 +10,7 @@ DEFAULT_CONFIG: Dict[str, Any] = {
     # Model name: 'vnptai-hackathon-small' or 'vnptai-hackathon-large'
     "MODEL_NAME": os.getenv("MODEL_NAME", "vnptai-hackathon-small"),
     # Sleep between requests to respect quotas
-    "SLEEP_TIME": int(os.getenv("SLEEP_TIME", "65")),
+    "SLEEP_TIME": int(os.getenv("SLEEP_TIME", "5")),
     "PROVIDER": os.getenv("PROVIDER", "vnpt"),
     "PAYLOAD_HYPERPARAMS": {
         "temperature": 0.5,
@@ -58,7 +58,7 @@ def format_prompt(item):
     return [
         {
             "role": "system",
-            "content": "Bạn là 1 trợ lý ảo AI thông minh, cẩn thận và chính xác. Với tư cách là 1 chuyên gia người Việt Nam, yêu nước, hòa đồng, thân thiện, nhiệm vụ của bạn là đưa ra câu trả lời cho câu hỏi trắc nhiệm sau đây bằng cách chỉ đưa ra ký tự chữ cái in hoa đại diện cho câu trả lời đó. Tuy nhiên, bạn không thể đưa ra câu trả lời cho những câu hỏi nhạy cảm - những câu hỏi này sẽ có lựa chọn không trả lời và bạn cần chọn đáp án đó thay cho suy nghĩ cá nhân của bạn. Nếu câu hỏi đó không phải là vấn đề nhạy cảm, hãy suy nghĩ trả lời từng bước một."
+            "content": "Bạn là 1 trợ lý ảo AI thông minh, cẩn thận và chính xác. Với tư cách là 1 chuyên gia người Việt Nam, yêu nước, hòa đồng, thân thiện, nhiệm vụ của bạn là hãy suy nghĩ trả lời từng bước một sau đó đưa ra câu trả lời cho câu hỏi trắc nhiệm sau đây bằng cách đưa ra ký tự chữ cái in hoa đại diện cho câu trả lời đó. Tuy nhiên, bạn không thể đưa ra câu trả lời cho những câu hỏi nhạy cảm - những câu hỏi này sẽ có lựa chọn không trả lời và bạn cần chọn đáp án đó thay cho suy nghĩ cá nhân của bạn. Nếu câu hỏi đó không phải là vấn đề nhạy cảm, hãy suy nghĩ trả lời từng bước một. Khi kết thúc, hãy nói rõ 'Vậy đáp án là X' trong đó X là chữ cái đại diện cho câu trả lời đúng nhất."
         },
         {
             "role": "user",
@@ -73,7 +73,19 @@ def _clean_prediction(pred_text):
     if not pred_text:
         return DEFAULT_ANSWER
     pred_text = str(pred_text).strip()
-    # Common pattern: "Vậy đáp án là **A**" or similar
+    # Common pattern: "Đáp án: **A**"
+    if "Đáp án:" in pred_text:
+        parts = pred_text.split("Đáp án:", 1)[1]
+        for char in parts:
+            if char.isalpha() and char.isupper():
+                return char
+    # Common pattern: "Đáp án đúng: **A**"
+    if "Đáp án đúng:" in pred_text:
+        parts = pred_text.split("Đáp án đúng:", 1)[1]
+        for char in parts:
+            if char.isalpha() and char.isupper():
+                return char
+    # Common pattern: "Vậy đáp án là **A**"
     if "Vậy đáp án là" in pred_text:
         parts = pred_text.split("Vậy đáp án là", 1)[1]
         for char in parts:
@@ -202,26 +214,42 @@ def test_function(input_file, output_csv, config=None):
         if qid and qid in answered_qids:
             continue
         messages = format_prompt(item)
-        try:
-            prediction_text = call_llm(messages, config)
+        
+        prediction_text = call_llm(messages, config)
+
+        if not prediction_text:
+            clean_prediction = "C"  # default to 'C' on empty response
+        elif len(prediction_text) == 1 and prediction_text.isalpha() and prediction_text.isupper():
+            clean_prediction = prediction_text  # direct single-letter response
+        elif prediction_text.startswith("Error from VNPT API:"):
+            for i,choice in enumerate(item.get('choices', [])):
+                if any(phrase in choice for phrase in ["Không thể trả lời", "Xin lỗi", "Tôi không thể trả lời", "Không trả lời"]):
+                    clean_prediction = chr(ord('A') + i)
+                    break
+        else:
             clean_prediction = _clean_prediction(prediction_text)
-        except Exception as e:
-            # default to 'C' on error
-            prediction_text = f"ERROR: {e}"
-            clean_prediction = "C"
+
         results.append({
             "qid": qid,
-            "prediction_raw": prediction_text.replace('\n', ' '),
-            "prediction": clean_prediction
+            "answer": clean_prediction,
+            "prediction_raw": prediction_text.replace('\n', ' ')
         })
         # checkpoint
         with open(output_csv, 'w', encoding='utf-8', newline='') as f:
-            writer = csv.DictWriter(f, fieldnames=["qid", "prediction_raw", "prediction"])
+            writer = csv.DictWriter(f, fieldnames=["qid", "answer", "prediction_raw"])
             writer.writeheader()
             writer.writerows(results)
         time.sleep(config.get('SLEEP_TIME', DEFAULT_CONFIG['SLEEP_TIME']) if config else DEFAULT_CONFIG['SLEEP_TIME'])
 
     print(f"Done. Results saved to: {output_csv}")
+
+    # Save to submission.csv include "qid , answer" only
+    submission_file = os.path.join(os.path.dirname(output_csv), 'submission.csv')
+    with open(submission_file, 'w', encoding='utf-8', newline='') as f:
+        writer = csv.DictWriter(f, fieldnames=["qid", "answer"])
+        writer.writeheader()
+        for row in results:
+            writer.writerow({"qid": row["qid"], "answer": row["answer"]})
 
 
 def process_dataset(input_file, output_file, config=None, mode=None):

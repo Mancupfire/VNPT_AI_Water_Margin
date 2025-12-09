@@ -37,11 +37,16 @@ def _build_config_from_env():
 if __name__ == "__main__":
     config = _build_config_from_env()
     process_dataset(
-        input_file='E:\\VNPT_AI_Water_Margin\\data\\val.json',
-        output_file=f'pred/val_{config.get("PROVIDER", "")}.csv',
+        input_file='E:\\VNPT_AI_Water_Margin\\data\\test.json',
+        output_file=f'pred/test_{config.get("PROVIDER", "")}.csv',
         config=config,
-        mode='valid'
+        mode='test'
     )
 
     # To run on validation set instead, call with a val file:
-    # process_dataset(input_file='data/val.json', output_file='pred/val_predictions.csv', config=config)
+    # process_dataset(
+    #     input_file='E:\\VNPT_AI_Water_Margin\\data\\val.json',
+    #     output_file=f'pred/val_{config.get("PROVIDER", "")}.csv',
+    #     config=config,
+    #     mode='valid'
+    # )

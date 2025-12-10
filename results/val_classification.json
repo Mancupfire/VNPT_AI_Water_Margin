@@ -4,5 +4,557 @@
     "question_snippet": "Đoạn thông tin:\n[1] Tiêu đề: Khỉ thí nghiệm\nNội du...",
     "predicted_domain": "READING_COMPREHENSION",
     "ground_truth_option": "B"
+  },
+  {
+    "qid": "val_0002",
+    "question_snippet": "Ngôi chùa Ba La Mật được khai dựng vào năm nào?...",
+    "predicted_domain": "GENERAL_DOMAIN",
+    "ground_truth_option": "A"
+  },
+  {
+    "qid": "val_0003",
+    "question_snippet": "Việc đưa ra các quy định về thuế, pháp luật đã tác...",
+    "predicted_domain": "VN_CORE_KNOWLEDGE",
+    "ground_truth_option": "B"
+  },
+  {
+    "qid": "val_0004",
+    "question_snippet": "Một cửa hàng tạp hóa địa phương đã tăng giá một mó...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "B"
+  },
+  {
+    "qid": "val_0005",
+    "question_snippet": "Điện trở tương đương khi hai điện trở, R1 và R2, đ...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "C"
+  },
+  {
+    "qid": "val_0006",
+    "question_snippet": "Bạn nên làm gì khi bắt tay?...",
+    "predicted_domain": "GENERAL_DOMAIN",
+    "ground_truth_option": "C"
+  },
+  {
+    "qid": "val_0007",
+    "question_snippet": "Đoạn thông tin:\n-- Đoạn văn 1 --\nTiêu đề: Hà Thành...",
+    "predicted_domain": "READING_COMPREHENSION",
+    "ground_truth_option": "B"
+  },
+  {
+    "qid": "val_0008",
+    "question_snippet": "Giả sử một chủ doanh nghiệp tư nhân vay nợ cá nhân...",
+    "predicted_domain": "GENERAL_DOMAIN",
+    "ground_truth_option": "B"
+  },
+  {
+    "qid": "val_0009",
+    "question_snippet": "Đoạn thông tin:\nFrançois Mitterrand\nVới sự chú trọ...",
+    "predicted_domain": "READING_COMPREHENSION",
+    "ground_truth_option": "B"
+  },
+  {
+    "qid": "val_0010",
+    "question_snippet": "Đoạn thông tin:\nTiêu đề: Thú bơi lội\nNội dung: Thú...",
+    "predicted_domain": "READING_COMPREHENSION",
+    "ground_truth_option": "A"
+  },
+  {
+    "qid": "val_0011",
+    "question_snippet": "Đoạn thông tin:\n[1] Tiêu đề: Cuba\nNội dung: II. Ch...",
+    "predicted_domain": "READING_COMPREHENSION",
+    "ground_truth_option": "B"
+  },
+  {
+    "qid": "val_0012",
+    "question_snippet": "Một sợi dây có chiều dài $ L $ và mật độ khối lượn...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "B"
+  },
+  {
+    "qid": "val_0013",
+    "question_snippet": "Khẳng định nào là đúng về chú thích trong Python?...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "D"
+  },
+  {
+    "qid": "val_0014",
+    "question_snippet": "Trong thủ tục nhập quốc tịch Việt Nam, giấy tờ nào...",
+    "predicted_domain": "VN_CORE_KNOWLEDGE",
+    "ground_truth_option": "A"
+  },
+  {
+    "qid": "val_0015",
+    "question_snippet": "Đoạn thông tin:\n-- Đoạn văn 1 --\nTiêu đề:\nNội dung...",
+    "predicted_domain": "READING_COMPREHENSION",
+    "ground_truth_option": "A"
+  },
+  {
+    "qid": "val_0016",
+    "question_snippet": "Trong một thí nghiệm phân tán hạt, tiết diện vi ph...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "B"
+  },
+  {
+    "qid": "val_0017",
+    "question_snippet": "Nước Cộng hòa xã hội chủ nghĩa Việt Nam là một hệ ...",
+    "predicted_domain": "VN_CORE_KNOWLEDGE",
+    "ground_truth_option": "D"
+  },
+  {
+    "qid": "val_0018",
+    "question_snippet": "Tính khách quan của chân lý thể hiện ở chỗ nào?...",
+    "predicted_domain": "GENERAL_DOMAIN",
+    "ground_truth_option": "D"
+  },
+  {
+    "qid": "val_0019",
+    "question_snippet": "Đoạn thông tin:\n-- Document 1 --\nTitle: Assume For...",
+    "predicted_domain": "READING_COMPREHENSION",
+    "ground_truth_option": "B"
+  },
+  {
+    "qid": "val_0020",
+    "question_snippet": "Một hạt đang chuyển động với tốc độ $0.6c$, trong ...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "C"
+  },
+  {
+    "qid": "val_0021",
+    "question_snippet": "Câu hỏi nào sau đây là phát biểu chính xác về toàn...",
+    "predicted_domain": "GENERAL_DOMAIN",
+    "ground_truth_option": "D"
+  },
+  {
+    "qid": "val_0022",
+    "question_snippet": "Theo cách nào thì việc làm theo nguyên tắc \"employ...",
+    "predicted_domain": "GENERAL_DOMAIN",
+    "ground_truth_option": "D"
+  },
+  {
+    "qid": "val_0023",
+    "question_snippet": "Trong một phân tích tài chính, Emily nhận thấy rằn...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "A"
+  },
+  {
+    "qid": "val_0024",
+    "question_snippet": "Xét hàm số $ h(x) = x^4 - 4x^3 + 6x^2 - 4x + 1 $. ...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "A"
+  },
+  {
+    "qid": "val_0025",
+    "question_snippet": "Công thức hoá học của oxit có thành phần phần trăm...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "B"
+  },
+  {
+    "qid": "val_0026",
+    "question_snippet": "Một máy bay không người lái đang bay ở độ cao khôn...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "B"
+  },
+  {
+    "qid": "val_0027",
+    "question_snippet": "Một hạt chuyển động dọc theo trục y với vị trí của...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "C"
+  },
+  {
+    "qid": "val_0028",
+    "question_snippet": "Nếu một doanh nghiệp có chi phí biến đổi trung bìn...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "B"
+  },
+  {
+    "qid": "val_0029",
+    "question_snippet": "Theo thông tin được cung cấp, tỉnh nào sau đây đã ...",
+    "predicted_domain": "VN_CORE_KNOWLEDGE",
+    "ground_truth_option": "A"
+  },
+  {
+    "qid": "val_0030",
+    "question_snippet": "Trong phong trào chính trị quốc tế, đảng cánh Tả đ...",
+    "predicted_domain": "GENERAL_DOMAIN",
+    "ground_truth_option": "B"
+  },
+  {
+    "qid": "val_0031",
+    "question_snippet": "Khí nhà kính nào chiếm khoảng một nửa khối lượng k...",
+    "predicted_domain": "GENERAL_DOMAIN",
+    "ground_truth_option": "C"
+  },
+  {
+    "qid": "val_0032",
+    "question_snippet": "Đoạn thông tin:\n[1] Tiêu đề: địa điểm giao dịch và...",
+    "predicted_domain": "READING_COMPREHENSION",
+    "ground_truth_option": "B"
+  },
+  {
+    "qid": "val_0033",
+    "question_snippet": "Một khối lượng $ m $ được gắn vào một lò xo có hằn...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "C"
+  },
+  {
+    "qid": "val_0034",
+    "question_snippet": "Làm thế nào việc mở rộng Medicaid ảnh hưởng đến kh...",
+    "predicted_domain": "GENERAL_DOMAIN",
+    "ground_truth_option": "C"
+  },
+  {
+    "qid": "val_0035",
+    "question_snippet": "Theo quy trình cấp Chứng nhận trường mầm non đạt k...",
+    "predicted_domain": "VN_CORE_KNOWLEDGE",
+    "ground_truth_option": "B"
+  },
+  {
+    "qid": "val_0036",
+    "question_snippet": "Nguyên lý về sự lựa chọn hợp lý phát biểu rằng, bạ...",
+    "predicted_domain": "GENERAL_DOMAIN",
+    "ground_truth_option": "B"
+  },
+  {
+    "qid": "val_0037",
+    "question_snippet": "Nhiệm vụ nào sau đây KHÔNG thuộc khoa học xã hội?...",
+    "predicted_domain": "GENERAL_DOMAIN",
+    "ground_truth_option": "C"
+  },
+  {
+    "qid": "val_0038",
+    "question_snippet": "Một chất phóng xạ phân rã theo phương trình vi phâ...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "B"
+  },
+  {
+    "qid": "val_0039",
+    "question_snippet": "Nguyễn Ái Quốc đã mở nhiều lớp huấn luyện đào tạo ...",
+    "predicted_domain": "VN_CORE_KNOWLEDGE",
+    "ground_truth_option": "B"
+  },
+  {
+    "qid": "val_0040",
+    "question_snippet": "Một nhà nghiên cứu đang kiểm định giả thuyết không...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "E"
+  },
+  {
+    "qid": "val_0041",
+    "question_snippet": "Theo quan điểm của Chủ Tịch Hồ Chí Minh, con đường...",
+    "predicted_domain": "VN_CORE_KNOWLEDGE",
+    "ground_truth_option": "C"
+  },
+  {
+    "qid": "val_0042",
+    "question_snippet": "Trong một nền kinh tế hai hàng hóa, nếu giá của hà...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "B"
+  },
+  {
+    "qid": "val_0043",
+    "question_snippet": "Một phân tử của một hợp chất nhất định có mô men l...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "D"
+  },
+  {
+    "qid": "val_0044",
+    "question_snippet": "Cách trách nhiệm xã hội của doanh nghiệp (CSR) thư...",
+    "predicted_domain": "GENERAL_DOMAIN",
+    "ground_truth_option": "C"
+  },
+  {
+    "qid": "val_0045",
+    "question_snippet": "Đoạn thông tin:\n[1] Tiêu đề: Tiếng Hindustan Carib...",
+    "predicted_domain": "READING_COMPREHENSION",
+    "ground_truth_option": "C"
+  },
+  {
+    "qid": "val_0046",
+    "question_snippet": "Đoạn thông tin:\nTitle: Chi Linh lăng\nContent: Chi ...",
+    "predicted_domain": "READING_COMPREHENSION",
+    "ground_truth_option": "B"
+  },
+  {
+    "qid": "val_0047",
+    "question_snippet": "Một trường từ đều $ B $ hướng dọc theo trục z. Một...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "A"
+  },
+  {
+    "qid": "val_0048",
+    "question_snippet": "Đoạn thông tin:\n[1] Tiêu đề: Kẻ trộm Mặt Trăng\nNội...",
+    "predicted_domain": "READING_COMPREHENSION",
+    "ground_truth_option": "A"
+  },
+  {
+    "qid": "val_0049",
+    "question_snippet": "Lãi suất danh nghĩa là 10% được tính theo kỳ bán n...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "B"
+  },
+  {
+    "qid": "val_0050",
+    "question_snippet": "Chủ Tịch Hồ Chí Minh đã tiếp thu những giá trị tíc...",
+    "predicted_domain": "VN_CORE_KNOWLEDGE",
+    "ground_truth_option": "C"
+  },
+  {
+    "qid": "val_0051",
+    "question_snippet": "Một công ty có một khoản nợ phải trả với số tiền g...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "A"
+  },
+  {
+    "qid": "val_0052",
+    "question_snippet": "Các giá trị Chân – Thiện – Mỹ hợp thành hệ thống g...",
+    "predicted_domain": "GENERAL_DOMAIN",
+    "ground_truth_option": "C"
+  },
+  {
+    "qid": "val_0053",
+    "question_snippet": "Đoạn thông tin:\nTitle: Cổ Thiên Lạc\nContent: Cổ Th...",
+    "predicted_domain": "READING_COMPREHENSION",
+    "ground_truth_option": "A"
+  },
+  {
+    "qid": "val_0054",
+    "question_snippet": "Điều gì xảy ra khi tiết kiệm thực tế khác với tiết...",
+    "predicted_domain": "GENERAL_DOMAIN",
+    "ground_truth_option": "C"
+  },
+  {
+    "qid": "val_0055",
+    "question_snippet": "Cuộc thi người mẫu nào tổ chức quy mô toàn quốc ph...",
+    "predicted_domain": "VN_CORE_KNOWLEDGE",
+    "ground_truth_option": "A"
+  },
+  {
+    "qid": "val_0056",
+    "question_snippet": "Những trường hợp nào khoan giếng không phải đăng k...",
+    "predicted_domain": "VN_CORE_KNOWLEDGE",
+    "ground_truth_option": "D"
+  },
+  {
+    "qid": "val_0057",
+    "question_snippet": "Tri giác phản ánh điều gì?...",
+    "predicted_domain": "GENERAL_DOMAIN",
+    "ground_truth_option": "A"
+  },
+  {
+    "qid": "val_0058",
+    "question_snippet": "VNNIC là tên viết tắt của đơn vị nào?...",
+    "predicted_domain": "VN_CORE_KNOWLEDGE",
+    "ground_truth_option": "A"
+  },
+  {
+    "qid": "val_0059",
+    "question_snippet": "Một tụ điện có điện dung 100 μF được nạp đến điện ...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "A"
+  },
+  {
+    "qid": "val_0060",
+    "question_snippet": "Đoạn thông tin:\nTiêu đề: Giao thông liên lạc Việt ...",
+    "predicted_domain": "READING_COMPREHENSION",
+    "ground_truth_option": "B"
+  },
+  {
+    "qid": "val_0061",
+    "question_snippet": "Giáo dục đóng vai trò:...",
+    "predicted_domain": "GENERAL_DOMAIN",
+    "ground_truth_option": "D"
+  },
+  {
+    "qid": "val_0062",
+    "question_snippet": "Đoạn thông tin:\n[1] Tiêu đề: Vladimir Vladimirovic...",
+    "predicted_domain": "READING_COMPREHENSION",
+    "ground_truth_option": "C"
+  },
+  {
+    "qid": "val_0063",
+    "question_snippet": "Đoạn thông tin:\nMalaysia\nHiến pháp Malaysia đảm bả...",
+    "predicted_domain": "READING_COMPREHENSION",
+    "ground_truth_option": "B"
+  },
+  {
+    "qid": "val_0064",
+    "question_snippet": "Một nhà độc quyền đối mặt với đường cầu tuyến tính...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "A"
+  },
+  {
+    "qid": "val_0065",
+    "question_snippet": "Một quả bóng bay hình cầu có bán kính $ R $ đang đ...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "B"
+  },
+  {
+    "qid": "val_0066",
+    "question_snippet": "Một con lắc có chiều dài $ L $ được dịch chuyển bở...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "E"
+  },
+  {
+    "qid": "val_0067",
+    "question_snippet": "Giải pháp nào sau đây được đề xuất để xử lý lỗi xá...",
+    "predicted_domain": "VN_CORE_KNOWLEDGE",
+    "ground_truth_option": "B"
+  },
+  {
+    "qid": "val_0068",
+    "question_snippet": "Làm thế nào một sự gia tăng mức lương tối thiểu có...",
+    "predicted_domain": "GENERAL_DOMAIN",
+    "ground_truth_option": "C"
+  },
+  {
+    "qid": "val_0069",
+    "question_snippet": "Đánh giá tích phân xác định $\\int_0^1 \\frac{\\ln(1 ...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "A"
+  },
+  {
+    "qid": "val_0070",
+    "question_snippet": "Hệ thống chính trị là chỉnh thể các thiết chế thực...",
+    "predicted_domain": "VN_CORE_KNOWLEDGE",
+    "ground_truth_option": "D"
+  },
+  {
+    "qid": "val_0071",
+    "question_snippet": "Xét các điểm $ A(1, 2) $, $ B(4, 6) $, và $ C(7, 2...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "C"
+  },
+  {
+    "qid": "val_0072",
+    "question_snippet": "Đoạn thông tin:\n[1] Tiêu đề: Ném đá\nNội dung: Thạc...",
+    "predicted_domain": "READING_COMPREHENSION",
+    "ground_truth_option": "D"
+  },
+  {
+    "qid": "val_0073",
+    "question_snippet": "Theo Tư tưởng Hồ Chí Minh, điều kiện để quyền của ...",
+    "predicted_domain": "VN_CORE_KNOWLEDGE",
+    "ground_truth_option": "A"
+  },
+  {
+    "qid": "val_0074",
+    "question_snippet": "Đoạn thông tin:\n-- Đoạn văn 1 --\nTiêu đề: Giao phố...",
+    "predicted_domain": "READING_COMPREHENSION",
+    "ground_truth_option": "C"
+  },
+  {
+    "qid": "val_0075",
+    "question_snippet": "Vào ngày 30 tháng 1 năm 2019, Printing Plus đã mua...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "D"
+  },
+  {
+    "qid": "val_0076",
+    "question_snippet": "Một công ty đang xem xét việc đầu tư vào một dòng ...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "D"
+  },
+  {
+    "qid": "val_0077",
+    "question_snippet": "Tại sao cần có cơ chế thu thập thông tin trong doa...",
+    "predicted_domain": "GENERAL_DOMAIN",
+    "ground_truth_option": "B"
+  },
+  {
+    "qid": "val_0078",
+    "question_snippet": "Hệ điều hành sử dụng kỹ thuật cấp phát bộ nhớ liên...",
+    "predicted_domain": "GENERAL_DOMAIN",
+    "ground_truth_option": "A"
+  },
+  {
+    "qid": "val_0079",
+    "question_snippet": "Theo Chủ Tịch Hồ Chí Minh, học để làm gì?...",
+    "predicted_domain": "VN_CORE_KNOWLEDGE",
+    "ground_truth_option": "D"
+  },
+  {
+    "qid": "val_0080",
+    "question_snippet": "Câu hỏi nào dưới đây mô tả tốt nhất vai trò của cá...",
+    "predicted_domain": "GENERAL_DOMAIN",
+    "ground_truth_option": "C"
+  },
+  {
+    "qid": "val_0081",
+    "question_snippet": "Đoạn thông tin:\n[1] Tiêu đề: Akagi (tàu sân bay Nh...",
+    "predicted_domain": "READING_COMPREHENSION",
+    "ground_truth_option": "B"
+  },
+  {
+    "qid": "val_0082",
+    "question_snippet": "Trong một cuộc cạnh tranh Cournot với hai doanh ng...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "B"
+  },
+  {
+    "qid": "val_0083",
+    "question_snippet": "Văn hóa vật thể là những hiện tượng văn hóa nào?...",
+    "predicted_domain": "GENERAL_DOMAIN",
+    "ground_truth_option": "C"
+  },
+  {
+    "qid": "val_0084",
+    "question_snippet": "Khoảng cách giữa hai cực của ống phóng tia X bằng ...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "D"
+  },
+  {
+    "qid": "val_0085",
+    "question_snippet": "Tính đa dạng sinh học của sinh vật biểu hiện ở:...",
+    "predicted_domain": "GENERAL_DOMAIN",
+    "ground_truth_option": "A"
+  },
+  {
+    "qid": "val_0086",
+    "question_snippet": "Nghệ thuật trong đoạn 1 bài 'Tinh thần yêu nước củ...",
+    "predicted_domain": "READING_COMPREHENSION",
+    "ground_truth_option": "B"
+  },
+  {
+    "qid": "val_0087",
+    "question_snippet": "Trong vận chuyển bằng đường ống, sự giảm áp suất $...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "B"
+  },
+  {
+    "qid": "val_0088",
+    "question_snippet": "Đoạn thông tin:\n-- Document 1 --\nTitle: Lê Chiêu T...",
+    "predicted_domain": "READING_COMPREHENSION",
+    "ground_truth_option": "C"
+  },
+  {
+    "qid": "val_0089",
+    "question_snippet": "Sự phát triển nhảy vọt về nhận thức, tư tưởng của ...",
+    "predicted_domain": "VN_CORE_KNOWLEDGE",
+    "ground_truth_option": "B"
+  },
+  {
+    "qid": "val_0090",
+    "question_snippet": "Giả sử $ T: \\mathbb{R}^3 \\to \\mathbb{R}^3 $ là một...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "B"
+  },
+  {
+    "qid": "val_0091",
+    "question_snippet": "Nếu một tài khoản tiết kiệm có lãi suất danh nghĩa...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "A"
+  },
+  {
+    "qid": "val_0092",
+    "question_snippet": "Đoạn thông tin:\nTrường Đại học Bách khoa, Đại học ...",
+    "predicted_domain": "READING_COMPREHENSION",
+    "ground_truth_option": "A"
+  },
+  {
+    "qid": "val_0093",
+    "question_snippet": "Kết quả của việc chia thành phần x của một véc-tơ ...",
+    "predicted_domain": "MATH_LOGIC",
+    "ground_truth_option": "D"
   }
 ]

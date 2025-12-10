@@ -219,16 +219,15 @@ if __name__ == "__main__":
     # )
     
     # Chạy trên tập Val (Bỏ comment dòng dưới nếu muốn chạy cả val)
-    # process_classification_dataset(
-    #     input_file='data/val.json', 
-    #     output_file='results/val_classification.json', 
-    #     config=CONFIG,
-    #     limit=5
-    # )
-    
     process_classification_dataset(
-        input_file='data/draft.json', 
-        output_file='results/draft_classification.json', 
+        input_file='data/val.json', 
+        output_file='results/val_classification.json', 
         config=CONFIG,
-        limit=1
     )
+    
+    # process_classification_dataset(
+    #     input_file='data/draft.json', 
+    #     output_file='results/draft_classification.json', 
+    #     config=CONFIG,
+    #     limit=1
+    # )

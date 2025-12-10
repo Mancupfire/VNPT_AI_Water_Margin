@@ -1,0 +1,8 @@
+[
+  {
+    "qid": "val_0001",
+    "question_snippet": "Đoạn thông tin:\n[1] Tiêu đề: Khỉ thí nghiệm\nNội du...",
+    "predicted_domain": "READING_COMPREHENSION",
+    "ground_truth_option": "B"
+  }
+]

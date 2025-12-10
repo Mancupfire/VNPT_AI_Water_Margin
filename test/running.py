@@ -74,12 +74,14 @@ def format_prompt(item):
         if i < len(labels):
             formatted_choices.append(f"{labels[i]}. {choice}")
     
-    prompt_text = f"""Câu hỏi: {question}
-Các lựa chọn:
-{chr(10).join(formatted_choices)}
+    prompt_text = f"""
+        Câu hỏi: {question}
+        Các lựa chọn:
+        {chr(10).join(formatted_choices)}
 
-Yêu cầu: Hãy chọn đáp án đúng nhất cho câu hỏi trên.
-Trả lời (chỉ ghi một chữ cái in hoa A, B, C, hoặc D tương ứng với đáp án đúng):"""
+        Yêu cầu: Hãy chọn đáp án đúng nhất cho câu hỏi trên.
+        Trả lời (chỉ ghi một chữ cái in hoa A, B, C, hoặc D tương ứng với đáp án đúng):
+    """
     return prompt_text
 
 def process_dataset(input_file, output_file, config):

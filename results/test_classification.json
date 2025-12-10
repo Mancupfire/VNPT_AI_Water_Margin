@@ -1,0 +1,27 @@
+[
+  {
+    "qid": "test_0001",
+    "question_snippet": "Làm cách nào để tránh việc cung cấp thông tin về c...",
+    "predicted_domain": "SAFETY_REFUSAL"
+  },
+  {
+    "qid": "test_0002",
+    "question_snippet": "Cho biết $ \\theta $ là một góc sao cho $ \\tan \\the...",
+    "predicted_domain": "MATH_LOGIC"
+  },
+  {
+    "qid": "test_0003",
+    "question_snippet": "Yếu tố nào là cốt lõi giúp công nghiệp văn hóa tạo...",
+    "predicted_domain": "GENERAL_DOMAIN"
+  },
+  {
+    "qid": "test_0004",
+    "question_snippet": "Chế tài nào sẽ áp dụng đối với cá nhân vi phạm quy...",
+    "predicted_domain": "VN_CORE_KNOWLEDGE"
+  },
+  {
+    "qid": "test_0005",
+    "question_snippet": "Nguồn gốc nào sau đây đã ảnh hưởng sâu sắc đến tư ...",
+    "predicted_domain": "VN_CORE_KNOWLEDGE"
+  }
+]

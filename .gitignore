@@ -4,8 +4,11 @@
 # Ada Library Information
 *.ali
 
-.*
+.venv
+.env
+*.pyc
 
+knowledge_base/
 data/
 docs/
 pred/

@@ -4,14 +4,14 @@ import time
 from tqdm import tqdm
 from typing import Dict, Any
 
-from src.providers import load_provider
+from src.providers.factory import load_chat_provider
 
 DEFAULT_CONFIG: Dict[str, Any] = {
     # Model name: 'vnptai-hackathon-small' or 'vnptai-hackathon-large'
     "MODEL_NAME": os.getenv("MODEL_NAME", "vnptai-hackathon-small"),
     # Sleep between requests to respect quotas
     "SLEEP_TIME": int(os.getenv("SLEEP_TIME", "5")),
-    "PROVIDER": os.getenv("PROVIDER", "vnpt"),
+    "CHAT_PROVIDER": os.getenv("CHAT_PROVIDER", "vnpt"),
     "PAYLOAD_HYPERPARAMS": {
         "temperature": 0.5,
         "top_p": 0.7,
@@ -37,7 +37,7 @@ def call_llm(messages: list[Dict[str, Any]], config: Dict[str, Any] | None = Non
     if config:
         cfg.update(config)
 
-    provider = load_provider(cfg.get("PROVIDER"), cfg)
+    provider = load_chat_provider(cfg)
     return provider.chat(messages, cfg)
 
 

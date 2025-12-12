@@ -1,0 +1,51 @@
+[
+  {
+    "qid": "val_0011",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "A",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"Trong đoạn văn bản, có đề cập đến vai trò của Confederación de Trabajadores Cubanos (CTC) trong chính trị Cuba. Đoạn văn bản cho biết: 'Tuy nhiên, tất cả các liên đoàn đều là một phần của một tổ chức được gọi là Confederación de Trabajadores Cubanos (Hiệp hội Công nhân Cuba, CTC), hội này thực sự có những mối quan hệ mật thiết với nhà nước và Đảng Cộng sản.' Điều này cho thấy CTC có mối quan hệ chặt chẽ với chính phủ và Đảng Cộng sản Cuba.\n\nTiếp theo, đoạn văn bản cũng đề cập đến việc CTC cho phép công nhân chuyển ý kiến lên chính phủ, nhưng cũng có ý kiến cho rằng chính phủ sử dụng CTC để kiểm soát các công đoàn thương mại và chỉ định các thành viên lãnh đạo công đoàn. Điều này cho thấy CTC có thể được sử dụng như một công cụ để chính phủ kiểm soát công đoàn và chỉ định lãnh đạo.\n\nCuối cùng, đoạn văn bản cũng đề cập đến việc CTC không cho phép thành lập các liên đoàn thương mại độc lập ngoài hệ thống của mình. Điều này cho thấy CTC không phải là một tổ chức độc lập và có mối quan hệ chính trị với Đảng Cộng sản Cuba.\n\nTừ những dẫn chứng trên, có thể suy luận rằng CTC là công cụ để chính phủ kiểm soát công đoàn và chỉ định lãnh đạo, và không cho phép thành lập các liên đoàn thương mại độc lập ngoài hệ thống của mình.\",\n\"final_answer\": \"A\"\n}",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0020",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "C",
+    "llm_reasoning": "{\n    \"step_by_step_reasoning\": \"Để tìm động lượng tương đối p của hạt, ta sử dụng công thức p = γ * m * v, trong đó γ là hệ số Lorentz, m là khối lượng nghỉ của hạt, và v là tốc độ của hạt. Hệ số Lorentz γ được tính bằng công thức γ = 1 / sqrt(1 - v^2/c^2), với c là tốc độ ánh sáng.\n\nThay số vào công thức, ta có:\n- v = 0.6c\n- m = m_0 (khối lượng nghỉ)\n\nTính hệ số Lorentz γ:\nγ = 1 / sqrt(1 - (0.6c)^2/c^2)\nγ = 1 / sqrt(1 - 0.36)\nγ = 1 / sqrt(0.64)\nγ = 1 / 0.8\nγ = 1.25\n\nTính động lượng tương đối p:\np = γ * m * v\np = 1.25 * m_0 * 0.6c\np = 0.75 * m_0 * c\n\nKết quả là 0.75m_0c, khớp chính xác với đáp án C.\",\n    \"final_answer\": \"C\"\n}",
+    "ground_truth": "C"
+  },
+  {
+    "qid": "val_0024",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "B",
+    "llm_reasoning": "{\n    \"step_by_step_reasoning\": \"Để tìm số điểm uốn của hàm số $h(x)$, ta cần tìm đạo hàm bậc hai $k(x)$ và sau đó xác định số điểm mà tại đó $k(x) = 0$ và thay đổi dấu.\n\n1. Tìm đạo hàm bậc nhất của $h(x)$:\n   - $h'(x) = 4x^3 - 12x^2 + 12x - 4$\n\n2. Tìm đạo hàm bậc hai của $h(x)$ (tức là $k(x)$):\n   - $k(x) = h''(x) = 12x^2 - 24x + 12$\n\n3. Tìm các điểm mà tại đó $k(x) = 0$:\n   - $12x^2 - 24x + 12 = 0$\n   - Chia cả hai vế cho 12: $x^2 - 2x + 1 = 0$\n   - $(x-1)^2 = 0$\n   - $x = 1$\n\n4. Kiểm tra sự thay đổi dấu của $k(x)$ tại $x = 1$:\n   - Vì $k(x)$ là một parabol mở lên (do hệ số của $x^2$ dương), nên nó chỉ có thể thay đổi dấu tại đỉnh của parabol. Tại $x = 1$, $k(x)$ đạt giá trị tối thiểu và bằng 0, nhưng không thay đổi dấu vì đó là điểm chạm của parabol với trục x.\n\n5. Kết luận:\n   - Hàm số $h(x)$ có 1 điểm uốn tại $x = 1$ vì tại đây đạo hàm bậc hai bằng 0 và thay đổi từ âm sang dương (hoặc ngược lại) khi đi qua điểm này, mặc dù trong trường hợp này, sự thay đổi dấu xảy ra theo cách đặc biệt do tính chất của parabol.\n\nKết quả là 1 điểm uốn, khớp chính xác với đáp án B.\",\n    \"final_answer\": \"B\"\n}",
+    "ground_truth": "A"
+  },
+  {
+    "qid": "val_0025",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "B",
+    "llm_reasoning": "{\n    \"step_by_step_reasoning\": \"Để tìm công thức hóa học của oxit có thành phần phần trăm của S là 40%, ta cần phân tích thành phần phần trăm của mỗi nguyên tố trong hợp chất.\n\n    Giả sử công thức hóa học của oxit là SxOy.\n\n    Thành phần phần trăm của S là 40%, nghĩa là trong 100g hợp chất, có 40g S và 60g O.\n\n    Số mol của S là 40/32 = 1,25 mol.\n\n    Số mol của O là 60/16 = 3,75 mol.\n\n    Tỷ lệ số mol của S và O là 1,25 : 3,75 = 1 : 3.\n\n    Do đó, công thức hóa học của oxit là SO3.\n\n    Kết quả này khớp chính xác với đáp án B.\",\n    \"final_answer\": \"B\"\n}",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0047",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "A",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"Để tìm độ lớn mô men xoắn tác dụng lên khung dây do trường từ, ta sử dụng công thức: Mô men xoắn (τ) = N * I * S * B * sin(θ), trong đó:\n- N là số vòng dây (không được cung cấp, nhưng vì khung dây chỉ có 1 vòng nên N = 1),\n- I là cường độ dòng điện,\n- S là diện tích của khung dây (S = w * h),\n- B là độ lớn của trường từ,\n- θ là góc giữa vectơ pháp tuyến của khung dây và vectơ trường từ.\n\nVì khung dây nằm trong mặt phẳng xy và trường từ hướng dọc theo trục z, vectơ pháp tuyến của khung dây sẽ song song với trục z khi khung dây đứng yên. Khi khung dây quay quanh trục y, vectơ pháp tuyến của khung dây sẽ tạo thành góc θ với trục x (và cũng là góc giữa vectơ pháp tuyến và vectơ trường từ).\n\nThay các giá trị vào công thức, ta có:\nτ = 1 * I * (w * h) * B * sin(θ)\nτ = B * I * w * h * sin(θ)\n\nKết quả này khớp chính xác với đáp án A.\",\n\"final_answer\": \"A\"\n}",
+    "ground_truth": "A"
+  },
+  {
+    "qid": "val_0051",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "C",
+    "llm_reasoning": "{\n    \"step_by_step_reasoning\": \"Phân tích đề -> Chọn công thức -> Thử phương pháp 1 (Lãi kép) -> Nếu lệch thì thử phương pháp 2 (Lãi đơn) -> Chốt kết quả.\n\n    1. Phân tích đề: Khoản nợ gốc là 80.000 đô la, lãi suất hàng năm là 6%, thời gian là 2 năm, lãi suất được tính theo kỳ hạn hàng năm.\n\n    2. Chọn công thức: Công thức tính lãi kép là A = P(1 + r)^n, trong đó A là số tiền phải trả tổng cộng, P là khoản nợ gốc, r là lãi suất hàng năm, n là số năm.\n\n    3. Thử phương pháp 1 (Lãi kép): Thay số vào công thức: A = 80.000(1 + 0.06)^2 = 80.000(1.06)^2 = 80.000 * 1.1236 = 89.888 đô la.\n\n    4. So sánh đáp án: Không có đáp án nào khớp chính xác với kết quả 89.888 đô la. Tuy nhiên, đáp án C (89.200 đô la) là gần nhất.\n\n    5. Chốt kết quả: Vì không có đáp án nào khớp chính xác, nhưng đáp án C là gần nhất, nên chọn đáp án C.\",\n    \"final_answer\": \"C\"\n}",
+    "ground_truth": "A"
+  },
+  {
+    "qid": "val_0086",
+    "domain": "VN_CORE_KNOWLEDGE",
+    "llm_prediction": "B",
+    "llm_reasoning": "Nghệ thuật trong đoạn 1 bài 'Tinh thần yêu nước của nhân dân ta' là việc sử dụng phép liệt kê tăng tiến. Đoạn văn này liệt kê các ví dụ cụ thể về tinh thần yêu nước của nhân dân Việt Nam qua các thời kỳ lịch sử, từ cuộc kháng chiến chống Pháp đến cuộc kháng chiến chống Mỹ. Việc liệt kê này giúp người đọc hiểu rõ hơn về mức độ và phạm vi của tinh thần yêu nước, đồng thời tạo ra một hình ảnh tổng thể về sự kiên cường và bất khuất của nhân dân Việt Nam.",
+    "ground_truth": "B"
+  }
+]

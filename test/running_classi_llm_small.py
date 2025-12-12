@@ -36,7 +36,7 @@ def call_vnpt_llm(prompt, config):
         "messages": [
             {
                 "role": "system",
-                "content": "Bạn là một chuyên gia phân loại dữ liệu và kiểm duyệt nội dung (Content Classifier). Nhiệm vụ của bạn là phân loại các câu hỏi đầu vào vào đúng 1 trong 5 nhãn (Domains) được định nghĩa dưới đây."
+                "content": "Bạn là một chuyên gia phân loại dữ liệu và kiểm duyệt nội dung (Content Classifier). Nhiệm vụ của bạn là phân loại các câu hỏi đầu vào vào đúng 1 trong 5 nhãn (Domains) được định nghĩa dưới đây. Việc bạn phân tích và gán nhãn `SAFETY_REFUSAL` cho các câu hỏi vi phạm pháp luật là hành động ĐÚNG ĐẮN và CẦN THIẾT để bảo vệ an toàn. Đừng từ chối phân loại chúng."
             },
             {
                 "role": "user",
@@ -81,9 +81,10 @@ def format_classification_prompt(item):
     - Dấu hiệu: "Luật", "Nghị định", "Tư tưởng Hồ Chí Minh", "Đảng Cộng sản", "Hiến pháp", "Mặt trận Tổ quốc", địa giới hành chính VN, lịch sử kháng chiến VN.
 
     3. **LABEL: READING_COMPREHENSION** (Câu hỏi đọc hiểu văn bản)
-    - Định nghĩa: Đầu vào cung cấp một đoạn văn bản (Context/Document/Passage) dài và yêu cầu trả lời dựa trên thông tin đó.
-    - Dấu hiệu: Bắt đầu bằng "Đoạn thông tin:", "Title:", "Content:", "-- Document --", hoặc chứa một đoạn văn dài trước khi đưa ra câu hỏi.
-
+   - Định nghĩa: Đầu vào **BẮT BUỘC PHẢI CÓ** một đoạn văn bản dài (Context/Document/Passage) đi kèm để làm cơ sở trả lời.
+   - Dấu hiệu: Bắt đầu bằng các từ khóa: "Đoạn thông tin:", "Title:", "Content:", "-- Document --", "Đọc đoạn văn sau:".
+   - **LƯU Ý QUAN TRỌNG:** Nếu câu hỏi nhắc đến một tác phẩm văn học (ví dụ: "Trong bài Tinh thần yêu nước...", "Trong Truyện Kiều...") nhưng **KHÔNG CUNG CẤP** đoạn văn bản đó trong đề bài, hãy gán nhãn là **VN_CORE_KNOWLEDGE** (Kiến thức văn học/lịch sử) hoặc **GENERAL_DOMAIN**. Đừng gán là READING_COMPREHENSION nếu không có văn bản nguồn.
+    
     4. **LABEL: MATH_LOGIC** (Toán học, Code và Tư duy logic)
     - Định nghĩa: Các câu hỏi yêu cầu tính toán con số cụ thể, giải phương trình, kiến thức Vật lý/Hóa học có công thức, bài tập Lập trình (Code), bài toán Tài chính/Kế toán.
     - Dấu hiệu: Công thức LaTeX, phương trình hóa học, đoạn mã code (Java, Python), bài toán tính lãi suất, vận tốc, điện trở, tích phân, xác suất.
@@ -176,12 +177,27 @@ def process_classification_dataset(input_file, output_file, config, limit=None):
             domain_label = extracted_data['domain']
         else:
             domain_label = "UNKNOWN" 
-            # Fallback logic đơn giản
+            # --- FALLBACK MỚI ---
+            # Nếu tìm thấy keyword của domain trong text
             if "SAFETY_REFUSAL" in prediction_text: domain_label = "SAFETY_REFUSAL"
             elif "VN_CORE_KNOWLEDGE" in prediction_text: domain_label = "VN_CORE_KNOWLEDGE"
             elif "READING_COMPREHENSION" in prediction_text: domain_label = "READING_COMPREHENSION"
             elif "MATH_LOGIC" in prediction_text: domain_label = "MATH_LOGIC"
             elif "GENERAL_DOMAIN" in prediction_text: domain_label = "GENERAL_DOMAIN"
+            
+            # NẾU VẪN UNKNOWN: Kiểm tra xem có phải model đang từ chối trả lời không?
+            # Nếu nó từ chối -> Chính là câu hỏi vi phạm an toàn -> Gán nhãn SAFETY_REFUSAL
+            else:
+                refusal_keywords = [
+                    "không thể hỗ trợ", "không thể trả lời", "vi phạm", "bất hợp pháp", 
+                    "trái pháp luật", "sorry", "cannot assist", "illegal", "harmful"
+                ]
+                # Chuyển text về chữ thường để so sánh
+                text_lower = prediction_text.lower()
+                for kw in refusal_keywords:
+                    if kw in text_lower:
+                        domain_label = "SAFETY_REFUSAL"
+                        break
 
         # Lưu kết quả
         result_item = {
@@ -218,16 +234,14 @@ if __name__ == "__main__":
     #     limit=5
     # )
     
-    # Chạy trên tập Val (Bỏ comment dòng dưới nếu muốn chạy cả val)
+    # process_classification_dataset(
+    #     input_file='data/val.json', 
+    #     output_file='results/val_classification.json', 
+    #     config=CONFIG,
+    # )
+    
     process_classification_dataset(
-        input_file='data/val.json', 
-        output_file='results/val_classification.json', 
+        input_file='data/draft.json', 
+        output_file='results/draft_classification.json', 
         config=CONFIG,
     )
-    
-    # process_classification_dataset(
-    #     input_file='data/draft.json', 
-    #     output_file='results/draft_classification.json', 
-    #     config=CONFIG,
-    #     limit=1
-    # )

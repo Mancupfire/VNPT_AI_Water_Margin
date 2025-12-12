@@ -1,0 +1,653 @@
+[
+  {
+    "qid": "val_0001",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "B",
+    "llm_reasoning": "Trích dẫn câu trong bài: 'Khỉ vàng là nguồn nguyên liệu đầu để sản xuất hàng chục triệu liều văcxin bại liệt mỗi năm, góp phần vào việc thanh toán hoàn toàn bệnh bại liệt tại Việt Nam vào những năm 2000' và 'Vì cơ địa khỉ vàng gần giống với con người, nên trong những năm gần đây khỉ vàng lại là vật thí nghiệm để thử phản ứng các loại vắc-xin H5N1, H1N1 trước khi tiêm vào con người.' -> Suy luận: Loài khỉ được sử dụng phổ biến nhất trong sản xuất vắc-xin bại liệt và các loại vắc-xin phòng virus H5N1 ở Việt Nam là khỉ vàng.",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0002",
+    "domain": "GENERAL_DOMAIN",
+    "llm_prediction": "A",
+    "llm_reasoning": "Để tìm ra năm khai dựng của ngôi chùa Ba La Mật, chúng ta cần xem xét các thông tin lịch sử liên quan đến ngôi chùa này. Tuy nhiên, không có thông tin cụ thể nào trong câu hỏi hoặc các lựa chọn cho thấy năm khai dựng của ngôi chùa. Nhưng dựa trên kiến thức chung về lịch sử Phật giáo tại Việt Nam, nhiều ngôi chùa nổi tiếng được xây dựng vào cuối thế kỷ 19 và đầu thế kỷ 20. Vì vậy, chúng ta có thể loại bỏ các lựa chọn quá sớm hoặc quá muộn so với giai đoạn này.",
+    "ground_truth": "A"
+  },
+  {
+    "qid": "val_0003",
+    "domain": "VN_CORE_KNOWLEDGE",
+    "llm_prediction": "B",
+    "llm_reasoning": "Việc đưa ra các quy định về thuế thuộc phạm vi điều chỉnh của pháp luật tài chính, cụ thể là Luật Thuế. Các quy định này ảnh hưởng trực tiếp đến hoạt động kinh tế của các tổ chức, cá nhân, doanh nghiệp trong việc nộp thuế, quản lý thuế, và thực hiện các nghĩa vụ tài chính khác. Do đó, tác động của việc đưa ra các quy định về thuế chủ yếu tập trung vào lĩnh vực kinh tế.",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0004",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "B",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"\n### Phân tích:\nĐể xác định độ co giãn của cầu theo giá, chúng ta cần sử dụng công thức trung điểm. Công thức này giúp đo lường mức độ thay đổi của lượng cầu khi giá thay đổi, bằng cách lấy trung bình của giá và lượng cầu trước và sau khi thay đổi.\n\n### Công thức:\nĐộ co giãn của cầu theo giá (E) được tính bằng công thức:\n\nE = ((ΔQ / Q_trung_bình) / (ΔP / P_trung_bình))\n\ntrong đó:\n- ΔQ là sự thay đổi của lượng cầu (Q_sau - Q_trước)\n- Q_trung_bình là trung bình của lượng cầu trước và sau khi thay đổi ((Q_trước + Q_sau) / 2)\n- ΔP là sự thay đổi của giá (P_sau - P_trước)\n- P_trung_bình là trung bình của giá trước và sau khi thay đổi ((P_trước + P_sau) / 2)\n\n### Tính toán chi tiết:\n- Giá trước (P_trước) = 2,00 đô la\n- Giá sau (P_sau) = 2,50 đô la\n- Lượng cầu trước (Q_trước) = 100 đơn vị\n- Lượng cầu sau (Q_sau) = 80 đơn vị\n\nTính ΔQ, Q_trung_bình, ΔP, P_trung_bình:\n- ΔQ = Q_sau - Q_trước = 80 - 100 = -20\n- Q_trung_bình = (Q_trước + Q_sau) / 2 = (100 + 80) / 2 = 90\n- ΔP = P_sau - P_trước = 2,50 - 2,00 = 0,50\n- P_trung_bình = (P_trước + P_sau) / 2 = (2,00 + 2,50) / 2 = 2,25\n\nÁp dụng công thức:\nE = ((-20 / 90) / (0,50 / 2,25)) = (-0,2222 / 0,2222) = -1,0\n\n### So sánh với các lựa chọn:\nKết quả tính toán E = -1,0 khớp với lựa chọn B.\n\n### Kết quả:\n\",\n\"final_answer\": \"B\"\n}",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0005",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "C",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"Để tìm điện trở tương đương khi hai điện trở R1 và R2 được mắc song song, chúng ta cần sử dụng công thức tính điện trở tương đương cho mạch song song. Công thức này dựa trên nguyên tắc rằng tổng dòng điện qua cả hai điện trở phải bằng dòng điện tổng cộng vào mạch, và hiệu điện thế trên mỗi điện trở phải bằng nhau vì chúng được mắc song song.\n\nCông thức tính điện trở tương đương (Rtđ) cho hai điện trở R1 và R2 mắc song song là:\n\n1/Rtđ = 1/R1 + 1/R2\n\nTừ công thức này, để tìm Rtđ, chúng ta cần biến đổi nó thành dạng Rtđ = ...\n\nBiến đổi công thức:\n\nRtđ = 1 / (1/R1 + 1/R2)\n\nĐể cộng hai phân số trong ngoặc, chúng ta cần tìm một mẫu số chung, đó là R1*R2:\n\nRtđ = 1 / ((R2 + R1) / (R1*R2))\n\nTiếp tục biến đổi:\n\nRtđ = (R1*R2) / (R1 + R2)\n\nVậy, điện trở tương đương khi hai điện trở R1 và R2 được mắc song song là (R1*R2) / (R1 + R2).\n\nSo sánh với các lựa chọn:\n\n- A. R1 + R2: Không đúng.\n- B. R1 - R2: Không đúng.\n- C. (R1 * R2) / (R1 + R2): Đúng.\n- D. (R1 + R2) / (R1 * R2): Không đúng.\n- E. R1 * R2: Không đúng.\n- F. R1 / R2: Không đúng.\n- G. R2 / R1: Không đúng.\n- H. 1 / (R1 + R2): Không đúng.\n- I. 1 / (R1 * R2): Không đúng.\n- J. (R1 + R2) / 2: Không đúng.\n\nKết quả: Lựa chọn C là đúng.\",\n\"final_answer\": \"C\"\n}",
+    "ground_truth": "C"
+  },
+  {
+    "qid": "val_0006",
+    "domain": "GENERAL_DOMAIN",
+    "llm_prediction": "C",
+    "llm_reasoning": "Khi bắt tay, giao tiếp bằng mắt và mỉm cười là những hành động thể hiện sự tôn trọng, thân thiện và cởi mở. Nhìn đi hướng khác hoặc nhìn xuống đất có thể được hiểu là thiếu tự tin hoặc không quan tâm. Nhìn xung quanh theo mọi hướng có thể gây mất tập trung và không chuyên nghiệp. Do đó, lựa chọn C là phù hợp nhất trong tình huống này.",
+    "ground_truth": "C"
+  },
+  {
+    "qid": "val_0007",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "B",
+    "llm_reasoning": "-- Đoạn văn 4 -- Tiêu đề: Việt Nam Quốc dân Đảng - Lịch sử. Giai đoạn 1927-1930. Nội dung: Ngày 20 tháng 2 năm 1930, Nguyễn Thái Học bị bắt tại làng Cổ Vịt, gần đồn Chi Ngại, tỉnh Hải Dương. Ông và 12 đảng viên Việt Nam Quốc dân Đảng bị Pháp áp giải từ ngục thất Hỏa Lò ở Hà Nội lên Yên Bái bằng xe lửa chiều ngày 16 tháng 6 năm 1930 để chém đầu. Lúc 5 giờ 35 sáng ngày 17 tháng 6 năm 1930 tại pháp trường Yên Bái, Nguyễn Thái Học cùng 12 liệt sĩ khác là: - Phó Đức Chính - Bùi Tư Toàn - Bùi Văn Chuẩn - Nguyễn An - Hà Văn Lạo - Đào Văn Nhít - Ngô Văn Du - Nguyễn Đức Thịnh - Nguyễn Văn Tiềm - Đỗ Văn Sứ - Bùi Văn Cửu - Nguyễn Như Liên",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0008",
+    "domain": "GENERAL_DOMAIN",
+    "llm_prediction": "B",
+    "llm_reasoning": "{\n\"reasoning\": \"Trong trường hợp một chủ doanh nghiệp tư nhân vay nợ cá nhân, chúng ta cần xem xét bản chất của doanh nghiệp tư nhân và cách thức quản lý tài chính của nó. Doanh nghiệp tư nhân thường không phải là một thực thể pháp lý riêng biệt so với chủ sở hữu, điều này có nghĩa là tài sản và nợ nần của doanh nghiệp thường gắn liền với tài sản và nợ nần cá nhân của chủ sở hữu.\n\nVới thông tin trên, hãy phân tích từng lựa chọn:\n\nA. Khoản nợ được coi là chi phí kinh doanh: Điều này không hoàn toàn chính xác vì khoản nợ cá nhân không trực tiếp được coi là chi phí kinh doanh trừ khi nó được sử dụng cho mục đích kinh doanh cụ thể và được ghi nhận theo quy định kế toán.\n\nB. Chủ doanh nghiệp tư nhân phải chịu trách nhiệm cá nhân đối với khoản nợ: Đây là lựa chọn chính xác. Vì doanh nghiệp tư nhân không tách biệt về mặt pháp lý với chủ sở hữu, nên chủ doanh nghiệp sẽ phải chịu trách nhiệm cá nhân đối với tất cả các khoản nợ của doanh nghiệp, bao gồm cả khoản nợ cá nhân nếu nó liên quan đến hoạt động kinh doanh.\n\nC. Khoản nợ được coi là đầu tư kinh doanh: Điều này không chính xác vì khoản nợ cá nhân không được coi là một hình thức đầu tư vào kinh doanh trừ khi nó được sử dụng để mua sắm tài sản hoặc dịch vụ cho hoạt động kinh doanh.\n\nD. Khoản nợ được chia đều giữa tất cả các cổ đông: Lựa chọn này không áp dụng cho doanh nghiệp tư nhân vì doanh nghiệp tư nhân không có cấu trúc cổ đông như công ty cổ phần hoặc công ty trách nhiệm hữu hạn nhiều thành viên.\n\nDo đó, dựa trên phân tích logic và kiến thức phổ quát về quản lý tài chính và pháp lý của doanh nghiệp tư nhân, lựa chọn B là chính xác nhất.\",\n\"final_answer\": \"B\"\n}",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0009",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "B",
+    "llm_reasoning": "{\n    \"step_by_step_reasoning\": \"Theo đoạn văn bản 'Scandal và những tranh cãi về thời kỳ cầm quyền của Mitterrand. Nghe trộm điện thoại.', có trích dẫn từ phán quyết của tòa án năm 2005 như sau: 'Toà tuyên bố rằng \"Les faits avaient été commis sur ordre soit du président de la République, soit des ministres de la Défense successifs qui ont mis à la disposition de (Christian Prouteau) tous les moyens de l'État afin de les exécuter (những hành động đó được thực hiện theo lệnh từ Tổng thống Pháp hay từ các Bộ trưởng Quốc phòng những ngươờ đã cho phép Christian Prouteau tiếp cận không hạn chế với các thiết bị của nhà nước để ông ta có thể thực hiện mệnh lệnh)\" Toà án nói rằng Mitterrand là người chủ mưu chính của vụ nghe trộm (l'inspirateur et le décideur de l'essentiel) và rằng ông đã ra lệnh một số vụ và làm ngơ một số vụ khác và rằng không một cuộc băng nào trong số 3000 cuộn băng do đơn vị này thu được thực hiện một cách hợp pháp.'\n\nTừ trích dẫn trên, có thể suy luận rằng:\n\n- Mitterrand không phải là người trực tiếp thực hiện các vụ nghe trộm (loại bỏ lựa chọn A).\n- Mitterrand được mô tả là 'người chủ mưu chính của vụ nghe trộm (l'inspirateur et le décideur de l'essentiel)', điều này trùng khớp với lựa chọn B.\n- Mặc dù Mitterrand có liên quan đến việc chỉ đạo Christian Prouteau, nhưng không có thông tin cụ thể cho thấy ông không biết chi tiết (loại bỏ lựa chọn C).\n- Lựa chọn D cũng được hỗ trợ bởi trích dẫn, nhưng nó không đầy đủ như lựa chọn B trong việc mô tả vai trò chính của Mitterrand.\",\n    \"final_answer\": \"B\"\n}",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0010",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "A",
+    "llm_reasoning": "Trong đoạn văn bản, có một câu nói rằng: 'Mức độ phụ thuộc vào sinh vật thủy sinh rất khác nhau giữa các loài, với các loài lợn biển (Manatee) và cá heo sông Amazon là hoàn toàn thủy sinh và phụ thuộc hoàn toàn vào các hệ sinh thái dưới nước, chúng không thể sống trên cạn và không thể hô hấp tốt khi rời môi trường thủy sinh'. Điều này cho thấy rằng lợn biển (Manatee) và cá heo sông Amazon là những loài động vật có mức độ phụ thuộc hoàn toàn vào môi trường thủy sinh và không thể sống trên cạn.",
+    "ground_truth": "A"
+  },
+  {
+    "qid": "val_0011",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "A",
+    "llm_reasoning": "Trích dẫn câu trong bài: 'Những người ủng hộ cho rằng CTC cho phép công nhân chuyển ý kiến lên chính phủ; những người đối lập lại cho rằng chính phủ sử dụng nó để kiểm soát các công đoàn thương mại và chỉ định các thành viên lãnh đạo công đoàn.' -> Suy luận: Nhận định về vai trò của CTC trong chính trị Cuba phụ thuộc vào quan điểm của người ủng hộ hoặc đối lập. Người ủng hộ cho rằng CTC cho phép công nhân bày tỏ ý kiến lên chính phủ, trong khi người đối lập cho rằng chính phủ sử dụng CTC để kiểm soát công đoàn và chỉ định lãnh đạo.",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0012",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "B",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"Để giải quyết vấn đề này, chúng ta cần hiểu mối quan hệ giữa tần số cơ bản của sóng dừng trên một sợi dây và các yếu tố ảnh hưởng đến nó, bao gồm chiều dài của sợi dây ($L$), mật độ khối lượng tuyến tính ($\\mu$), và lực căng ($T$).\n\n1. **Mối quan hệ cơ bản**: Tần số cơ bản ($f_1$) của sóng dừng trên một sợi dây được giữ cố định ở cả hai đầu được xác định bởi công thức:\n\n   $$f_1 = \\frac{v}{2L}$$\n\n   Trong đó, $v$ là tốc độ lan truyền của sóng trên sợi dây.\n\n2. **Tốc độ lan truyền của sóng**: Tốc độ lan truyền của sóng ($v$) trên sợi dây phụ thuộc vào lực căng ($T$) và mật độ khối lượng tuyến tính ($\\mu$) theo công thức:\n\n   $$v = \\sqrt{\\frac{T}{\\mu}}$$\n\n3. **Thay đổi lực căng**: Khi lực căng của sợi dây được tăng lên gấp 4 lần, tức là $T' = 4T$, chúng ta cần tìm hiểu xem điều này ảnh hưởng như thế nào đến tần số cơ bản.\n\n4. **Tính toán mới**: Thay $T'$ vào công thức tốc độ lan truyền của sóng:\n\n   $$v' = \\sqrt{\\frac{4T}{\\mu}} = 2\\sqrt{\\frac{T}{\\mu}} = 2v$$\n\n5. **Tần số cơ bản mới**: Sử dụng tốc độ mới để tính tần số cơ bản mới ($f'_1$):\n\n   $$f'_1 = \\frac{v'}{2L} = \\frac{2v}{2L} = 2\\left(\\frac{v}{2L}\\right) = 2f_1$$\n\n6. **Kết luận**: Khi lực căng của sợi dây được tăng lên gấp 4 lần, tần số cơ bản của sợi dây tăng gấp đôi.\n\n\",\n\"final_answer\": \"B\"\n}",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0013",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "D",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"\n1. Phân tích: Chú thích trong Python là những phần văn bản không được thực thi bởi trình thông dịch Python. Chúng thường được sử dụng để giải thích mục đích, cách hoạt động của một đoạn code, hoặc cung cấp thông tin bổ sung cho người đọc.\n\n2. Công thức: Không có công thức cụ thể cho việc này vì nó liên quan đến kiến thức về cú pháp và quy ước của ngôn ngữ lập trình Python.\n\n3. Tính toán chi tiết:\n   - A. Chú thích giúp cho các lập trình viên hiểu rõ hơn về chương trình: Đúng, vì mục đích chính của chú thích là cung cấp thông tin giúp người đọc hiểu rõ hơn về code.\n   - B. Trình thông dịch Python sẽ bỏ qua những chú thích: Đúng, vì theo quy ước của Python, bất kỳ dòng nào bắt đầu bằng `#` hoặc nằm trong khối `'''...'''` hoặc `\"\"\"...\"\"\"` sẽ bị bỏ qua khi chạy chương trình.\n   - C. Có thể viết chú thích trên cùng một dòng với lệnh/biểu thức hoặc viết trên nhiều dòng mà không vấn đề gì cả: Đúng, vì Python cho phép viết chú thích trên cùng một dòng với lệnh (sau dấu `#`) hoặc trên nhiều dòng (bằng cách sử dụng `'''...'''` hoặc `\"\"\"...\"\"\"`).\n\n4. Kết quả: Vì tất cả các lựa chọn A, B, và C đều đúng, nên đáp án cuối cùng là D.\",\n\"final_answer\": \"D\"\n}",
+    "ground_truth": "D"
+  },
+  {
+    "qid": "val_0014",
+    "domain": "VN_CORE_KNOWLEDGE",
+    "llm_prediction": "A",
+    "llm_reasoning": "Theo quy định tại Điều 10 Luật Quốc tịch năm 2008, người xin nhập quốc tịch Việt Nam phải đáp ứng các điều kiện, trong đó có điều kiện không sử dụng quốc tịch nước ngoài gây phương hại đến an ninh, lợi ích quốc gia. Để chứng minh điều kiện này, người xin nhập tịch cần cung cấp bản cam kết không sử dụng quốc tịch nước ngoài gây phương hại đến an ninh, lợi ích quốc gia. Đây là giấy tờ bắt buộc trong thủ tục nhập quốc tịch Việt Nam.",
+    "ground_truth": "A"
+  },
+  {
+    "qid": "val_0015",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "A",
+    "llm_reasoning": "Trong tất cả các đoạn văn đều đề cập đến việc thành lập NATO của Hoa Kỳ và các đồng minh châu Âu như một sự kiện xảy ra trước khi Liên Xô thành lập Khối Warszawa. Điều này cho thấy rằng việc thành lập NATO đã tạo ra một mối đe dọa hoặc thách thức đối với Liên Xô, dẫn đến việc họ cần phải phản ứng bằng cách thành lập một khối quân sự đối trọng.",
+    "ground_truth": "A"
+  },
+  {
+    "qid": "val_0016",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "B",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"Để tìm hiểu xem tiết diện vi phân thay đổi như thế nào khi số nguyên tử $ Z_1 $ của hạt tới được gấp đôi, chúng ta cần phân tích công thức Rutherford cho tiết diện vi phân:\n\n$$\n\\frac{d\\sigma}{d\\Omega} = \\left( \\frac{Z_1 Z_2 e^2}{4 \\pi \\epsilon_0 E} \\right)^2 \\frac{1}{\\sin^4(\\theta/2)}\n$$\n\nTrong công thức này, $ Z_1 $ xuất hiện ở tử số và được nâng lên lũy thừa 2. Điều này có nghĩa là nếu $ Z_1 $ tăng gấp đôi, giá trị của toàn bộ biểu thức sẽ tăng lên bốn lần vì $(2Z_1)^2 = 4Z_1^2$.\n\nDo đó, khi $ Z_1 $ được gấp đôi, tiết diện vi phân tại một góc cố định $ \\theta $ sẽ tăng lên 4 lần.\",\n\n\"final_answer\": \"B\"\n}",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0017",
+    "domain": "VN_CORE_KNOWLEDGE",
+    "llm_prediction": "D",
+    "llm_reasoning": "{\n\"reasoning\": \"Nước Cộng hòa xã hội chủ nghĩa Việt Nam là một hệ thống bao gồm tập hợp các cơ quan quyền lực Nhà nước, cơ quan hành chính Nhà nước, cơ quan kiểm sát và xét xử. Mỗi loại cơ quan này đóng vai trò quan trọng trong việc thực hiện các chức năng và nhiệm vụ khác nhau của Nhà nước.\n\n- Cơ quan quyền lực Nhà nước là những cơ quan đại diện cho ý chí và quyền lực của nhân dân, quyết định các vấn đề quan trọng của đất nước như Quốc hội.\n- Cơ quan hành chính Nhà nước là những cơ quan thực hiện các quyết định của cơ quan quyền lực Nhà nước, quản lý và điều hành các hoạt động của Nhà nước như Chính phủ, Ủy ban nhân dân các cấp.\n- Cơ quan kiểm sát và xét xử là những cơ quan đảm bảo việc thực hiện pháp luật, bảo vệ công lý và quyền lợi của công dân như Viện Kiểm sát nhân dân, Tòa án nhân dân.\n\nTất cả các loại cơ quan này đều cần thiết để đảm bảo sự vận hành hiệu quả và ổn định của Nhà nước.\",\n\"final_answer\": \"D\"\n}",
+    "ground_truth": "D"
+  },
+  {
+    "qid": "val_0018",
+    "domain": "GENERAL_DOMAIN",
+    "llm_prediction": "D",
+    "llm_reasoning": "{\n\"reasoning\": \"Tính khách quan của chân lý là một khái niệm triết học cơ bản, chỉ rằng chân lý tồn tại độc lập với nhận thức hoặc mong muốn của con người. Để đánh giá tính khách quan của chân lý, chúng ta cần xem xét liệu nó có phụ thuộc vào ý thức, mong muốn của con người hay không, hay nó có tồn tại một cách độc lập với những yếu tố này.\n\n- Lựa chọn A ('Nó lệ thuộc vào ý thức của con người') mâu thuẫn với định nghĩa về tính khách quan của chân lý vì nếu chân lý lệ thuộc vào ý thức, thì nó không còn là khách quan nữa.\n\n- Lựa chọn B ('Nó phù hợp với mong muốn của con người') cũng không đúng vì chân lý khách quan không được quyết định bởi mong muốn chủ quan của con người.\n\n- Lựa chọn C ('Nó được tạo ra bởi con người') không chính xác trong ngữ cảnh này vì mặc dù con người có thể khám phá hoặc nhận thức chân lý, nhưng chân lý khách quan không phải là sản phẩm được tạo ra bởi con người.\n\n- Lựa chọn D ('Nó phù hợp với hiện thực khách quan và không lệ thuộc vào ý thức của con người') phản ánh chính xác định nghĩa về tính khách quan của chân lý. Chân lý khách quan tồn tại độc lập với nhận thức hoặc mong muốn của con người và phản ánh hiện thực một cách trung thực.\",\n\"final_answer\": \"D\"\n}",
+    "ground_truth": "D"
+  },
+  {
+    "qid": "val_0019",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "B",
+    "llm_reasoning": "{\n    \"step_by_step_reasoning\": \"Trong đoạn văn bản đầu tiên, có một câu nói rằng: \"Các nhà phê bình mô tả album có âm thanh phấn khởi và lạc quan hơn so với các tác phẩm trước đó của Blake, đặc biệt là so với album phòng thu trước đó 'The Colour In Anything' (2016).\" Điều này cho thấy rằng album 'Assume Form' có một phong cách âm nhạc khác biệt so với album trước đó 'The Colour In Anything'.\n\nNgoài ra, trong đoạn văn bản thứ tư, có một câu nói rằng: \"Nhiều xuất bản phẩm đã đối chiếu những điểm tương phản giữa album với tác phẩm 'hoàn toàn buồn bã chán nản' 'The Colour In Anything'.\" Điều này cũng khẳng định rằng album 'Assume Form' có một phong cách âm nhạc lạc quan và phấn khởi, trái ngược với phong cách 'hoàn toàn buồn bã chán nản' của album trước đó 'The Colour In Anything'.\",\n    \"final_answer\": \"B\"\n}",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0020",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "C",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"\n### Phân tích:\nĐể tìm động lượng tương đối \\( p \\) của hạt, chúng ta cần sử dụng công thức liên quan đến động lượng trong vật lý tương đối. Công thức này phụ thuộc vào khối lượng nghỉ \\( m_0 \\), tốc độ \\( v \\) của hạt, và tốc độ ánh sáng \\( c \\).\n\n### Công thức:\nĐộng lượng tương đối \\( p \\) được tính bằng công thức:\n\\[ p = \\frac{m_0v}{\\sqrt{1-\\frac{v^2}{c^2}}} \\]\n\n### Tính toán chi tiết:\nCho:\n- Tốc độ \\( v = 0.6c \\)\n- Khối lượng nghỉ \\( m_0 \\)\n\nThay giá trị vào công thức:\n\\[ p = \\frac{m_0 \\cdot 0.6c}{\\sqrt{1-\\frac{(0.6c)^2}{c^2}}} \\]\n\\[ p = \\frac{0.6m_0c}{\\sqrt{1-0.36}} \\]\n\\[ p = \\frac{0.6m_0c}{\\sqrt{0.64}} \\]\n\\[ p = \\frac{0.6m_0c}{0.8} \\]\n\\[ p = 0.75m_0c \\]\n\n### So sánh với các lựa chọn:\nKết quả tính toán \\( p = 0.75m_0c \\) khớp với lựa chọn C.\n\n### Kết quả:\n\",\n\"final_answer\": \"C\"\n}",
+    "ground_truth": "C"
+  },
+  {
+    "qid": "val_0021",
+    "domain": "GENERAL_DOMAIN",
+    "llm_prediction": "D",
+    "llm_reasoning": "Toàn cầu hóa là quá trình tăng cường trao đổi và phụ thuộc lẫn nhau giữa các quốc gia trên thế giới về kinh tế, văn hóa, xã hội và chính trị. Đối với các nước phát triển, toàn cầu hóa mang lại nhiều cơ hội để mở rộng thị trường, tăng cường đầu tư, và tiếp cận công nghệ mới. Điều này giúp họ duy trì và tăng cường vị thế kinh tế của mình trên trường quốc tế. Do đó, phát biểu rằng toàn cầu hóa mang lại cơ hội mới cho các nước phát triển mở rộng thị trường của họ là chính xác.",
+    "ground_truth": "D"
+  },
+  {
+    "qid": "val_0022",
+    "domain": "GENERAL_DOMAIN",
+    "llm_prediction": "D",
+    "llm_reasoning": "Nguyên tắc 'employment at will' cho phép cả người lao động và người sử dụng lao động chấm dứt hợp đồng lao động bất cứ lúc nào mà không cần lý do. Tuy nhiên, trong thực tế, vẫn có những trường hợp sa thải sai trái xảy ra, chẳng hạn như sa thải vì lý do phân biệt đối xử, trả thù, hoặc vi phạm các quy định pháp luật khác. Do đó, các khiếu nại về sa thải sai trái thường được xem xét để đảm bảo rằng việc sa thải không vi phạm các quyền cơ bản của người lao động. Điều này ngụ ý rằng mặc dù nguyên tắc 'employment at will' cho phép sa thải tự do, nhưng vẫn có những giới hạn và ngoại lệ để bảo vệ người lao động khỏi bị sa thải một cách không công bằng.",
+    "ground_truth": "D"
+  },
+  {
+    "qid": "val_0023",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "A",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"\n### Phân tích:\n- Tỷ số hiện hành (Current Ratio) là chỉ số đo lường khả năng thanh toán nợ ngắn hạn của một công ty bằng cách so sánh tổng tài sản lưu động với tổng nợ ngắn hạn.\n- Công thức tính tỷ số hiện hành: Tỷ số hiện hành = Tổng tài sản lưu động / Tổng nợ ngắn hạn\n- Vốn lưu động (Working Capital) là chênh lệch giữa tổng tài sản lưu động và tổng nợ ngắn hạn.\n- Công thức tính vốn lưu động: Vốn lưu động = Tổng tài sản lưu động - Tổng nợ ngắn hạn\n\n### Công thức:\n- Từ công thức tỷ số hiện hành, ta có: Tổng tài sản lưu động = Tỷ số hiện hành * Tổng nợ ngắn hạn\n- Thay vào công thức tính vốn lưu động: Vốn lưu động = (Tỷ số hiện hành * Tổng nợ ngắn hạn) - Tổng nợ ngắn hạn\n\n### Tính toán chi tiết:\n- Tỷ số hiện hành = 1,5\n- Tổng nợ ngắn hạn = 30.000 đô la\n- Tổng tài sản lưu động = 1,5 * 30.000 = 45.000 đô la\n- Vốn lưu động = 45.000 - 30.000 = 15.000 đô la\n\n### Kết quả:\nVốn lưu động của công ty là 15.000 đô la.\n\",\n\"final_answer\": \"A\"\n}",
+    "ground_truth": "A"
+  },
+  {
+    "qid": "val_0024",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "B",
+    "llm_reasoning": "Để tìm số điểm uốn của hàm số h(x), ta cần tìm đạo hàm bậc hai k(x) của h(x).\n\nĐạo hàm bậc nhất của h(x) là:\nh'(x) = 4x^3 - 12x^2 + 12x - 4\n\nĐạo hàm bậc hai của h(x) là:\nk(x) = h''(x) = 12x^2 - 24x + 12\n\nĐể tìm điểm uốn, ta cần tìm giá trị x sao cho k(x) = 0.\n\n12x^2 - 24x + 12 = 0\n\nChia cả hai vế cho 12:\nx^2 - 2x + 1 = 0\n\n(x - 1)^2 = 0\n\nx = 1\n\nVậy, hàm số h(x) có 1 điểm uốn tại x = 1.",
+    "ground_truth": "A"
+  },
+  {
+    "qid": "val_0025",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "B",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"\n### Phân tích:\n- Để tìm công thức hóa học của oxit có thành phần phần trăm của S là 40%, ta cần sử dụng thông tin về tỷ lệ phần trăm của nguyên tố lưu huỳnh (S) trong hợp chất.\n\n### Công thức:\n- Công thức chung cho oxit của lưu huỳnh là SOx, nơi x đại diện cho số nguyên tử oxy trong hợp chất.\n\n### Tính toán chi tiết:\n- Giả sử công thức của oxit là SOx.\n- Khối lượng mol của S là 32 g/mol.\n- Khối lượng mol của O là 16 g/mol.\n- Thành phần phần trăm của S trong hợp chất được tính bằng công thức: \\(\\frac{Khối lượng mol của S}{Tổng khối lượng mol của hợp chất} \\times 100\\%\\).\n- Tổng khối lượng mol của hợp chất SOx là \\(32 + 16x\\) g/mol.\n- Thành phần phần trăm của S là 40%, nên ta có phương trình: \\(\\frac{32}{32 + 16x} = 0.4\\).\n\n### Giải phương trình:\n- \\(32 = 0.4(32 + 16x)\\)\n- \\(32 = 12.8 + 6.4x\\)\n- \\(19.2 = 6.4x\\)\n- \\(x = 3\\)\n\n### So sánh với các lựa chọn:\n- Với x = 3, công thức của oxit là SO3.\n\n### Kết quả:\n- Công thức hóa học của oxit có thành phần phần trăm của S là 40% là SO3, tương ứng với lựa chọn B.\n\",\n\"final_answer\": \"B\"\n}",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0026",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "B",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"Để tìm khoảng cách thẳng từ máy bay không người lái đến điểm trên mặt đất, chúng ta có thể sử dụng định lý Pythagore vì tình huống này tạo thành một tam giác vuông. Trong đó, độ cao của máy bay (100 mét) và khoảng cách ngang đến điểm trên mặt đất (150 mét) là hai cạnh góc vuông, còn khoảng cách thẳng từ máy bay đến điểm trên mặt đất là cạnh huyền.\n\nCông thức theo định lý Pythagore cho cạnh huyền (c) là: c = √(a^2 + b^2), trong đó a và b là hai cạnh góc vuông.\n\nThay số vào công thức: c = √((100)^2 + (150)^2)\n\nTính toán chi tiết:\n- (100)^2 = 10000\n- (150)^2 = 22500\n- c = √(10000 + 22500) = √32500 ≈ 180,28 mét\n\nVậy, khoảng cách thẳng từ máy bay không người lái đến điểm trên mặt đất là khoảng 180,28 mét.\",\n\"final_answer\": \"B\"\n}",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0027",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "C",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"Để tìm thời điểm mà hạt đạt được gia tốc nhỏ nhất, chúng ta cần tìm đạo hàm cấp hai của hàm số y(t) và sau đó tìm giá trị cực tiểu của đạo hàm cấp hai này trong khoảng từ 0 đến 5.\n\nBước 1: Tìm đạo hàm cấp một của y(t)\n\ny'(t) = 4t^3 - 24t^2 + 36t\n\nBước 2: Tìm đạo hàm cấp hai của y(t)\n\ny''(t) = 12t^2 - 48t + 36\n\nBước 3: Tìm giá trị cực tiểu của y''(t) trong khoảng từ 0 đến 5\n\nĐể tìm giá trị cực tiểu, chúng ta cần tìm giá trị của t mà tại đó y''(t) đạt giá trị nhỏ nhất. Chúng ta có thể làm điều này bằng cách tìm giá trị của t mà tại đó đạo hàm của y''(t) bằng 0.\n\ny'''(t) = 24t - 48\n\nĐặt y'''(t) = 0, chúng ta có:\n\n24t - 48 = 0\n\nt = 2\n\nVậy, giá trị cực tiểu của y''(t) xảy ra tại t = 2.\n\nBước 4: Kiểm tra giá trị của y''(t) tại t = 2\n\ny''(2) = 12(2)^2 - 48(2) + 36\n= 48 - 96 + 36\n= -12\n\nVậy, giá trị cực tiểu của y''(t) là -12, xảy ra tại t = 2.\n\nKết luận: Hạt đạt được gia tốc nhỏ nhất tại thời điểm t = 2.\",\n\"final_answer\": \"C\"\n}",
+    "ground_truth": "C"
+  },
+  {
+    "qid": "val_0028",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "B",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"Để xác định tác động của việc tăng lượng sản phẩm đầu ra lên một đơn vị đối với chi phí biến đổi trung bình, chúng ta cần hiểu mối quan hệ giữa chi phí biến đổi trung bình (AVC), chi phí biên (MC) và lượng sản phẩm đầu ra (Q).\n\n1. **Phân tích**: Chi phí biến đổi trung bình (AVC) là tổng chi phí biến đổi chia cho lượng sản phẩm đầu ra. Chi phí biên (MC) là chi phí tăng thêm khi sản xuất thêm một đơn vị sản phẩm.\n\n2. **Công thức**:\n   - AVC = Tổng chi phí biến đổi / Lượng sản phẩm đầu ra\n   - MC = ΔTổng chi phí biến đổi / ΔLượng sản phẩm đầu ra\n\n3. **Tính toán chi tiết**:\n   - Giả sử ban đầu, tổng chi phí biến đổi là TCv và lượng sản phẩm đầu ra là Q.\n   - Khi tăng thêm một đơn vị sản phẩm, tổng chi phí biến đổi mới là TCv + MC (vì MC là chi phí tăng thêm cho mỗi đơn vị).\n   - Lượng sản phẩm đầu ra mới là Q + 1.\n   - Chi phí biến đổi trung bình mới (AVC_mới) = (TCv + MC) / (Q + 1)\n\n4. **So sánh AVC cũ và mới**:\n   - Để so sánh, chúng ta cần xem xét tỷ lệ thay đổi của AVC khi Q tăng lên.\n   - Nếu MC > AVC, điều này có nghĩa là chi phí tăng thêm cho mỗi đơn vị lớn hơn chi phí trung bình hiện tại, dẫn đến AVC tăng khi Q tăng.\n   - Trong trường hợp này, MC = 20 đô la và AVC = 15 đô la, nên MC > AVC.\n\n5. **Kết luận**:\n   - Vì MC > AVC, khi lượng sản phẩm đầu ra tăng thêm một đơn vị, chi phí biến đổi trung bình sẽ tăng.\",\n\"final_answer\": \"B\"\n}",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0029",
+    "domain": "VN_CORE_KNOWLEDGE",
+    "llm_prediction": "B",
+    "llm_reasoning": "{\n\"reasoning\": \"Theo thông tin được cung cấp, tỉnh Gia Lai hiện tại được hình thành từ việc sáp nhập hai tỉnh Pleiku và Kon Tum vào năm 1976. Tuy nhiên, trong các lựa chọn không có tỉnh Kon Tum mà chỉ có các tỉnh khác. Vì vậy, chúng ta cần xem xét lại thông tin và tìm kiếm câu trả lời phù hợp.\n\nTuy nhiên, nếu chúng ta xem xét lại lịch sử hình thành tỉnh Gia Lai, chúng ta sẽ thấy rằng tỉnh Gia Lai hiện tại được hình thành từ việc sáp nhập hai tỉnh Pleiku và Kon Tum vào năm 1976. Nhưng trong các lựa chọn không có tỉnh Kon Tum mà chỉ có các tỉnh khác.\n\nVì vậy, chúng ta cần xem xét lại thông tin và tìm kiếm câu trả lời phù hợp. Trong các lựa chọn, chúng ta thấy rằng tỉnh Đắk Lắk cũng là một tỉnh được hình thành từ việc sáp nhập hai tỉnh Pleiku và Kon Tum vào năm 1976. Tuy nhiên, tỉnh Đắk Lắk được tách ra khỏi tỉnh Gia Lai vào năm 1983.\n\nVậy, tỉnh nào sau đây đã được sáp nhập vào tỉnh Gia Lai để hình thành tỉnh Gia Lai hiện tại? Câu trả lời là tỉnh Đắk Lắk.\",\n\"final_answer\": \"B\"\n}",
+    "ground_truth": "A"
+  },
+  {
+    "qid": "val_0030",
+    "domain": "GENERAL_DOMAIN",
+    "llm_prediction": "B",
+    "llm_reasoning": "Trong phong trào chính trị quốc tế, đảng cánh Tả thường được liên kết với các giá trị tiến bộ, dân chủ và tự do. Họ thường đại diện cho lợi ích của giai cấp nông dân, bình dân và vô sản lớp dưới, những người bị ảnh hưởng bởi sự bất công xã hội và kinh tế. Đảng cánh Tả thường ủng hộ các chính sách xã hội, bảo vệ quyền lao động, và thúc đẩy sự bình đẳng xã hội. Ngược lại, đảng cánh Hữu thường được liên kết với các giá trị bảo thủ, trì trệ và không cải cách, đại diện cho giai cấp quý tộc, tư sản lớp trên.",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0031",
+    "domain": "GENERAL_DOMAIN",
+    "llm_prediction": "C",
+    "llm_reasoning": "Để tìm ra khí nhà kính chiếm khoảng một nửa khối lượng khí nhà kính, chúng ta cần xem xét thành phần chính của khí nhà kính trong bầu khí quyển. Khí nhà kính bao gồm nhiều loại khí khác nhau như CO2, CH4, O3, N2O,... Tuy nhiên, dựa trên kiến thức phổ quát về biến đổi khí hậu và tác động của các loại khí này lên hiệu ứng nhà kính, chúng ta biết rằng CO2 là khí nhà kính chính và chiếm tỷ lệ lớn nhất trong tổng lượng khí nhà kính. Do đó, CO2 là khí nhà kính chiếm khoảng một nửa khối lượng khí nhà kính.",
+    "ground_truth": "C"
+  },
+  {
+    "qid": "val_0032",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "B",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"[3] Tiêu đề: mua sim\nNội dung: ... Với sim Ezcom, anh/chị đến các Điểm giao dịch để được hỗ trợ mua sim. ...\n-> Phương thức hỗ trợ mua sim Ezcom của Vinaphone là đến trực tiếp các Điểm giao dịch Vinaphone.\",\n\"final_answer\": \"B\"\n}",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0033",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "C",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"Để tìm tỉ số giữa động năng cực đại của khối lượng thứ hai và động năng cực đại của khối lượng thứ nhất, ta cần phân tích chuyển động của cả hai khối lượng.\n\nKhối lượng thứ nhất được kéo lệch một khoảng A so với vị trí cân bằng và sau đó được thả ra từ trạng thái nghỉ. Do đó, động năng cực đại của khối lượng thứ nhất xảy ra khi nó đi qua vị trí cân bằng, tại đó tất cả thế năng đàn hồi đã chuyển hóa thành động năng. Động năng cực đại này được tính bằng công thức:\n\nW_d1 = (1/2) * m * v_max^2\n\ntrong đó v_max là vận tốc cực đại của khối lượng thứ nhất.\n\nKhối lượng thứ hai được kéo lệch một khoảng A và được cung cấp vận tốc ban đầu v_0 theo hướng dao động. Do đó, động năng cực đại của khối lượng thứ hai cũng xảy ra khi nó đi qua vị trí cân bằng, nhưng lần này, ngoài thế năng đàn hồi, còn có thêm động năng do vận tốc ban đầu v_0. Động năng cực đại này được tính bằng công thức:\n\nW_d2 = (1/2) * m * (v_max^2 + v_0^2)\n\nTỉ số giữa động năng cực đại của khối lượng thứ hai và động năng cực đại của khối lượng thứ nhất là:\n\n(W_d2 / W_d1) = ((1/2) * m * (v_max^2 + v_0^2)) / ((1/2) * m * v_max^2)\n\n= (v_max^2 + v_0^2) / v_max^2\n\n= 1 + (v_0^2 / v_max^2)\n\nVì v_max = ω * A (với ω là tần số góc), nên:\n\n(v_0^2 / v_max^2) = (v_0^2 / (ω * A)^2)\n\nDo đó, tỉ số giữa động năng cực đại của khối lượng thứ hai và động năng cực đại của khối lượng thứ nhất là:\n\n1 + (v_0^2 / (ω * A)^2)\n\nHay:\n\n1 + (v_0 / (ω * A))^2\n\nVậy, đáp án đúng là C.\",\n\"final_answer\": \"C\"\n}",
+    "ground_truth": "C"
+  },
+  {
+    "qid": "val_0034",
+    "domain": "GENERAL_DOMAIN",
+    "llm_prediction": "C",
+    "llm_reasoning": "Việc mở rộng Medicaid thường liên quan đến việc tăng cường bảo hiểm y tế cho những người có thu nhập thấp, giúp họ có thể tiếp cận các dịch vụ chăm sóc sức khỏe cơ bản, bao gồm cả dịch vụ chăm sóc dự phòng. Khi có bảo hiểm, những người này sẽ ít gặp khó khăn hơn trong việc chi trả cho các dịch vụ chăm sóc dự phòng như khám sức khỏe định kỳ, tiêm chủng, và các xét nghiệm sàng lọc sớm. Điều này giúp cải thiện khả năng tiếp cận dịch vụ chăm sóc dự phòng cho nhóm dân số này.",
+    "ground_truth": "C"
+  },
+  {
+    "qid": "val_0035",
+    "domain": "VN_CORE_KNOWLEDGE",
+    "llm_prediction": "C",
+    "llm_reasoning": "Theo quy trình cấp Chứng nhận trường mầm non đạt kiểm định chất lượng giáo dục, thành phần hồ sơ bắt buộc gồm 01 bản chính báo cáo tự đánh giá và 01 bản chính công văn đăng ký.",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0036",
+    "domain": "GENERAL_DOMAIN",
+    "llm_prediction": "B",
+    "llm_reasoning": "Nguyên lý về sự lựa chọn hợp lý trong kinh tế học cho rằng, khi thu nhập tăng thêm, cá nhân sẽ phân bổ thu nhập đó vào các hàng hóa hoặc dịch vụ sao cho đạt được mức độ thỏa dụng cao nhất. Độ thỏa dụng biên (Marginal Utility) là mức độ thỏa dụng mà một đơn vị hàng hóa hoặc dịch vụ mang lại cho người tiêu dùng tại thời điểm hiện tại. Theo nguyên lý này, người tiêu dùng sẽ tiếp tục mua thêm một hàng hóa hoặc dịch vụ cho đến khi độ thỏa dụng biên trên mỗi đồng tiền bỏ ra cho hàng hóa hoặc dịch vụ đó bằng với độ thỏa dụng biên trên mỗi đồng tiền bỏ ra cho các hàng hóa hoặc dịch vụ khác. Điều này đảm bảo rằng tổng độ thỏa dụng của người tiêu dùng được tối đa hóa. Do đó, lựa chọn hợp lý là chọn việc sử dụng thu nhập tăng thêm để đạt được độ thỏa dụng biên trên mỗi đồng là lớn nhất.",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0037",
+    "domain": "GENERAL_DOMAIN",
+    "llm_prediction": "C",
+    "llm_reasoning": "{\n\"reasoning\": \"Để xác định nhiệm vụ nào không thuộc khoa học xã hội, chúng ta cần phân tích từng lựa chọn dựa trên định nghĩa và phạm vi của khoa học xã hội. Khoa học xã hội nghiên cứu về hành vi, xã hội, và tương tác của con người trong cộng đồng. \n\n- Lựa chọn A: Phát triển các lý thuyết mới về hành vi con người trực tiếp liên quan đến việc hiểu và giải thích cách con người hành động và tương tác, thuộc phạm vi của khoa học xã hội.\n  \n- Lựa chọn B: Tìm hiểu và xác nhận các lý thuyết xã hội cũng nằm trong khuôn khổ của khoa học xã hội vì nó liên quan đến việc kiểm tra và xác thực các giả thuyết về cấu trúc và chức năng của xã hội.\n\n- Lựa chọn C: Nghiên cứu công thức hóa học của các hợp chất thuộc lĩnh vực hóa học, một nhánh của khoa học tự nhiên. Hóa học tập trung vào thành phần, tính chất, và phản ứng của vật chất, không liên quan trực tiếp đến hành vi hoặc cấu trúc xã hội.\n\n- Lựa chọn D: Khuyến khích phát triển hài hòa về xã hội và tâm lý cũng thuộc phạm vi của khoa học xã hội vì nó liên quan đến việc cải thiện và hiểu mối quan hệ giữa cá nhân và xã hội.\n\nDựa trên phân tích trên, lựa chọn C là nhiệm vụ không thuộc khoa học xã hội.\",\n\"final_answer\": \"C\"\n}",
+    "ground_truth": "C"
+  },
+  {
+    "qid": "val_0038",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "B",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"\n### Phân tích:\n- Phương trình vi phân cho biết tốc độ phân rã của chất phóng xạ tỷ lệ thuận với lượng chất hiện tại.\n- Lượng chất giảm từ 500 gam xuống 250 gam sau 4 năm, nghĩa là giảm một nửa sau mỗi chu kỳ phân rã.\n\n### Công thức:\n- Từ phương trình vi phân $\\frac{dA}{dt} = -kA$, ta có thể tìm được hàm lượng chất theo thời gian bằng cách tích phân: $A(t) = A_0e^{-kt}$, trong đó $A_0$ là lượng ban đầu và $k$ là hằng số phân rã.\n- Để tìm $k$, sử dụng thông tin rằng sau 4 năm, lượng chất giảm xuống còn một nửa: $250 = 500e^{-4k}$.\n\n### Tính toán chi tiết:\n1. Tìm $k$:\n   - $250 = 500e^{-4k}$\n   - $\\frac{1}{2} = e^{-4k}$\n   - $\\ln(\\frac{1}{2}) = -4k$\n   - $-\\ln(2) = -4k$\n   - $k = \\frac{\\ln(2)}{4}$\n\n2. Tìm lượng chất sau 8 năm ($t=8$):\n   - Sử dụng công thức $A(t) = A_0e^{-kt}$ với $A_0 = 500$, $k = \\frac{\\ln(2)}{4}$, và $t=8$:\n   - $A(8) = 500e^{-(\\frac{\\ln(2)}{4}) \\cdot 8}$\n   - $A(8) = 500e^{-2\\ln(2)}$\n   - $A(8) = 500e^{\\ln(\\frac{1}{4})}$\n   - $A(8) = 500 \\cdot \\frac{1}{4}$\n   - $A(8) = 125$\n\n### So sánh với các lựa chọn:\n- Kết quả tính toán là 125 gam, khớp với lựa chọn B.\n\n### Kết quả:\n\",\n\"final_answer\": \"B\"\n}",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0039",
+    "domain": "VN_CORE_KNOWLEDGE",
+    "llm_prediction": "B",
+    "llm_reasoning": "Nguyễn Ái Quốc, sau này lấy tên là Hồ Chí Minh, đã dành nhiều thời gian hoạt động cách mạng tại Trung Quốc trong những năm 1920-1930. Tại đây, ông đã thành lập Hội Việt Nam Cách mạng Thanh niên và mở các lớp huấn luyện để đào tạo cán bộ cho phong trào cách mạng Việt Nam. Quảng Châu là một trong những địa điểm quan trọng mà ông đã chọn để tổ chức các hoạt động này. Việc lựa chọn Quảng Châu không chỉ vì vị trí địa lý thuận lợi mà còn do mối quan hệ gần gũi với các nhà lãnh đạo cách mạng Trung Quốc vào thời điểm đó.",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0040",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "E",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"\n### Phân tích:\n- Bài toán liên quan đến việc kiểm định giả thuyết về giá trị trung bình của một quần thể có phân phối chuẩn nhưng phương sai chưa biết.\n- Giả thuyết không ($H_0$): $\\mu = 50$\n- Giả thuyết thay thế ($H_1$): $\\mu > 50$\n- Kích thước mẫu ($n$): 36\n- Giá trị trung bình mẫu ($\\bar{x}$): 53\n- Độ lệch chuẩn mẫu ($s$): 6\n\n### Công thức:\nĐể tính giá trị thống kê t, chúng ta sử dụng công thức:\n\\[ t = \\frac{\\bar{x} - \\mu}{s / \\sqrt{n}} \\]\n\n### Tính toán chi tiết:\nThay các giá trị đã cho vào công thức:\n\\[ t = \\frac{53 - 50}{6 / \\sqrt{36}} \\]\n\\[ t = \\frac{3}{6 / 6} \\]\n\\[ t = \\frac{3}{1} \\]\n\\[ t = 3 \\]\n\n### So sánh với các lựa chọn:\n- Giá trị thống kê t tính được là 3.\n- So sánh với các lựa chọn, không có lựa chọn nào khớp chính xác với giá trị 3.\n- Tuy nhiên, vì không có lựa chọn nào khớp chính xác và giá trị 3 lớn hơn tất cả các khoảng và giá trị cụ thể được liệt kê, nên lựa chọn gần nhất và phù hợp nhất dựa trên thông tin cung cấp là E. Giá trị thống kê t lớn hơn 2,5.\n\n### Kết quả:\nLựa chọn E là gần nhất với kết quả tính toán, mặc dù không có lựa chọn nào khớp chính xác với giá trị t = 3.\",\n\"final_answer\": \"E\"\n}",
+    "ground_truth": "E"
+  },
+  {
+    "qid": "val_0041",
+    "domain": "VN_CORE_KNOWLEDGE",
+    "llm_prediction": "C",
+    "llm_reasoning": "{\n\"reasoning\": \"Theo quan điểm của Chủ tịch Hồ Chí Minh, con đường giải phóng dân tộc hướng tới mục tiêu xây dựng một xã hội mới, trong đó không còn sự áp bức, bóc lột, và mọi người đều có cơ hội để phát triển. Quan điểm này được thể hiện qua nhiều tác phẩm và bài viết của Người, trong đó nhấn mạnh tầm quan trọng của việc xây dựng một xã hội công bằng, bình đẳng và không có áp bức bóc lột.\n\nChủ tịch Hồ Chí Minh cũng tin rằng, chỉ có thông qua con đường cách mạng xã hội chủ nghĩa, Việt Nam mới có thể đạt được độc lập, tự do và xây dựng một xã hội mới, tốt đẹp hơn. Quan điểm này được thể hiện qua nhiều văn kiện và quyết định của Đảng Cộng sản Việt Nam, trong đó khẳng định mục tiêu xây dựng một xã hội xã hội chủ nghĩa ở Việt Nam.\n\nTrong số các lựa chọn, chỉ có lựa chọn C phản ánh chính xác quan điểm của Chủ tịch Hồ Chí Minh về con đường giải phóng dân tộc. Lựa chọn A và B quá rộng và không cụ thể, trong khi lựa chọn D chỉ là một phần của quan điểm của Chủ tịch Hồ Chí Minh.\",\n\"final_answer\": \"C\"\n}",
+    "ground_truth": "C"
+  },
+  {
+    "qid": "val_0042",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "B",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"Để tìm độ dốc của đường ngân sách, chúng ta cần sử dụng công thức sau:\n\nĐộ dốc = - (Giá của hàng hóa X / Giá của hàng hóa Y)\n\nTrong trường hợp này, giá của hàng hóa X là 5 đô la và giá của hàng hóa Y là 10 đô la.\n\nThay số vào công thức, chúng ta có:\n\nĐộ dốc = - (5 / 10) = -0,5\n\nVậy độ dốc của đường ngân sách là -0,5.\",\n\"final_answer\": \"B\"\n}",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0043",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "D",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"Để tìm độ biến thiên của năng lượng thế ΔU, chúng ta cần tính toán năng lượng thế U tại hai trạng thái khác nhau của phân tử và sau đó lấy hiệu giữa chúng.\n\nTrạng thái 1: Phân tử ban đầu được định hướng ở góc 60° so với trường điện.\nNăng lượng thế U1 = -μE cos(60°)\n\nTrạng thái 2: Phân tử định hướng hoàn toàn theo trường (θ = 0°).\nNăng lượng thế U2 = -μE cos(0°)\n\nΔU = U2 - U1\n\nThay giá trị cos(60°) = 1/2 và cos(0°) = 1 vào công thức trên:\n\nΔU = (-μE * 1) - (-μE * 1/2)\n= -μE + μE/2\n= -μE/2\n\nVậy, độ biến thiên của năng lượng thế ΔU là -μE/2.\",\n\n\"final_answer\": \"D\"\n}",
+    "ground_truth": "D"
+  },
+  {
+    "qid": "val_0044",
+    "domain": "GENERAL_DOMAIN",
+    "llm_prediction": "C",
+    "llm_reasoning": "Trách nhiệm xã hội của doanh nghiệp (CSR) là một phần quan trọng trong chiến lược kinh doanh hiện đại. Khi thực hiện CSR, doanh nghiệp không chỉ đóng góp vào sự phát triển bền vững của xã hội mà còn mang lại nhiều lợi ích trực tiếp cho chính mình. Một trong những lợi ích quan trọng nhất là việc cải thiện hình ảnh công chúng của doanh nghiệp. Bằng cách tham gia vào các hoạt động từ thiện, bảo vệ môi trường, và đảm bảo quyền lao động, doanh nghiệp có thể xây dựng một hình ảnh tích cực trong mắt công chúng, khách hàng, và đối tác. Điều này giúp tăng cường uy tín, tạo dựng niềm tin, và cuối cùng là thúc đẩy sự phát triển kinh doanh.",
+    "ground_truth": "C"
+  },
+  {
+    "qid": "val_0045",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "C",
+    "llm_reasoning": "{\n    \"step_by_step_reasoning\": \"[1] Tiêu đề: Tiếng Hindustan Caribe\nNội dung: ... Nó dựa trên tiếng Bhojpur cùng với những ảnh hưởng từ tiếng Awadh. ... Bởi vì phần lớn mọi người đến từ khu vực Awadh ở Uttar Pradesh và khu vực Bhojpur ở Bihar, Jharkhand và Uttar Pradesh, tiếng Hindustan Caribe chịu ảnh hưởng nhiều nhất từ tiếng tiếng Bhojpur, tiếng Awadh và các phương ngữ Đông Hindi - Bihar khác. ...\n\n[2] Tiêu đề: Tiếng Hindustan Caribe\nNội dung: ... Bởi vì phần lớn mọi người đến từ khu vực Awadh ở Uttar Pradesh và khu vực Bhojpur ở Bihar, Jharkhand và Uttar Pradesh, tiếng Hindustan Caribe chịu ảnh hưởng nhiều nhất từ tiếng tiếng Bhojpur, tiếng Awadh và các phương ngữ Đông Hindi - Bihar khác. ...\n\n[4] Tiêu đề: Tiếng Bhojpur\nNội dung: ... Tiếng Hindustan Caribe cũng là một biến thể của tiếng Bhojpur và tiếng Awdh. ...\n\n-> Suy luận: Dựa trên các đoạn văn bản [1], [2] và [4], có thể thấy rằng tiếng Hindustan Caribe chịu ảnh hưởng chính từ tiếng Bhojpur, Awadh và các phương ngữ Đông Hindi khác.\",\n    \"final_answer\": \"C\"\n}",
+    "ground_truth": "C"
+  },
+  {
+    "qid": "val_0046",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "B",
+    "llm_reasoning": "Trích dẫn câu trong bài: 'Linh lăng là một trong số ít các thực vật có sự tự gây độc. Chính vì thế hạt cỏ linh lăng sẽ không mọc được trong các khu vực đang có cỏ linh lăng.' -> Suy luận: Hạt cỏ linh lăng không thể mọc được trong các khu vực đang có cỏ linh lăng vì cỏ linh lăng có hiện tượng tự gây độc, ngăn cản nảy mầm của hạt.",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0047",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "A",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"\n### Phân tích:\n- Trường từ đều $B$ hướng dọc theo trục z.\n- Khung dây hình chữ nhật nằm trong mặt phẳng xy, mang dòng điện $I$, và có thể quay quanh trục y.\n- Mặt phẳng khung tạo một góc $\\theta$ với trục x.\n\n### Công thức:\nMô men xoắn $\\tau$ tác dụng lên khung dây do trường từ được tính bằng công thức:\n$$\\tau = B I A \\sin(\\alpha)$$\ntrong đó:\n- $B$ là độ lớn của trường từ,\n- $I$ là cường độ dòng điện,\n- $A$ là diện tích của khung dây,\n- $\\alpha$ là góc giữa vectơ pháp tuyến của mặt phẳng khung dây và vectơ trường từ.\n\n### Tính toán chi tiết:\n- Diện tích $A$ của khung dây hình chữ nhật là $w \\times h$.\n- Góc $\\alpha$ giữa vectơ pháp tuyến của mặt phẳng khung dây và vectơ trường từ bằng góc $\\theta$ vì cả hai đều liên quan đến trục x và trục z.\n\nThay các giá trị vào công thức:\n$$\\tau = B I (w \\times h) \\sin(\\theta)$$\n\n### So sánh với các lựa chọn:\nKết quả tính toán khớp với lựa chọn A: $B I w h \\sin(\\theta)$.\n\n### Kết quả:\nĐáp án đúng là A.\",\n\"final_answer\": \"A\"\n}",
+    "ground_truth": "A"
+  },
+  {
+    "qid": "val_0048",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "A",
+    "llm_reasoning": "Vector (tên thật là Victor Perkins) là siêu trộm hàng đầu thế giới sau khi anh ta đánh cắp được kim tự tháp Giza. Là nhân vật phản diện của phim. Ông Perkins (Will Arnett) là chủ tịch Ngân hàng Xấu xa, bố của Victor.",
+    "ground_truth": "A"
+  },
+  {
+    "qid": "val_0049",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "B",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"\n### Phân tích:\n- Lãi suất danh nghĩa (i) là 10%, được tính theo kỳ bán niên.\n- Cần tìm lãi suất hàng năm hiệu quả (r).\n\n### Công thức:\nLãi suất hàng năm hiệu quả (r) khi lãi suất danh nghĩa (i) được tính theo kỳ bán niên (n = 2) được tính bằng công thức:\n\\[ r = \\left(1 + \\frac{i}{n}\\right)^n - 1 \\]\n\n### Tính toán chi tiết:\n- Thay i = 10% = 0.1 và n = 2 vào công thức:\n\\[ r = \\left(1 + \\frac{0.1}{2}\\right)^2 - 1 \\]\n\\[ r = \\left(1 + 0.05\\right)^2 - 1 \\]\n\\[ r = (1.05)^2 - 1 \\]\n\\[ r = 1.1025 - 1 \\]\n\\[ r = 0.1025 \\]\n\n### So sánh với các lựa chọn:\n- Kết quả tính toán là 0.1025, tương đương với 10.25%.\n\n### Kết quả:\n- Đáp án đúng là B. 10.25%.\n\",\n\"final_answer\": \"B\"\n}",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0050",
+    "domain": "VN_CORE_KNOWLEDGE",
+    "llm_prediction": "B",
+    "llm_reasoning": "{\n\"reasoning\": \"Chủ tịch Hồ Chí Minh đã tiếp thu những giá trị tích cực từ Nho giáo để phục vụ cách mạng, bao gồm:\n\n- Lý tưởng xã hội bình trị và đại đồng: Đây là một trong những giá trị cốt lõi của Nho giáo, hướng tới xây dựng một xã hội công bằng, hòa hợp và thịnh vượng. Chủ tịch Hồ Chí Minh đã vận dụng tư tưởng này vào việc xây dựng và phát triển đất nước sau độc lập.\n\n- Triết lý tu thân dưỡng tính: Nho giáo nhấn mạnh tầm quan trọng của việc rèn luyện bản thân, đạo đức và nhân cách. Chủ tịch Hồ Chí Minh đã áp dụng nguyên tắc này vào cuộc sống và hoạt động cách mạng của mình, trở thành tấm gương sáng cho toàn dân tộc.\n\n- Đề cao văn hóa, lễ giáo và truyền thống hiếu học: Nho giáo coi trọng vai trò của giáo dục, văn hóa và lễ giáo trong việc hình thành con người và xây dựng xã hội. Chủ tịch Hồ Chí Minh đã kế thừa và phát huy những giá trị này, góp phần xây dựng nền văn hóa mới, tiến bộ và nhân văn cho Việt Nam.\n\nTóm lại, Chủ tịch Hồ Chí Minh đã tiếp thu và vận dụng những giá trị tích cực của Nho giáo vào hoạt động cách mạng và xây dựng đất nước, thể hiện sự kết hợp giữa truyền thống và hiện đại, giữa lý tưởng và thực tiễn.\",\n\"final_answer\": \"B\"\n}",
+    "ground_truth": "C"
+  },
+  {
+    "qid": "val_0051",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"\n### Phân tích:\n- Số tiền gốc (P): 80.000 đô la\n- Lãi suất hàng năm (r): 6% = 0.06\n- Thời gian (t): 2 năm\n- Kỳ hạn tính lãi: Hàng năm\n\n### Công thức:\nSố tiền phải trả tổng cộng sau t năm với lãi suất r được tính theo công thức:\n\\[ A = P(1 + r)^t \\]\n\n### Tính toán chi tiết:\n- Thay số vào công thức:\n\\[ A = 80.000(1 + 0.06)^2 \\]\n- Tính toán:\n\\[ A = 80.000(1.06)^2 \\]\n\\[ A = 80.000 \\times 1.1236 \\]\n\\[ A = 89.888 \\]\n\n### So sánh với các lựa chọn:\n- Kết quả tính toán: 89.888 đô la\n- So sánh với các lựa chọn:\n  - A. 89.600 đô la (Gần nhưng không khớp)\n  - B. 84.800 đô la (Không khớp)\n  - C. 89.200 đô la (Không khớp)\n  - D. 90.000 đô la (Gần nhưng không khớp)\n\n### Kết quả:\nDo không có lựa chọn nào khớp chính xác với kết quả tính toán 89.888 đô la, nhưng nếu phải chọn gần nhất thì A. 89.600 đô la là lựa chọn gần nhất. Tuy nhiên, theo hướng dẫn, chỉ chọn khi khớp chính xác, nên trong trường hợp này, không có đáp án chính xác trong các lựa chọn đã cho.\n\n\",\n\"final_answer\": \"Không có đáp án chính xác trong các lựa chọn đã cho.\"\n}",
+    "ground_truth": "A"
+  },
+  {
+    "qid": "val_0052",
+    "domain": "GENERAL_DOMAIN",
+    "llm_prediction": "C",
+    "llm_reasoning": "{\n\"reasoning\": \"Giá trị Mỹ trong hệ thống giá trị Chân – Thiện – Mỹ liên quan đến cái đẹp, sự thẩm mỹ hóa và sự hài hòa. Để xác định tính chất của giá trị Mỹ, chúng ta cần xem xét các khía cạnh sau:\n\n- Giá trị Mỹ gắn liền với nghệ thuật, nơi mà cái đẹp và sự sáng tạo được thể hiện.\n- Trong văn hóa và triết học, cái đẹp thường được liên kết với sự hoàn hảo, sự cân đối và sự hài hòa.\n- Tính chất của giá trị Mỹ không chỉ dừng lại ở mức độ cảm nhận chủ quan về cái đẹp mà còn bao gồm cả giá trị tinh thần và đạo đức mà nó mang lại.\n\nTừ những phân tích trên, chúng ta có thể thấy rằng giá trị Mỹ không chỉ đơn thuần là về cái đẹp bên ngoài mà còn bao gồm cả giá trị nội tại, tinh thần và đạo đức. Trong số các lựa chọn, 'Nhân văn' là từ phù hợp nhất để mô tả tính chất này vì nó bao hàm cả khía cạnh con người, tinh thần và đạo đức.\",\n\"final_answer\": \"C\"\n}",
+    "ground_truth": "C"
+  },
+  {
+    "qid": "val_0053",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "A",
+    "llm_reasoning": "{\n    \"step_by_step_reasoning\": \"Biệt danh 'Mr. Cool' của Cổ Thiên Lạc được nhắc đến trong phần III. Ca nhạc, nơi nói về album 'Mr. Cool' của anh. Tuy nhiên, để xác định nguồn gốc của biệt danh này, chúng ta cần xem xét thêm thông tin trong văn bản. Trong phần III, nó được đề cập rằng 'Album được chú ý nhất của Cổ Thiên Lạc là \"Mr.Cool\". Từ đó fan hâm mộ kêu anh luôn bằng biệt danh này \"Mister Cool\"'. Điều này cho thấy biệt danh 'Mr. Cool' có liên quan trực tiếp đến album 'Mr. Cool'.\",\n    \"final_answer\": \"A\"\n}",
+    "ground_truth": "A"
+  },
+  {
+    "qid": "val_0054",
+    "domain": "GENERAL_DOMAIN",
+    "llm_prediction": "D",
+    "llm_reasoning": "Khi tiết kiệm thực tế khác với tiết kiệm theo kế hoạch, điều này thường dẫn đến sự mất cân đối trong nền kinh tế. Nếu tiết kiệm thực tế cao hơn kế hoạch, có thể dẫn đến tình trạng dư thừa vốn, trong khi nếu thấp hơn, có thể gây ra thiếu hụt vốn. Để giải quyết sự mất cân đối này, các biện pháp điều chỉnh thường được áp dụng. Trong số các lựa chọn, điều chỉnh lãi suất (D) là biện pháp trực tiếp ảnh hưởng đến hành vi tiết kiệm và đầu tư của các cá nhân và doanh nghiệp. Khi lãi suất tăng, tiết kiệm trở nên hấp dẫn hơn, khuyến khích mọi người tiết kiệm nhiều hơn. Ngược lại, khi lãi suất giảm, tiết kiệm ít hấp dẫn hơn, dẫn đến giảm tiết kiệm. Do đó, điều chỉnh lãi suất là cách hiệu quả để đối phó với sự chênh lệch giữa tiết kiệm thực tế và tiết kiệm theo kế hoạch.",
+    "ground_truth": "C"
+  },
+  {
+    "qid": "val_0055",
+    "domain": "VN_CORE_KNOWLEDGE",
+    "llm_prediction": "A",
+    "llm_reasoning": "Theo quy định tại Điều 12 Nghị định số 79/2012/NĐ-CP ngày 05 tháng 10 năm 2012 của Chính phủ về hoạt động nghệ thuật biểu diễn, các cuộc thi người mẫu quy mô toàn quốc phải được cấp giấy phép bởi Cục Nghệ thuật biểu diễn thuộc Bộ Văn hóa, Thể thao và Du lịch.",
+    "ground_truth": "A"
+  },
+  {
+    "qid": "val_0056",
+    "domain": "VN_CORE_KNOWLEDGE",
+    "llm_prediction": "D",
+    "llm_reasoning": "{\n\"reasoning\": \"Theo khoản 2 Điều 109 Luật Tài nguyên nước 2012, các trường hợp khai thác, sử dụng nước không phải đăng ký bao gồm:\n\n- Khai thác, sử dụng nước cho sinh hoạt của hộ gia đình;\n- Sử dụng nước biển để sản xuất muối;\n- Khai thác, sử dụng nước với quy mô nhỏ cho sản xuất, kinh doanh, dịch vụ;\n- Sử dụng nước phục vụ các hoạt động văn hóa, tôn giáo, nghiên cứu khoa học;\n- Khai thác, sử dụng nước cho phòng cháy, chữa cháy, ứng phó, khắc phục sự cố ô nhiễm, dịch bệnh và các trường hợp khẩn cấp khác theo quy định của pháp luật về tình trạng khẩn cấp.\n\nNhư vậy, tất cả các trường hợp nêu trong các lựa chọn A, B, C đều thuộc diện không phải đăng ký khai thác, sử dụng nước.\",\n\"final_answer\": \"D\"\n}",
+    "ground_truth": "D"
+  },
+  {
+    "qid": "val_0057",
+    "domain": "GENERAL_DOMAIN",
+    "llm_prediction": "A",
+    "llm_reasoning": "Tri giác là quá trình nhận thức về thế giới xung quanh thông qua các giác quan như nhìn, nghe, sờ, nếm, ngửi. Quá trình này cho phép chúng ta nhận biết và hiểu về các sự vật, hiện tượng một cách trực tiếp và toàn diện. Tri giác không chỉ dừng lại ở việc nhận biết các thuộc tính riêng lẻ mà còn giúp chúng ta hình thành một bức tranh tổng thể về sự vật, hiện tượng đó. Do đó, tri giác phản ánh sự vật, hiện tượng một cách trọn vẹn.",
+    "ground_truth": "A"
+  },
+  {
+    "qid": "val_0058",
+    "domain": "VN_CORE_KNOWLEDGE",
+    "llm_prediction": "A",
+    "llm_reasoning": "VNNIC là tên viết tắt của 'Trung tâm Internet Việt Nam', một đơn vị trực thuộc Bộ Thông tin và Truyền thông. Đây là cơ quan quản lý nhà nước về internet tại Việt Nam, chịu trách nhiệm quản lý và phát triển hạ tầng internet, cũng như cung cấp các dịch vụ liên quan đến internet cho các tổ chức và cá nhân trong nước.",
+    "ground_truth": "A"
+  },
+  {
+    "qid": "val_0059",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "A",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"\n### Phân tích:\n- Bài toán liên quan đến quá trình xả tụ điện qua điện trở.\n- Cần tìm thời gian để điện áp trên tụ giảm xuống còn 37% giá trị ban đầu.\n\n### Công thức:\n- Điện áp trên tụ điện tại thời điểm t khi xả qua điện trở R được cho bởi công thức: \\(V(t) = V_0 \\cdot e^{-\\frac{t}{RC}}\\), trong đó:\n  - \\(V(t)\\) là điện áp tại thời điểm t.\n  - \\(V_0\\) là điện áp ban đầu.\n  - \\(R\\) là điện trở.\n  - \\(C\\) là điện dung của tụ điện.\n  - \\(e\\) là cơ số của logarit tự nhiên (khoảng 2.718).\n- Để tìm thời gian \\(t\\) khi điện áp giảm xuống còn 37% giá trị ban đầu (\\(V(t) = 0.37V_0\\)), ta sắp xếp lại công thức như sau:\n  \\[0.37V_0 = V_0 \\cdot e^{-\\frac{t}{RC}}\\]\n  \\[\\Rightarrow 0.37 = e^{-\\frac{t}{RC}}\\]\n  \\[\\Rightarrow \\ln(0.37) = -\\frac{t}{RC}\\]\n  \\[\\Rightarrow t = -RC \\cdot \\ln(0.37)\\]\n\n### Tính toán chi tiết:\n- Cho trước:\n  - Điện dung \\(C = 100 \\mu F = 100 \\times 10^{-6} F\\)\n  - Điện trở \\(R = 500 \\Omega\\)\n  - Điện áp ban đầu \\(V_0 = 120V\\) (không trực tiếp sử dụng trong tính toán thời gian)\n- Áp dụng công thức:\n  \\[t = -RC \\cdot \\ln(0.37)\\]\n  \\[t = -(500 \\Omega)(100 \\times 10^{-6} F) \\cdot \\ln(0.37)\\]\n  \\[t \\approx -(500)(100 \\times 10^{-6}) \\cdot (-0.994)\\] (vì \\(\\ln(0.37) \\approx -0.994\\))\n  \\[t \\approx 0.0497 \\text{ giây}\\]\n\n### So sánh với các lựa chọn:\n- Kết quả tính toán \\(t \\approx 0.0497\\) giây gần nhất với lựa chọn A. 0.05 giây.\n\n### Kết quả:\n\",\n\"final_answer\": \"A\"\n}",
+    "ground_truth": "A"
+  },
+  {
+    "qid": "val_0060",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "B",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"Manh mối tìm được: \n- Đoạn đường đê - tuyến giao thông và chống lũ lụt quan trọng, thường được quan tâm kỹ, có quan hộ đê phụ trách riêng, luôn huy động dân công đắp đê bằng công quỹ từ triều đình và đóng góp của địa phương.\n- Có một nghịch lý vào thời kỳ này là trong khi Thăng Long đến thế kỷ 19 vẫn còn nhiều con phố trong phường thợ là đường đất, thì rất nhiều đường làng đã được lát gạch. Điều này bắt nguồn từ một số quy ước làng xã xưa: mỗi khi có đôi trai gái nào làm đám cưới, thì phải lát cho làng vài thước đường đi, quy định này nhiều hay ít phụ thuộc vào điều kiện kinh tế của từng làng, tối thiểu là 1 thước và có thể tối đa lên đến 5, 10 thước.\n\nSuy luận logic: \n- Triều đình không có chính sách tương tự cho các phố trong thành, vì nếu có thì các phố trong phường ở Thăng Long cũng sẽ được lát gạch hoặc đá.\n- Kỹ thuật xây dựng đường đất không tiên tiến hơn đường lát gạch vào thời kỳ này, vì nếu có thì các đường làng cũng sẽ được xây dựng bằng đường đất.\n- Đường làng được xây dựng từ nguồn vốn tư nhân, còn đường thành phố được xây dựng từ công quỹ, nhưng điều này không giải thích tại sao đường làng lại được lát gạch hoặc đá, trong khi các phố trong phường ở Thăng Long vẫn chủ yếu là đường đất.\n\nKết luận: \n- Nguyên nhân chính là do quy ước làng xã bắt buộc lát đường khi có đám cưới, trong khi triều đình không có chính sách tương tự cho các phố trong thành.\",\n\"final_answer\": \"B\"\n}",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0061",
+    "domain": "GENERAL_DOMAIN",
+    "llm_prediction": "D",
+    "llm_reasoning": "Giáo dục đóng vai trò quan trọng trong việc hình thành và phát triển con người, không chỉ về mặt tri thức mà còn về mặt nhân cách, kỹ năng và giá trị sống. Giáo dục giúp tái tạo sức lao động bằng cách trang bị cho cá nhân những kiến thức, kỹ năng cần thiết để tham gia vào thị trường lao động và đóng góp cho sự phát triển kinh tế - xã hội. Đồng thời, giáo dục cũng thúc đẩy tiến bộ xã hội bằng cách nâng cao nhận thức, tư duy và hành vi của con người, từ đó tạo ra một xã hội văn minh, công bằng và phát triển bền vững. Do đó, tất cả các ý trên đều đúng.",
+    "ground_truth": "D"
+  },
+  {
+    "qid": "val_0062",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "C",
+    "llm_reasoning": "Trong đoạn văn [1], Bộ trưởng Kinh tế Nga Alexei Ulyukayev đã dự báo mức tăng trưởng GDP trung bình hàng năm của Nga chỉ khoảng từ 2,5% - 3,0% từ nay cho đến tận năm 2025.",
+    "ground_truth": "C"
+  },
+  {
+    "qid": "val_0063",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "B",
+    "llm_reasoning": "Trong đoạn văn 'Chủ nghĩa vô thần - Nhân khẩu học', có đề cập đến kết quả của Điều tra Dân số và Cư trú năm 2006 của Úc, nơi 18,7% dân số đánh dấu ô 'không có tôn giáo' hoặc viết một câu trả lời mà sau đó được xếp vào diện không có tôn giáo. Trong đoạn văn 'Tôn giáo tại Nga - Nhân khẩu', có đề cập đến kết quả của cuộc khảo sát quy mô lớn và lập bản đồ các tôn giáo đầu tiên ở Nga, nơi 25% dân số tuyên bố 'tin vào Chúa (hoặc quyền lực cao hơn)' nhưng 'không tuyên xưng bất kỳ tôn giáo cụ thể nào'. Trong đoạn văn 'Singapore - Nhân khẩu. Tôn giáo', có đề cập đến kết quả của cuộc điều tra dân số gần đây nhất, nơi 17% dân số không gia nhập tôn giáo nào. Trong đoạn văn 'Malaysia - Nhân khẩu. Tôn giáo', có đề cập đến kết quả của Điều tra dân số và nhà ở năm 2010, nơi 0,7% dân số tuyên bố là người không tôn giáo. So sánh các tỷ lệ này, ta thấy rằng Nga có tỷ lệ người không theo tôn giáo cao nhất, với 25% dân số.",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0064",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "A",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"\n### Phân tích:\n- Nhà độc quyền đối mặt với đường cầu tuyến tính và chi phí biên không đổi.\n- Chính phủ áp đặt một khoản thuế theo đơn vị lên nhà độc quyền.\n\n### Công thức:\n- Đường cầu tuyến tính: Q = a - bP (trong đó Q là sản lượng, P là giá, a và b là hằng số).\n- Chi phí biên không đổi: MC = c (trong đó c là hằng số).\n\n### Tính toán chi tiết:\n- Trước khi áp thuế, nhà độc quyền tối đa hóa lợi nhuận bằng cách đặt MR = MC.\n- Sau khi áp thuế, chi phí biên mới là MC' = c + t (trong đó t là mức thuế theo đơn vị).\n- Để tối đa hóa lợi nhuận sau thuế, nhà độc quyền đặt MR = MC'.\n- Vì MC' > MC, nên để đạt được điều kiện MR = MC', nhà độc quyền phải giảm sản lượng (Q) và tăng giá (P) so với trước khi áp thuế.\n\n### So sánh với các lựa chọn:\n- Lựa chọn A: Sản lượng giảm, giá tăng -> Khớp với phân tích trên.\n- Lựa chọn B: Sản lượng tăng, giá giảm -> Không khớp với phân tích trên.\n- Lựa chọn C: Sản lượng không thay đổi, giá tăng -> Không khớp với phân tích trên.\n- Lựa chọn D: Sản lượng không thay đổi, giá giảm -> Không khớp với phân tích trên.\n\n### Kết quả:\nLựa chọn A khớp với kết quả tính toán và phân tích.\",\n\"final_answer\": \"A\"\n}",
+    "ground_truth": "A"
+  },
+  {
+    "qid": "val_0065",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "B",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"\n### Phân tích:\nÁp suất bên trong quả bóng tỷ lệ thuận với lực căng bề mặt $ \\sigma $ và tỷ lệ nghịch với bán kính $ R $. Điều này có thể được biểu diễn bằng công thức:\n\n$$ P = k \\cdot \\frac{\\sigma}{R} $$\n\ntrong đó $ k $ là hằng số tỷ lệ.\n\n### Công thức:\nNếu bán kính của quả bóng được nhân đôi, tức là $ R' = 2R $, thì áp suất mới $ P' $ sẽ là:\n\n$$ P' = k \\cdot \\frac{\\sigma}{R'} = k \\cdot \\frac{\\sigma}{2R} $$\n\n### Tính toán chi tiết:\nĐể tìm nhân tử thay đổi của áp suất, ta chia $ P' $ cho $ P $:\n\n$$ \\frac{P'}{P} = \\frac{k \\cdot \\frac{\\sigma}{2R}}{k \\cdot \\frac{\\sigma}{R}} = \\frac{1}{2} $$\n\nVậy, áp suất bên trong quả bóng giảm đi một nửa khi bán kính được nhân đôi.\n\n### So sánh với các lựa chọn:\nNhân tử thay đổi của áp suất là $ \\frac{1}{2} $, khớp với lựa chọn B.\n\n### Kết quả:\nĐáp án đúng là B.\",\n\"final_answer\": \"B\"\n}",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0066",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "E",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"\n### Phân tích:\n- Phương trình vi phân cho thấy chuyển động của con lắc chịu ảnh hưởng của cả lực phục hồi (do trọng lực) và lực cản (tỉ lệ với vận tốc góc).\n- Lực phục hồi gây ra dao động, trong khi lực cản làm giảm biên độ dao động theo thời gian.\n\n### Công thức:\n- Phương trình vi phân: $ \\frac{d^2\\theta}{dt^2} + \\frac{b}{mL} \\frac{d\\theta}{dt} + \\frac{g}{L} \\theta = 0 $\n- Đây là phương trình dao động điều hòa có tłum (do có hạng tử $\\frac{b}{mL} \\frac{d\\theta}{dt}$).\n\n### Tính toán chi tiết:\n- Không cần tính toán cụ thể vì dựa trên phân tích, ta đã xác định được loại chuyển động.\n- Loại chuyển động này đặc trưng bởi dao động với biên độ giảm dần do tác dụng của lực cản.\n\n### So sánh với các lựa chọn:\n- Chỉ có một lựa chọn mô tả chính xác hành vi của độ dịch góc $ \\theta(t) $ theo thời gian, đó là dao động với biên độ giảm dần.\n\n### Kết quả:\n- Đáp án đúng là E, vì nó mô tả chính xác hành vi của độ dịch góc $ \\theta(t) $ theo thời gian, phù hợp với phân tích về phương trình vi phân và tác dụng của lực cản.\n\",\n\"final_answer\": \"E\"\n}",
+    "ground_truth": "E"
+  },
+  {
+    "qid": "val_0067",
+    "domain": "VN_CORE_KNOWLEDGE",
+    "llm_prediction": "B",
+    "llm_reasoning": "Để xử lý lỗi xác thực khi nộp hồ sơ thẩm duyệt thiết kế về phòng cháy và chữa cháy, cần xem xét các giải pháp liên quan đến việc kiểm tra, liên hệ, gửi hồ sơ và gọi tổng đài kỹ thuật. Tuy nhiên, giải pháp phù hợp nhất trong trường hợp này là liên hệ với cơ quan chức năng để được hỗ trợ trực tiếp. Điều này cho phép giải quyết vấn đề một cách nhanh chóng và hiệu quả, đồng thời đảm bảo rằng hồ sơ được xử lý đúng quy trình.",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0068",
+    "domain": "GENERAL_DOMAIN",
+    "llm_prediction": "C",
+    "llm_reasoning": "Nếu mức lương tối thiểu được đặt ở mức cao hơn mức lương cân bằng, điều này có nghĩa là người sử dụng lao động phải trả cho người lao động nhiều hơn so với giá trị mà họ mang lại cho doanh nghiệp. Điều này sẽ khiến các doanh nghiệp phải cân nhắc lại quyết định tuyển dụng và giữ chân nhân viên, vì chi phí lao động tăng lên có thể ảnh hưởng đến lợi nhuận của họ. Do đó, nhu cầu về lao động có thể giảm xuống, vì các doanh nghiệp có thể tìm cách cắt giảm nhân sự hoặc tự động hóa quy trình để giảm thiểu chi phí. Mặt khác, cung lao động có thể tăng lên vì người lao động có thể bị thu hút bởi mức lương cao hơn. Tuy nhiên, do nhu cầu về lao động giảm, nên tình trạng dư thừa lao động có thể xảy ra, dẫn đến tỷ lệ thất nghiệp cao hơn.",
+    "ground_truth": "C"
+  },
+  {
+    "qid": "val_0069",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "A",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"\n### Phân tích\nTích phân xác định $\\int_0^1 \\frac{\\ln(1 + x)}{1 + x} \\, dx$ có thể được đánh giá bằng cách sử dụng phương pháp thay thế biến hoặc nhận diện mẫu tích phân cơ bản.\n\n### Công thức\nMột công thức liên quan đến tích phân này là:\n$$\\int \\frac{\\ln(x)}{x} \\, dx = \\frac{\\ln^2(x)}{2} + C$$\nTuy nhiên, để áp dụng trực tiếp vào tích phân của chúng ta, cần thực hiện một số điều chỉnh.\n\n### Tính toán chi tiết\nĐể đánh giá tích phân $\\int_0^1 \\frac{\\ln(1 + x)}{1 + x} \\, dx$, ta có thể sử dụng phương pháp thay thế biến. Gọi $u = \\ln(1 + x)$, thì $du = \\frac{1}{1 + x} \\, dx$. Khi $x = 0$, $u = \\ln(1) = 0$, và khi $x = 1$, $u = \\ln(2)$.\n\nDo đó, tích phân trở thành:\n$$\\int_0^{\\ln(2)} u \\, du$$\n\nÁp dụng công thức tích phân cơ bản cho $u \\, du$, ta có:\n$$\\left[ \\frac{u^2}{2} \\right]_0^{\\ln(2)} = \\frac{(\\ln(2))^2}{2} - \\frac{(0)^2}{2} = \\frac{\\ln^2(2)}{2}$$\n\n### So sánh với các lựa chọn\nKết quả tính toán là $\\frac{\\ln^2(2)}{2}$, khớp với lựa chọn A.\n\n### Kết quả\n\",\n\"final_answer\": \"A\"\n}",
+    "ground_truth": "A"
+  },
+  {
+    "qid": "val_0070",
+    "domain": "VN_CORE_KNOWLEDGE",
+    "llm_prediction": "D",
+    "llm_reasoning": "{\n\"reasoning\": \"Hệ thống chính trị là chỉnh thể các thiết chế thực thi quyền lực chính trị, bao gồm các bộ phận cấu thành là Đảng chính trị, Nhà nước và các tổ chức chính trị-xã hội. Đây là những thành phần cơ bản tạo nên hệ thống chính trị của một quốc gia, trong đó:\n\n- Đảng chính trị đóng vai trò lãnh đạo, định hướng và chỉ đạo hoạt động của Nhà nước và xã hội.\n- Nhà nước là cơ quan đại diện cho quyền lực chính trị của toàn dân, thực hiện các chức năng quản lý nhà nước, bảo vệ quyền và lợi ích hợp pháp của công dân.\n- Các tổ chức chính trị-xã hội là cầu nối giữa Đảng, Nhà nước với nhân dân, tham gia vào quá trình xây dựng và thực hiện chính sách, pháp luật.\n\nDo đó, tất cả các phương án A, B, C đều là bộ phận cấu thành của hệ thống chính trị.\",\n\"final_answer\": \"D\"\n}",
+    "ground_truth": "D"
+  },
+  {
+    "qid": "val_0071",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "C",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"\n### Phân tích:\nĐể tìm phương trình của đường thẳng $L$ đi qua điểm $A(1, 2)$ và song song với đoạn thẳng $BC$, chúng ta cần thực hiện các bước sau:\n\n1. Tìm độ dốc của đoạn thẳng $BC$: Vì đường thẳng $L$ song song với đoạn thẳng $BC$, nên chúng ta có thể sử dụng độ dốc của đoạn thẳng $BC$ làm độ dốc cho đường thẳng $L$.\n\n2. Sử dụng công thức điểm-độ dốc để tìm phương trình của đường thẳng $L$: Công thức điểm-độ dốc là $y - y_1 = m(x - x_1)$, nơi $(x_1, y_1)$ là tọa độ của điểm $A$ và $m$ là độ dốc của đường thẳng $L$.\n\n### Công thức:\n- Độ dốc ($m$) của đoạn thẳng $BC$: $m = \\frac{y_2 - y_1}{x_2 - x_1}$, với $(x_1, y_1) = B(4, 6)$ và $(x_2, y_2) = C(7, 2)$.\n- Công thức điểm-độ dốc: $y - y_1 = m(x - x_1)$, với $(x_1, y_1) = A(1, 2)$ và $m$ là độ dốc vừa tính.\n\n### Tính toán chi tiết:\n1. Tính độ dốc của đoạn thẳng $BC$:\n   - $m = \\frac{2 - 6}{7 - 4} = \\frac{-4}{3}$\n\n2. Áp dụng công thức điểm-độ dốc với điểm $A(1, 2)$ và độ dốc $m = -\\frac{4}{3}$:\n   - $y - 2 = -\\frac{4}{3}(x - 1)$\n   - $y - 2 = -\\frac{4}{3}x + \\frac{4}{3}$\n   - $y = -\\frac{4}{3}x + \\frac{4}{3} + 2$\n   - $y = -\\frac{4}{3}x + \\frac{10}{3}$\n\n### So sánh với các lựa chọn:\n- Kết quả tính toán là $y = -\\frac{4}{3}x + \\frac{10}{3}$, khớp với lựa chọn C.\n\n### Kết quả:\n\",\n\"final_answer\": \"C\"\n}",
+    "ground_truth": "C"
+  },
+  {
+    "qid": "val_0072",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "D",
+    "llm_reasoning": "Trong phần 'Do Thái giáo' của đoạn văn, mục '1.1. Torah' liệt kê các tội lỗi bị trừng phạt bằng cách ném đá theo Torah. Tại điểm 'Nổi loạn' chống lại cha mẹ Deuteronomy 21:18-21, nó được đề cập rằng con trai bướng bỉnh và nổi loạn sẽ bị ném đá đến chết. Điều này trực tiếp khớp với lựa chọn D. Ngoài ra, lựa chọn A cũng được đề cập trong Torah (Deuteronomy 22:23-24), nhưng nó chỉ đề cập đến quan hệ tình dục giữa một người đàn ông và một người phụ nữ đã đính hôn với một người đàn ông khác trong thị trấn, mà không cần điều kiện 'không có tiếng kêu cứu'. Lựa chọn B và C được đề cập trong Mishna, không phải trong Torah.",
+    "ground_truth": "D"
+  },
+  {
+    "qid": "val_0073",
+    "domain": "VN_CORE_KNOWLEDGE",
+    "llm_prediction": "A",
+    "llm_reasoning": "Theo Tư tưởng Hồ Chí Minh, quyền của nhân dân chỉ được bảo đảm khi nhân dân thực hiện tốt nghĩa vụ công dân đối với đất nước. Điều này có nghĩa là nhân dân phải tham gia tích cực vào các hoạt động xây dựng và bảo vệ đất nước, đồng thời tuân thủ các quy định của pháp luật và thực hiện các nhiệm vụ được giao phó. Khi nhân dân làm tốt nghĩa vụ công dân, họ sẽ góp phần tạo nên một xã hội ổn định, phát triển và công bằng, từ đó quyền của họ cũng sẽ được bảo đảm.",
+    "ground_truth": "A"
+  },
+  {
+    "qid": "val_0074",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "C",
+    "llm_reasoning": "Trong đoạn văn 1 và đoạn văn 5, có đề cập đến ví dụ về hai loài cá ở hồ có màu sắc khác nhau nhưng hình thái giống nhau. Theo đó, các cá thể cùng màu sẽ giao phối với nhau, còn các cá thể khác màu sẽ không giao phối. Điều này dẫn đến sự tách biệt quần thể và hình thành loài mới thông qua cơ chế cách li tập tính gắn với đặc điểm liên quan tới tập tính giao phối. Đây là một ví dụ cụ thể về giao phối chọn lựa dương tính (positive assortative mating) dựa trên màu sắc.",
+    "ground_truth": "C"
+  },
+  {
+    "qid": "val_0075",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "D",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"\n### Phân tích:\n- Hành động: Mua nguyên vật liệu trả chậm\n- Giá trị: 500 đô la\n- Thời gian thanh toán: Trong vòng ba tháng\n\n### Công thức:\n- Phương trình kế toán cơ bản: Tài sản = Nợ phải trả + Vốn chủ sở hữu\n- Khi mua hàng trả chậm:\n  - Tài sản (Nguyên vật liệu) tăng\n  - Nợ phải trả (Nợ phải trả ngắn hạn) tăng\n\n### Tính toán chi tiết:\n- Tài sản tăng: +500 đô la (do mua nguyên vật liệu)\n- Nợ phải trả tăng: +500 đô la (do chưa thanh toán)\n\n### So sánh với các lựa chọn:\n- A. Tài sản tăng 500 đô la và nợ phải trả giảm 500 đô la: Không khớp\n- B. Tài sản giảm 500 đô la và vốn chủ sở hữu tăng 500 đô la: Không khớp\n- C. Tài sản tăng 500 đô la và vốn chủ sở hữu tăng 500 đô la: Không khớp\n- D. Tài sản tăng 500 đô la và nợ phải trả tăng 500 đô la: Khớp\n\n### Kết quả:\nĐáp án đúng là D vì khi mua nguyên vật liệu trả chậm, cả tài sản (nguyên vật liệu) và nợ phải trả (nợ phải trả ngắn hạn) đều tăng lên 500 đô la.\",\n\"final_answer\": \"D\"\n}",
+    "ground_truth": "D"
+  },
+  {
+    "qid": "val_0076",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "D",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"\n### Phân tích:\nĐể tìm giá trị kỳ vọng của khoản đầu tư, chúng ta cần tính toán lợi nhuận kỳ vọng và lỗ kỳ vọng, sau đó cộng chúng lại.\n\n### Công thức:\nGiá trị Kỳ Vọng = (Xác suất Thành Công * Lợi Nhuận Kỳ Vọng) + (Xác Suất Thất Bại * Lỗ Kỳ Vọng)\n\n### Tính toán chi tiết:\n- Xác suất thành công = 80% (vì 20% thất bại)\n- Lợi nhuận kỳ vọng = 15%\n- Xác suất thất bại = 20%\n- Lỗ kỳ vọng = -10% (lỗ nên là số âm)\n\nGiá trị Kỳ Vọng = (0.8 * 0.15) + (0.2 * (-0.1))\n= 0.12 + (-0.02)\n= 0.10\n\n### So sánh với các lựa chọn:\n- A. 13%\n- B. 12%\n- C. 11%\n- D. 10%\n\nKết quả tính toán khớp với lựa chọn D.\n\n### Kết quả:\n\",\n\"final_answer\": \"D\"\n}",
+    "ground_truth": "D"
+  },
+  {
+    "qid": "val_0077",
+    "domain": "GENERAL_DOMAIN",
+    "llm_prediction": "B",
+    "llm_reasoning": "Để xác định tại sao cần có cơ chế thu thập thông tin trong doanh nghiệp, chúng ta cần xem xét mục đích và lợi ích của việc thu thập thông tin này. Thu thập thông tin giúp doanh nghiệp hiểu rõ hơn về hiệu suất làm việc của nhân viên và bộ phận, từ đó có thể đưa ra quyết định cải thiện hoạt động kinh doanh. Việc theo dõi nhân viên mà không có mục đích cải thiện (A) không phải là lý do chính đáng cho việc thu thập thông tin. Giảm số lượng nhân sự mà không cần đánh giá hiệu suất (C) cũng không phải là lý do hợp lý. Không cần thu thập thông tin về hiệu suất làm việc (D) là một quan điểm sai lầm vì nó bỏ qua tầm quan trọng của việc đánh giá và cải thiện hiệu suất.",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0078",
+    "domain": "GENERAL_DOMAIN",
+    "llm_prediction": "A",
+    "llm_reasoning": "Phân tích logic: Hiện tượng phân mảnh trong bộ nhớ xảy ra khi không gian bộ nhớ bị chia thành nhiều phần nhỏ không liên tục, khiến cho việc cấp phát bộ nhớ cho các tiến trình mới trở nên khó khăn. Kỹ thuật cấp phát bộ nhớ liên tục yêu cầu phải có một vùng bộ nhớ liên tục để cấp phát cho mỗi tiến trình. Do đó, nếu các tiến trình thường xuyên được nạp vào và xóa khỏi bộ nhớ, sẽ dẫn đến việc tạo ra nhiều khoảng trống nhỏ không liên tục, gây ra hiện tượng phân mảnh.",
+    "ground_truth": "A"
+  },
+  {
+    "qid": "val_0079",
+    "domain": "VN_CORE_KNOWLEDGE",
+    "llm_prediction": "C",
+    "llm_reasoning": "Theo Chủ tịch Hồ Chí Minh, mục đích của việc học không chỉ đơn thuần là để kiếm việc làm hay trở thành cán bộ, mà còn là để trở thành một con người toàn diện, có đạo đức, có tri thức và có kỹ năng. Điều này được thể hiện qua nhiều tác phẩm và bài viết của Người, trong đó nhấn mạnh tầm quan trọng của việc học tập để phát triển toàn diện cá nhân và đóng góp cho xã hội.",
+    "ground_truth": "D"
+  },
+  {
+    "qid": "val_0080",
+    "domain": "GENERAL_DOMAIN",
+    "llm_prediction": "C",
+    "llm_reasoning": "{\n\"reasoning\": \"Các thiên kiến nhận thức đóng vai trò quan trọng trong quá trình ra quyết định của con người. Chúng thường giúp chúng ta đưa ra quyết định nhanh chóng và hiệu quả bằng cách dựa vào các quy tắc ngón tay cái (heuristics) và kinh nghiệm cá nhân. Tuy nhiên, các thiên kiến này cũng có thể dẫn đến sai lầm và quyết định không hợp lý nếu không được nhận thức và kiểm soát.\n\nTrong số các lựa chọn, chỉ có một đáp án mô tả chính xác vai trò của các thiên kiến nhận thức trong quá trình ra quyết định:\n\n- Lựa chọn A sai vì các thiên kiến nhận thức không đảm bảo rằng tất cả các quyết định đều được đưa ra một cách hợp lý và không có sai sót. Trên thực tế, chúng có thể dẫn đến quyết định sai lầm.\n- Lựa chọn B sai vì mặc dù các thiên kiến nhận thức có thể là bẩm sinh, nhưng chúng vẫn có thể bị ảnh hưởng hoặc giảm thiểu bởi nhận thức cá nhân và trải nghiệm.\n- Lựa chọn C đúng vì các thiên kiến nhận thức giúp cá nhân đưa ra quyết định nhanh hơn bằng cách dựa vào các cách tiếp cận heuristics, dựa trên kinh nghiệm và quy tắc ngón tay cái.\n- Lựa chọn D sai vì các thiên kiến nhận thức không chỉ dựa trên ảnh hưởng văn hóa và xã hội mà còn mang tính phổ quát, xuất hiện ở nhiều nền văn hóa khác nhau.\n- Lựa chọn E sai vì các thiên kiến nhận thức liên quan chặt chẽ đến việc hiểu hành vi con người và quá trình ra quyết định.\n- Lựa chọn F sai vì mặc dù giáo dục và đào tạo có thể giúp giảm thiểu tác động của các thiên kiến nhận thức, nhưng chúng không thể được loại bỏ hoàn toàn.\n- Lựa chọn G sai vì các thiên kiến nhận thức không chỉ ảnh hưởng đến quá trình ra quyết định trong các tình huống căng thẳng cao mà còn có tác động trong cuộc sống hàng ngày.\n- Lựa chọn H sai vì các thiên kiến nhận thức không cho thấy tất cả các cá nhân đều ra quyết định theo cùng một cách; mỗi người có thể có những thiên kiến riêng biệt.\n- Lựa chọn I sai vì các thiên kiến nhận thức không chỉ mang tính tích cực; chúng có thể dẫn đến quyết định sai lầm nếu không được kiểm soát.\n- Lựa chọn J sai vì khái niệm về các thiên kiến nhận thức chưa bị bác bỏ; nó vẫn là một phần quan trọng trong tâm lý học và nghiên cứu về hành vi con người.\",\n\"final_answer\": \"C\"\n}",
+    "ground_truth": "C"
+  },
+  {
+    "qid": "val_0081",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "B",
+    "llm_reasoning": "Akagi là chiếc tàu sân bay Nhật Bản thứ hai được đưa vào hoạt động và là chiếc tàu sân bay lớn đầu tiên (còn gọi tàu sân bay hạm đội). Akagi có vai trò nổi bật trong việc phát triển học thuyết lực lượng tấn công tàu sân bay mang tính cách mạng, trong đó tập hợp các tàu sân bay lại để có sức mạnh không lực tập trung. Học thuyết này đã giúp Nhật Bản đạt được những mục tiêu chiến lược trong sáu tháng đầu tiên của trận chiến Thái Bình Dương.",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0082",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "B",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"\n### Phân tích:\n- Mô hình cạnh tranh Cournot với hai doanh nghiệp.\n- Chi phí biên sản xuất không đổi là $c$.\n- Hàm cầu thị trường: $Q = a - P$, với $P$ là giá và $a$ là hằng số dương.\n- Mục tiêu: Tìm lượng cân bằng Nash $q^*$ cho mỗi doanh nghiệp.\n\n### Công thức:\n- Lượng sản xuất của mỗi doanh nghiệp trong mô hình Cournot: $q_i = \\frac{a - c}{n + 1}$, với $n$ là số lượng doanh nghiệp.\n- Vì có hai doanh nghiệp, nên $n = 2$.\n\n### Tính toán chi tiết:\n- Thay $n = 2$ vào công thức: $q^* = \\frac{a - c}{2 + 1} = \\frac{a - c}{3}$.\n\n### So sánh với các lựa chọn:\n- Kết quả tính toán ($\\frac{a - c}{3}$) khớp với lựa chọn B.\n\n### Kết quả:\n- Đáp án đúng là B.\n\",\n\"final_answer\": \"B\"\n}",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0083",
+    "domain": "GENERAL_DOMAIN",
+    "llm_prediction": "C",
+    "llm_reasoning": "{\n\"reasoning\": \"Văn hóa vật thể là những hiện tượng văn hóa hữu hình mà con người có thể tiếp xúc trực tiếp qua các giác quan như nhìn, nghe, chạm,... Nó bao gồm các tác phẩm nghệ thuật, công trình kiến trúc, di tích lịch sử, đồ vật, trang phục, ẩm thực,... Đây là những biểu hiện cụ thể, có thể cảm nhận được của văn hóa.\n\nTrong các lựa chọn:\n\n- A chỉ đề cập đến nghệ thuật biểu diễn, không đầy đủ vì văn hóa vật thể còn bao gồm nhiều loại hình khác.\n- B cũng không đầy đủ vì ngoài các tác phẩm nghệ thuật và tri thức dân gian, văn hóa vật thể còn bao gồm nhiều yếu tố khác như công trình kiến trúc, di tích lịch sử,...\n- D đề cập đến các giá trị tri thức được lưu giữ qua các thế hệ, nhưng điều này thuộc về văn hóa phi vật thể, không phải văn hóa vật thể.\n- C là lựa chọn phù hợp nhất vì nó mô tả chính xác bản chất của văn hóa vật thể là những hiện tượng văn hóa hữu hình có thể tiếp xúc trực tiếp qua các giác quan.\",\n\n\"final_answer\": \"C\"\n}",
+    "ground_truth": "C"
+  },
+  {
+    "qid": "val_0084",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "D",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"\n### Phân tích:\n- Để tìm cường độ điện trường giữa hai cực của ống phóng tia X, ta cần sử dụng công thức liên quan đến hiệu điện thế và khoảng cách giữa hai cực.\n\n### Công thức:\n- Công thức tính cường độ điện trường (E) dựa trên hiệu điện thế (U) và khoảng cách (d) là: E = U / d\n\n### Tính toán chi tiết:\n- Hiệu điện thế (U) = 100 kV = 100.000 V (chuyển đổi từ kV sang V vì đơn vị của khoảng cách là cm, tương đương với m)\n- Khoảng cách (d) = 2 cm = 0,02 m (chuyển đổi từ cm sang m để thống nhất đơn vị)\n- Áp dụng công thức: E = U / d = 100.000 V / 0,02 m = 5.000.000 V/m\n\n### So sánh với các lựa chọn:\n- Kết quả tính toán là 5.000.000 V/m, khớp với lựa chọn D.\n\n### Kết quả:\n- Đáp án đúng là D.\",\n\"final_answer\": \"D\"\n}",
+    "ground_truth": "D"
+  },
+  {
+    "qid": "val_0085",
+    "domain": "GENERAL_DOMAIN",
+    "llm_prediction": "A",
+    "llm_reasoning": "Tính đa dạng sinh học của sinh vật biểu hiện ở số lượng thành phần loài, các kiểu hệ sinh thái và các nguồn gen quý. Điều này có nghĩa là đa dạng sinh học không chỉ liên quan đến số lượng loài mà còn bao gồm cả sự đa dạng về hệ sinh thái và nguồn gen. Do đó, đáp án A là chính xác nhất vì nó bao gồm cả ba yếu tố này.",
+    "ground_truth": "A"
+  },
+  {
+    "qid": "val_0086",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "C",
+    "llm_reasoning": "Trong đoạn 1 của bài 'Tinh thần yêu nước của nhân dân ta', tác giả đã sử dụng nhiều dẫn chứng cụ thể để minh họa cho tinh thần yêu nước của nhân dân Việt Nam. Những dẫn chứng này bao gồm cả những sự kiện lịch sử quan trọng và những hành động anh hùng của các cá nhân. Việc sử dụng dẫn chứng tiêu biểu giúp làm tăng tính thuyết phục và cụ thể cho lập luận của tác giả.",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0087",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "B",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"\n### Phân tích:\n- Bài toán yêu cầu tính toán sự giảm áp suất ($\\Delta P$) dựa trên phương trình Darcy-Weisbach.\n- Các thông số đã biết: $f = 0,015$, $L = 500$ m, $D = 0,4$ m, $\\rho = 800$ kg/m³, $v = 2$ m/s.\n\n### Công thức:\n$$ \\Delta P = f \\cdot \\frac{L}{D} \\cdot \\frac{\\rho v^2}{2} $$\n\n### Tính toán chi tiết:\n1. Thay thế các giá trị vào công thức:\n   $$ \\Delta P = 0,015 \\cdot \\frac{500}{0,4} \\cdot \\frac{800 \\cdot 2^2}{2} $$\n2. Tính toán từng phần:\n   - $\\frac{500}{0,4} = 1250$\n   - $800 \\cdot 2^2 = 800 \\cdot 4 = 3200$\n   - $\\frac{3200}{2} = 1600$\n3. Tiếp tục tính toán:\n   $$ \\Delta P = 0,015 \\cdot 1250 \\cdot 1600 $$\n4. Kết quả cuối cùng:\n   $$ \\Delta P = 0,015 \\cdot 2000000 = 30000 \\text{ Pa} = 30 \\text{ kPa} $$\n\n### So sánh với các lựa chọn:\n- Kết quả tính toán là 30 kPa, khớp với lựa chọn B.\n\n### Kết quả:\n\",\n\"final_answer\": \"B\"\n}",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0088",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "C",
+    "llm_reasoning": "Trong đoạn văn 'Trữ quân - Trữ quân ở Đông Á. Quy định lập trữ quân.', có đề cập đến việc Lê Chiêu Thống được chọn làm trữ quân trong triều Hậu Lê. Đoạn văn này cũng cung cấp thông tin về danh xưng của Lê Chiêu Thống khi ấy, được chép là 'Hoàng tự tôn' (theo Đại Việt sử ký tục biên) hoặc 'Hoàng thái tôn' (theo Cương mục).",
+    "ground_truth": "C"
+  },
+  {
+    "qid": "val_0089",
+    "domain": "VN_CORE_KNOWLEDGE",
+    "llm_prediction": "B",
+    "llm_reasoning": "{\n\"reasoning\": \"Sự phát triển nhảy vọt về nhận thức, tư tưởng của Chủ tịch Hồ Chí Minh từ một thanh niên yêu nước chân chính sang một chiến sĩ cộng sản diễn ra sau khi Người đọc được văn kiện quan trọng. Văn kiện này đã giúp Người hiểu rõ hơn về chủ nghĩa Mác-Lênin và cách thức giải phóng dân tộc thông qua con đường cách mạng xã hội chủ nghĩa.\n\nTrong số các lựa chọn, Bản Sơ thảo lần thứ nhất những luận cương về vấn đề dân tộc và vấn đề thuộc địa của Lênin (1920) là văn kiện phù hợp nhất với sự phát triển tư tưởng của Chủ tịch Hồ Chí Minh. Văn kiện này đã chỉ ra rằng, để giải phóng dân tộc, cần phải gắn liền phong trào giải phóng dân tộc với phong trào cách mạng vô sản quốc tế. Điều này đã giúp Chủ tịch Hồ Chí Minh nhận thức được tầm quan trọng của việc kết hợp chủ nghĩa dân tộc với chủ nghĩa xã hội trong cuộc đấu tranh giải phóng dân tộc.\n\nTuyên ngôn của Đảng Cộng sản do Mác soạn thảo (1848) là một văn kiện quan trọng khác, nhưng nó không trực tiếp liên quan đến vấn đề dân tộc và thuộc địa như Bản Sơ thảo lần thứ nhất những luận cương về vấn đề dân tộc và vấn đề thuộc địa của Lênin.\n\nTuyên bố của Quốc tế Cộng sản (Quốc tế 3) và Tuyên bố của Quốc tế Cộng sản (Quốc tế 3) về vấn đề dân tộc và thuộc địa cũng là những văn kiện quan trọng, nhưng chúng không phải là văn kiện trực tiếp dẫn đến sự phát triển tư tưởng của Chủ tịch Hồ Chí Minh như Bản Sơ thảo lần thứ nhất những luận cương về vấn đề dân tộc và vấn đề thuộc địa của Lênin.\",\n\"final_answer\": \"B\"\n}",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0090",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "B",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"\n### Phân tích\nĐể tìm các giá trị riêng của toán tử tuyến tính $T$, chúng ta cần tìm các giá trị $\\lambda$ sao cho $(T - \\lambda I)v = 0$ có nghiệm không tầm thường, trong đó $I$ là ma trận đơn vị và $v$ là vectơ riêng tương ứng.\n\n### Công thức\nCông thức để tìm các giá trị riêng là giải phương trình đặc trưng:\n$$\\det(T - \\lambda I) = 0$$\n\n### Tính toán chi tiết\nMa trận $T$ đã cho là:\n$$T = \\begin{pmatrix}\n1 & 0 \\\\\n2 & 1 \\\\\n0 & 2\n\\end{pmatrix}$$\n\nMa trận $T - \\lambda I$ là:\n$$T - \\lambda I = \\begin{pmatrix}\n1-\\lambda & 0 \\\\\n2 & 1-\\lambda \\\\\n0 & 2\n\\end{pmatrix}$$\n\nXác định tử của ma trận này là:\n$$\\det(T - \\lambda I) = (1-\\lambda)((1-\\lambda)(1-\\lambda) - 0) - 0 + 0$$\n$$= (1-\\lambda)^3$$\n\nPhương trình đặc trưng là:\n$$(1-\\lambda)^3 = 0$$\n\nGiải phương trình này, chúng ta có:\n$$\\lambda = 1$$\n\nVì đây là phương trình bậc ba, nên giá trị riêng $\\lambda = 1$ có độ bội là 3.\n\n### So sánh với các lựa chọn\nSo sánh kết quả tính toán với các lựa chọn, chúng ta thấy rằng chỉ có lựa chọn B khớp với kết quả tính toán.\n\n### Kết quả\nKết quả cuối cùng là lựa chọn B, vì nó khớp với giá trị riêng $\\lambda = 1$ có độ bội là 3.\",\n\"final_answer\": \"B\"\n}",
+    "ground_truth": "B"
+  },
+  {
+    "qid": "val_0091",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "A",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"\n### Phân tích:\nĐể tìm lãi suất thực, chúng ta cần xem xét cả lãi suất danh nghĩa và tỷ lệ lạm phát. Lãi suất thực phản ánh mức tăng trưởng thực tế của tiền gửi sau khi trừ đi ảnh hưởng của lạm phát.\n\n### Công thức:\nLãi suất thực = Lãi suất danh nghĩa - Tỷ lệ lạm phát\n\n### Tính toán chi tiết:\n- Lãi suất danh nghĩa = 3%\n- Tỷ lệ lạm phát = 2%\n\nÁp dụng công thức:\nLãi suất thực = 3% - 2% = 1%\n\n### So sánh với các lựa chọn:\n- A. 1%\n- B. 1,5%\n- C. 5%\n- D. 6%\n\nKết quả tính toán (1%) khớp với lựa chọn A.\n\n### Kết quả:\n\",\n\"final_answer\": \"A\"\n}",
+    "ground_truth": "A"
+  },
+  {
+    "qid": "val_0092",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "A",
+    "llm_reasoning": "Năm 2017, thành lập khoa Khoa học Công nghệ tiên tiến trên cơ sở sáp nhập Chương trình đào tạo Kỹ sư chất lượng cao (PFIEV), Chương trình đào tạo kỹ sư tiên tiến Việt - Mỹ và Trung tâm Xuất sắc.",
+    "ground_truth": "A"
+  },
+  {
+    "qid": "val_0093",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "D",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"Để tìm kết quả của việc chia thành phần x của một véc-tơ lực cho thành phần y của nó, chúng ta cần nhớ lại mối quan hệ giữa các thành phần của véc-tơ và các hàm lượng giác.\n\n- Thành phần x của véc-tơ lực thường liên quan đến cosine của góc (cos θ).\n- Thành phần y của véc-tơ lực thường liên quan đến sine của góc (sin θ).\n\nDo đó, khi chia thành phần x cho thành phần y, chúng ta thực hiện phép chia cos θ cho sin θ.\n\nCông thức này tương ứng với cotangent của góc (cot θ = cos θ / sin θ).\n\nVậy, kết quả của việc chia thành phần x của một véc-tơ lực cho thành phần y của nó là cotangent của góc.\",\n\n\"final_answer\": \"D\"\n}",
+    "ground_truth": "D"
+  }
+]

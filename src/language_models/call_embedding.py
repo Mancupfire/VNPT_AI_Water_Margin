@@ -164,3 +164,4 @@ if __name__ == "__main__":
     sample_text = "Việc đọc sách giúp mở rộng tri thức và phát triển tư duy."
     emb = get_embedding(sample_text)
     print("Embedding dim:", len(emb))
+    print("Embedding vector (first 5 values):", emb[:5])

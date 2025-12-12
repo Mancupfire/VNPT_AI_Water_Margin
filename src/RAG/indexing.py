@@ -1,31 +1,35 @@
 import faiss
-import numpy as np
-from .embedding import chunk_and_embed
+from langchain_community.vectorstores import FAISS
+from .embedding import CustomEmbeddings
 
 class FAISSIndexer:
-    def __init__(self, dimension, use_gpu=False):
-        self.dimension = dimension
+    def __init__(self, use_gpu=False):
+        self.embeddings = CustomEmbeddings()
+        self.vector_store = None
         self.use_gpu = use_gpu
-        if self.use_gpu:
-            cpu_index = faiss.IndexFlatL2(dimension)
-            self.index = faiss.index_cpu_to_gpu(faiss.StandardGpuResources(), 0, cpu_index)
-        else:
-            self.index = faiss.IndexHNSWFlat(dimension, 32)  # 32 is the number of neighbors to keep during search
-    
-    def add_documents(self, documents):
-        """
-        Adds a list of documents to the FAISS index.
-        """
-        embeddings = chunk_and_embed(documents)
-        self.index.add(np.array(embeddings).astype('float32'))
-    
-    def save_index(self, index_file):
-        faiss.write_index(self.index, index_file)
-    
-    def load_index(self, index_file):
-        self.index = faiss.read_index(index_file)
 
-# Example Usage:
-# faiss_indexer = FAISSIndexer(dimension=768, use_gpu=False)
-# faiss_indexer.add_documents(["Document 1 text", "Document 2 text"])
-# faiss_indexer.save_index("faiss_index.index")
+    def add_documents(self, documents):
+        if self.vector_store is None:
+            self.vector_store = FAISS.from_texts(documents, self.embeddings)
+            if self.use_gpu:
+                self.vector_store.index = faiss.index_cpu_to_gpu(faiss.StandardGpuResources(), 0, self.vector_store.index)
+        else:
+            self.vector_store.add_texts(documents)
+
+    def save_index(self, folder_path):
+        if self.use_gpu:
+            self.vector_store.index = faiss.index_gpu_to_cpu(self.vector_store.index)
+        self.vector_store.save_local(folder_path)
+
+    def load_index(self, folder_path):
+        self.vector_store = FAISS.load_local(folder_path, self.embeddings, allow_dangerous_deserialization=True)
+        if self.use_gpu:
+            self.vector_store.index = faiss.index_cpu_to_gpu(faiss.StandardGpuResources(), 0, self.vector_store.index)
+
+    def retrieve(self, query, top_k=4):
+        """
+        Retrieves the top-k most similar documents to the query and returns their content.
+        """
+        retriever = self.vector_store.as_retriever(search_kwargs={'k': top_k})
+        results = retriever.invoke(query)
+        return [doc.page_content for doc in results]

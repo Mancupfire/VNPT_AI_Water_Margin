@@ -7,6 +7,7 @@ import csv
 import faiss
 import numpy as np
 import pickle
+from pyvi import ViTokenizer
 
 from src.providers import load_chat_provider
 from sentence_transformers import CrossEncoder
@@ -108,16 +109,29 @@ async def process_item(item, provider, config: Dict[str, Any], semaphore: asynci
                 retrieved_chunks = []
                 if config.get("HYBRID_SEARCH_ENABLED") and bm25_index is not None and faiss_index is not None:
                     # Hybrid Search
-                    tokenized_query = question_text.split(" ")
-                    bm25_scores = bm25_index.get_scores(tokenized_query)
+                    tokenized_query = ViTokenizer.tokenize(question_text).split()
+                    
+                    loop = asyncio.get_running_loop()
+                    bm25_scores = await loop.run_in_executor(None, bm25_index.get_scores, tokenized_query)
                     
                     question_embedding_list = await provider.aembed([question_text], {"MODEL_NAME": "vnptai_hackathon_embedding"})
                     question_embedding = np.array(question_embedding_list[0]).reshape(1, -1)
-                    D, I = faiss_index.search(question_embedding, len(text_chunks)) # Get all distances
+                    
+                    # Use run_in_executor for CPU-bound FAISS search
+                    D, I = await loop.run_in_executor(None, lambda: faiss_index.search(question_embedding, len(text_chunks)))
 
                     # Normalize scores
-                    bm25_scores_norm = (bm25_scores - np.min(bm25_scores)) / (np.max(bm25_scores) - np.min(bm25_scores))
-                    faiss_scores_norm = 1 - (D[0] - np.min(D[0])) / (np.max(D[0]) - np.min(D[0]))
+                    bm25_min, bm25_max = np.min(bm25_scores), np.max(bm25_scores)
+                    if bm25_max - bm25_min == 0:
+                        bm25_scores_norm = np.zeros_like(bm25_scores)
+                    else:
+                        bm25_scores_norm = (bm25_scores - bm25_min) / (bm25_max - bm25_min)
+
+                    faiss_min, faiss_max = np.min(D[0]), np.max(D[0])
+                    if faiss_max - faiss_min == 0:
+                        faiss_scores_norm = np.zeros_like(D[0])
+                    else:
+                        faiss_scores_norm = 1 - (D[0] - faiss_min) / (faiss_max - faiss_min)
 
                     # Combine scores
                     hybrid_scores = (config["SEMANTIC_WEIGHT"] * faiss_scores_norm) + (config["KEYWORD_WEIGHT"] * bm25_scores_norm)
@@ -128,7 +142,10 @@ async def process_item(item, provider, config: Dict[str, Any], semaphore: asynci
                     # Dense Search only
                     question_embedding_list = await provider.aembed([question_text], {"MODEL_NAME": "vnptai_hackathon_embedding"})
                     question_embedding = np.array(question_embedding_list[0]).reshape(1, -1)
-                    D, I = faiss_index.search(question_embedding, retrieval_top_k)
+                    
+                    loop = asyncio.get_running_loop()
+                    # Use run_in_executor for CPU-bound FAISS search
+                    D, I = await loop.run_in_executor(None, lambda: faiss_index.search(question_embedding, retrieval_top_k))
                     retrieved_chunks = [text_chunks[idx] for idx in I[0] if idx >= 0 and idx < len(text_chunks)]
 
                 # Re-ranking

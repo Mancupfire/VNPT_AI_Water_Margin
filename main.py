@@ -51,7 +51,7 @@ if __name__ == "__main__":
     # Example for test set
     asyncio.run(
         process_dataset_async(
-            input_file='E:\\VNPT_AI_Water_Margin\\data\\test.json',
+            input_file='data/test.json',
             output_file=f'pred/test_{config.get("CHAT_PROVIDER", "")}_async.csv',
             config=config,
             mode='test'

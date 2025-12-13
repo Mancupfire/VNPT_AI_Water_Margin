@@ -8,6 +8,7 @@ import numpy as np
 from typing import Dict, Any, List
 from rank_bm25 import BM25Okapi
 import pickle
+from pyvi import ViTokenizer
 
 # Add project root to path for direct script execution
 _project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
@@ -125,7 +126,7 @@ async def build_index(docs_dir: str, index_path: str, texts_path: str, bm25_inde
 
     # Build and save BM25 index
     logger.info("Building BM25 index...")
-    tokenized_corpus = [doc.split(" ") for doc in all_chunks]
+    tokenized_corpus = [ViTokenizer.tokenize(doc).split() for doc in all_chunks]
     bm25 = BM25Okapi(tokenized_corpus)
     with open(bm25_index_path, 'wb') as f:
         pickle.dump(bm25, f)

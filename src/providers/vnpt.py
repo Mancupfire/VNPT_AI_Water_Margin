@@ -20,15 +20,39 @@ class VNPTProvider:
         
         return loop.run_until_complete(self.achat(messages, config))
 
+    def _get_credentials(self, model_name: str, config: Dict[str, Any]):
+        """Helper to get the correct Token ID and Key based on the model name."""
+        access_token = config.get("ACCESS_TOKEN") or os.getenv("VNPT_ACCESS_TOKEN")
+        
+        token_id = None
+        token_key = None
+
+        if "small" in model_name.lower():
+            token_id = os.getenv("VNPT_SMALL_TOKEN_ID")
+            token_key = os.getenv("VNPT_SMALL_TOKEN_KEY")
+        elif "large" in model_name.lower():
+            token_id = os.getenv("VNPT_LARGE_TOKEN_ID")
+            token_key = os.getenv("VNPT_LARGE_TOKEN_KEY")
+        elif "embedding" in model_name.lower():
+            token_id = os.getenv("VNPT_EMBEDDING_TOKEN_ID")
+            token_key = os.getenv("VNPT_EMBEDDING_TOKEN_KEY")
+        
+        # Fallback to generic if specific ones are missing
+        if not token_id:
+            token_id = config.get("TOKEN_ID") or os.getenv("VNPT_TOKEN_ID")
+        if not token_key:
+            token_key = config.get("TOKEN_KEY") or os.getenv("VNPT_TOKEN_KEY")
+            
+        return access_token, token_id, token_key
+
     async def achat(self, messages: List[Dict[str, Any]], config: Dict[str, Any]) -> str:
         model_name = config.get("MODEL_NAME") or os.getenv("MODEL_NAME") or "vnptai-hackathon-small"
         api_base = self.base_url.rstrip('/')
         url = f"{api_base}/{model_name}"
 
         headers = {"Content-Type": "application/json"}
-        access_token = config.get("ACCESS_TOKEN") or os.getenv("VNPT_ACCESS_TOKEN")
-        token_id = config.get("TOKEN_ID") or os.getenv("VNPT_TOKEN_ID")
-        token_key = config.get("TOKEN_KEY") or os.getenv("VNPT_TOKEN_KEY")
+        access_token, token_id, token_key = self._get_credentials(model_name, config)
+
         if access_token:
             headers["Authorization"] = f"Bearer {access_token}"
         if token_id:
@@ -55,9 +79,8 @@ class VNPTProvider:
         url = self.embedding_url
 
         headers = {"Content-Type": "application/json"}
-        access_token = config.get("ACCESS_TOKEN") or os.getenv("VNPT_ACCESS_TOKEN")
-        token_id = config.get("TOKEN_ID") or os.getenv("VNPT_TOKEN_ID")
-        token_key = config.get("TOKEN_KEY") or os.getenv("VNPT_TOKEN_KEY")
+        access_token, token_id, token_key = self._get_credentials(model_name, config)
+
         if access_token:
             headers["Authorization"] = f"Bearer {access_token}"
         if token_id:

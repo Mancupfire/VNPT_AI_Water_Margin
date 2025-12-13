@@ -1,0 +1,140 @@
+[
+  {
+    "qid": "val_0002",
+    "question": "Ngôi chùa Ba La Mật được khai dựng vào năm nào?",
+    "choices": ["1886", "1900", "1920", "1930"],
+    "answer": "A"
+  },
+  {
+    "qid": "val_0023",
+    "question": "Trong một phân tích tài chính, Emily nhận thấy rằng một công ty có tỷ số hiện hành là 1,5... Vốn lưu động của công ty là bao nhiêu?",
+    "choices": ["15.000 đô la", "20.000 đô la", "30.000 đô la", "45.000 đô la"],
+    "answer": "A"
+  },
+  {
+    "qid": "val_0029",
+    "question": "Theo thông tin được cung cấp, tỉnh nào sau đây đã được sáp nhập vào tỉnh Gia Lai để hình thành tỉnh Gia Lai hiện tại?",
+    "choices": ["Bình Định", "Đắk Lắk", "Quảng Ngãi", "Phú Yên"],
+    "answer": "A"
+  },
+  {
+    "qid": "val_0035",
+    "question": "Theo quy trình cấp Chứng nhận trường mầm non đạt kiểm định chất lượng giáo dục, thành phần hồ sơ bắt buộc gồm những tài liệu nào?",
+    "choices": ["01 bản chính báo cáo tự đánh giá và 02 bản chính công văn đăng ký", "02 bản chính báo cáo tự đánh giá và 01 bản chính công văn đăng ký", "01 bản chính báo cáo tự đánh giá và 01 bản chính công văn đăng ký", "02 bản chính báo cáo tự đánh giá và 02 bản chính công văn đăng ký"],
+    "answer": "B"
+  },
+  {
+    "qid": "val_0049",
+    "question": "Lãi suất danh nghĩa là 10% được tính theo kỳ bán niên, vậy lãi suất hàng năm hiệu quả là bao nhiêu?",
+    "choices": ["10.00%", "10.25%", "10.50%", "10.75%", "11.00%", "11.25%", "11.50%", "11.75%", "12.00%", "12.25%"],
+    "answer": "B"
+  },
+  {
+    "qid": "val_0051",
+    "question": "Một công ty có một khoản nợ phải trả với số tiền gốc là 80.000 đô la và lãi suất hàng năm là 6%. Nếu lãi suất được tính theo kỳ hạn hàng năm, số tiền phải trả tổng cộng vào cuối 2 năm là bao nhiêu?",
+    "choices": ["89.600 đô la", "84.800 đô la", "89.200 đô la", "90.000 đô la"],
+    "answer": "A"
+  },
+  {
+    "qid": "val_0055",
+    "question": "Cuộc thi người mẫu nào tổ chức quy mô toàn quốc phải có giấy phép của ai?",
+    "choices": ["Cục Nghệ thuật biểu diễn", "Bộ Văn hóa, Thể thao và Du lịch", "Ủy ban nhân dân cấp tỉnh", "Sở Văn hóa, Thể thao và Du lịch"],
+    "answer": "A"
+  },
+  {
+    "qid": "val_0056",
+    "question": "Những trường hợp nào khoan giếng không phải đăng ký khai thác?",
+    "choices": ["Khai thác, sử dụng nước cho sinh hoạt của hộ gia đình; sử dụng nước biển để sản xuất muối.", "Khai thác, sử dụng nước với quy mô nhỏ cho sản xuất, kinh doanh, dịch vụ; sử dụng nước phục vụ các hoạt động văn hóa, tôn giáo, nghiên cứu khoa học.", "Khai thác, sử dụng nước cho phòng cháy, chữa cháy, ứng phó, khắc phục sự cố ô nhiễm, dịch bệnh và các trường hợp khẩn cấp khác theo quy định của pháp luật về tình trạng khẩn cấp.", "Tất cả đáp án trên."],
+    "answer": "D"
+  },
+  {
+    "qid": "val_0058",
+    "question": "VNNIC là tên viết tắt của đơn vị nào?",
+    "choices": ["Trung tâm Internet Việt Nam, đơn vị thuộc Bộ Thông tin và Truyền thông.", "Trung tâm công nghệ và thông tin Nghệ An.", "Cổng thông tin điện tử Nghệ An.", "tất cả đáp án trên đều đúng"],
+    "answer": "A"
+  },
+  {
+    "qid": "val_0067",
+    "question": "Giải pháp nào sau đây được đề xuất để xử lý lỗi xác thực khi nộp hồ sơ thẩm duyệt thiết kế về phòng cháy và chữa cháy?",
+    "choices": ["Kiểm tra lại hồ sơ để đảm bảo đầy đủ giấy tờ", "Liên hệ với cơ quan chức năng để được hỗ trợ trực tiếp", "Gửi hồ sơ qua dịch vụ bưu chính công ích", "Gọi tổng đài kỹ thuật của hệ thống để khắc phục lỗi"],
+    "answer": "B"
+  },
+  {
+    "qid": "val_0075",
+    "question": "Vào ngày 30 tháng 1 năm 2019, Printing Plus đã mua nguyên vật liệu trả chậm với giá 500 đô la... Tác động đến phương trình kế toán là gì?",
+    "choices": ["Tài sản tăng 500 đô la và nợ phải trả giảm 500 đô la", "Tài sản giảm 500 đô la và vốn chủ sở hữu tăng 500 đô la", "Tài sản tăng 500 đô la và vốn chủ sở hữu tăng 500 đô la", "Tài sản tăng 500 đô la và nợ phải trả tăng 500 đô la"],
+    "answer": "D"
+  },
+  {
+    "qid": "val_0076",
+    "question": "Một công ty đang xem xét việc đầu tư vào một dòng sản phẩm mới. Lợi nhuận kỳ vọng trên vốn đầu tư là 15%... Giá trị kỳ vọng của khoản đầu tư này là bao nhiêu?",
+    "choices": ["13%", "12%", "11%", "10%"],
+    "answer": "D"
+  },
+  {
+    "qid": "val_0014",
+    "question": "Trong thủ tục nhập quốc tịch Việt Nam, giấy tờ nào sau đây là bắt buộc để chứng minh người xin nhập tịch không sử dụng quốc tịch nước ngoài gây phương hại đến an ninh và lợi ích quốc gia?",
+    "choices": ["Bản cam kết không sử dụng quốc tịch nước ngoài gây phương hại đến an ninh, lợi ích quốc gia", "Giấy chứng nhận trình độ tiếng Việt", "Chứng chỉ cư trú hợp pháp tại Việt Nam", "Văn bản xác nhận không có án tích tại Việt Nam"],
+    "answer": "A"
+  },
+  {
+    "qid": "val_0017",
+    "question": "Nước Cộng hòa xã hội chủ nghĩa Việt Nam là một hệ thống bao gồm tập hợp các cơ quan:",
+    "choices": ["Cơ quan quyền lực Nhà nước", "Cơ quan hành chính Nhà nước", "Cơ quan kiểm sát và xét xử", "Cả ba phương án còn lại đều đúng"],
+    "answer": "D"
+  },
+  {
+    "qid": "val_0018",
+    "question": "Tính khách quan của chân lý thể hiện ở chỗ nào?",
+    "choices": ["Nó lệ thuộc vào ý thức của con người", "Nó phù hợp với mong muốn của con người", "Nó được tạo ra bởi con người", "Nó phù hợp với hiện thực khách quan và không lệ thuộc vào ý thức của con người"],
+    "answer": "D"
+  },
+  {
+    "qid": "val_0039",
+    "question": "Nguyễn Ái Quốc đã mở nhiều lớp huấn luyện đào tạo cán bộ cho cách mạng Việt Nam ở đâu",
+    "choices": ["Việt bắc (Việt Nam)", "Quảng Châu (Trung Quốc)", "Hồng kông (Trung Quốc)"],
+    "answer": "A"
+  },
+  {
+    "qid": "val_0041",
+    "question": "Theo quan điểm của Chủ Tịch Hồ Chí Minh, con đường giải phóng nhân loại hướng tới mục tiêu nào?",
+    "choices": ["Một nền cộng hoà thế giới chân chính, xoá bỏ sự phân biệt giàu nghèo và biên giới quốc gia", "Sự tự do, bình đẳng, bác ái, đoàn kết trên toàn cầu", "Một xã hội bình đẳng, công bằng, không có áp bức bóc lột", "Chỉ có chủ nghĩa xã hội mới cứu được nhân loại"],
+    "answer": "A"
+  },
+  {
+    "qid": "val_0050",
+    "question": "Chủ Tịch Hồ Chí Minh đã tiếp thu những giá trị tích cực nào từ Nho giáo để phục vụ cách mạng?",
+    "choices": ["Câu trả lời nằm ngoài phạm vi trả lời", "Lý tưởng xã hội bình trị và đại đồng", "Triết lý tu thân dưỡng tính", "Đề cao văn hóa, lễ giáo và truyền thống hiếu học"],
+    "answer": "D"
+  },
+  {
+    "qid": "val_0070",
+    "question": "Hệ thống chính trị là chỉnh thể các thiết chế thực thi quyền lực chính trị, bao gồm các bộ phận cấu thành là:",
+    "choices": ["Đảng chính trị", "Nhà nước", "Các tổ chức chính trị-xã hội", "Tất cả các phương án trên"],
+    "answer": "D"
+  },
+  {
+    "qid": "val_0073",
+    "question": "Theo Tư tưởng Hồ Chí Minh, điều kiện để quyền của nhân dân được bảo đảm là gì?",
+    "choices": ["Nhân dân làm tốt nghĩa vụ công dân đối với đất nước", "Tăng cường hợp tác quốc tế", "Phát triển kinh tế thị trường", "Tôi không thể trả lời câu hỏi này"],
+    "answer": "A"
+  },
+  {
+    "qid": "val_0079",
+    "question": "Theo Chủ Tịch Hồ Chí Minh, học để làm gì?",
+    "choices": ["Làm việc", "Làm cán bộ.", "Làm người.", "Cả a, b, c."],
+    "answer": "C"
+  },
+  {
+    "qid": "val_0086",
+    "question": "Nghệ thuật trong đoạn 1 bài 'Tinh thần yêu nước của nhân dân ta' là gì?",
+    "choices": ["Phép nhân hóa", "Dùng phép liệt kê tăng tiến", "Dùng dẫn chứng tiêu biểu", "Dùng câu văn ngắn, nhịp điệu nhanh"],
+    "answer": "B"
+  },
+  {
+    "qid": "val_0089",
+    "question": "Sự phát triển nhảy vọt về nhận thức, tư tưởng của Chủ Tịch Hồ Chí Minh từ một thanh niên yêu nước chân chính sang một chiến sĩ cộng sản sau khi Người đọc được văn kiện nào sau đây?",
+    "choices": [" Tuyên ngôn của Đảng Cộng sản do Mác soạn thảo (1848)", " Bản Sơ thảo lần thứ nhất những luận cương về vấn đề dân tộc và vấn đề thuộc địa của Lênin (1920)", " Tuyên bố của Quốc tế Cộng sản (Quốc tế 3)", " Tuyên bố của Quốc tế Cộng sản (Quốc tế 3) về vấn đề dân tộc và thuộc địa"],
+    "answer": "b"
+  }
+]

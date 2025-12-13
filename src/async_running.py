@@ -8,7 +8,7 @@ import faiss
 import numpy as np
 import pickle
 
-from src.providers import load_provider
+from src.providers import load_chat_provider
 from sentence_transformers import CrossEncoder
 
 DEFAULT_CONFIG: Dict[str, Any] = {
@@ -97,7 +97,7 @@ async def call_llm_async(provider, messages: list[Dict[str, Any]], config: Dict[
 
     return await provider.achat(messages, cfg)
 
-async def process_item(item, provider: VNPTProvider, config: Dict[str, Any], semaphore: asyncio.Semaphore, faiss_index=None, bm25_index=None, text_chunks=None, cross_encoder=None):
+async def process_item(item, provider, config: Dict[str, Any], semaphore: asyncio.Semaphore, faiss_index=None, bm25_index=None, text_chunks=None, cross_encoder=None):
     async with semaphore:
         context = None
         if config.get("RAG_ENABLED") and text_chunks is not None:
@@ -182,7 +182,7 @@ async def test_function_async(input_file, output_csv, config=None):
         print(f"File not found: {input_file}")
         return
 
-    provider = load_provider(config.get("PROVIDER"), config)
+    provider = load_chat_provider(config)
     semaphore = asyncio.Semaphore(config.get("CONCURRENT_REQUESTS", 2))
 
     faiss_index = None
@@ -238,7 +238,7 @@ async def valid_function_async(input_file, output_csv, config=None):
         print(f"File not found: {input_file}")
         return
 
-    provider = load_provider(config.get("PROVIDER"), config)
+    provider = load_chat_provider(config)
     semaphore = asyncio.Semaphore(config.get("CONCURRENT_REQUESTS", 2))
 
     faiss_index = None

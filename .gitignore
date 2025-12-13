@@ -11,3 +11,7 @@ __pycache__/
 
 knowledge_base/
 pred/
+
+.python-version
+pyproject.toml
+uv.lock

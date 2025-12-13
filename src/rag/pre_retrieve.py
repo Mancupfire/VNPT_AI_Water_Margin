@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 import asyncio
 from tqdm.asyncio import tqdm
@@ -6,6 +7,11 @@ import numpy as np
 import faiss
 import pickle
 from typing import Dict, Any
+
+# Add project root to path for direct script execution
+_project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+if _project_root not in sys.path:
+    sys.path.insert(0, _project_root)
 
 from src.providers.factory import load_embedding_provider
 from sentence_transformers import CrossEncoder

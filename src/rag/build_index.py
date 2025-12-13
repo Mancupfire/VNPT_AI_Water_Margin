@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 import asyncio
 from pypdf import PdfReader
@@ -7,6 +8,11 @@ import numpy as np
 from typing import Dict, Any, List
 from rank_bm25 import BM25Okapi
 import pickle
+
+# Add project root to path for direct script execution
+_project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+if _project_root not in sys.path:
+    sys.path.insert(0, _project_root)
 
 from src.providers.factory import load_embedding_provider
 from src.logger import get_logger

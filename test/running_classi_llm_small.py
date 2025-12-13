@@ -44,9 +44,10 @@ def call_vnpt_llm(prompt, config):
             }
         ],
         "temperature": 0.1, 
-        "top_p": 1.0,
+        "top_p": 0.1,
         "max_completion_tokens": 2048,
-        "n": 1
+        "n": 1,
+        "seed": 416
     }
 
     try:

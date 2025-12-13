@@ -23,7 +23,7 @@ CONFIG = {
     
     # Thời gian nghỉ giữa các request (giây) để tránh lỗi Quota
     # Small: 60 req/h -> nghỉ > 60s. Large: 40 req/h -> nghỉ > 90s.
-    "SLEEP_TIME": 1
+    "SLEEP_TIME": 95
 }
 
 # ==============================================================================
@@ -54,10 +54,11 @@ def call_vnpt_llm(system_prompt, user_prompt, config):
                 "content": user_prompt
             }
         ],
-        "temperature": 0.1, 
-        "top_p": 1.0,
+        "temperature": 0.2,
+        "top_p": 0.2,
         "max_completion_tokens": 2048,
-        "n": 1
+        "n": 1,
+        "seed": 416
     }
 
     try:

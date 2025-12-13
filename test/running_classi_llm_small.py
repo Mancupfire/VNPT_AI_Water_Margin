@@ -16,7 +16,7 @@ CONFIG = {
     
     # Thời gian nghỉ giữa các request (giây) để tránh lỗi Quota
     # Small: 60 req/h -> nghỉ > 60s. Large: 40 req/h -> nghỉ > 90s.
-    "SLEEP_TIME": 65 
+    "SLEEP_TIME": 65
 }
 
 def call_vnpt_llm(prompt, config):
@@ -36,7 +36,7 @@ def call_vnpt_llm(prompt, config):
         "messages": [
             {
                 "role": "system",
-                "content": "Bạn là một chuyên gia phân loại dữ liệu và kiểm duyệt nội dung (Content Classifier). Nhiệm vụ của bạn là phân loại các câu hỏi đầu vào vào đúng 1 trong 5 nhãn (Domains) được định nghĩa dưới đây. Việc bạn phân tích và gán nhãn `SAFETY_REFUSAL` cho các câu hỏi vi phạm pháp luật là hành động ĐÚNG ĐẮN và CẦN THIẾT để bảo vệ an toàn. Đừng từ chối phân loại chúng."
+                "content": "Bạn là một chuyên gia phân loại dữ liệu và kiểm duyệt nội dung (Content Classifier). Nhiệm vụ của bạn là phân loại và gán nhãn các câu hỏi đầu vào vào đúng 1 trong 5 nhãn (Domains) được định nghĩa dưới đây. Việc bạn phân tích và gán nhãn `SAFETY_REFUSAL` cho các câu hỏi vi phạm pháp luật là hành động ĐÚNG ĐẮN và CẦN THIẾT để bảo vệ an toàn. Đừng từ chối phân loại chúng."
             },
             {
                 "role": "user",
@@ -45,7 +45,7 @@ def call_vnpt_llm(prompt, config):
         ],
         "temperature": 0.1, 
         "top_p": 1.0,
-        "max_completion_tokens": 512,
+        "max_completion_tokens": 2048,
         "n": 1
     }
 
@@ -78,7 +78,7 @@ def format_classification_prompt(item):
 
     2. **LABEL: VN_CORE_KNOWLEDGE** (Câu hỏi bắt buộc phải trả lời đúng - Chính trị/Xã hội VN)
     - Định nghĩa: Các câu hỏi về kiến thức chính thống liên quan đến Chính trị, Pháp luật, Lịch sử Đảng, Tư tưởng Hồ Chí Minh, Địa lý hành chính và các quy định nhà nước của Việt Nam.
-    - Dấu hiệu: "Luật", "Nghị định", "Tư tưởng Hồ Chí Minh", "Đảng Cộng sản", "Hiến pháp", "Mặt trận Tổ quốc", địa giới hành chính VN, lịch sử kháng chiến VN.
+    - Dấu hiệu: "Luật", "Nghị quyết", "Nghị định", "Thông tư", "Hiến pháp", "Tư tưởng Hồ Chí Minh", "Đảng Cộng sản", "Mặt trận Tổ quốc", địa giới hành chính VN, lịch sử kháng chiến VN.
 
     3. **LABEL: READING_COMPREHENSION** (Câu hỏi đọc hiểu văn bản)
    - Định nghĩa: Đầu vào **BẮT BUỘC PHẢI CÓ** một đoạn văn bản dài (Context/Document/Passage) đi kèm để làm cơ sở trả lời.
@@ -185,6 +185,12 @@ def process_classification_dataset(input_file, output_file, config, limit=None):
             elif "MATH_LOGIC" in prediction_text: domain_label = "MATH_LOGIC"
             elif "GENERAL_DOMAIN" in prediction_text: domain_label = "GENERAL_DOMAIN"
             
+            # Điều kiện thêm (đề phòng LLM không tuân theo format ở prompt)
+            elif any(kw in prediction_text for kw in ["Đoạn thông tin:", "Title:", "Content:", "-- Document --", "Đọc đoạn văn sau:"]):
+                domain_label = "READING_COMPREHENSION"
+            elif any(kw in prediction_text for kw in ["Luật", "Nghị quyết", "Nghị định", "Thông tư", "Hiến pháp"]):
+                domain_label = "VN_CORE_KNOWLEDGE"
+            
             # NẾU VẪN UNKNOWN: Kiểm tra xem có phải model đang từ chối trả lời không?
             # Nếu nó từ chối -> Chính là câu hỏi vi phạm an toàn -> Gán nhãn SAFETY_REFUSAL
             else:
@@ -198,6 +204,10 @@ def process_classification_dataset(input_file, output_file, config, limit=None):
                     if kw in text_lower:
                         domain_label = "SAFETY_REFUSAL"
                         break
+                    
+            # --- LƯỚI VÉT CUỐI CÙNG ---
+            if domain_label == "UNKNOWN":
+                domain_label = "GENERAL_DOMAIN" # Thà nhầm còn hơn bỏ sót
 
         # Lưu kết quả
         result_item = {
@@ -227,12 +237,11 @@ def process_classification_dataset(input_file, output_file, config, limit=None):
 
 
 if __name__ == "__main__":
-    # process_classification_dataset(
-    #     input_file='data/test.json', 
-    #     output_file='results/test_classification.json', 
-    #     config=CONFIG,
-    #     limit=5
-    # )
+    process_classification_dataset(
+        input_file='data/test.json', 
+        output_file='results/test_classification.json', 
+        config=CONFIG,
+    )
     
     # process_classification_dataset(
     #     input_file='data/val.json', 
@@ -240,8 +249,8 @@ if __name__ == "__main__":
     #     config=CONFIG,
     # )
     
-    process_classification_dataset(
-        input_file='data/draft.json', 
-        output_file='results/draft_classification.json', 
-        config=CONFIG,
-    )
+    # process_classification_dataset(
+    #     input_file='data/draft.json', 
+    #     output_file='results/draft_classification.json', 
+    #     config=CONFIG,
+    # )

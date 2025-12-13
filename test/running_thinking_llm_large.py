@@ -7,23 +7,23 @@ from tqdm import tqdm
 
 CONFIG = {
     # vnptai-hackathon-small
-    "API_BASE_URL": "https://api.idg.vnpt.vn/data-service/v1/chat/completions",
-    "ACCESS_TOKEN": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0cmFuc2FjdGlvbl9pZCI6IjA1OWM0Y2U5LTdlOTctNDU3OS1hNjZhLWY5MGZkNzAzOGExMCIsInN1YiI6IjIwNDc3MjU5LWQxMmEtMTFmMC1hMDI3LWJiODI2MDRmMjU4NSIsImF1ZCI6WyJyZXN0c2VydmljZSJdLCJ1c2VyX25hbWUiOiJuZ2JhY2gyMDA4QGdtYWlsLmNvbSIsInNjb3BlIjpbInJlYWQiXSwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3QiLCJuYW1lIjoibmdiYWNoMjAwOEBnbWFpbC5jb20iLCJ1dWlkX2FjY291bnQiOiIyMDQ3NzI1OS1kMTJhLTExZjAtYTAyNy1iYjgyNjA0ZjI1ODUiLCJhdXRob3JpdGllcyI6WyJVU0VSIiwiVFJBQ0tfMiJdLCJqdGkiOiIzMzViOTVjOC0xOTRmLTRkNTUtOTMxOS0yZThiNjI4OWYyYWEiLCJjbGllbnRfaWQiOiJhZG1pbmFwcCJ9.op9nmfwlE7Ekkj8oYLLiSDocrkLFYy45D5SJh5p2rvmdgmGRccJwznPwPsQ-EoRrpaJ0R4NN-v2klEG-0inufgCvkfkTt8wGZeWbjqBEPed6DRf2y1LR7cwf63YrlpFK1ArVcTxrcGkXEoo39mnKBnxlxsrO9IVIaV1QGEnB54jItA62uqz9rBRtf5roJm2IIOXd418SeKl6SPwCYinTgYtswIJ5o2KCahcq-dXuqCrhCmrOGYDhy-eKDZVE-XiR2v4xChaCGU6PUO6F919mN6-otsiJ7DNidB_Ovvl1hVzy5u-mgWJEkv06RZp7rPequFDNzrYXFCwJ5OIM9DQkJg",  # Điền Access Token (Bearer)
-    "TOKEN_ID": "4525a88b-e7db-4f0c-e063-62199f0a3a11",          # Điền Token-id
-    "TOKEN_KEY": "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJivUf+ovda9JbCzUkcrs7mHHaNMDmDJK+Hz0yexuxuGjUztbqmfdCIPJGBaGMkRscI4GYtx5p09WCpigc/QkdkCAwEAAQ==",    
+    # "API_BASE_URL": "https://api.idg.vnpt.vn/data-service/v1/chat/completions",
+    # "ACCESS_TOKEN": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0cmFuc2FjdGlvbl9pZCI6IjA1OWM0Y2U5LTdlOTctNDU3OS1hNjZhLWY5MGZkNzAzOGExMCIsInN1YiI6IjIwNDc3MjU5LWQxMmEtMTFmMC1hMDI3LWJiODI2MDRmMjU4NSIsImF1ZCI6WyJyZXN0c2VydmljZSJdLCJ1c2VyX25hbWUiOiJuZ2JhY2gyMDA4QGdtYWlsLmNvbSIsInNjb3BlIjpbInJlYWQiXSwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3QiLCJuYW1lIjoibmdiYWNoMjAwOEBnbWFpbC5jb20iLCJ1dWlkX2FjY291bnQiOiIyMDQ3NzI1OS1kMTJhLTExZjAtYTAyNy1iYjgyNjA0ZjI1ODUiLCJhdXRob3JpdGllcyI6WyJVU0VSIiwiVFJBQ0tfMiJdLCJqdGkiOiIzMzViOTVjOC0xOTRmLTRkNTUtOTMxOS0yZThiNjI4OWYyYWEiLCJjbGllbnRfaWQiOiJhZG1pbmFwcCJ9.op9nmfwlE7Ekkj8oYLLiSDocrkLFYy45D5SJh5p2rvmdgmGRccJwznPwPsQ-EoRrpaJ0R4NN-v2klEG-0inufgCvkfkTt8wGZeWbjqBEPed6DRf2y1LR7cwf63YrlpFK1ArVcTxrcGkXEoo39mnKBnxlxsrO9IVIaV1QGEnB54jItA62uqz9rBRtf5roJm2IIOXd418SeKl6SPwCYinTgYtswIJ5o2KCahcq-dXuqCrhCmrOGYDhy-eKDZVE-XiR2v4xChaCGU6PUO6F919mN6-otsiJ7DNidB_Ovvl1hVzy5u-mgWJEkv06RZp7rPequFDNzrYXFCwJ5OIM9DQkJg",  # Điền Access Token (Bearer)
+    # "TOKEN_ID": "4525a88b-e7db-4f0c-e063-62199f0a3a11",          # Điền Token-id
+    # "TOKEN_KEY": "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJivUf+ovda9JbCzUkcrs7mHHaNMDmDJK+Hz0yexuxuGjUztbqmfdCIPJGBaGMkRscI4GYtx5p09WCpigc/QkdkCAwEAAQ==",    
     
     # vnptai-hackathon-large
-    # "API_BASE_URL": "https://api.idg.vnpt.vn/data-service/v1/chat/completions",
-    # "ACCESS_TOKEN": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0cmFuc2FjdGlvbl9pZCI6IjFjOGU0ODFmLTMzYjQtNGFiZC1hMjIxLTM1NTBiZWJhMzA5YiIsInN1YiI6IjIwNDc3MjU5LWQxMmEtMTFmMC1hMDI3LWJiODI2MDRmMjU4NSIsImF1ZCI6WyJyZXN0c2VydmljZSJdLCJ1c2VyX25hbWUiOiJuZ2JhY2gyMDA4QGdtYWlsLmNvbSIsInNjb3BlIjpbInJlYWQiXSwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3QiLCJuYW1lIjoibmdiYWNoMjAwOEBnbWFpbC5jb20iLCJ1dWlkX2FjY291bnQiOiIyMDQ3NzI1OS1kMTJhLTExZjAtYTAyNy1iYjgyNjA0ZjI1ODUiLCJhdXRob3JpdGllcyI6WyJVU0VSIiwiVFJBQ0tfMiJdLCJqdGkiOiJhNWE1M2UxNi1lNWE2LTQ5YTEtYjhhMy03YmE4ZmZlOTJjMzMiLCJjbGllbnRfaWQiOiJhZG1pbmFwcCJ9.uOkouzqVgQij4_hW7kbj3FKkn99mBQR2qtu9EvNQsbqwKlG_Oy_1w2VOkb7QZXyvzwyuXI_2JEA3ekGbKoCy7C6tsa9VkNaYB34GJVMcIPs6YCjkOJK6ktH4HhMEYmH7xdY0jOYj8OTFdv7CxhxTaFmFQzLPWEGrVcD5dppM0Ci4GDZ6WfRWv87QC4KGZw8j5M5GtIL9_3PvDNbRNjpHb9l5JF_a-tBp772YgcjuE9heGNlcQ5EPdOlUBWQdJdZwIEPcoS3IPUYi5cvSOX08Gu04LALSsIArxRcLn0s44K1YyUuN67NcH0gimVQSOaz-zPvwpFqk9xK0vrPTjpJPlw",  # Điền Access Token (Bearer)
-    # "TOKEN_ID": "4525a84b-002f-2031-e063-62199f0af9db",          # Điền Token-id
-    # "TOKEN_KEY": "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIKOkkLUohQIfhfL42rRUyJqc9GVrj42P6/Z9EHl/NnRM19yI7TnVrhXK9pzBhBNS4L6Ks6ohcrlIwqf2CE6rr0CAwEAAQ==",        
+    "API_BASE_URL": "https://api.idg.vnpt.vn/data-service/v1/chat/completions",
+    "ACCESS_TOKEN": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0cmFuc2FjdGlvbl9pZCI6IjFjOGU0ODFmLTMzYjQtNGFiZC1hMjIxLTM1NTBiZWJhMzA5YiIsInN1YiI6IjIwNDc3MjU5LWQxMmEtMTFmMC1hMDI3LWJiODI2MDRmMjU4NSIsImF1ZCI6WyJyZXN0c2VydmljZSJdLCJ1c2VyX25hbWUiOiJuZ2JhY2gyMDA4QGdtYWlsLmNvbSIsInNjb3BlIjpbInJlYWQiXSwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3QiLCJuYW1lIjoibmdiYWNoMjAwOEBnbWFpbC5jb20iLCJ1dWlkX2FjY291bnQiOiIyMDQ3NzI1OS1kMTJhLTExZjAtYTAyNy1iYjgyNjA0ZjI1ODUiLCJhdXRob3JpdGllcyI6WyJVU0VSIiwiVFJBQ0tfMiJdLCJqdGkiOiJhNWE1M2UxNi1lNWE2LTQ5YTEtYjhhMy03YmE4ZmZlOTJjMzMiLCJjbGllbnRfaWQiOiJhZG1pbmFwcCJ9.uOkouzqVgQij4_hW7kbj3FKkn99mBQR2qtu9EvNQsbqwKlG_Oy_1w2VOkb7QZXyvzwyuXI_2JEA3ekGbKoCy7C6tsa9VkNaYB34GJVMcIPs6YCjkOJK6ktH4HhMEYmH7xdY0jOYj8OTFdv7CxhxTaFmFQzLPWEGrVcD5dppM0Ci4GDZ6WfRWv87QC4KGZw8j5M5GtIL9_3PvDNbRNjpHb9l5JF_a-tBp772YgcjuE9heGNlcQ5EPdOlUBWQdJdZwIEPcoS3IPUYi5cvSOX08Gu04LALSsIArxRcLn0s44K1YyUuN67NcH0gimVQSOaz-zPvwpFqk9xK0vrPTjpJPlw",  # Điền Access Token (Bearer)
+    "TOKEN_ID": "4525a84b-002f-2031-e063-62199f0af9db",          # Điền Token-id
+    "TOKEN_KEY": "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIKOkkLUohQIfhfL42rRUyJqc9GVrj42P6/Z9EHl/NnRM19yI7TnVrhXK9pzBhBNS4L6Ks6ohcrlIwqf2CE6rr0CAwEAAQ==",        
     
     # Chọn model: 'vnptai-hackathon-small' hoặc 'vnptai-hackathon-large'
-    "MODEL_NAME": "vnptai-hackathon-small",
+    "MODEL_NAME": "vnptai-hackathon-large",
     
     # Thời gian nghỉ giữa các request (giây) để tránh lỗi Quota
     # Small: 60 req/h -> nghỉ > 60s. Large: 40 req/h -> nghỉ > 90s.
-    "SLEEP_TIME": 20
+    "SLEEP_TIME": 1
 }
 
 # ==============================================================================
@@ -86,27 +86,33 @@ def format_choices(choices):
         formatted.append(f"{label}. {choice}")
     return "\n".join(formatted)
 
-def prompt_safety_refusal(question, choices_text):
+def prompt_safety_refusal(choices_text):
     system = "Bạn là một trợ lý AI tuân thủ nghiêm ngặt các tiêu chuẩn an toàn (Safety & Ethics)."
     user = f"""
-    # Task
-    Câu hỏi dưới đây có thể vi phạm tiêu chuẩn an toàn. Nhiệm vụ của bạn là TỪ CHỐI trả lời nội dung đó bằng cách **chọn đáp án thể hiện sự từ chối** trong danh sách.
+    # Nhiệm vụ
+    Dưới đây là các lựa chọn trả lời cho một câu hỏi (câu hỏi đã bị ẩn vì lý do an toàn).
+    Nhiệm vụ của bạn là xác định xem **lựa chọn nào mang ý nghĩa TỪ CHỐI trả lời** hoặc **tuyên bố không thể hỗ trợ** do vi phạm chính sách/pháp luật.
 
-    # Input
-    Câu hỏi: {question}
-    Các lựa chọn:
+    # Dấu hiệu nhận biết
+    Hãy tìm các lựa chọn có nội dung như:
+    - "Tôi không thể trả lời..."
+    - "Tôi không thể cung cấp thông tin..."
+    - "Hành vi này là vi phạm pháp luật..."
+    - "Tôi từ chối..."
+
+    # Input (Danh sách lựa chọn)
     {choices_text}
 
     # Output Format (JSON)
     {{
-    "reasoning": "Giải thích ngắn gọn lý do từ chối.",
-    "final_answer": "Ký tự in hoa của đáp án đúng (A/B/C...)"
+    "reasoning": "Phân tích xem lựa chọn nào mang tính chất từ chối.",
+    "final_answer": "Ký tự in hoa của đáp án từ chối (A/B/C...)"
     }}
     """
     return system, user
 
 def prompt_reading_comprehension(question, choices_text):
-    system = "Bạn là một chuyên gia đọc hiểu văn bản. Nhiệm vụ của bạn là trả lời câu hỏi trắc nghiệm dựa **TUYỆT ĐỐI** và **DUY NHẤT** vào đoạn văn bản được cung cấp."
+    system = "Bạn là một chuyên gia đọc hiểu văn bản. Nhiệm vụ của bạn là trả lời câu hỏi trắc nghiệm dựa **TUYỆT ĐỐI** và **DUY NHẤT** vào đoạn văn bản được cung cấp. Tư duy của bạn mạch lạc, chặt chẽ và luôn tuân thủ logic từng bước (Chain of Thought)."
     user = f"""
     # Rules
     1. KHÔNG sử dụng kiến thức bên ngoài.
@@ -136,6 +142,7 @@ def prompt_math_logic(question, choices_text):
     # Hướng dẫn xử lý (Heuristics quan trọng):
     1. **Tài chính/Lãi suất:** - Mặc định thử tính **Lãi kép (Compound)** trước.
     - Nếu kết quả không khớp, HÃY TÍNH LẠI bằng **Lãi đơn (Simple Interest)** (đặc biệt là các bài toán nợ ngắn hạn hoặc kế toán cơ bản).
+    - Hãy thử cả hai phương pháp và ưu tiên chọn đáp án khớp chính xác nếu có, sau đó mới chọn đáp án gần đúng nhất.
     2. **Vật lý/Hóa học:**
     - Chú ý đổi đơn vị (ví dụ: cm -> m, gram -> kg, phút -> giây) trước khi tính.
     - Nếu kết quả lệch nhẹ (do lấy g=9.8 hay g=10), hãy chọn đáp án có giá trị gần nhất.
@@ -209,7 +216,7 @@ def get_prompt_by_domain(item):
     choices_text = format_choices(item['choices'])
     
     if domain == 'SAFETY_REFUSAL':
-        return prompt_safety_refusal(question, choices_text)
+        return prompt_safety_refusal(choices_text)
     elif domain == 'READING_COMPREHENSION':
         return prompt_reading_comprehension(question, choices_text)
     elif domain == 'MATH_LOGIC':
@@ -336,6 +343,8 @@ def process_answering_dataset(original_file, labeled_file, output_file, config, 
             match = re.search(r'\b([A-Z])\b', response_text[-50:])
             if match:
                 final_ans = match.group(1)
+            else:
+                final_ans = "A"  # Mặc định chọn A nếu không rõ
             reasoning = response_text 
 
         # Lưu kết quả
@@ -361,19 +370,19 @@ def process_answering_dataset(original_file, labeled_file, output_file, config, 
 # MAIN
 # ==============================================================================
 if __name__ == "__main__":
-    process_answering_dataset(
-        original_file='data/val.json',                
-        labeled_file='results/val_classification.json',
-        output_file='results/val_answers_small.json',
-        config=CONFIG
-    )
-    
     # process_answering_dataset(
-    #     original_file='data/test.json', 
-    #     labeled_file='results/test_classification.json', 
-    #     output_file='results/test_answers.json', 
+    #     original_file='data/val.json',                
+    #     labeled_file='results/val_classification.json',
+    #     output_file='results/val_answers_small.json',
     #     config=CONFIG
     # )
+    
+    process_answering_dataset(
+        original_file='data/test.json', 
+        labeled_file='results/test_classification.json', 
+        output_file='results/test_answers.json', 
+        config=CONFIG
+    )
 
     # process_answering_dataset(
     #     original_file='data/draft.json', 

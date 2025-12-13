@@ -1,44 +1,17 @@
 [
   {
-    "qid": "val_0011",
-    "question_snippet": "Đoạn thông tin:\n[1] Tiêu đề: Cuba\nNội dung: II. Ch...",
-    "predicted_domain": "READING_COMPREHENSION",
-    "ground_truth_option": "B"
+    "qid": "test_0076",
+    "question_snippet": "Các nhiệm vụ nghiên cứu của nhà địa lý liên quan đ...",
+    "predicted_domain": "GENERAL_DOMAIN"
   },
   {
-    "qid": "val_0020",
-    "question_snippet": "Một hạt đang chuyển động với tốc độ $0.6c$, trong ...",
-    "predicted_domain": "MATH_LOGIC",
-    "ground_truth_option": "C"
+    "qid": "test_0081",
+    "question_snippet": "Câu hỏi nào sau đây là mục tiêu chính của đơn vị h...",
+    "predicted_domain": "GENERAL_DOMAIN"
   },
   {
-    "qid": "val_0024",
-    "question_snippet": "Xét hàm số $ h(x) = x^4 - 4x^3 + 6x^2 - 4x + 1 $. ...",
-    "predicted_domain": "MATH_LOGIC",
-    "ground_truth_option": "A"
-  },
-  {
-    "qid": "val_0025",
-    "question_snippet": "Công thức hoá học của oxit có thành phần phần trăm...",
-    "predicted_domain": "MATH_LOGIC",
-    "ground_truth_option": "B"
-  },
-  {
-    "qid": "val_0047",
-    "question_snippet": "Một trường từ đều $ B $ hướng dọc theo trục z. Một...",
-    "predicted_domain": "MATH_LOGIC",
-    "ground_truth_option": "A"
-  },
-  {
-    "qid": "val_0051",
-    "question_snippet": "Một công ty có một khoản nợ phải trả với số tiền g...",
-    "predicted_domain": "MATH_LOGIC",
-    "ground_truth_option": "A"
-  },
-  {
-    "qid": "val_0086",
-    "question_snippet": "Nghệ thuật trong đoạn 1 bài 'Tinh thần yêu nước củ...",
-    "predicted_domain": "VN_CORE_KNOWLEDGE",
-    "ground_truth_option": "B"
+    "qid": "test_0197",
+    "question_snippet": "Theo Nghị quyết số 1656/NQ-UBTVQH15, sau khi sắp x...",
+    "predicted_domain": "VN_CORE_KNOWLEDGE"
   }
 ]

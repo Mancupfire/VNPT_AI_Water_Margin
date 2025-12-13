@@ -1,2 +1,17 @@
-/secrets
+# Object file
+*.o
+
+# Ada Library Information
+*.ali
+
+.venv
+.env
+*.pyc
 __pycache__/
+
+knowledge_base/
+pred/
+
+.python-version
+pyproject.toml
+uv.lock

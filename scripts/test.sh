@@ -9,4 +9,4 @@ echo Python path: $PYTHONPATH
 
 set -e
 
-python -m src.language_models.call_llm
+python -m src.language_models.call_embedding

@@ -1148,13 +1148,6 @@
     "ground_truth": ""
   },
   {
-    "qid": "test_0020",
-    "domain": "READING_COMPREHENSION",
-    "llm_prediction": "A",
-    "llm_reasoning": "HTTP Error: HTTPSConnectionPool(host='api.idg.vnpt.vn', port=443): Read timed out. (read timeout=30)",
-    "ground_truth": ""
-  },
-  {
     "qid": "test_0021",
     "domain": "READING_COMPREHENSION",
     "llm_prediction": "A",
@@ -1694,13 +1687,6 @@
     "ground_truth": ""
   },
   {
-    "qid": "test_0159",
-    "domain": "MATH_LOGIC",
-    "llm_prediction": "A",
-    "llm_reasoning": "HTTP Error: HTTPSConnectionPool(host='api.idg.vnpt.vn', port=443): Read timed out. (read timeout=30)",
-    "ground_truth": ""
-  },
-  {
     "qid": "test_0160",
     "domain": "MATH_LOGIC",
     "llm_prediction": "B",
@@ -1754,13 +1740,6 @@
     "domain": "MATH_LOGIC",
     "llm_prediction": "C",
     "llm_reasoning": "{\n    \"step_by_step_reasoning\": \"Trong thí nghiệm Young, cường độ sáng của vân giao thoa phụ thuộc vào cường độ sáng của nguồn sáng. Khi một trong hai khe được làm mờ để chỉ truyền ánh sáng bằng 1/2 cường độ sáng của khe còn lại, điều này sẽ ảnh hưởng đến cường độ sáng của vân giao thoa.\n\n    Công thức liên quan đến cường độ sáng của vân giao thoa trong thí nghiệm Young là:\n\n    I = (I1 + I2)^2 / 4\n\n    Trong đó:\n    - I là cường độ sáng của vân giao thoa\n    - I1 và I2 là cường độ sáng của hai nguồn sáng (hai khe)\n\n    Ban đầu, giả sử cường độ sáng của cả hai khe đều bằng nhau, tức là I1 = I2 = I0.\n\n    Sau khi làm mờ một khe, cường độ sáng của khe đó giảm xuống còn 1/2, tức là I1 = I0/2 và I2 = I0.\n\n    Thay vào công thức trên, ta có:\n\n    I = ((I0/2) + I0)^2 / 4\n    = (3I0/2)^2 / 4\n    = 9I0^2 / 16\n\n    So sánh với cường độ sáng ban đầu (khi cả hai khe đều có cường độ sáng I0):\n\n    I_ban_dau = (I0 + I0)^2 / 4\n    = (2I0)^2 / 4\n    = 4I0^2 / 4\n    = I0^2\n\n    Ta thấy rằng cường độ sáng của vân giao thoa sau khi làm mờ một khe giảm xuống còn 9/16 lần cường độ sáng ban đầu.\n\n    Điều này có nghĩa là vạch sáng sẽ trở nên sáng hơn (do cường độ sáng tổng thể giảm) và vạch tối sẽ trở nên tối hơn (do cường độ sáng tại các điểm tối giảm).\n\n    Do đó, đáp án đúng là C.\",\n    \"final_answer\": \"C\"\n}",
-    "ground_truth": ""
-  },
-  {
-    "qid": "test_0173",
-    "domain": "MATH_LOGIC",
-    "llm_prediction": "Không có đáp án phù hợp",
-    "llm_reasoning": "Để tìm điện trở tương đương của hai điện trở mắc song song, ta sử dụng công thức: 1/Rtđ = 1/R1 + 1/R2. Thay số: 1/Rtđ = 1/300 + 1/200 = 1/300 + 3/600 = 4/600 + 3/600 = 7/600. Vậy Rtđ = 600/7 ≈ 85.71 Ω. Tuy nhiên, trong các lựa chọn không có giá trị này. Do đó, ta cần xem xét lại các lựa chọn và chọn giá trị gần nhất. Trong trường hợp này, không có giá trị nào gần với kết quả tính toán.",
     "ground_truth": ""
   },
   {
@@ -1838,13 +1817,6 @@
     "domain": "MATH_LOGIC",
     "llm_prediction": "B",
     "llm_reasoning": "Để tìm tỷ lệ lạm phát, chúng ta sử dụng công thức: Tỷ lệ lạm phát = ((GDP danh nghĩa / GDP thực tế) - 1) * 100%. Thay số vào công thức: ((500 tỷ USD / 400 tỷ USD) - 1) * 100% = (1.25 - 1) * 100% = 0.25 * 100% = 25%. Kết quả là 25%, khớp chính xác với đáp án B.",
-    "ground_truth": ""
-  },
-  {
-    "qid": "test_0190",
-    "domain": "MATH_LOGIC",
-    "llm_prediction": "A",
-    "llm_reasoning": "HTTP Error: HTTPSConnectionPool(host='api.idg.vnpt.vn', port=443): Read timed out. (read timeout=30)",
     "ground_truth": ""
   },
   {
@@ -2086,13 +2058,6 @@
     "ground_truth": ""
   },
   {
-    "qid": "test_0248",
-    "domain": "MATH_LOGIC",
-    "llm_prediction": "A",
-    "llm_reasoning": "HTTP Error: HTTPSConnectionPool(host='api.idg.vnpt.vn', port=443): Read timed out. (read timeout=30)",
-    "ground_truth": ""
-  },
-  {
     "qid": "test_0251",
     "domain": "MATH_LOGIC",
     "llm_prediction": "A",
@@ -2111,13 +2076,6 @@
     "domain": "MATH_LOGIC",
     "llm_prediction": "A",
     "llm_reasoning": "{\n\"step_by_step_reasoning\": \"Để tìm tần số của sóng âm, ta cần sử dụng mối quan hệ giữa tốc độ sóng, bước sóng và tần số. Công thức liên quan là v = λf, trong đó v là tốc độ sóng, λ là bước sóng và f là tần số.\n\nTrước tiên, ta cần tìm bước sóng (λ) của sóng âm. Vì khoảng cách giữa hai nút liên tiếp trong sóng dừng là 1,7 mét, và trong sóng dừng, khoảng cách giữa hai nút liên tiếp bằng nửa bước sóng, nên ta có:\n\nλ/2 = 1,7 m => λ = 3,4 m\n\nTiếp theo, ta sử dụng công thức v = λf để tìm tần số (f):\n\nf = v / λ\n\nThay số vào công thức trên, ta có:\n\nf = 340 m/s / 3,4 m = 100 Hz\n\nKết quả là 100 Hz, khớp chính xác với đáp án A.\",\n\n\"final_answer\": \"A\"\n}",
-    "ground_truth": ""
-  },
-  {
-    "qid": "test_0254",
-    "domain": "READING_COMPREHENSION",
-    "llm_prediction": "A",
-    "llm_reasoning": "HTTP Error: HTTPSConnectionPool(host='api.idg.vnpt.vn', port=443): Read timed out. (read timeout=30)",
     "ground_truth": ""
   },
   {
@@ -2293,6 +2251,342 @@
     "domain": "MATH_LOGIC",
     "llm_prediction": "T",
     "llm_reasoning": "{\n\"step_by_step_reasoning\": \"Để tìm chu kỳ mới $T'$ của con lắc trên hành tinh có trường hấp dẫn $4g$, ta cần sử dụng công thức liên hệ giữa chu kỳ và gia tốc trọng trường của con lắc đơn: $T = 2\\pi \\sqrt{\\frac{L}{g}}$. \n\nKhi chuyển sang hành tinh có trường hấp dẫn $4g$, chu kỳ mới $T'$ sẽ được tính theo công thức tương tự nhưng với $g$ thay bằng $4g$: $T' = 2\\pi \\sqrt{\\frac{L}{4g}}$.\n\nTa có thể thấy rằng $T' = \\frac{1}{2} \\cdot 2\\pi \\sqrt{\\frac{L}{g}} = \\frac{T}{2}$ vì $\\sqrt{\\frac{1}{4}} = \\frac{1}{2}$.\n\nDo đó, chu kỳ mới $T'$ của con lắc trên hành tinh này là $\\frac{T}{2}$.\",\n\n\"final_answer\": \"B\"\n}",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0296",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "A",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"Để tìm mối quan hệ giữa khối lượng m, góc θ, quãng đường d và thời gian t, ta cần phân tích chuyển động của khối trên mặt phẳng nghiêng. Vì mặt phẳng nghiêng không ma sát, nên lực tác dụng lên khối chỉ là thành phần của trọng lực theo phương song song với mặt phẳng nghiêng. Công thức cho gia tốc a của khối trên mặt phẳng nghiêng là a = g sin θ, với g là gia tốc trọng trường.\n\nQuãng đường d mà khối di chuyển trong thời gian t được tính bằng công thức d = 0.5 * a * t^2, vì khối bắt đầu từ trạng thái nghỉ (v0 = 0).\n\nThay a = g sin θ vào công thức trên, ta có:\n\nd = 0.5 * g * sin θ * t^2\n\nBiểu thức này mô tả đúng mối quan hệ giữa m, θ, d và t. Lưu ý rằng khối lượng m không xuất hiện trong biểu thức cuối cùng vì nó bị hủy bỏ trong quá trình tính toán gia tốc a.\n\nSo sánh với các lựa chọn, ta thấy biểu thức này khớp chính xác với đáp án A.\",\n\n\"final_answer\": \"A\"\n}",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0297",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "E",
+    "llm_reasoning": "{\n    \"step_by_step_reasoning\": \"Để tìm giới hạn của hàm số $f(x) = \\\\frac{x^2 - 9}{|x-3|}$ khi $x$ tiến đến $3$, chúng ta cần phân tích hành vi của hàm số gần điểm $x=3$. Hàm số có thể được viết lại như sau:\n\n$$f(x) = \\\\frac{(x+3)(x-3)}{|x-3|}$$\n\nKhi $x$ tiến đến $3$ từ bên trái ($x < 3$), $|x-3| = -(x-3)$, nên:\n\n$$f(x) = \\\\frac{(x+3)(x-3)}{-(x-3)} = -(x+3)$$\n\nKhi $x$ tiến đến $3$ từ bên phải ($x > 3$), $|x-3| = x-3$, nên:\n\n$$f(x) = \\\\frac{(x+3)(x-3)}{x-3} = x+3$$\n\nDo đó, giới hạn của $f(x)$ khi $x$ tiến đến $3$ từ bên trái là $-(3+3) = -6$, và giới hạn khi $x$ tiến đến $3$ từ bên phải là $3+3 = 6$. Vì hai giới hạn này khác nhau, nên giới hạn của $f(x)$ khi $x$ tiến đến $3$ không tồn tại.\",\n\n    \"final_answer\": \"E\"\n}",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0304",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "B",
+    "llm_reasoning": "Trong phần II. Các giống, mục 4. Setter đỏ trắng, có mô tả: 'Lông màu trắng nền chủ đạo với khoang vàng-cam-đỏ trên cơ thể.' Điều này trùng khớp với đặc điểm màu lông nền trắng với các khoảng màu đỏ phân bố trên cơ thể.",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0307",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "H",
+    "llm_reasoning": "Để tìm giá trị của σ(36), chúng ta cần tính tổng các ước số dương của 36. Các ước số dương của 36 là: 1, 2, 3, 4, 6, 9, 12, 18, 36. Tổng các ước số này là: 1 + 2 + 3 + 4 + 6 + 9 + 12 + 18 + 36 = 91. Do đó, giá trị của σ(36) là 91.",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0310",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "B",
+    "llm_reasoning": "Trong phần II. Sự nghiệp, mục 1. Thập niên 1960, có đề cập đến trình tự các sự kiện trong sự nghiệp âm nhạc của Neil Diamond. Theo đó, sau khi không được mướn nữa tại Sunbeam Music, ông bắt đầu viết và hát những bài hát của mình cho mục đích giới thiệu. Tiếp theo, ông thành lập cặp đôi 'Neil and Jack' với Jack Parker vào năm 1962, và sau đó cũng trong năm 1962, ông ký hợp đồng với hãng Columbia Records với vai trò ca sĩ solo. Cuối cùng, Columbia phát hành đĩa đơn 'At Night' vào tháng 7 năm 1963. Do đó, sự kiện xảy ra trước tiên trong sự nghiệp âm nhạc của Neil Diamond là việc ông làm việc tại Sunbeam Music Publishing trong 16 tuần.",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0311",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "A",
+    "llm_reasoning": "Trong đoạn văn bản, 'Tứ quý' ( 四 貴 ) được đề cập là bốn người nắm nhiều quyền lực dưới triều Tần Chiêu Tương vương, bao gồm: Ngụy Nhiễm (Nhương hầu), Mị Nhung (Hoa Dương quân), Doanh Thị (Cao Lăng quân) và Doanh Khôi (Kinh Dương quân). Doanh Tắc (Tần Chiêu Tương vương) không được liệt kê trong nhóm 'Tứ quý'.",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0312",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "B",
+    "llm_reasoning": "Đoạn mã cho biết mảng numbers chứa các phần tử {2, 1, 4, 3}. Biến w được gán giá trị là kết quả của phép chia numbers[1] cho numbers[2]. Vì chỉ số mảng bắt đầu từ 0, nên numbers[1] tương ứng với giá trị 1 và numbers[2] tương ứng với giá trị 4. Do đó, w = 1 / 4 = 0.25. Không cần áp dụng các phương pháp lãi suất vì đây là một vấn đề liên quan đến lập trình và toán học cơ bản.",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0315",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "A",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"Để giải quyết bài toán này, chúng ta cần sử dụng phương pháp tách biến để giải phương trình vi phân riêng phần (PDE) $u_t = u_{xx}$ với điều kiện ban đầu $u(x,0) = \\sin(x)$ và các điều kiện biên $u(0,t) = u(\\pi,t) = 0$. \n\nBước 1: Giả sử nghiệm có dạng $u(x,t) = X(x)T(t)$, thay vào PDE và tách biến, ta có:\n\n$$\\frac{T'(t)}{T(t)} = \\frac{X''(x)}{X(x)} = -\\lambda$$\n\nvới $\\lambda$ là hằng số.\n\nBước 2: Giải phương trình cho $X(x)$ với điều kiện biên $X(0) = X(\\pi) = 0$, ta có:\n\n$$X(x) = \\sin(\\sqrt{\\lambda} x)$$\n\nvới $\\lambda = n^2$ ($n$ là số nguyên dương).\n\nBước 3: Giải phương trình cho $T(t)$, ta có:\n\n$$T(t) = e^{-\\lambda t} = e^{-n^2 t}$$\n\nBước 4: Nghiệm tổng quát của PDE là:\n\n$$u(x,t) = \\sum_{n=1}^{\\infty} a_n \\sin(nx) e^{-n^2 t}$$\n\nvới $a_n$ là hệ số Fourier.\n\nBước 5: Sử dụng điều kiện ban đầu $u(x,0) = \\sin(x)$, ta có:\n\n$$\\sin(x) = \\sum_{n=1}^{\\infty} a_n \\sin(nx)$$\n\nso sánh hệ số, ta thấy $a_1 = 1$ và $a_n = 0$ với $n > 1$.\n\nBước 6: Nghiệm cụ thể của PDE là:\n\n$$u(x,t) = \\sin(x) e^{-t}$$\n\nThay $t = 1$, ta có:\n\n$$u(x,1) = \\sin(x) e^{-1}$$\n\nKết quả này khớp chính xác với đáp án A.\",\n\n\"final_answer\": \"A\"\n}",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0316",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "A",
+    "llm_reasoning": "Để tìm tốc độ thay đổi của thể tích quả bóng, ta cần sử dụng công thức thể tích của hình cầu và áp dụng quy tắc chuỗi để tìm đạo hàm của thể tích theo thời gian. Công thức thể tích của hình cầu là V = (4/3)πr^3. Đạo hàm của thể tích theo thời gian là dV/dt = (dV/dr) * (dr/dt). Ta đã biết dr/dt = 0.1 cm/s và r = 5 cm. Đạo hàm của thể tích theo bán kính là dV/dr = 4πr^2. Thay số vào công thức, ta có dV/dt = 4π(5)^2 * 0.1 = 10π cm^3/s. Kết quả này khớp chính xác với đáp án A.",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0317",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "D",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"Để tính Chỉ số Herfindahl-Hirschman (HHI), ta sử dụng công thức: HHI = Σ(pi^2), trong đó pi là tỷ lệ thị phần của mỗi doanh nghiệp.\n\nThay số vào công thức:\n\n- Doanh nghiệp A: (50%)^2 = 0.5^2 = 0.25\n- Doanh nghiệp B: (25%)^2 = 0.25^2 = 0.0625\n- Doanh nghiệp C: (15%)^2 = 0.15^2 = 0.0225\n- Doanh nghiệp D: (7%)^2 = 0.07^2 = 0.0049\n- Doanh nghiệp E: (3%)^2 = 0.03^2 = 0.0009\n\nHHI = 0.25 + 0.0625 + 0.0225 + 0.0049 + 0.0009 = 0.3408\n\nGiá trị HHI thường được sử dụng để phân loại mức độ tập trung thị trường như sau:\n- HHI < 1500: Thị trường cạnh tranh hoàn hảo\n- 1500 ≤ HHI < 2500: Thị trường cạnh tranh độc quyền\n- 2500 ≤ HHI < 5000: Thị trường độc quyền nhóm với mức độ tập trung thấp\n- 5000 ≤ HHI < 10000: Thị trường độc quyền nhóm với mức độ tập trung trung bình\n- HHI ≥ 10000: Thị trường độc quyền nhóm với mức độ tập trung cao\n\nDo HHI = 0.3408 tương đương với 3408 (khi chuyển đổi sang thang điểm 10000), nên thị trường này thuộc loại độc quyền nhóm với mức độ tập trung trung bình.\",\n\n\"final_answer\": \"D\"\n}",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0318",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "C",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"Để tìm hàng tồn kho trung bình trong năm tới, ta cần sử dụng công thức tỷ lệ luân chuyển hàng tồn kho: Tỷ lệ luân chuyển = COGS / Hàng tồn kho trung bình. \n- Bước 1: Tính COGS năm tới = COGS năm trước + 10% COGS năm trước = 500.000 + 0.1 * 500.000 = 550.000 đô la.\n- Bước 2: Sử dụng công thức tỷ lệ luân chuyển để tìm Hàng tồn kho trung bình: 5 = 550.000 / Hàng tồn kho trung bình.\n- Bước 3: Giải phương trình để tìm Hàng tồn kho trung bình: Hàng tồn kho trung bình = 550.000 / 5 = 110.000 đô la.\n- Kết quả khớp chính xác với đáp án C.\",\n\"final_answer\": \"C\"\n}",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0319",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "B",
+    "llm_reasoning": "{\n    \"step_by_step_reasoning\": \"Để xác định mức giá phát hành của trái phiếu, chúng ta cần so sánh lãi suất coupon (6%) với tỷ lệ lãi suất thị trường (7%). Công thức tính giá trị hiện tại của trái phiếu dựa trên lãi suất thị trường là: Giá trị hiện tại = Mệnh giá / (1 + Lãi suất thị trường)^Thời hạn đáo hạn. Tuy nhiên, vì đây là lựa chọn trắc nghiệm và không yêu cầu tính toán cụ thể, chúng ta có thể phân tích như sau:\n\n- Nếu lãi suất coupon cao hơn lãi suất thị trường, trái phiếu sẽ được phát hành ở mức thưởng (giá cao hơn mệnh giá).\n- Nếu lãi suất coupon thấp hơn lãi suất thị trường, trái phiếu sẽ được phát hành ở mức chiết khấu (giá thấp hơn mệnh giá).\n- Nếu lãi suất coupon bằng lãi suất thị trường, trái phiếu sẽ được phát hành tại mệnh giá.\n\nTrong trường hợp này, lãi suất coupon (6%) thấp hơn lãi suất thị trường (7%), do đó, trái phiếu sẽ được phát hành ở mức chiết khấu.\",\n\n    \"final_answer\": \"B\"\n}",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0320",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "E",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"Để tìm phân số mol của dung môi trong dung dịch, ta sử dụng định luật Raoult. Công thức liên quan đến áp suất hơi và phân số mol là:\n\nP_dung dịch = P_dung môi tinh khiết * X_dung môi\n\ntrong đó:\n- P_dung dịch là áp suất hơi của dung dịch (784 mmHg),\n- P_dung môi tinh khiết là áp suất hơi của dung môi tinh khiết (800 mmHg),\n- X_dung môi là phân số mol của dung môi trong dung dịch.\n\nTa đã biết phân số mol của chất tan là 0.02, nên phân số mol của dung môi sẽ là 1 - 0.02 = 0.98 vì tổng phân số mol của tất cả các thành phần trong dung dịch phải bằng 1.\n\nThay số vào công thức trên để kiểm tra:\n\n784 = 800 * X_dung môi\n\nX_dung môi = 784 / 800 = 0.98\n\nKết quả khớp chính xác với phân số mol của dung môi mà chúng ta đã tính toán dựa trên phân số mol của chất tan.\",\n\n\"final_answer\": \"E\"\n}",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0323",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "A",
+    "llm_reasoning": "{\n    \"step_by_step_reasoning\": \"Để giải quyết vấn đề này, chúng ta cần hiểu về công thức tính Lượng đặt hàng tối ưu (EOQ). Công thức EOQ được cho bởi:\n\nEOQ = √(2DS / H)\n\ntrong đó:\n- D là tổng nhu cầu hàng năm,\n- S là chi phí đặt hàng mỗi lần,\n- H là chi phí giữ hàng mỗi đơn vị hàng tồn kho mỗi năm.\n\nNếu doanh số đơn vị hàng năm tăng gấp đôi, điều đó có nghĩa là D tăng gấp đôi. Giả sử tất cả các chi phí khác (S và H) không thay đổi.\n\nThay D bằng 2D trong công thức EOQ:\n\nEOQ_mới = √(2 * 2D * S / H)\n         = √(4DS / H)\n         = 2 * √(DS / H)\n         = 2 * EOQ_cũ\n\nNhư vậy, khi doanh số đơn vị hàng năm tăng gấp đôi, EOQ cũng tăng gấp đôi.\n\nKết quả này khớp chính xác với đáp án A.\",\n    \"final_answer\": \"A\"\n}",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0324",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "C",
+    "llm_reasoning": "Để tìm mức sản lượng tối đa hóa lợi nhuận, chúng ta cần tìm điểm mà tại đó giá thị trường (P) bằng với chi phí biên (MC). Công thức cho điều này là P = MC. Thay số vào công thức, ta có: 45 = 15 + 6Q. Giải phương trình này cho Q, ta có: 6Q = 30 => Q = 5. Vì vậy, doanh nghiệp đang sản xuất 5 đơn vị sản phẩm để tối đa hóa lợi nhuận.",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0327",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "I",
+    "llm_reasoning": "Để tìm tần số cộng hưởng ω₀ của mạch LC, ta sử dụng công thức ω₀ = 1 / √(LC). Trước tiên, cần chuyển đổi đơn vị của tụ điện từ μF sang F: 5 μF = 5 × 10⁻⁶ F. Sau đó, thay số vào công thức: ω₀ = 1 / √(0.2 × 5 × 10⁻⁶) = 1 / √(1 × 10⁻⁶) = 1 / 10⁻³ = 1000 rad/s. Kết quả này khớp chính xác với đáp án I.",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0332",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "B",
+    "llm_reasoning": "Đề bài yêu cầu tìm hằng số tích ion (Kw) của nước ở 25 độ Celsius. Đây là một giá trị cố định trong hóa học, không cần tính toán phức tạp. Giá trị Kw của nước ở 25 độ Celsius được biết đến rộng rãi là 1.0 × 10^-14 mol^2/l^2. So sánh với các lựa chọn, chỉ có đáp án B khớp chính xác với giá trị này.",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0333",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "C",
+    "llm_reasoning": "Trong đoạn văn 'Kinh tế Trung Quốc - Thương mại và dịch vụ', có thông tin rằng 'Cuối năm 2004, Trung Quốc đã trở thành quốc gia thương mại lớn thứ 3 thế giới sau Mỹ và Đức.' Điều này cho thấy rằng vào năm 2004, Trung Quốc đã đạt được vị trí thứ ba trong danh sách các quốc gia thương mại lớn nhất thế giới, chỉ sau Mỹ và Đức.",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0337",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "A",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"Để tìm biến đổi Laplace của hàm số $f(t) = 4t^2 + 3t + 2$, ta sử dụng công thức biến đổi Laplace cho mỗi hạng tử:\n\n- Đối với $4t^2$: Biến đổi Laplace là $\\frac{4*2!}{s^{2+1}} = \\frac{8}{s^3}$.\n- Đối với $3t$: Biến đổi Laplace là $\\frac{3*1!}{s^{1+1}} = \\frac{3}{s^2}$.\n- Đối với $2$: Biến đổi Laplace là $\\frac{2}{s}$.\n\nDo đó, biến đổi Laplace của $f(t)$ là tổng của các biến đổi Laplace trên: $\\frac{8}{s^3} + \\frac{3}{s^2} + \\frac{2}{s}$.\n\nKết quả này khớp chính xác với đáp án A.\",\n\"final_answer\": \"A\"\n}",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0339",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "A",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"Để tìm xác suất P để một hạt được chọn ngẫu nhiên ở trạng thái kích thích, ta cần sử dụng hàm phân phối Z và công thức tính xác suất trong cơ học thống kê.\n\nHàm phân phối Z được cho bởi Z = (1 + e^(-βE1))^N, trong đó β = 1/(kB T) và kB là hằng số Boltzmann.\n\nXác suất P để một hạt được chọn ngẫu nhiên ở trạng thái kích thích được tính bằng công thức:\n\nP = (Số hạt ở trạng thái kích thích) / (Tổng số hạt)\n\nTa có thể tính số hạt ở trạng thái kích thích bằng cách nhân số hạt tổng cộng N với xác suất một hạt ở trạng thái kích thích, được biểu diễn bằng e^(-βE1).\n\nDo đó, xác suất P để một hạt được chọn ngẫu nhiên ở trạng thái kích thích là:\n\nP = e^(-βE1) / (1 + e^(-βE1))\n\nKết quả này khớp chính xác với đáp án A.\",\n\n\"final_answer\": \"A\"\n}",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0340",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "B",
+    "llm_reasoning": "Trong phần 'Các chỉ tiêu làm căn cứ xây dựng kế hoạch 2023' của văn bản, có đề cập đến chỉ tiêu đào tạo nội bộ cho các đơn vị. Tại đây, có nêu rõ: 'Giao chỉ tiêu đào tạo nội bộ các đơn vị: tối thiểu 10 giờ/người/năm.' Điều này cho thấy rằng chỉ tiêu tối thiểu về thời lượng đào tạo nội bộ cho mỗi người lao động trong năm 2023 được quy định là 10 giờ/người/năm.",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0341",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "B",
+    "llm_reasoning": "Để tìm giá trị pH của dung dịch đệm, chúng ta sử dụng công thức pH = pKa + log([B-]/[HB]). Trong trường hợp này, pKa = 5,00, [HB] = 0,2 M và [B-] = 0,1 M. Thay số vào công thức: pH = 5,00 + log(0,1/0,2) = 5,00 + log(0,5) ≈ 5,00 - 0,301 ≈ 4,699. Vì không có đáp án nào khớp chính xác với kết quả này, chúng ta sẽ chọn đáp án gần nhất.",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0342",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "A",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"Để tìm giá trị của biểu thức $x^2y + xy^2$ theo modulo 5, ta cần phân tích các điều kiện đã cho:\n\n1. $x \\equiv 2 \\pmod{5}$: Điều này có nghĩa là $x$ có thể được viết dưới dạng $x = 5k + 2$, nơi $k$ là một số nguyên.\n\n2. $y \\equiv 3 \\pmod{5}$: Tương tự, $y$ có thể được viết dưới dạng $y = 5m + 3$, nơi $m$ là một số nguyên.\n\nTiếp theo, ta thay thế các biểu diễn này vào biểu thức $x^2y + xy^2$:\n\n- $x^2 = (5k + 2)^2 = 25k^2 + 20k + 4$\n- $xy = (5k + 2)(5m + 3) = 25km + 15k + 10m + 6$\n\nThay vào biểu thức:\n\n$x^2y + xy^2 = (25k^2 + 20k + 4)(5m + 3) + (5k + 2)(25m^2 + 30m + 9)$\n\nMở rộng và thu gọn:\n\n$= 125k^2m + 75k^2 + 100km + 60k + 20m + 12 + 125km^2 + 150km + 45k + 50m^2 + 60m + 18$\n\nNhóm các hạng tử theo modulo 5:\n\n- Các hạng tử có hệ số là bội của 5 sẽ bị loại bỏ khi tính modulo 5.\n- Ta chỉ cần quan tâm đến các hạng tử còn lại: $75k^2 + 60k + 20m + 12 + 45k + 60m + 18$\n\nThu gọn thêm:\n\n- $75k^2 \\equiv 0 \\pmod{5}$\n- $60k \\equiv 0 \\pmod{5}$\n- $20m \\equiv 0 \\pmod{5}$\n- $45k \\equiv 0 \\pmod{5}$\n- $60m \\equiv 0 \\pmod{5}$\n\nChỉ còn lại: $12 + 18 \\equiv 30 \\equiv 0 \\pmod{5}$\n\nVậy, $x^2y + xy^2 \\equiv 0 \\pmod{5}$.\n\nKết quả khớp chính xác với đáp án A.\",\n\n\"final_answer\": \"A\"\n}",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0343",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "B",
+    "llm_reasoning": "{\n    \"step_by_step_reasoning\": \"Trong Document 1, có đề cập rằng 'Loài này không ăn kiến và mối giống như thú lông nhím mỏ ngắn mà ăn giun đất.' Điều này cho thấy chế độ ăn của loài Zaglossus bruijni (thú lông nhím mỏ dài Tây New Guinea) khác biệt so với thú lông nhím mỏ ngắn. Ngoài ra, Document 4 cũng củng cố thông tin này khi nói rằng 'các loài thuộc chi \"Zaglossus\" (thú lông nhím mỏ dài) thường ăn giun và ấu trùng.'\",\n    \"final_answer\": \"B\"\n}",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0344",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "C",
+    "llm_reasoning": "{\n    \"step_by_step_reasoning\": \"Trong các đoạn văn, có đề cập đến các tấm bia của các ngôi chùa khác nhau. Để xác định ngôi chùa nào có tấm bia ghi lại việc xây dựng sớm nhất, cần so sánh các năm được đề cập trên các tấm bia.\n\n- Chùa Quang Hoa có tấm bia khắc năm 1880.\n- Chùa Thiền Quang có tấm bia khắc năm 1882.\n- Chùa Pháp Hoa có tấm bia khắc năm 1860.\n- Chùa Liên Thủy không có thông tin về tấm bia ghi lại việc xây dựng, mà chỉ có thông tin về việc bị phá hủy vào năm 1926.\n\nSo sánh các năm trên, thấy rằng năm 1860 là sớm nhất.\",\n    \"final_answer\": \"C\"\n}",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0347",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "A",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"Để tìm biến đổi Laplace của hàm số $f(t) = e^{-at} \\cos(bt)$, ta sử dụng công thức biến đổi Laplace cho hàm số dạng $e^{kt} \\cos(\\omega t)$, đó là $\\mathcal{L}\\{e^{kt} \\cos(\\omega t)\\} = \\frac{s-k}{(s-k)^2 + \\omega^2}$.\n\nTrong trường hợp này, $k = -a$ và $\\omega = b$. Thay thế vào công thức trên, ta có:\n\n$\\mathcal{L}\\{e^{-at} \\cos(bt)\\} = \\frac{s-(-a)}{(s-(-a))^2 + b^2} = \\frac{s+a}{(s+a)^2 + b^2}$\n\nKết quả này khớp chính xác với đáp án A.\",\n\n\"final_answer\": \"A\"\n}",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0348",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "A",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"Để tìm đạo hàm của hàm số g(x) = ln(5x^3 - 2x + 1), ta sử dụng quy tắc chuỗi và quy tắc đạo hàm của hàm logarit tự nhiên.\n\nQuy tắc chuỗi cho đạo hàm của hàm hợp f(g(x)) là f'(g(x)) * g'(x).\n\nĐạo hàm của ln(u) là 1/u.\n\nÁp dụng vào hàm g(x):\n\n- u = 5x^3 - 2x + 1\n- g'(x) = (1/u) * u'\n- u' = đạo hàm của (5x^3 - 2x + 1) = 15x^2 - 2\n\nThay vào công thức:\n\ng'(x) = (1/(5x^3 - 2x + 1)) * (15x^2 - 2)\n\nKết quả là: (15x^2 - 2)/(5x^3 - 2x + 1)\n\nKhớp chính xác với đáp án A.\",\n\n\"final_answer\": \"A\"\n}",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0349",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "C",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"Để tìm hiểu hành vi của nồng độ $C(t)$ khi $t \\to \\infty$, chúng ta cần giải phương trình vi phân đã cho:\n\n$$\\frac{dC}{dt} = -kC + a$$\n\nvới $k = 0.2$ và $a = 0.5$. \n\nBước 1: Tìm nghiệm tổng quát của phương trình vi phân.\n\nPhương trình vi phân trên là một phương trình vi phân tuyến tính cấp một. Để giải nó, chúng ta có thể sử dụng phương pháp biến số phụ hoặc trực tiếp tìm nghiệm tổng quát.\n\nNghiệm tổng quát của phương trình vi phân này có dạng:\n\n$$C(t) = Ce^{-kt} + \\frac{a}{k}$$\n\nvới $C$ là hằng số phụ thuộc vào điều kiện ban đầu.\n\nBước 2: Xác định hành vi của $C(t)$ khi $t \\to \\infty$.\n\nKhi $t \\to \\infty$, hạng tử $Ce^{-kt}$ sẽ tiến về 0 vì $k > 0$. Do đó, nồng độ $C(t)$ sẽ tiến về giá trị $\\frac{a}{k}$.\n\nThay số $k = 0.2$ và $a = 0.5$ vào biểu thức trên, ta có:\n\n$$\\lim_{t \\to \\infty} C(t) = \\frac{0.5}{0.2} = 2.5$$\n\nVậy, nồng độ $C(t)$ sẽ tiến về 2.5 khi $t \\to \\infty$.\n\nKết luận: Phát biểu đúng về hành vi của nồng độ $C(t)$ khi $t \\to \\infty$ là nồng độ $C(t)$ tiến về 2.5.\",\n\n\"final_answer\": \"B\"\n}",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0350",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "A",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"Để tìm phần trăm cacbon trong thép, ta cần tính khối lượng cacbon trong thép dựa trên khối lượng khí CO2 thu được khi đốt thép trong khí ôxi. Công thức liên quan đến phản ứng hóa học này là: nCO2 = nC (vì mỗi phân tử CO2 chứa 1 nguyên tử C). Khối lượng mol của CO2 là 44 g/mol, của C là 12 g/mol. \n\nKhối lượng CO2 thu được là 0,1g. Số mol CO2 = 0,1 / 44 = 0,00227 mol. Do đó, số mol C cũng là 0,00227 mol. Khối lượng C = 0,00227 * 12 = 0,02724 g.\n\nPhần trăm cacbon trong thép = (khối lượng C / khối lượng thép) * 100 = (0,02724 / 5) * 100 = 0,5448%.\n\nSo sánh với các lựa chọn, giá trị gần nhất là 0,55%.\",\n\n\"final_answer\": \"A\"\n}",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0351",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "C",
+    "llm_reasoning": "{\n    \"step_by_step_reasoning\": \"Để tìm công suất biểu kiến (S) của hệ thống điện ba pha, ta sử dụng công thức liên quan đến hệ số công suất (cosφ) và công suất tác dụng (P): S = P / cosφ. \n    - Công suất tác dụng (P) = 100 kW\n    - Hệ số công suất (cosφ) = 0.8\n    \n    Thay số vào công thức: S = 100 kW / 0.8 = 125 kW\n    \n    Kết quả là 125 kW, khớp chính xác với đáp án C.\",\n    \"final_answer\": \"C\"\n}",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0354",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "B",
+    "llm_reasoning": "Để tìm số nhân tiền tệ (Money Multiplier), chúng ta sử dụng công thức liên quan đến tỷ lệ dự trữ (Reserve Ratio). Công thức cơ bản cho số nhân tiền tệ là: Money Multiplier = 1 / Reserve Ratio. Trong trường hợp này, tỷ lệ dự trữ được cho là 10%, hay 0.1 khi biểu thị dưới dạng thập phân. Áp dụng công thức: Money Multiplier = 1 / 0.1 = 10. Kết quả này khớp chính xác với đáp án B.",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0356",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "A",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"Đề bài cho dãy các biến ngẫu nhiên độc lập và cùng phân phối (i.i.d.) $ Y_1, Y_2, \\ldots, Y_n $, trong đó mỗi $ Y_i $ tuân theo phân phối nhị thức với tham số $ n = 3 $ và xác suất thành công $ p $. Gọi $ T_n = Y_1 + Y_2 + \\cdots + Y_n $. Để tìm giá trị kỳ vọng của $ T_n $ khi $ n = 5 $, ta cần sử dụng tính chất của phân phối nhị thức và tính chất của kỳ vọng.\n\nMỗi biến ngẫu nhiên $ Y_i $ tuân theo phân phối nhị thức với tham số $ n = 3 $ và xác suất thành công $ p $. Do đó, kỳ vọng của mỗi $ Y_i $ là $ E(Y_i) = np = 3p $.\n\nVì $ T_n = Y_1 + Y_2 + \\cdots + Y_n $, nên kỳ vọng của $ T_n $ là tổng kỳ vọng của các $ Y_i $:\n\n$ E(T_n) = E(Y_1) + E(Y_2) + \\cdots + E(Y_n) = n \\cdot E(Y_i) = 5 \\cdot 3p = 15p $\n\nKết quả là $ 15p $, khớp chính xác với đáp án A.\",\n\n\"final_answer\": \"A\"\n}",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0357",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "E",
+    "llm_reasoning": "Đề bài cho ma trận A và định thức của A bằng 0. Để tìm điều kiện cần thiết, ta sử dụng tính chất của định thức. Định thức của một ma trận vuông bằng 0 nếu và chỉ nếu ma trận đó không khả nghịch, tức là các hàng hoặc cột của nó tuyến tính phụ thuộc. Công thức tính định thức của ma trận 3x3 là det(A) = aei + bfg + cdh - (bdi + afh + ceg). Vì det(A) = 0, nên ta có aei + bfg + cdh = bdi + afh + ceg. Đây là điều kiện cần thiết để định thức của A bằng 0.",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0359",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "A",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"Để tìm năng lượng tổng cộng được giải phóng trong phản ứng phân hạch, ta cần tính toán sự chênh lệch năng lượng liên kết giữa hạt nhân ban đầu và các hạt nhân tạo thành.\n\n1. Năng lượng liên kết trên nuclôn của nguyên tố Y là 7,8 MeV.\n2. Số khối của nguyên tố Y là 200, nên tổng năng lượng liên kết của hạt nhân Y là 7,8 MeV/nuclôn * 200 nuclôn = 1560 MeV.\n3. Mỗi hạt nhân tạo thành có số khối là 100 và năng lượng liên kết trên nuclôn là 8,5 MeV.\n4. Tổng năng lượng liên kết của hai hạt nhân tạo thành là 8,5 MeV/nuclôn * 100 nuclôn * 2 = 1700 MeV.\n5. Sự chênh lệch năng lượng liên kết giữa hạt nhân ban đầu và các hạt nhân tạo thành là 1700 MeV - 1560 MeV = 140 MeV.\n\nDo đó, năng lượng tổng cộng được giải phóng trong phản ứng này là 140 MeV.\",\n\n\"final_answer\": \"A\"\n}",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0364",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "B",
+    "llm_reasoning": "Trong đoạn văn 3, có thông tin rằng Trần Thu Hà chỉ hát 2 bài cho mỗi album 'Cánh cung' và 'Thời gian để yêu' của nhạc sĩ Đỗ Bảo. Điều này cho thấy rõ ràng rằng số lượng ca khúc mà Trần Thu Hà thể hiện cho mỗi album là 2.",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0365",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "G",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"Để tìm lượng thiếu hụt trong thị trường khi chính phủ áp đặt trần giá ở P = 10, chúng ta cần tính toán lượng cầu (Qd) và lượng cung (Qs) tại giá này, sau đó tìm sự chênh lệch giữa chúng.\n\n1. Tính lượng cầu (Qd) tại P = 10:\n   Công thức cầu: Qd = 200 - 5P\n   Thay P = 10 vào công thức: Qd = 200 - 5*10 = 200 - 50 = 150\n\n2. Tính lượng cung (Qs) tại P = 10:\n   Công thức cung: Qs = 5P - 50\n   Thay P = 10 vào công thức: Qs = 5*10 - 50 = 50 - 50 = 0\n\n3. Tìm lượng thiếu hụt:\n   Lượng thiếu hụt = Lượng cầu - Lượng cung = 150 - 0 = 150\n\nKết quả là 150, khớp chính xác với đáp án G.\",\n\"final_answer\": \"G\"\n}",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0366",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "B",
+    "llm_reasoning": "Trong phần nội dung phim, có đoạn: 'Diệp Vấn giải thích rằng trong cuộc giao chiến với Mã Tam, Cung Nhị bị thương nặng đến nỗi phải dùng thuốc phiện thường xuyên để giảm đau và đây là sự suy sụp của cô.' Điều này cho thấy nguyên nhân trực tiếp dẫn đến cái chết của Cung Nhị là do vết thương nặng từ trận đấu với Mã Tam năm 1940, khiến cô phải sử dụng thuốc phiện thường xuyên và dẫn đến sự suy sụp sức khỏe.",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0367",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "B",
+    "llm_reasoning": "Trong phần II. Phân loại và nhận dạng đầu tiên, có đề cập đến phân loại của cầy thảo nguyên như sau: Bộ Gặm nhấm -> Phân bộ Sóc -> Họ Sóc (Họ sóc, sóc chuột, marmota, và cầy thảo nguyên) -> Phân họ Sóc đất -> Chi Cynomys. Điều này cho thấy cầy thảo nguyên thuộc về họ Sóc (Sciuridae).",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0369",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "B",
+    "llm_reasoning": "Trong đoạn văn 5, có đề cập đến lĩnh vực nghiên cứu đa lĩnh vực trong thiên văn học. Tại đây, có nhắc đến 'Hoá học thiên thể (Astrochemistry)' là việc nghiên cứu các hoá chất được tìm thấy trong vũ trụ, gồm sự thành tạo, tương tác và phá huỷ của chúng. Các chất đó thường được tìm thấy trong các đám mây phân tử, dù chúng có thể xuất hiện trong những ngôi sao nhiệt độ thấp, sao lùn nâu và các hành tinh. Điều này khớp với mô tả trong câu hỏi về lĩnh vực nghiên cứu sự hình thành, tương tác và phá hủy của các hóa chất trong vũ trụ, bao gồm cả các đám mây phân tử, sao nhiệt độ thấp, sao lùn nâu và hành tinh.",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0020",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "C",
+    "llm_reasoning": "Trong đoạn văn 1, có thông tin rằng dân số Trung Quốc giảm từ 120 triệu xuống còn 60 triệu vào năm 1300. Tuy nhiên, không có thông tin cụ thể về nguyên nhân chính dẫn đến sự suy giảm dân số này. Nhưng dựa trên ngữ cảnh và thông tin về thời kỳ này, chúng ta có thể suy luận rằng sự suy giảm dân số có thể liên quan đến các sự kiện lịch sử quan trọng trong thời kỳ đó. Đoạn văn 1 cũng đề cập đến việc Trung Quốc bị Đế quốc Mông Cổ chinh phục và triều Nguyên được thiết lập, điều này có thể dẫn đến chiến tranh và xung đột, gây ảnh hưởng đến dân số.",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0159",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "A",
+    "llm_reasoning": "Để tìm giá trị của g'(0), chúng ta cần sử dụng quy tắc đạo hàm của tích hai hàm. Công thức đạo hàm của g(x) = cos(x) * e^(-x) là g'(x) = -sin(x) * e^(-x) + cos(x) * (-e^(-x)). Thay x = 0 vào công thức đạo hàm, ta có g'(0) = -sin(0) * e^(0) + cos(0) * (-e^(0)) = 0 * 1 + 1 * (-1) = -1. Kết quả là -1, khớp chính xác với đáp án A.",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0190",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "D",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"Để đánh giá các chiến lược đầu tư, chúng ta sử dụng chỉ số Sharpe, được tính bằng công thức: Sharpe Ratio = (Lợi nhuận kỳ vọng - Tỷ lệ phi rủi ro) / Độ lệch chuẩn.\n\n- Đối với Chiến lược X:\n  - Lợi nhuận kỳ vọng = 8%\n  - Tỷ lệ phi rủi ro = 3%\n  - Độ lệch chuẩn = 10%\n\n  Thay số vào công thức: Sharpe Ratio_X = (8% - 3%) / 10% = 5% / 10% = 0.5\n\n- Đối với Chiến lược Y:\n  - Lợi nhuận kỳ vọng = 12%\n  - Tỷ lệ phi rủi ro = 3%\n  - Độ lệch chuẩn = 15%\n\n  Thay số vào công thức: Sharpe Ratio_Y = (12% - 3%) / 15% = 9% / 15% = 0.6\n\nSo sánh hai chỉ số Sharpe, chúng ta thấy rằng Chiến lược Y có chỉ số Sharpe cao hơn (0.6) so với Chiến lược X (0.5). Do đó, nhà quản lý danh mục nên chọn Chiến lược Y với chỉ số Sharpe là 0.6.\",\n\n\"final_answer\": \"D\"\n}",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0248",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "B",
+    "llm_reasoning": "Để tìm giá trị sổ sách của máy in vào thời điểm bán, chúng ta cần trừ đi cơ sở khấu hao khỏi chi phí ban đầu. Giá trị sổ sách = Chi phí ban đầu - Cơ sở khấu hao = 58.000 - 48.000 = 10.000 đô la. Tuy nhiên, không có lựa chọn nào khớp với kết quả này, vì vậy có thể có thông tin bị bỏ qua hoặc hiểu lầm trong câu hỏi. Để tìm lợi nhuận từ việc bán, chúng ta cần trừ đi giá trị sổ sách khỏi giá bán. Lợi nhuận = Giá bán - Giá trị sổ sách. Vì giá trị sổ sách không khớp với bất kỳ lựa chọn nào, chúng ta sẽ thử tính lợi nhuận dựa trên giả định rằng giá trị sổ sách đã được tính sai. Nếu giá trị sổ sách là 29.200 đô la (giá trị gần nhất trong các lựa chọn), thì Lợi nhuận = 31.000 - 29.200 = 1.800 đô la. Điều này khớp với lựa chọn B.",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0336",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "B",
+    "llm_reasoning": "{\n\"step_by_step_reasoning\": \"Để tìm giá trị trung bình và phương sai của $y_t$, chúng ta cần phân tích mô hình MA(1) đã cho:\n\n1. **Giá trị trung bình của $y_t$:** \n   - Công thức mô hình: $y_t = \\mu + \\epsilon_t + \\theta \\epsilon_{t-1}$\n   - Kỳ vọng của $\\epsilon_t$ và $\\epsilon_{t-1}$ là 0 vì chúng là nhiễu trắng.\n   - Do đó, giá trị trung bình của $y_t$ chỉ phụ thuộc vào $\\mu$, vì $\\mu$ là hằng số và không bị ảnh hưởng bởi nhiễu.\n   - Kết luận: Giá trị trung bình của $y_t$ là $\\mu$.\n\n2. **Phương sai của $y_t$:**\n   - Công thức mô hình: $y_t = \\mu + \\epsilon_t + \\theta \\epsilon_{t-1}$\n   - Phương sai của tổng các biến ngẫu nhiên độc lập bằng tổng phương sai của từng biến.\n   - Phương sai của $\\epsilon_t$ là $\\sigma^2$.\n   - Phương sai của $\\theta \\epsilon_{t-1}$ là $\\theta^2 \\sigma^2$ vì khi nhân một biến ngẫu nhiên với một hằng số, phương sai của biến mới sẽ là bình phương của hằng số đó nhân với phương sai của biến gốc.\n   - Do đó, phương sai của $y_t$ là $\\sigma^2 + \\theta^2 \\sigma^2 = \\sigma^2 (1 + \\theta^2)$.\n\nKết hợp cả hai kết quả trên, chúng ta có giá trị trung bình của $y_t$ là $\\mu$ và phương sai của $y_t$ là $\\sigma^2 (1 + \\theta^2)$, khớp với đáp án B.\",\n\n\"final_answer\": \"B\"\n}",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0254",
+    "domain": "READING_COMPREHENSION",
+    "llm_prediction": "C",
+    "llm_reasoning": "{\n    \"step_by_step_reasoning\": \"Trích dẫn manh mối từ văn bản: 'Để chặn đứng bọn cướp, Công tước Yaroslav vùng Rostov - là con trai của người được ban phép thánh rửa tội đầu tiên ở xứ Rus, đã quyết định kiến thiết một pháo đài ở mũi đất cao tại địa thế hiểm trở ven Volga.' và 'Tòa pháo đài mọc lên chắn ngang con đường mua bán nô lệ từ Varangians hoặc từ Varyags đến Ba Tư, tức là thị trường châu Á và Cận Đông.'\nSuy luận: Lý do chính mà Công tước Yaroslav quyết định xây dựng pháo đài Yaroslavl là để ngăn chặn và chấm dứt nạn buôn bán nô lệ do Varangians/Varyags thực hiện, đồng thời bảo vệ dân chúng khỏi bị cướp bóc và nô lệ hóa.\nKết luận: Lý do chính mà Công tước Yaroslav quyết định xây dựng pháo đài Yaroslavl là để chấm dứt nạn buôn bán nô lệ do Varangians/Varyags thực hiện.\",\n    \"final_answer\": \"C\"\n}",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0301",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "A",
+    "llm_reasoning": "Hiệu suất không đổi theo quy mô (Constant Returns to Scale - CRTS) có nghĩa là khi tất cả các yếu tố đầu vào (K và L) tăng lên một tỷ lệ nhất định, thì sản lượng (Q) cũng tăng lên cùng tỷ lệ đó. Trong trường hợp này, doanh nghiệp nhân đôi đầu vào lao động (L) nhưng giảm đầu vào vốn (K) đi 25%. Vì hiệu suất không đổi theo quy mô, nên để giữ nguyên sản lượng, tổng tỷ lệ tăng của các yếu tố đầu vào phải bằng 1 (tức là không thay đổi). Tuy nhiên, việc tăng L lên gấp đôi (tỷ lệ tăng là 2) và giảm K đi 25% (tỷ lệ giảm là 0,75) không cân bằng nhau vì 2 * 0,75 = 1,5, lớn hơn 1. Điều này có nghĩa là tổng tỷ lệ tăng của các yếu tố đầu vào lớn hơn 1, dẫn đến sản lượng tăng lên.",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0305",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "D",
+    "llm_reasoning": "Điện trở ban đầu là R, dòng điện qua điện trở là I, và điện áp là V. Theo định luật Ohm, ta có I = V/R. Khi điện trở được cắt thành hai phần bằng nhau và nối song song, điện trở tương đương của tổ hợp song song là R/2. Dòng điện qua tổ hợp song song là I', và theo định luật Ohm, ta có I' = V/(R/2) = 2V/R. Vì V/R = I, nên I' = 2I. Do đó, mối quan hệ giữa I và I' là I' = 2I.",
+    "ground_truth": ""
+  },
+  {
+    "qid": "test_0173",
+    "domain": "MATH_LOGIC",
+    "llm_prediction": "B",
+    "llm_reasoning": "Để tìm điện trở tương đương của hai điện trở mắc song song, ta sử dụng công thức: 1/Rtđ = 1/R1 + 1/R2. Thay số: 1/Rtđ = 1/300 + 1/200 = 1/120. Vậy Rtđ = 120 Ω. Kết quả là 120 Ω. Khớp đáp án B.",
     "ground_truth": ""
   }
 ]

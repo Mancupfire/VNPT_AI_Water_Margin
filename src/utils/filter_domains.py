@@ -16,8 +16,11 @@ def filter_and_export(input_file, output_json, output_csv):
     # 2. Định nghĩa các domain muốn LOẠI BỎ
     # Bro có thể thêm bớt tùy ý ở đây
     EXCLUDED_DOMAINS = [
-        "MATH_LOGIC", 
-        "READING_COMPREHENSION"
+        "MATH_LOGIC",
+        "READING_COMPREHENSION",
+        "VN_CORE_KNOWLEDGE",
+        "GENERAL_DOMAIN",
+        # "SAFETY_REFUSAL"
     ]
 
     # 3. Lọc dữ liệu
@@ -75,6 +78,6 @@ if __name__ == "__main__":
     # Bro nhớ đổi tên file input cho đúng với file của bro nhé
     filter_and_export(
         input_file='results/test_answers.json', 
-        output_json='results/test_answers_filtered.json',
-        output_csv='results/submission_filtered.csv'
+        output_json='results/test_answers_filtered_safety_refusal.json',
+        output_csv='results/submission_filtered_safety_refusal.csv'
     )

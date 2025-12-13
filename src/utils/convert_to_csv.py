@@ -22,7 +22,6 @@ def clean_answer(prediction_text):
         return match.group(1)
         
     # 3. Trường hợp 'đường cùng' (như chữ 'ĐÁP', 'CÂU' mà không có A/B/C)
-    # Ta chọn đại A để file không bị lỗi format khi nộp
     return "A"
 
 def convert_json_to_submission(input_json, output_csv):
@@ -38,7 +37,6 @@ def convert_json_to_submission(input_json, output_csv):
     # Chuẩn bị list kết quả
     rows = []
     
-    # Đếm số lượng sửa lỗi
     fixed_count = 0
     
     for item in data:
@@ -48,14 +46,18 @@ def convert_json_to_submission(input_json, output_csv):
         # Làm sạch đáp án
         final_ans = clean_answer(raw_pred)
         
-        # Kiểm tra xem có bị thay đổi không để log ra (debug)
+        # Log debug
         if final_ans != raw_pred.strip().upper():
-            # Chỉ in vài cái đầu để check
             if fixed_count < 5: 
                 print(f"Fixed {qid}: '{raw_pred}' -> '{final_ans}'")
             fixed_count += 1
             
         rows.append({'qid': qid, 'answer': final_ans})
+
+    # === THÊM DÒNG NÀY ĐỂ SẮP XẾP TỪ BÉ ĐẾN LỚN ===
+    # Sắp xếp list rows dựa trên key 'qid' (test_0001, test_0002...)
+    rows.sort(key=lambda x: x['qid'])
+    # ==============================================
 
     # Ghi ra file CSV
     headers = ['qid', 'answer']
@@ -72,5 +74,5 @@ def convert_json_to_submission(input_json, output_csv):
 if __name__ == "__main__":
     convert_json_to_submission(
         input_json='results/test_answers.json', 
-        output_csv='results/test_predictions_final.csv'
+        output_csv='results/test_predictions_final_v2.csv'
     )

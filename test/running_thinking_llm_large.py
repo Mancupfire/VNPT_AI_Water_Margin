@@ -23,7 +23,7 @@ CONFIG = {
     
     # Thời gian nghỉ giữa các request (giây) để tránh lỗi Quota
     # Small: 60 req/h -> nghỉ > 60s. Large: 40 req/h -> nghỉ > 90s.
-    "SLEEP_TIME": 95
+    "SLEEP_TIME": 5
 }
 
 # ==============================================================================
@@ -54,7 +54,7 @@ def call_vnpt_llm(system_prompt, user_prompt, config):
                 "content": user_prompt
             }
         ],
-        "temperature": 0.2,
+        "temperature": 0.1,
         "top_p": 0.2,
         "max_completion_tokens": 2048,
         "n": 1,
@@ -107,18 +107,18 @@ def prompt_safety_refusal(choices_text):
     # Output Format (JSON)
     {{
     "reasoning": "Phân tích xem lựa chọn nào mang tính chất từ chối.",
-    "final_answer": "Ký tự in hoa của đáp án từ chối (A/B/C...)"
+    "final_answer": ""
     }}
     """
     return system, user
 
 def prompt_reading_comprehension(question, choices_text):
-    system = "Bạn là một chuyên gia đọc hiểu văn bản. Nhiệm vụ của bạn là trả lời câu hỏi trắc nghiệm dựa **TUYỆT ĐỐI** và **DUY NHẤT** vào đoạn văn bản được cung cấp. Tư duy của bạn mạch lạc, chặt chẽ và luôn tuân thủ logic từng bước (Chain of Thought)."
+    system = "Bạn là một chuyên gia đọc hiểu văn bản. Nhiệm vụ của bạn là trả lời câu hỏi trắc nghiệm dựa **TUYỆT ĐỐI** và **DUY NHẤT** vào đoạn văn bản được cung cấp."
     user = f"""
     # Rules
     1. KHÔNG sử dụng kiến thức bên ngoài.
     2. Tìm bằng chứng (Evidence) trong văn bản.
-    3. **QUAN TRỌNG: Phần suy luận hãy viết ngắn gọn, súc tích. KHÔNG chép lại nguyên văn các đoạn văn dài.**
+    3. Suy luận ngắn gọn, súc tích.
 
     # Input
     {question}
@@ -126,10 +126,10 @@ def prompt_reading_comprehension(question, choices_text):
     Các lựa chọn:
     {choices_text}
 
-    # Output Format (JSON)
+    # Output Format (JSON):
     {{
-    "step_by_step_reasoning": "Tóm tắt ngắn gọn manh mối tìm được -> Suy luận logic -> Kết luận.",
-    "final_answer": "Ký tự in hoa của đáp án đúng"
+    "step_by_step_reasoning": "Trích dẫn manh mối từ văn bản -> Suy luận -> Kết luận.",
+    "final_answer": ""
     }}
     """
     return system, user
@@ -141,25 +141,25 @@ def prompt_math_logic(question, choices_text):
     Giải quyết bài toán trắc nghiệm dưới đây và trả về kết quả dưới dạng JSON.
 
     # Hướng dẫn xử lý (Heuristics quan trọng):
-    1. **Tài chính/Lãi suất:** - Mặc định thử tính **Lãi kép (Compound)** trước.
-    - Nếu kết quả không khớp, HÃY TÍNH LẠI bằng **Lãi đơn (Simple Interest)** (đặc biệt là các bài toán nợ ngắn hạn hoặc kế toán cơ bản).
-    - Hãy thử cả hai phương pháp và ưu tiên chọn đáp án khớp chính xác nếu có, sau đó mới chọn đáp án gần đúng nhất.
+    1. **Tài chính/Lãi suất:** - Ưu tiên 1: Tính Lãi kép (Compound).
+       - Ưu tiên 2: Nếu không khớp, HÃY TÍNH LẠI bằng Lãi đơn (Simple Interest).
+       - Chọn đáp án khớp nhất trong 2 cách tính.
     2. **Vật lý/Hóa học:**
-    - Chú ý đổi đơn vị (ví dụ: cm -> m, gram -> kg, phút -> giây) trước khi tính.
-    - Nếu kết quả lệch nhẹ (do lấy g=9.8 hay g=10), hãy chọn đáp án có giá trị gần nhất.
+       - Chú ý đổi đơn vị (cm -> m, gram -> kg).
+       - Nếu kết quả lệch nhẹ (do g=9.8 hay g=10), chọn đáp án gần nhất.
     3. **So sánh đáp án:**
-    - Bỏ qua các ký tự định dạng (như $, %, _, \\frac) trong các lựa chọn. Chỉ so sánh giá trị số.
-    - Ví dụ: Tính ra 0.75m0 thì chọn đáp án "$0.75m_0c$".
+       - Bỏ qua ký tự định dạng ($, %, \\frac), chỉ so sánh giá trị số.
 
-    # Ví dụ mẫu (One-shot Learning):
+    # Ví dụ mẫu (One-shot):
     Input:
     Câu hỏi: Một vật rơi tự do trong 2s, lấy g=10m/s^2. Quãng đường là?
     A. 10m
     B. 20m
+    
     Output JSON:
     {{
-    "step_by_step_reasoning": "Công thức s = 0.5 * g * t^2. Thay số: 0.5 * 10 * 2^2 = 0.5 * 10 * 4 = 20. Kết quả là 20m. Khớp chính xác với đáp án B.",
-    "final_answer": "B"
+        "step_by_step_reasoning": "Công thức s = 0.5 * g * t^2. Thay số: 0.5 * 10 * 2^2 = 20. Kết quả là 20m. Khớp đáp án B.",
+        "final_answer": "B"
     }}
 
     # Input Dữ liệu thực tế:
@@ -168,9 +168,10 @@ def prompt_math_logic(question, choices_text):
     {choices_text}
 
     # Output Format (JSON Only):
+    Hãy trả về JSON với định dạng sau (không kèm lời dẫn):
     {{
-    "step_by_step_reasoning": "Phân tích đề -> Chọn công thức -> Thử phương pháp 1 (Lãi kép/g=9.8) -> Nếu lệch thì thử phương pháp 2 (Lãi đơn/g=10) -> Chốt kết quả.",
-    "final_answer": "Ký tự in hoa của đáp án đúng (A/B/C...)"
+    "step_by_step_reasoning": "Viết quy trình suy luận chi tiết của bạn tại đây...",
+    "final_answer": "" 
     }}
     """
     return system, user
@@ -186,7 +187,7 @@ def prompt_vn_core_knowledge(question, choices_text):
     # Output Format (JSON)
     {{
     "reasoning": "Giải thích dựa trên kiến thức chính thống...",
-    "final_answer": "Ký tự in hoa của đáp án đúng"
+    "final_answer": ""
     }}
     """
     return system, user
@@ -205,7 +206,7 @@ def prompt_general_domain(question, choices_text):
     # Output Format (JSON)
     {{
     "reasoning": "Phân tích logic...",
-    "final_answer": "Ký tự in hoa của đáp án đúng"
+    "final_answer": ""
     }}
     """
     return system, user

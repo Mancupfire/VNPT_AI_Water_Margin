@@ -16,7 +16,7 @@ CONFIG = {
     
     # Thời gian nghỉ giữa các request (giây) để tránh lỗi Quota
     # Small: 60 req/h -> nghỉ > 60s. Large: 40 req/h -> nghỉ > 90s.
-    "SLEEP_TIME": 65
+    "SLEEP_TIME": 5
 }
 
 def call_vnpt_llm(prompt, config):
@@ -94,8 +94,8 @@ def format_classification_prompt(item):
     - Định nghĩa: Các câu hỏi kiến thức phổ quát về Tâm lý học, Sinh học, Kinh tế học (lý thuyết), Y học thường thức, Kỹ năng mềm, Văn hóa đại cương. Không chứa ngữ cảnh dài và không vi phạm an toàn.
 
     # Instruction
-    - Đọc kỹ `question` đầu vào.
-    - Phân tích nội dung và mục đích của câu hỏi.
+    - Nếu câu hỏi kèm theo đoạn văn bản dài để trả lời, gán nhãn **READING_COMPREHENSION**.
+    - Chinh xác chỉ 1 nhãn duy nhất cho mỗi câu hỏi.
     - Chỉ trả về kết quả dưới dạng JSON với format: {{"qid": "{qid}", "domain": "TÊN_LABEL"}}
     - Không giải thích gì thêm.
 
@@ -174,7 +174,9 @@ def process_classification_dataset(input_file, output_file, config, limit=None):
         # Xử lý kết quả
         extracted_data = extract_json_from_response(prediction_text)
         
-        if extracted_data and 'domain' in extracted_data:
+        if any(kw in item['question'] for kw in ["Đoạn thông tin:", "Title:", "Content:", "-- Document --", "Đọc đoạn văn sau:"]):
+            domain_label = "READING_COMPREHENSION"
+        elif extracted_data and 'domain' in extracted_data:
             domain_label = extracted_data['domain']
         else:
             domain_label = "UNKNOWN" 
@@ -187,9 +189,7 @@ def process_classification_dataset(input_file, output_file, config, limit=None):
             elif "GENERAL_DOMAIN" in prediction_text: domain_label = "GENERAL_DOMAIN"
             
             # Điều kiện thêm (đề phòng LLM không tuân theo format ở prompt)
-            elif any(kw in prediction_text for kw in ["Đoạn thông tin:", "Title:", "Content:", "-- Document --", "Đọc đoạn văn sau:"]):
-                domain_label = "READING_COMPREHENSION"
-            elif any(kw in prediction_text for kw in ["Luật", "Nghị quyết", "Nghị định", "Thông tư", "Hiến pháp"]):
+            elif any(kw in item['question'] for kw in ["Luật", "Nghị quyết", "Nghị định", "Thông tư", "Hiến pháp"]):
                 domain_label = "VN_CORE_KNOWLEDGE"
             
             # NẾU VẪN UNKNOWN: Kiểm tra xem có phải model đang từ chối trả lời không?

@@ -705,11 +705,6 @@
     "predicted_domain": "READING_COMPREHENSION"
   },
   {
-    "qid": "test_0142",
-    "question_snippet": "Đoạn thông tin:\n-- Đoạn văn 1 --\nTiêu đề: Thức uốn...",
-    "predicted_domain": "MATH_LOGIC"
-  },
-  {
     "qid": "test_0143",
     "question_snippet": "Đoạn thông tin:\n-- Document 1 --\nTitle: InterConti...",
     "predicted_domain": "READING_COMPREHENSION"
@@ -1525,11 +1520,6 @@
     "predicted_domain": "MATH_LOGIC"
   },
   {
-    "qid": "test_0306",
-    "question_snippet": "Theo Luật Bảo vệ môi trường 2020, lãnh thổ nước Cộ...",
-    "predicted_domain": "GENERAL_DOMAIN"
-  },
-  {
     "qid": "test_0307",
     "question_snippet": "Cho $ \\sigma(n) $ là tổng các ước số dương của $ n...",
     "predicted_domain": "MATH_LOGIC"
@@ -1840,6 +1830,11 @@
     "predicted_domain": "GENERAL_DOMAIN"
   },
   {
+    "qid": "test_0306",
+    "question_snippet": "Theo Luật Bảo vệ môi trường 2020, lãnh thổ nước Cộ...",
+    "predicted_domain": "VN_CORE_KNOWLEDGE"
+  },
+  {
     "qid": "test_0369",
     "question_snippet": "Đoạn thông tin:\n-- Đoạn văn 1 --\nTiêu đề: Thiên vă...",
     "predicted_domain": "READING_COMPREHENSION"
@@ -1848,5 +1843,10 @@
     "qid": "test_0370",
     "question_snippet": "Thế nan giải của người tù là một trò chơi nổi tiến...",
     "predicted_domain": "GENERAL_DOMAIN"
+  },
+  {
+    "qid": "test_0142",
+    "question_snippet": "Đoạn thông tin:\n-- Đoạn văn 1 --\nTiêu đề: Thức uốn...",
+    "predicted_domain": "READING_COMPREHENSION"
   }
 ]

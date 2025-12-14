@@ -6,6 +6,7 @@
 
 .venv
 .env
+.vscode
 *.pyc
 __pycache__/
 
@@ -15,3 +16,5 @@ pred/
 .python-version
 pyproject.toml
 uv.lock
+
+.secret

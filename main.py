@@ -11,23 +11,34 @@ except Exception:
 
 
 def _build_config_from_env():
+    """
+    Build configuration from environment variables.
+    
+    Note: VNPT credentials (ACCESS_TOKEN, TOKEN_ID, TOKEN_KEY) are automatically
+    loaded from .secret/api-keys.json by default. You don't need to set them here
+    unless you want to override the JSON file.
+    """
     return {
-        "VNPT_ACCESS_TOKEN": os.getenv("VNPT_ACCESS_TOKEN"),
-        "VNPT_TOKEN_ID": os.getenv("VNPT_TOKEN_ID"),
-        "VNPT_TOKEN_KEY": os.getenv("VNPT_TOKEN_KEY"),
+        # Provider Configuration
         "CHAT_PROVIDER": os.getenv("CHAT_PROVIDER", "vnpt"),
         "EMBEDDING_PROVIDER": os.getenv("EMBEDDING_PROVIDER", "vnpt"),
-        "MODEL_NAME": os.getenv("MODEL_NAME", "vnptai-hackathon-small"),
+        "MODEL_NAME": os.getenv("MODEL_NAME", "vnptai-hackathon-large"),
         "HUGGINGFACE_EMBEDDING_MODEL": os.getenv("HUGGINGFACE_EMBEDDING_MODEL", "all-MiniLM-L6-v2"),
+        
+        # Performance and Rate Limiting
         "CONCURRENT_REQUESTS": int(os.getenv("CONCURRENT_REQUESTS", "2")),
-        "SLEEP_TIME": int(os.getenv("SLEEP_TIME", "90")),
+        "SLEEP_TIME": int(os.getenv("SLEEP_TIME", "0")),  # Can be 0 with infinite retry
+        
+        # LLM Hyperparameters (all configurable via .env)
         "PAYLOAD_HYPERPARAMS": {
-            "temperature": 0.5,
-            "top_p": 0.7,
-            "max_completion_tokens": 2048,
-            "n": 1,
-            "seed": 416,
+            "temperature": float(os.getenv("LLM_TEMPERATURE", "0.5")),
+            "top_p": float(os.getenv("LLM_TOP_P", "0.7")),
+            "max_completion_tokens": int(os.getenv("LLM_MAX_TOKENS", "2048")),
+            "n": int(os.getenv("LLM_N", "1")),
+            "seed": int(os.getenv("LLM_SEED", "416")),
         },
+        
+        # RAG Configuration
         "RAG_ENABLED": os.getenv("RAG_ENABLED", "false").lower() == "true",
         "TOP_K_RAG": int(os.getenv("TOP_K_RAG", "3")),
         "FAISS_INDEX_PATH": os.getenv("FAISS_INDEX_PATH", "knowledge_base/faiss_index.bin"),
@@ -52,7 +63,7 @@ if __name__ == "__main__":
     asyncio.run(
         process_dataset_async(
             input_file='data/test.json',
-            output_file=f'pred/test_{config.get("CHAT_PROVIDER", "")}_async.csv',
+            output_file=f'results/test_{config.get("CHAT_PROVIDER", "")}_async.csv',
             config=config,
             mode='test'
         )
@@ -62,7 +73,7 @@ if __name__ == "__main__":
     # asyncio.run(
     #     process_dataset_async(
     #         input_file='E:\\VNPT_AI_Water_Margin\\data\\val.json',
-    #         output_file=f'pred/val_{config.get("CHAT_PROVIDER", "")}_async.csv',
+    #         output_file=f'results/val_{config.get("CHAT_PROVIDER", "")}_async.csv',
     #         config=config,
     #         mode='valid'
     #     )

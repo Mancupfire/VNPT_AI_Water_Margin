@@ -227,23 +227,71 @@ async def test_function_async(input_file, output_csv, config=None):
             print(f"Error loading RAG indexes or Cross-Encoder: {e}. RAG will be disabled.")
             config["RAG_ENABLED"] = False
 
-    tasks = [process_item(item, provider, config, semaphore, faiss_index, bm25_index, text_chunks, cross_encoder) for item in data]
-    results = await tqdm.gather(*tasks, desc="Processing")
+    # === CHECKPOINT/RESUME LOGIC ===
+    processed_qids = set()
+    existing_results = []
+    
+    if os.path.exists(output_csv):
+        print(f"\n📋 Found existing progress file: {output_csv}")
+        try:
+            with open(output_csv, 'r', encoding='utf-8', newline='') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    processed_qids.add(row['qid'])
+                    existing_results.append(row)
+            print(f"✅ Loaded {len(processed_qids)} already processed items")
+        except Exception as e:
+            print(f"⚠️  Error reading existing file: {e}. Starting fresh...")
+    else:
+        print(f"\n📄 No existing progress file. Starting fresh...")
+    
+    # Filter out already processed items
+    items_to_process = [item for item in data if item['qid'] not in processed_qids]
+    
+    if not items_to_process:
+        print(f"\n✅ All {len(data)} items already processed! Nothing to do.")
+        return
+    
+    print(f"📊 Progress: {len(processed_qids)}/{len(data)} complete. Processing {len(items_to_process)} remaining items...\n")
 
-    with open(output_csv, 'w', encoding='utf-8', newline='') as f:
-        fieldnames = ["qid", "answer", "prediction_raw"]
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
-        writer.writeheader()
-        writer.writerows(results)
+    tasks = [process_item(item, provider, config, semaphore, faiss_index, bm25_index, text_chunks, cross_encoder) for item in items_to_process]
+    
+    # Incremental saving: write results as they complete
+    results = existing_results.copy()
+    fieldnames = ["qid", "answer", "prediction_raw"]
+    
+    
+    # Open in APPEND mode to preserve existing content
+    with open(output_csv, 'a', encoding='utf-8', newline='') as f_result:
+        writer_result = csv.DictWriter(f_result, fieldnames=fieldnames)
+        
+        # Only write header if file is new/empty
+        if not existing_results:
+            writer_result.writeheader()
+            f_result.flush()
+        
+        with tqdm(total=len(items_to_process), desc="Processing") as pbar:
+            for coro in asyncio.as_completed(tasks):
+                result = await coro
+                results.append(result)
+                
+                # Write to result CSV immediately
+                writer_result.writerow(result)
+                f_result.flush()
+                
+                pbar.update(1)
 
     print(f"Done. Results saved to: {output_csv}")
-
+    
+    # Sort by qid and save submission.csv
     submission_file = os.path.join(os.path.dirname(output_csv), 'submission.csv')
-    with open(submission_file, 'w', encoding='utf-8', newline='') as f:
-        writer = csv.DictWriter(f, fieldnames=["qid", "answer"])
-        writer.writeheader()
-        for row in results:
-            writer.writerow({"qid": row["qid"], "answer": row["answer"]})
+    results_sorted = sorted(results, key=lambda x: x.get("qid", ""))
+    with open(submission_file, 'w', encoding='utf-8', newline='') as f_submission:
+        writer_submission = csv.DictWriter(f_submission, fieldnames=["qid", "answer"])
+        writer_submission.writeheader()
+        for row in results_sorted:
+            writer_submission.writerow({"qid": row["qid"], "answer": row["answer"]})
+    print(f"Submission saved to: {submission_file}")
 
 
 async def valid_function_async(input_file, output_csv, config=None):
@@ -284,27 +332,54 @@ async def valid_function_async(input_file, output_csv, config=None):
             config["RAG_ENABLED"] = False
 
     tasks = [process_item(item, provider, config, semaphore, faiss_index, bm25_index, text_chunks, cross_encoder) for item in data]
-    results = await tqdm.gather(*tasks, desc="Processing")
-
-    correct = sum(1 for r in results if r.get('is_correct'))
-    total = len(results)
-    acc = correct / total if total > 0 else 0.0
-
+    
+    # Incremental saving: write results as they complete
+    results = []
+    correct = 0
+    total = len(tasks)
+    fieldnames = ["qid", "prediction", "ground_truth", "is_correct", "prediction_raw"]
+    
     with open(output_csv, 'w', encoding='utf-8', newline='') as f:
-        fieldnames = ["qid", "prediction", "ground_truth", "is_correct", "prediction_raw"]
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
-        for res in results:
-            writer.writerow({
-                "qid": res.get("qid"),
-                "prediction": res.get("answer"),
-                "ground_truth": res.get("ground_truth"),
-                "is_correct": res.get("is_correct"),
-                "prediction_raw": res.get("prediction_raw")
-            })
+        f.flush()
+        
+        with tqdm(total=total, desc="Processing") as pbar:
+            for coro in asyncio.as_completed(tasks):
+                res = await coro
+                results.append(res)
+                
+                if res.get('is_correct'):
+                    correct += 1
+                
+                # Write to result CSV immediately
+                writer.writerow({
+                    "qid": res.get("qid"),
+                    "prediction": res.get("answer"),
+                    "ground_truth": res.get("ground_truth"),
+                    "is_correct": res.get("is_correct"),
+                    "prediction_raw": res.get("prediction_raw")
+                })
+                f.flush()
+                
+                # Update progress bar with current accuracy
+                current_acc = correct / len(results) if results else 0
+                pbar.set_postfix({"acc": f"{current_acc:.2%}", "correct": correct})
+                pbar.update(1)
 
+    acc = correct / total if total > 0 else 0.0
     print(f"Done. Results saved to: {output_csv}")
     print(f"Accuracy: {acc:.4f} ({correct}/{total})")
+    
+    # Sort by qid and save submission.csv
+    submission_file = os.path.join(os.path.dirname(output_csv), 'submission.csv')
+    results_sorted = sorted(results, key=lambda x: x.get("qid", ""))
+    with open(submission_file, 'w', encoding='utf-8', newline='') as f_submission:
+        writer_submission = csv.DictWriter(f_submission, fieldnames=["qid", "answer"])
+        writer_submission.writeheader()
+        for row in results_sorted:
+            writer_submission.writerow({"qid": row["qid"], "answer": row["answer"]})
+    print(f"Submission saved to: {submission_file}")
 
 
 async def process_dataset_async(input_file, output_file, config=None, mode=None):

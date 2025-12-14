@@ -113,11 +113,12 @@ if __name__ == "__main__":
     import dotenv
     dotenv.load_dotenv()
 
+    # Build config from environment variables
     config = {
-        "EMBEDDING_PROVIDER": os.getenv("EMBEDDING_PROVIDER", "huggingface"),
+        "EMBEDDING_PROVIDER": os.getenv("EMBEDDING_PROVIDER", "vnpt"),
         "HUGGINGFACE_EMBEDDING_MODEL": os.getenv("HUGGINGFACE_EMBEDDING_MODEL", "all-MiniLM-L6-v2"),
-        "MODEL_NAME": os.getenv("MODEL_NAME", "vnptai_hackathon_embedding"),
-        "RAG_ENABLED": True, # Must be true to load indexes
+        "MODEL_NAME": os.getenv("EMBEDDING_MODEL_NAME", "vnptai_hackathon_embedding"),  # Use EMBEDDING_MODEL_NAME for credentials
+        "RAG_ENABLED": True,  # Must be true to load indexes
         "HYBRID_SEARCH_ENABLED": os.getenv("HYBRID_SEARCH_ENABLED", "false").lower() == "true",
         "RERANK_ENABLED": os.getenv("RERANK_ENABLED", "false").lower() == "true",
         "FAISS_INDEX_PATH": os.getenv("FAISS_INDEX_PATH", "knowledge_base/faiss_index.bin"),

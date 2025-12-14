@@ -148,7 +148,7 @@ class VNPTProvider:
                 return await func(*args, **kwargs)
             except aiohttp.ClientResponseError as e:
                 # Check if it's a quota/rate limit error
-                if e.status == 429 or (e.status >= 500 and e.status < 600):
+                if e.status == 429 or (e.status >= 500 and e.status < 600) or e.status == 401:
                     if not self.enable_infinite_retry:
                         raise
                     

@@ -211,17 +211,6 @@ Structured logging to console and `logs/app.log`:
 LOG_LEVEL=INFO                   # INFO, DEBUG, WARNING, ERROR
 ```
 
-## 🐳 Docker
-
-Build:
-```pwsh
-docker build -t vnpt-ai-water-margin:latest .
-```
-
-Run:
-```pwsh
-docker run --rm --env-file .env vnpt-ai-water-margin:latest
-```
 
 ## 📁 Project Structure
 

@@ -26,5 +26,5 @@ langchain>=0.1.0
 langchain-text-splitters>=0.0.1
 
 # Optional Dependencies (uncomment if needed)
-# torch>=2.0.0              # Usually installed with sentence-transformers
-# transformers>=4.30.0      # Usually installed with sentence-transformers
+torch>=2.0.0              # Usually installed with sentence-transformers
+transformers>=4.30.0      # Usually installed with sentence-transformers

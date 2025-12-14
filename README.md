@@ -1,162 +1,287 @@
-# VNPT_AI_Water_Margin
+# VNPT AI Water Margin
 
-Lightweight runner that queries a VNPT-hosted LLM to answer multiple-choice questions from JSON datasets and writes predictions to CSV/JSON. This project now supports Retrieval-Augmented Generation (RAG) and asynchronous processing for improved performance and accuracy.
+Production-ready runner for VNPT-hosted LLMs to answer multiple-choice questions with advanced Retrieval-Augmented Generation (RAG), progress persistence, and multi-format document support.
 
-Quickstart
+## ✨ Key Features
 
-1. Create a Python 3.11+ virtual environment and install dependencies:
+- 🚀 **Progress Resume** - Automatic checkpoint/resume on interruption
+- 📁 **Multi-Format Support** - PDF, JSON, CSV, XLSX, DOCX, MD, TXT
+- 🧠 **Smart Chunking** - LangChain-powered semantic chunking with special handling for markdown and tabular data
+- 🔄 **Infinite Retry** - Automatic quota limit handling with exponential backoff
+- 🔐 **JSON Credentials** - Zero-configuration with `.secret/api-keys.json`
+- ⚙️ **Fully Configurable** - All parameters via `.env` file
+
+## Quick Start
+
+### 1. Installation
 
 ```pwsh
 python -m venv .venv
-.\.venv\Scripts\Activate.ps1
+.\\.venv\\Scripts\\Activate.ps1
 uv pip install -r requirements.txt
 ```
 
-2. Create a `.env` file from `.env.example` and populate the VNPT credentials:
+### 2. Credential Setup (Zero Config!)
+
+Create `.secret/api-keys.json`:
+
+```json
+[
+  {
+    "authorization": "Bearer YOUR_EMBEDDING_TOKEN",
+    "tokenKey": "YOUR_EMBEDDING_TOKEN_KEY",
+    "llmApiName": "LLM embeddings",
+    "tokenId": "YOUR_EMBEDDING_TOKEN_ID"
+  },
+  {
+    "authorization": "Bearer YOUR_LARGE_MODEL_TOKEN",
+    "tokenKey": "YOUR_LARGE_TOKEN_KEY",
+    "llmApiName": "LLM large",
+    "tokenId": "YOUR_LARGE_TOKEN_ID"
+  },
+  {
+    "authorization": "Bearer YOUR_SMALL_MODEL_TOKEN",
+    "tokenKey": "YOUR_SMALL_TOKEN_KEY",
+    "llmApiName": "LLM small",
+    "tokenId": "YOUR_SMALL_TOKEN_ID"
+  }
+]
+```
+
+### 3. Configure Environment
+
+Copy `.env.example` to `.env` (credentials auto-loaded from JSON):
 
 ```pwsh
 copy .env.example .env
-# then edit .env and fill in the necessary variables
 ```
 
-3. Run the main runner (synchronous):
+### 4. Run
 
 ```pwsh
-python main.py
+uv run main.py
 ```
 
-4. Run the asynchronous runner (recommended for performance, see RAG section below):
+## 🔄 Progress Resume
+
+Progress is automatically saved! If interrupted (Ctrl+C), just run again:
+
+```
+📋 Found existing progress file: results/test_vnpt_async.csv
+✅ Loaded 31 already processed items
+📊 Progress: 31/370 complete. Processing 340 remaining items...
+```
+
+## 📚 Retrieval-Augmented Generation (RAG)
+
+### Supported Document Formats
+
+Place any of these in your `docs/` folder:
+
+- **PDF** (`.pdf`) - Research papers, books
+- **JSON** (`.json`) - Structured data with smart chunking
+- **CSV** (`.csv`) - Tabular data with header preservation
+- **Excel** (`.xlsx`, `.xls`) - Spreadsheets (requires `pandas`)
+- **Word** (`.docx`, `.doc`) - Documents (requires `python-docx`)
+- **Markdown** (`.md`) - Documentation with structure-aware chunking
+- **Text** (`.txt`) - Plain text files
+
+### Build Knowledge Base
 
 ```pwsh
-python async_main.py
+uv run .\\src\\RAG\\build_index.py
 ```
 
-Retrieval-Augmented Generation (RAG)
+**Advanced Chunking:**
+- **Markdown files**: Preserves headers, lists, code blocks
+- **Tabular data** (JSON/CSV/XLSX): Preserves row integrity
+- **Text files**: LangChain's RecursiveCharacterTextSplitter for semantic coherence
 
-To improve the accuracy of LLM responses by providing relevant context from your documents, you can enable RAG:
+**Configuration (.env):**
+```dotenv
+RAG_ENABLED=true
+RETRIEVE_DOCS_DIR=docs           # Custom docs directory
+RAG_CHUNK_SIZE=500               # Chunk size in characters
+RAG_CHUNK_OVERLAP=50             # Overlap between chunks
+EMBEDDING_DIM=768                # Embedding dimension
+EMBEDDING_MODEL_NAME=vnptai_hackathon_embedding
+```
 
-1.  **Prepare your Knowledge Base:** Place your PDF documents in the `docs/` directory.
+### Advanced RAG: Hybrid Search + Re-ranking
 
-2.  **Build the RAG Indices:** Run the following command to process your PDF documents, generate embeddings, and create searchable indices:
+**Hybrid Search** (combines semantic + keyword):
+```dotenv
+HYBRID_SEARCH_ENABLED=true
+SEMANTIC_WEIGHT=0.5              # FAISS weight
+KEYWORD_WEIGHT=0.5               # BM25 weight
+```
 
-    ```pwsh
-    python build_index.py
-    ```
+**Re-ranking** (improves precision):
+```dotenv
+RERANK_ENABLED=true
+CROSS_ENCODER_MODEL=cross-encoder/ms-marco-MiniLM-L-6-v2
+RERANK_TOP_K=10                  # Initial retrieval count
+TOP_K_RAG=3                      # Final chunks for LLM
+```
 
-    This will create the following files in the `knowledge_base` directory:
-    - `faiss_index.bin`: The FAISS index for dense, semantic search.
-    - `bm25_index.pkl`: The BM25 index for sparse, keyword-based search.
-    - `text_chunks.json`: The raw text chunks corresponding to the indexed vectors.
+### Pre-retrieve Context (Optional)
 
-3.  **Enable RAG in the Runner:** Add the following environment variables to your `.env` file to activate RAG and configure its behavior:
+For repeated runs, pre-compute context:
 
-    ```dotenv
-    RAG_ENABLED=true
-    TOP_K_RAG=3  # Optional: Number of top relevant chunks to retrieve (default is 3)
-    ```
+```pwsh
+uv run .\\src\\RAG\\pre_retrieve.py
+```
 
-#### Advanced RAG: Hybrid Search with Re-ranking
+Then enable in `.env`:
+```dotenv
+USE_PRE_RETRIEVED_CONTEXT=true
+```
 
-For even higher accuracy, you can enable a two-stage retrieval process that uses a hybrid search (combining dense and sparse retrieval) followed by a re-ranker.
+##  Configuration
 
-1.  **Enable Hybrid Search:** To combine semantic search (FAISS) with keyword search (BM25), add the following to your `.env` file:
+### LLM Hyperparameters
 
-    ```dotenv
-    HYBRID_SEARCH_ENABLED=true
-    SEMANTIC_WEIGHT=0.5 # Optional: Weight for semantic search score (0.0 to 1.0)
-    KEYWORD_WEIGHT=0.5  # Optional: Weight for keyword search score (0.0 to 1.0)
-    ```
+All configurable via `.env`:
 
-2.  **Enable Re-ranking:** For the highest accuracy, use a `CrossEncoder` model to re-rank the results from the hybrid search.
+```dotenv
+LLM_TEMPERATURE=0.5              # Randomness (0.0-1.0)
+LLM_TOP_P=0.7                    # Nucleus sampling
+LLM_MAX_TOKENS=2048              # Max completion tokens
+LLM_N=1                          # Number of completions
+LLM_SEED=416                     # Reproducibility seed
+```
 
-    ```dotenv
-    RERANK_ENABLED=true
-    CROSS_ENCODER_MODEL=cross-encoder/ms-marco-MiniLM-L-6-v2 # Optional: Specify a CrossEncoder model
-    RERANK_TOP_K=10 # Optional: The number of initial documents to retrieve for re-ranking
-    ```
+### Performance & Rate Limiting
 
-    With `RERANK_ENABLED=true`, the `TOP_K_RAG` variable will determine how many of the re-ranked documents are passed to the LLM.
+```dotenv
+CONCURRENT_REQUESTS=2            # Parallel requests
+SLEEP_TIME=0                     # Let retry handle delays
+```
 
-#### Pre-retrieving Context
+### Infinite Retry (VNPT)
 
-If you plan to run the pipeline multiple times on the same dataset, you can pre-retrieve the context for each question to save time.
+Automatic handling of quota limits:
 
-1.  **Run the Pre-retrieval Script:**
-    ```pwsh
-    python pre_retrieve.py
-    ```
-    This will read your input dataset (e.g., `data/test.json`), perform the configured retrieval process (hybrid search, re-ranking, etc.), and save a new dataset (e.g., `data/test_with_context.json`) with a `retrieved_context` field added to each question.
+```dotenv
+VNPT_INFINITE_RETRY=true         # Enable infinite retry
+VNPT_RETRY_INITIAL_DELAY=5       # Initial delay (seconds)
+VNPT_RETRY_MAX_DELAY=300         # Max delay (5 minutes)
+```
 
-2.  **Use the Pre-retrieved Dataset:** In your `.env` file, set the following:
-    ```dotenv
-    USE_PRE_RETRIEVED_CONTEXT=true
-    ```
-    Then, when you run `async_main.py`, make sure to point it to the new dataset with the pre-filled context. The runner will use this context and skip the time-consuming real-time retrieval step.
+### Credential Priority
 
+1. **Model-specific env vars** (highest): `VNPT_LARGE_ACCESS_TOKEN`
+2. **`.secret/api-keys.json`** (recommended, default)
+3. **Generic env vars** (fallback): `VNPT_ACCESS_TOKEN`
 
-Logging
+## Multiple Providers
 
-The application now includes a structured logging system.
-- Logs are printed to the console and also saved to a file in the `logs/` directory (`logs/app.log`).
-- You can control the logging verbosity by setting the `LOG_LEVEL` environment variable (e.g., `INFO`, `DEBUG`).
-  ```dotenv
-  LOG_LEVEL=INFO
-  ```
+### VNPT (Default)
 
-Use different providers
+```dotenv
+CHAT_PROVIDER=vnpt
+MODEL_NAME=vnptai-hackathon-large
+# Credentials from .secret/api-keys.json
+```
 
-This project supports different providers for both chat completion and embedding generation. You can configure them independently in your `.env` file.
+### Ollama (Local)
 
-- **`CHAT_PROVIDER`**: `vnpt`, `ollama`, `openai` (default: `vnpt`)
-- **`EMBEDDING_PROVIDER`**: `vnpt`, `huggingface` (default: `vnpt`)
+```dotenv
+CHAT_PROVIDER=ollama
+MODEL_NAME=gemma2:270m
+OLLAMA_BASE=http://localhost:11434
 
-**Examples:**
+EMBEDDING_PROVIDER=huggingface
+HUGGINGFACE_EMBEDDING_MODEL=all-MiniLM-L6-v2
+```
 
-- **VNPT (default):**
-  ```dotenv
-  CHAT_PROVIDER=vnpt
-  EMBEDDING_PROVIDER=vnpt
-  VNPT_ACCESS_TOKEN=...
-  VNPT_TOKEN_ID=...
-  VNPT_TOKEN_KEY=...
-  ```
+### OpenAI
 
-- **Local testing with Ollama and Hugging Face:**
-  ```dotenv
-  CHAT_PROVIDER=ollama
-  MODEL_NAME=gemma2:270m
-  OLLAMA_BASE=http://localhost:11434
+```dotenv
+CHAT_PROVIDER=openai
+MODEL_NAME=gpt-3.5-turbo
+OPENAI_API_KEY=your_key_here
+```
 
-  EMBEDDING_PROVIDER=huggingface
-  HUGGINGFACE_EMBEDDING_MODEL=all-MiniLM-L6-v2
-  ```
+## 📊 Logging
 
-- **OpenAI:**
-  ```dotenv
-  CHAT_PROVIDER=openai
-  MODEL_NAME=gpt-3.5-turbo
-  OPENAI_API_KEY=...
-  ```
+Structured logging to console and `logs/app.log`:
 
-Notes
+```dotenv
+LOG_LEVEL=INFO                   # INFO, DEBUG, WARNING, ERROR
+```
 
-- Secrets should be provided via environment variables; do not commit credentials to version control.
-- For asynchronous processing (`async_main.py`), `SLEEP_TIME` (default 90 seconds, for 40 req/h quota) and `CONCURRENT_REQUESTS` (default 2) are controlled via environment variables.
+## 🐳 Docker
 
-Docker
-
-Build the container:
-
+Build:
 ```pwsh
 docker build -t vnpt-ai-water-margin:latest .
 ```
 
-Run container (example using env file):
-
+Run:
 ```pwsh
 docker run --rm --env-file .env vnpt-ai-water-margin:latest
 ```
 
-Adapting providers
+## 📁 Project Structure
 
-- Provider implementations are in `src/providers/`. To add a provider, implement a `create(config)` factory that returns a provider instance. Chat providers should have an `achat` method, and embedding providers should have an `aembed` method.
+```
+VNPT_AI_Water_Margin/
+├── .secret/
+│   └── api-keys.json           # Auto-loaded credentials
+├── data/
+│   └── test.json               # Input dataset
+├── docs/                       # Knowledge base documents
+├── knowledge_base/             # Generated indices
+│   ├── faiss_index.bin
+│   ├── bm25_index.pkl
+│   └── text_chunks.json
+├── results/                    # Output with progress
+│   └── test_vnpt_async.csv
+├── src/
+│   ├── providers/              # Provider implementations
+│   ├── RAG/                    # RAG pipeline
+│   │   ├── build_index.py     # Index builder
+│   │   └── pre_retrieve.py    # Pre-retrieval script
+│   └── async_running.py        # Main processing engine
+├── main.py                     # Entry point
+└── .env                        # Configuration
+```
+
+## 🔧 Advanced Features
+
+### Custom Providers
+
+Implement in `src/providers/`. Chat providers need `achat()`, embedding providers need `aembed()`.
+
+### Content Filtering
+
+RAG automatically filters irrelevant content (API docs, code snippets, etc.) from retrieved context.
+
+### Tabular Data Intelligence
+
+JSON/CSV/XLSX files are chunked to preserve:
+- Row integrity
+- Header context
+- Table structure
+
+### Markdown Structure
+
+Markdown files maintain:
+- Header hierarchy
+- List formatting
+- Code block boundaries
+
+## 📝 Notes
+
+- **Secrets**: Never commit `.secret/api-keys.json` or `.env` with credentials
+- **Progress**: Results in `results/` folder with automatic resume
+- **Rate Limits**: Infinite retry handles VNPT quotas automatically
+- **Extensibility**: Easy to add new providers and document formats
+
+## 📖 Additional Documentation
+
+- **[AGENTS.md](AGENTS.md)**: Comprehensive agent/architecture overview
+- **[docs/credentials.md](docs/credentials.md)**: Credential management details
+- **[docs/infinite_retry.md](docs/infinite_retry.md)**: Retry mechanism documentation
+- **[docs/quick-start-json-credentials.md](docs/quick-start-json-credentials.md)**: JSON credential setup guide

@@ -4,89 +4,191 @@ This project provides a robust and extensible framework for answering multiple-c
 
 ## Overall Project Architecture
 
-The core of the project revolves around an asynchronous runner (`async_main.py` / `src/async_running.py`) that processes datasets of multiple-choice questions. Key architectural components include:
+The core of the project revolves around an asynchronous runner (`main.py` / `src/async_running.py`) that processes datasets of multiple-choice questions. Key architectural components include:
 
 1.  **Modular Provider System:** Decoupled interfaces for Chat Completion and Embedding generation, allowing different backend services to be used independently.
 2.  **Asynchronous Processing:** Utilizes `asyncio` for concurrent execution of LLM requests, significantly improving throughput while respecting API rate limits.
 3.  **Advanced RAG Pipeline:** Integrates sophisticated document retrieval and augmentation techniques to provide LLMs with relevant context, thereby enhancing answer accuracy.
-4.  **Logging:** A centralized logging system (`src/logger.py`) ensures that all critical operations, errors, and debugging information are recorded for future analysis.
+4.  **Progress Persistence:** Automatic checkpoint/resume functionality saves progress and allows resuming interrupted runs without data loss.
+5.  **Logging:** A centralized logging system (`src/logger.py`) ensures that all critical operations, errors, and debugging information are recorded for future analysis.
+
+## Credential Management
+
+### JSON-Based Credentials (Recommended)
+
+The project prioritizes credentials from `.secret/api-keys.json` for a zero-configuration experience:
+
+```json
+[
+  {
+    "authorization": "Bearer YOUR_EMBEDDING_TOKEN",
+    "tokenKey": "YOUR_EMBEDDING_TOKEN_KEY",
+    "llmApiName": "LLM embeddings",
+    "tokenId": "YOUR_EMBEDDING_TOKEN_ID"
+  },
+  {
+    "authorization": "Bearer YOUR_LARGE_MODEL_TOKEN",
+    "tokenKey": "YOUR_LARGE_TOKEN_KEY",
+    "llmApiName": "LLM large",
+    "tokenId": "YOUR_LARGE_TOKEN_ID"
+  },
+  {
+    "authorization": "Bearer YOUR_SMALL_MODEL_TOKEN",
+    "tokenKey": "YOUR_SMALL_TOKEN_KEY",
+    "llmApiName": "LLM small",
+    "tokenId": "YOUR_SMALL_TOKEN_ID"
+  }
+]
+```
+
+**Credential Loading Priority:**
+1. Model-specific environment variables (e.g., `VNPT_LARGE_ACCESS_TOKEN`)
+2. `.secret/api-keys.json` (default, automatic)
+3. Generic environment variables (e.g., `VNPT_ACCESS_TOKEN`)
+
+This allows seamless operation with just the JSON file while supporting environment variable overrides when needed.
 
 ## RAG Pipeline Details
 
-The RAG pipeline is designed to efficiently retrieve and synthesize relevant information from a knowledge base to augment LLM prompts.
+The RAG pipeline efficiently retrieves and synthesizes relevant information from a knowledge base to augment LLM prompts.
 
-1.  **Knowledge Base Construction (`build_index.py`):
-    *   **Document Ingestion:** PDF documents from the `docs/` directory are parsed and their text content is extracted.
-    *   **Semantic Chunking:** Text is broken down into coherent, semantically meaningful chunks using a recursive splitting strategy (paragraphs, sentences, words).
-    *   **Dual Indexing:**
-        *   **Dense Index (FAISS):** Embeddings for each text chunk are generated using a configurable embedding provider (e.g., VNPT AI, Hugging Face) and stored in a FAISS vector index for semantic similarity search.
-        *   **Sparse Index (BM25):** A BM25 keyword-based index is also created from the tokenized text chunks to capture lexical relevance.
+### 1. Knowledge Base Construction (`src/RAG/build_index.py`)
 
-2.  **Context Retrieval (`src/async_running.py`):
-    *   **Hybrid Search:** For each question, both dense (FAISS) and sparse (BM25) searches are performed. Their respective scores are normalized and combined using configurable weights (`SEMANTIC_WEIGHT`, `KEYWORD_WEIGHT`) to produce a balanced relevance ranking.
-    *   **Re-ranking:** The top documents from the hybrid search are then passed through a `CrossEncoder` model (e.g., `cross-encoder/ms-marco-MiniLM-L-6-v2`) for a more fine-grained re-evaluation of their relevance to the question. This two-stage retrieval significantly improves the quality of the context.
-    *   **Prompt Augmentation:** The most relevant chunks are then prepended to the user's question, forming an augmented prompt that is sent to the LLM.
+**Multi-Format Document Support:**
+- **PDF** (`.pdf`) - Text extraction via pypdf
+- **JSON** (`.json`) - Structured data with smart chunking
+- **CSV** (`.csv`) - Tabular data with header preservation
+- **Excel** (`.xlsx`, `.xls`) - Spreadsheet data via pandas
+- **Word** (`.docx`, `.doc`) - Document text via python-docx
+- **Markdown** (`.md`) - Structure-aware chunking
+- **Text** (`.txt`) - Plain text files
 
-3.  **Pre-retrieval Optimization (`pre_retrieve.py`):
-    *   To further accelerate repeated evaluations, a `pre_retrieve.py` script allows for offline execution of the full retrieval pipeline. This script generates a new dataset where each question object already contains its `retrieved_context`.
-    *   When the main runner is configured with `USE_PRE_RETRIEVED_CONTEXT=true`, it skips the real-time retrieval steps and directly uses the pre-computed context, saving significant processing time.
+**Advanced Chunking Strategies:**
+- **LangChain Integration:** Uses `RecursiveCharacterTextSplitter` for semantic coherent chunks
+- **Markdown-Aware:** Special `MarkdownTextSplitter` preserves document structure (headers, lists, code blocks)
+- **Tabular Data Handling:** Specialized chunking for JSON/CSV/XLSX that preserves row integrity and table structure
+- **Configurable Parameters:** `RAG_CHUNK_SIZE`, `RAG_CHUNK_OVERLAP`, `EMBEDDING_DIM` via `.env`
+
+**Dual Indexing:**
+- **Dense Index (FAISS):** Embeddings for semantic similarity search
+- **Sparse Index (BM25):** Keyword-based index for lexical relevance
+
+**Configurable Document Source:**
+- Set `RETRIEVE_DOCS_DIR` in `.env` to specify custom document directory
+
+### 2. Context Retrieval (`src/async_running.py`)
+
+**Hybrid Search:** Combines FAISS and BM25 searches with configurable weights (`SEMANTIC_WEIGHT`, `KEYWORD_WEIGHT`)
+
+**Re-ranking:** CrossEncoder model provides fine-grained relevance evaluation
+
+**Content Filtering:** Automatically filters out irrelevant technical content (API docs, code snippets, etc.)
+
+**Prompt Augmentation:** Most relevant chunks prepended to questions
+
+### 3. Pre-retrieval Optimization (`src/RAG/pre_retrieve.py`)
+
+Offline retrieval execution for repeated evaluations. When `USE_PRE_RETRIEVED_CONTEXT=true`, uses pre-computed context, skipping real-time retrieval.
 
 ## Chat Providers
 
-Chat providers are responsible for generating the answer to a multiple-choice question, optionally using context provided by the RAG pipeline.
+### 1. VNPT AI (Primary)
 
-### 1. VNPT AI
+**Configuration:**
+- Model-specific credentials automatically loaded from `.secret/api-keys.json`
+- Supports `vnptai-hackathon-small` and `vnptai-hackathon-large`
+- Separate embedding model credentials (`vnptai_hackathon_embedding`)
 
-*   **Description:** The primary LLM provider for this project, hosted by VNPT.
-*   **Configuration:** Requires `VNPT_ACCESS_TOKEN`, `VNPT_TOKEN_ID`, and `VNPT_TOKEN_KEY`. The specific model (e.g., `vnptai-hackathon-small`, `vnptai-hackathon-large`) can be specified via the `MODEL_NAME` environment variable.
-*   **Endpoint:** `/data-service/v1/chat/completions/{model_name}`
-*   **Rate Limits:** As documented by VNPT, typically 40-60 requests per hour.
+**Features:**
+- **Infinite Retry:** Automatic retry with exponential backoff for quota/rate limits
+- **Configurable via `.env`:**
+  - `VNPT_INFINITE_RETRY=true` (default)
+  - `VNPT_RETRY_INITIAL_DELAY=5` (seconds)
+  - `VNPT_RETRY_MAX_DELAY=300` (seconds)
+
+**Endpoints:**
+- Chat: `/data-service/v1/chat/completions/{model_name}`
+- Embedding: `/data-service/vnptai-hackathon-embedding`
 
 ### 2. Ollama
 
-*   **Description:** Supports interaction with local or remote Ollama instances, which host open-source LLMs.
-*   **Configuration:** Set `CHAT_PROVIDER=ollama` and `OLLAMA_BASE` (e.g., `http://localhost:11434`) in your `.env` file. The model name for Ollama can be set via `MODEL_NAME`.
-*   **Implementation:** Uses an `aiohttp`-based HTTP client to communicate with Ollama's API.
+Supports local/remote Ollama instances with open-source LLMs.
+
+**Configuration:** `CHAT_PROVIDER=ollama`, `OLLAMA_BASE=http://localhost:11434`
 
 ### 3. OpenAI
 
-*   **Description:** Integrates with OpenAI's powerful language models, such as GPT-3.5 and GPT-4.
-*   **Configuration:** Set `CHAT_PROVIDER=openai` and `OPENAI_API_KEY` in your `.env` file. The specific OpenAI model can be chosen using the `MODEL_NAME` environment variable (e.g., `gpt-3.5-turbo`).
-*   **Implementation:** Uses the `openai` Python library's asynchronous client (`openai.AsyncOpenAI`).
+Integrates with GPT-3.5, GPT-4, etc.
+
+**Configuration:** `CHAT_PROVIDER=openai`, `OPENAI_API_KEY=...`
 
 ## Embedding Providers
 
-Embedding providers are used by the RAG pipeline to generate vector embeddings for text chunks and questions.
-
 ### 1. VNPT AI
 
-*   **Description:** Uses the VNPT AI embedding model.
-*   **Configuration:** Requires `VNPT_ACCESS_TOKEN`, `VNPT_TOKEN_ID`, and `VNPT_TOKEN_KEY`. The model name is fixed to `vnptai_hackathon_embedding`.
-*   **Endpoint:** `/data-service/vnptai-hackathon-embedding`
-*   **Rate Limits:** 500 requests per minute.
+Uses VNPT AI embedding model (`vnptai_hackathon_embedding`). Credentials loaded from `.secret/api-keys.json` (embedding section).
 
 ### 2. Hugging Face
 
-*   **Description:** Uses a local `sentence-transformers` model from Hugging Face to generate embeddings. This is useful for offline testing and development.
-*   **Configuration:** Set `EMBEDDING_PROVIDER=huggingface` in your `.env` file. You can also specify the model to use with `HUGGINGFACE_EMBEDDING_MODEL` (default: `all-MiniLM-L6-v2`).
+Local `sentence-transformers` models for offline development.
+
+**Configuration:** `EMBEDDING_PROVIDER=huggingface`, `HUGGINGFACE_EMBEDDING_MODEL=all-MiniLM-L6-v2`
 
 ## Key Configuration Variables
 
-These environment variables (typically set in `.env`) control the project's behavior:
+### Core Settings
+- **`CHAT_PROVIDER`**: LLM provider (`vnpt`, `ollama`, `openai`)
+- **`EMBEDDING_PROVIDER`**: Embedding provider (`vnpt`, `huggingface`)
+- **`MODEL_NAME`**: Chat model name (e.g., `vnptai-hackathon-large`)
+- **`EMBEDDING_MODEL_NAME`**: Embedding model name (default: `vnptai_hackathon_embedding`)
 
-*   **`CHAT_PROVIDER`**: Specifies the LLM provider for chat completions.
-*   **`EMBEDDING_PROVIDER`**: Specifies the provider for generating embeddings.
-*   **`MODEL_NAME`**: The specific model to use with the selected provider (for chat).
-*   **`HUGGINGFACE_EMBEDDING_MODEL`**: The specific model to use with the Hugging Face embedding provider.
-*   **`RAG_ENABLED`**: Enables or disables the entire RAG pipeline.
-*   **`HYBRID_SEARCH_ENABLED`**: Enables or disables the hybrid retrieval (BM25 + FAISS) within RAG.
-*   **`SEMANTIC_WEIGHT` / `KEYWORD_WEIGHT`**: Controls the balance between semantic and keyword search in hybrid retrieval.
-*   **`RERANK_ENABLED`**: Enables or disables the re-ranking step within RAG.
-*   **`CROSS_ENCODER_MODEL`**: The model used for re-ranking.
-*   **`USE_PRE_RETRIEVED_CONTEXT`**: When true, the runner uses pre-computed context from the input dataset, skipping real-time retrieval.
-*   **`LOG_LEVEL`**: Sets the verbosity of the logging output (e.g., `INFO`, `DEBUG`).
-*   **`CONCURRENT_REQUESTS`**: Limits the number of simultaneous LLM requests in asynchronous mode.
-*   **`SLEEP_TIME`**: Sets the delay between LLM requests to respect API rate limits.
+### Performance & Rate Limiting
+- **`CONCURRENT_REQUESTS`**: Simultaneous LLM requests (default: 2)
+- **`SLEEP_TIME`**: Delay between requests (default: 0, retry handles delays)
 
-This detailed overview should help any agent understand the project's capabilities and how to configure them.
+### LLM Hyperparameters
+- **`LLM_TEMPERATURE`**: Randomness (0.0-1.0, default: 0.5)
+- **`LLM_TOP_P`**: Nucleus sampling (0.0-1.0, default: 0.7)
+- **`LLM_MAX_TOKENS`**: Max completion tokens (default: 2048)
+- **`LLM_N`**: Number of completions (default: 1)
+- **`LLM_SEED`**: Random seed for reproducibility (default: 416)
 
+### RAG Configuration
+- **`RAG_ENABLED`**: Enable/disable RAG pipeline
+- **`RETRIEVE_DOCS_DIR`**: Document source directory (default: `docs`)
+- **`RAG_CHUNK_SIZE`**: Chunk size in characters (default: 500)
+- **`RAG_CHUNK_OVERLAP`**: Overlap between chunks (default: 50)
+- **`EMBEDDING_DIM`**: Embedding dimension (default: 768)
+- **`TOP_K_RAG`**: Number of chunks to retrieve (default: 3)
+- **`FAISS_INDEX_PATH`**: FAISS index file path
+- **`TEXT_CHUNKS_PATH`**: Text chunks JSON path
+- **`BM25_INDEX_PATH`**: BM25 index file path
+
+### Advanced RAG
+- **`HYBRID_SEARCH_ENABLED`**: Enable hybrid retrieval
+- **`SEMANTIC_WEIGHT`**: FAISS search weight (0.0-1.0, default: 0.5)
+- **`KEYWORD_WEIGHT`**: BM25 search weight (0.0-1.0, default: 0.5)
+- **`RERANK_ENABLED`**: Enable re-ranking
+- **`CROSS_ENCODER_MODEL`**: Re-ranking model (default: `cross-encoder/ms-marco-MiniLM-L-6-v2`)
+- **`RERANK_TOP_K`**: Initial retrieval count for re-ranking (default: 10)
+- **`USE_PRE_RETRIEVED_CONTEXT`**: Use pre-computed context
+
+### VNPT Retry Configuration
+- **`VNPT_INFINITE_RETRY`**: Enable infinite retry (default: true)
+- **`VNPT_RETRY_INITIAL_DELAY`**: Initial delay in seconds (default: 5)
+- **`VNPT_RETRY_MAX_DELAY`**: Maximum delay in seconds (default: 300)
+
+### System
+- **`LOG_LEVEL`**: Logging verbosity (`INFO`, `DEBUG`, etc.)
+
+## Progress Persistence
+
+The system automatically saves progress to CSV files and resumes from the last checkpoint:
+
+- **Checkpoint Creation:** Results written incrementally to CSV
+- **Resume Capability:** On restart, skips already-processed items
+- **Status Display:** Shows progress (`31/370 complete. Processing 340 remaining...`)
+
+No configuration needed - works automatically!
+
+This comprehensive overview provides complete understanding of the project's capabilities, configuration options, and advanced features.

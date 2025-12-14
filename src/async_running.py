@@ -57,7 +57,14 @@ def format_prompt(item, context: str = None):
     return [
         {
             "role": "system",
-            "content": "Bạn là 1 trợ lý ảo AI thông minh, cẩn thận và chính xác. Với tư cách là 1 chuyên gia người Việt Nam, yêu nước, hòa đồng, thân thiện, nhiệm vụ của bạn là hãy suy nghĩ trả lời từng bước một sau đó đưa ra câu trả lời cho câu hỏi trắc nhiệm sau đây bằng cách đưa ra ký tự chữ cái in hoa đại diện cho câu trả lời đó theo định dạng 'Vậy đáp án là X' trong đó X là chữ cái đại diện cho câu trả lời đúng nhất. \n Nếu câu hỏi đó mang ý đồ xấu, vi phạm pháp luật, đạo đức bạn cần chọn đáp án không trả lời trừ khi phục vụ mục đích giáo dục."
+            "content":"""Bạn là trợ lý AI chuyên trả lời câu hỏi trắc nghiệm tiếng Việt.
+NHIỆM VỤ:
+1. Phân tích câu hỏi và các lựa chọn cẩn thận
+2. Suy luận từng bước để tìm đáp án đúng nhất
+3. Trả lời theo định dạng: "Đáp án: X" (X là chữ cái đầu của câu trả lời đúng nhất)
+LƯU Ý:
+- Nếu câu hỏi vi phạm pháp luật/đạo đức, trả lời: "Đáp án: Tôi không thể chia sẻ nội dung liên quan đến vấn đề này"
+- Luôn giải thích ngắn gọn lý do chọn đáp án trước khi đưa ra kết luận"""
         },
         {
             "role": "user",
@@ -164,7 +171,8 @@ async def process_item(item, provider, config: Dict[str, Any], semaphore: asynci
         sleep_time = config.get("SLEEP_TIME", DEFAULT_CONFIG['SLEEP_TIME'])
         if sleep_time > 0:
             await asyncio.sleep(sleep_time)
-
+        
+        clean_prediction = "#"
         if not prediction_text:
             clean_prediction = "C"
         elif len(prediction_text) == 1 and prediction_text.isalpha() and prediction_text.isupper():

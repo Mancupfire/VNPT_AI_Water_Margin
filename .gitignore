@@ -13,6 +13,9 @@ __pycache__/
 knowledge_base/
 pred/
 
+data/raw-data/
+data/curated-data/
+
 .python-version
 pyproject.toml
 uv.lock

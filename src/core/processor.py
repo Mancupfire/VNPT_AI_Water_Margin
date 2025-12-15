@@ -7,7 +7,7 @@ from sentence_transformers import CrossEncoder
 
 from src.utils.prompt import format_prompt
 from src.utils.prediction import clean_prediction
-from src.RAG.retriever import retrieve_context
+from src.rag.retriever import retrieve_context
 from .config import DEFAULT_CONFIG, merge_config
 
 

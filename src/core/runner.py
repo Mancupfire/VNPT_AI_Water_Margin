@@ -9,7 +9,7 @@ from typing import Dict, Any, List
 
 from src.providers import load_chat_provider
 from src.utils.progress import load_progress, filter_items, display_progress_info
-from src.RAG.loader import load_rag_components
+from src.rag.loader import load_rag_components
 from .processor import process_item
 from .config import DEFAULT_CONFIG
 

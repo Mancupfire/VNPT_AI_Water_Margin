@@ -212,30 +212,205 @@ LOG_LEVEL=INFO                   # INFO, DEBUG, WARNING, ERROR
 ```
 
 
+
 ## 📁 Project Structure
+
+The codebase is organized into **modular packages** for maintainability and clarity:
 
 ```
 VNPT_AI_Water_Margin/
 ├── .secret/
 │   └── api-keys.json           # Auto-loaded credentials
 ├── data/
-│   └── test.json               # Input dataset
+│   └── test.json               # Input dataset (~370 questions)
 ├── docs/                       # Knowledge base documents
+│   └── *.pdf, *.md, *.csv      # Multi-format support
 ├── knowledge_base/             # Generated indices
-│   ├── faiss_index.bin
-│   ├── bm25_index.pkl
-│   └── text_chunks.json
+│   ├── faiss_index.bin         # Dense semantic search
+│   ├── bm25_index.pkl          # Sparse keyword search
+│   └── text_chunks.json        # Processed text chunks
 ├── results/                    # Output with progress
-│   └── test_vnpt_async.csv
+│   ├── test_vnpt_async.csv     # Main results
+│   └── submission.csv          # Competition format
 ├── src/
-│   ├── providers/              # Provider implementations
-│   ├── RAG/                    # RAG pipeline
-│   │   ├── build_index.py     # Index builder
-│   │   └── pre_retrieve.py    # Pre-retrieval script
-│   └── async_running.py        # Main processing engine
-├── main.py                     # Entry point
+│   ├── utils/                  # 🔧 Utility modules
+│   │   ├── prompt.py           # Prompt formatting
+│   │   ├── prediction.py       # Answer extraction
+│   │   └── progress.py         # Checkpoint/resume
+│   ├── RAG/                    # 🔍 Retrieval-Augmented Generation
+│   │   ├── build_index.py      # Index builder (run once)
+│   │   ├── loader.py           # Load indices & models
+│   │   ├── retriever.py        # Hybrid search & re-ranking
+│   │   └── pre_retrieve.py     # Pre-compute context
+│   ├── core/                   # ⚙️ Core processing
+│   │   ├── config.py           # Configuration defaults
+│   │   ├── processor.py        # Single item processing
+│   │   └── runner.py           # Async orchestration
+│   ├── providers/              # 🔌 Provider implementations
+│   │   ├── vnpt.py             # VNPT AI provider
+│   │   ├── ollama.py           # Ollama local LLMs
+│   │   ├── openai.py           # OpenAI API
+│   │   └── huggingface.py      # HuggingFace embeddings
+│   ├── logger.py               # Centralized logging
+│   └── async_running.py        # Backwards compat wrapper
+├── main.py                     # 🚀 Entry point
 └── .env                        # Configuration
 ```
+
+## 🔄 Code Workflow
+
+### Overview
+
+The application follows a **pipeline architecture** with clear separation of concerns:
+
+```
+main.py 
+   ↓
+core/runner.py ──→ Choose Mode (Test/Validation)
+   ↓
+RAG/loader.py ──→ Load indices (FAISS, BM25, CrossEncoder)
+   ↓
+utils/progress.py ──→ Load checkpoint & filter processed items
+   ↓
+core/processor.py ──→ Process items in parallel ⚡
+   ├─→ RAG/retriever.py ──→ Retrieve context (if enabled)
+   ├─→ utils/prompt.py ──→ Format question into messages
+   ├─→ providers/vnpt.py ──→ Call LLM API
+   └─→ utils/prediction.py ──→ Extract answer (A, B, C, D)
+   ↓
+Save to CSV ──→ results/test_vnpt_async.csv
+```
+
+### Detailed Module Interactions
+
+#### 1. Entry Point (`main.py`)
+```python
+# Loads config from .env
+config = _build_config_from_env()
+
+# Calls the main orchestrator
+asyncio.run(process_dataset_async(
+    input_file='data/test.json',
+    output_file='results/test_vnpt_async.csv',
+    config=config,
+    mode='test'
+))
+```
+
+#### 2. Orchestration (`core/runner.py`)
+- **`process_dataset()`** - Routes to test or validation mode
+- **`run_test_mode()`** - Processes questions without ground truth
+  - ✅ Supports checkpoint/resume
+  - ✅ Generates submission file
+- **`run_validation_mode()`** - Processes with accuracy calculation
+  - ✅ Shows real-time accuracy
+  - ✅ Saves detailed results
+
+#### 3. RAG Pipeline (`RAG/loader.py` + `RAG/retriever.py`)
+
+**Loading Phase:**
+```python
+# RAG/loader.py - load_rag_components()
+faiss_index = faiss.read_index("knowledge_base/faiss_index.bin")
+bm25_index = pickle.load("knowledge_base/bm25_index.pkl")
+text_chunks = json.load("knowledge_base/text_chunks.json")
+cross_encoder = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
+```
+
+**Retrieval Phase:**
+```python
+# RAG/retriever.py - retrieve_context()
+if hybrid_search_enabled:
+    # Combine FAISS (semantic) + BM25 (keyword)
+    chunks = _hybrid_search(question, ...)
+else:
+    # FAISS only (semantic)
+    chunks = _dense_search(question, ...)
+
+if rerank_enabled:
+    # Re-rank with CrossEncoder
+    final_chunks = _rerank_chunks(question, chunks, ...)
+
+return "\n".join(final_chunks)
+```
+
+#### 4. Item Processing (`core/processor.py`)
+
+For each question item:
+```python
+async def process_item(item, provider, config, ...):
+    # 1. Retrieve context (if RAG enabled)
+    context = await retrieve_context(question, ...)
+    
+    # 2. Format prompt
+    messages = format_prompt(item, context)
+    
+    # 3. Call LLM
+    prediction_text = await provider.achat(messages, config)
+    
+    # 4. Extract answer
+    answer = clean_prediction(prediction_text)
+    
+    # 5. Return result
+    return {"qid": ..., "answer": answer, ...}
+```
+
+#### 5. Utilities
+
+**Prompt Formatting (`utils/prompt.py`):**
+```python
+format_prompt(item, context=None)
+# → [{"role": "system", "content": "..."}, 
+#    {"role": "user", "content": "Question: ..."}]
+```
+
+**Answer Extraction (`utils/prediction.py`):**
+```python
+clean_prediction("Đáp án: B. Vì...")
+# → "B"
+```
+
+**Progress Management (`utils/progress.py`):**
+```python
+processed_qids, results = load_progress("results/test.csv")
+items_to_process = filter_items(data, processed_qids)
+# → Only process remaining items
+```
+
+### Parallel Execution Flow
+
+The system processes multiple items concurrently:
+
+```
+Question 1 ──→ [Retrieve] ──→ [Prompt] ──→ [LLM] ──→ [Parse] ──→ CSV
+Question 2 ──→ [Retrieve] ──→ [Prompt] ──→ [LLM] ──→ [Parse] ──→ CSV
+Question 3 ──→ [Retrieve] ──→ [Prompt] ──→ [LLM] ──→ [Parse] ──→ CSV
+    ⋮                (controlled by CONCURRENT_REQUESTS=2)
+```
+
+### Data Flow Example
+
+```
+1. Input: data/test.json
+   {"qid": "001", "question": "What is AI?", "choices": ["A", "B", "C", "D"]}
+
+2. RAG Retrieval (if enabled):
+   "Context: AI stands for Artificial Intelligence..."
+
+3. Prompt:
+   "Context: ...\nQuestion: What is AI?\nA. Robot\nB. Intelligence\n..."
+
+4. LLM Response:
+   "Phân tích: AI là... Đáp án: B"
+
+5. Parsed Answer:
+   "B"
+
+6. Output: results/test_vnpt_async.csv
+   qid,answer,prediction_raw
+   001,B,"Phân tích: AI là... Đáp án: B"
+```
+
 
 ## 🔧 Advanced Features
 
@@ -270,6 +445,7 @@ Markdown files maintain:
 
 ## 📖 Additional Documentation
 
+- **[ARCHITECTURE.md](docs/ARCHITECTURE.md)**: Code architecture & workflow guide with diagrams
 - **[AGENTS.md](AGENTS.md)**: Comprehensive agent/architecture overview
 - **[docs/credentials.md](docs/credentials.md)**: Credential management details
 - **[docs/infinite_retry.md](docs/infinite_retry.md)**: Retry mechanism documentation

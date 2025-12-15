@@ -11,6 +11,7 @@ import pickle
 from pyvi import ViTokenizer
 import csv
 from pathlib import Path
+from tqdm import tqdm
 
 # Add project root to path for direct script execution
 _project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
@@ -248,14 +249,33 @@ def extract_text_from_file(filepath: str) -> str:
     return text
 
 async def generate_embeddings_async(texts: List[str], config: Dict[str, Any]) -> np.ndarray:
+    """
+    Generate embeddings for a list of texts with progress tracking.
+    Processes in batches to show progress and handle large datasets.
+    """
     embedding_provider = load_embedding_provider(config)
     embedding_dim = config.get("EMBEDDING_DIM", DEFAULT_EMBEDDING_DIM)
+    batch_size = config.get("EMBEDDING_BATCH_SIZE", 50)  # Process 50 texts at a time
+    
+    all_embeddings = []
+    
     try:
-        embeddings = await embedding_provider.aembed(texts, config)
-        return np.array(embeddings)
+        # Process in batches with progress bar
+        for i in tqdm(range(0, len(texts), batch_size), desc="Generating embeddings", unit="batch"):
+            batch = texts[i:i + batch_size]
+            try:
+                batch_embeddings = await embedding_provider.aembed(batch, config)
+                all_embeddings.extend(batch_embeddings)
+            except Exception as e:
+                logger.error(f"Error generating embeddings for batch {i//batch_size + 1}: {e}")
+                # Add zero vectors for failed batch
+                all_embeddings.extend([np.zeros(embedding_dim) for _ in batch])
+        
+        return np.array(all_embeddings)
     except Exception as e:
         logger.error(f"Error generating embeddings: {e}")
         return np.zeros((len(texts), embedding_dim))  # Return zeros for failed embedding
+
 
 
 async def build_index(docs_dir: str, index_path: str, texts_path: str, bm25_index_path: str, config: Dict[str, Any]):
@@ -271,28 +291,30 @@ async def build_index(docs_dir: str, index_path: str, texts_path: str, bm25_inde
     supported_extensions = {'.pdf', '.json', '.csv', '.xlsx', '.xls', '.docx', '.doc', '.md', '.txt'}
     tabular_extensions = {'.json', '.csv', '.xlsx', '.xls'}  # Formats needing specialized chunking
     
-    for filename in os.listdir(docs_dir):
+    # Get list of files to process
+    files_to_process = [f for f in os.listdir(docs_dir) if Path(f).suffix.lower() in supported_extensions]
+    
+    for filename in tqdm(files_to_process, desc="Processing documents", unit="file"):
         file_ext = Path(filename).suffix.lower()
-        if file_ext in supported_extensions:
-            filepath = os.path.join(docs_dir, filename)
-            try:
-                # Use specialized chunking for tabular data
-                if file_ext in tabular_extensions:
-                    chunks = chunk_tabular_data(filepath, file_ext, chunk_size)
-                    if chunks:
-                        all_chunks.extend(chunks)
-                        logger.info(f"Processed {filename} (tabular): {len(chunks)} chunks.")
-                else:
-                    # Regular text-based chunking for other formats
-                    text = extract_text_from_file(filepath)
-                    if text:  # Only process if we got text
-                        # Use markdown-aware chunking for .md files
-                        is_markdown = (file_ext == '.md')
-                        chunks = chunk_text(text, chunk_size, chunk_overlap, is_markdown=is_markdown)
-                        all_chunks.extend(chunks)
-                        logger.info(f"Processed {filename}: {len(chunks)} chunks.")
-            except Exception as e:
-                logger.error(f"Error processing {filename}: {e}")
+        filepath = os.path.join(docs_dir, filename)
+        try:
+            # Use specialized chunking for tabular data
+            if file_ext in tabular_extensions:
+                chunks = chunk_tabular_data(filepath, file_ext, chunk_size)
+                if chunks:
+                    all_chunks.extend(chunks)
+                    logger.info(f"Processed {filename} (tabular): {len(chunks)} chunks.")
+            else:
+                # Regular text-based chunking for other formats
+                text = extract_text_from_file(filepath)
+                if text:  # Only process if we got text
+                    # Use markdown-aware chunking for .md files
+                    is_markdown = (file_ext == '.md')
+                    chunks = chunk_text(text, chunk_size, chunk_overlap, is_markdown=is_markdown)
+                    all_chunks.extend(chunks)
+                    logger.info(f"Processed {filename}: {len(chunks)} chunks.")
+        except Exception as e:
+            logger.error(f"Error processing {filename}: {e}")
 
     if not all_chunks:
         logger.warning("No text chunks extracted from PDFs. Index will be empty.")
@@ -320,7 +342,7 @@ async def build_index(docs_dir: str, index_path: str, texts_path: str, bm25_inde
 
     # Build and save BM25 index
     logger.info("Building BM25 index...")
-    tokenized_corpus = [ViTokenizer.tokenize(doc).split() for doc in all_chunks]
+    tokenized_corpus = [ViTokenizer.tokenize(doc).split() for doc in tqdm(all_chunks, desc="Tokenizing for BM25", unit="chunk")]
     bm25 = BM25Okapi(tokenized_corpus)
     with open(bm25_index_path, 'wb') as f:
         pickle.dump(bm25, f)

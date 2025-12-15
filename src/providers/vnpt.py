@@ -159,8 +159,10 @@ class VNPTProvider:
                     # Exponential backoff with cap
                     delay = min(delay * 2, self.max_retry_delay)
                 else:
-                    # Not a quota error, re-raise
-                    raise
+                    print(f"Unexpected error: {str(e)}. Retry #{retry_count} after {delay:.1f}s...")
+                    await asyncio.sleep(delay)
+                    delay = min(delay * 2, self.max_retry_delay)
+                    
             except aiohttp.ClientError as e:
                 # Network/connection errors - retry with same logic
                 if not self.enable_infinite_retry:
@@ -182,8 +184,9 @@ class VNPTProvider:
                     await asyncio.sleep(delay)
                     delay = min(delay * 2, self.max_retry_delay)
                 else:
-                    # Unknown error, re-raise
-                    raise
+                    print(f"Unexpected error: {str(e)}. Retry #{retry_count} after {delay:.1f}s...")
+                    await asyncio.sleep(delay)
+                    delay = min(delay * 2, self.max_retry_delay)
 
     async def achat(self, messages: List[Dict[str, Any]], config: Dict[str, Any]) -> str:
         """Send chat completion request with automatic retry on quota limits."""

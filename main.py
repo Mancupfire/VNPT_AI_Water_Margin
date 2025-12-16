@@ -1,6 +1,7 @@
 import os
 import asyncio
 from src.async_running import process_dataset_async
+from src.classification.classify import process_classification_dataset
 
 try:
     # optional: auto-load .env for local development
@@ -56,10 +57,14 @@ def _build_config_from_env():
 if __name__ == "__main__":
     config = _build_config_from_env()
     
-    # It's recommended to run one process at a time
-    # to avoid race conditions on the output files.
+    # Chạy phân loại test
+    # process_classification_dataset(
+    #     input_file='data/test.json',
+    #     output_file='results/test_classification.json',
+    #     config=config
+    # )
     
-    # Example for test set
+    # Chạy phân loại async (giữ nguyên)
     asyncio.run(
         process_dataset_async(
             input_file='data/test.json',
@@ -68,13 +73,3 @@ if __name__ == "__main__":
             mode='test'
         )
     )
-
-    # Example for validation set
-    # asyncio.run(
-    #     process_dataset_async(
-    #         input_file='E:\\VNPT_AI_Water_Margin\\data\\val.json',
-    #         output_file=f'results/val_{config.get("CHAT_PROVIDER", "")}_async.csv',
-    #         config=config,
-    #         mode='valid'
-    #     )
-    # )

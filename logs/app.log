@@ -1,0 +1,21 @@
+2025-12-15 23:23:41,047 - __main__ - INFO - Starting index building process...
+2025-12-15 23:23:41,063 - __main__ - INFO - Loading documents from docs...
+2025-12-15 23:23:41,067 - __main__ - WARNING - langchain not installed, falling back to simple chunking
+2025-12-15 23:23:41,067 - __main__ - INFO - Processed ARCHITECTURE.md: 21 chunks.
+2025-12-15 23:23:41,067 - __main__ - WARNING - langchain not installed, falling back to simple chunking
+2025-12-15 23:23:41,067 - __main__ - INFO - Processed credentials.md: 7 chunks.
+2025-12-15 23:23:41,067 - __main__ - WARNING - langchain not installed, falling back to simple chunking
+2025-12-15 23:23:41,067 - __main__ - INFO - Processed infinite_retry.md: 12 chunks.
+2025-12-15 23:23:41,067 - __main__ - WARNING - langchain not installed, falling back to simple chunking
+2025-12-15 23:23:41,067 - __main__ - INFO - Processed quick-start-json-credentials.md: 6 chunks.
+2025-12-15 23:23:41,089 - __main__ - INFO - Processed test.json (tabular): 185 chunks.
+2025-12-15 23:23:41,729 - __main__ - WARNING - langchain not installed, falling back to simple chunking
+2025-12-15 23:23:42,101 - __main__ - WARNING - langchain not installed, falling back to simple chunking
+2025-12-15 23:23:42,107 - __main__ - INFO - Processed val.json (tabular): 47 chunks.
+2025-12-15 23:23:42,108 - __main__ - INFO - Total chunks: 330
+2025-12-15 23:23:42,108 - __main__ - INFO - Generating embeddings (this may take a while)...
+2025-12-15 23:32:35,934 - __main__ - INFO - FAISS index built and saved to d:\BAO PHONG\UNIVERSITY\MYSELF\GITHUB_REPO\VNPT_AI_Water_Margin\knowledge_base\faiss_index.bin
+2025-12-15 23:32:35,934 - __main__ - INFO - Text chunks saved to d:\BAO PHONG\UNIVERSITY\MYSELF\GITHUB_REPO\VNPT_AI_Water_Margin\knowledge_base\text_chunks.json
+2025-12-15 23:32:35,934 - __main__ - INFO - Building BM25 index...
+2025-12-15 23:32:38,327 - __main__ - INFO - BM25 index built and saved to d:\BAO PHONG\UNIVERSITY\MYSELF\GITHUB_REPO\VNPT_AI_Water_Margin\knowledge_base\bm25_index.pkl
+2025-12-15 23:32:38,343 - __main__ - INFO - Index building process finished.

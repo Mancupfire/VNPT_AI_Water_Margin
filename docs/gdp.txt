@@ -1,0 +1,166 @@
+1. GDP là gì?
+GDP là viết tắt của cụm từ Gross Domestic Product, dịch ra là tổng sản phẩm nội địa hoặc tổng sản phẩm quốc nội. Đây là một chỉ số tiêu dùng đo lường tổng giá trị thị trường của tất cả các loại hàng hoá, dịch vụ được sản xuất ra ở một quốc gia trong một thời kỳ nhất định.
+
+GDP chính là chỉ tiêu đo lường tổng giá trị thị trường. Bằng việc sử dụng giá thị trường, rất nhiều loại sản phẩm sẽ được cộng lại thành một chỉ tiêu duy nhất về giá trị. Giá thị trường biểu thị số tiền mà người tiêu dùng sẵn sàng chi trả cho các loại hàng hoá khác nhau, vì vậy nó phản ánh chính xác giá trị của những hàng hóa này.
+
+GDP chỉ biểu thị các loại hàng hóa được sản xuất và bán ra hợp pháp trên thị trường. GDP không tính được những sản phẩm sản xuất và bán ra bất hợp pháp trong nền kinh tế ngầm.
+
+Hàng hóa, dịch vụ được tính trong GDP bao gồm: Các loại hàng hoá hữu hình như thực phẩm, xe hơi, quần áo... và cả những dịch vụ vô hình như cắt tóc, khám bệnh, biểu diễn...
+
+GDP chỉ bao gồm giá trị của hàng hoá, dịch vụ cuối cùng, không tính giá trị của những hàng hóa trung gian. GDP cũng chỉ bao gồm các hàng hóa, dịch vụ được sản xuất ra trong hiện tại, không bao gồm hàng hóa được sản xuất ra trong quá khứ.
+
+GDP được tính theo phạm vi lãnh thổ kinh tế của một quốc gia, bao gồm các đơn vị sản xuất - kinh doanh dưới hình thức tổ chức, cá nhân và hộ gia đình.
+
+GDP phản ánh giá trị sản xuất trong một khoảng thời gian cụ thể, thường là một năm hoặc một quý.
+
+2. Phân loại GDP
+Để hiểu rõ hơn GDP là gì, bạn đọc không thể bỏ qua thông tin về các loại GPD cơ bản:
+
+2.1. GDP bình quân đầu người
+
+GDP bình quân đầu người là chỉ tiêu tính dựa trên kết quả sản xuất kinh doanh của bình quân trên đầu người trong một năm.
+
+Chỉ số GDP bình quân đầu người tỷ lệ thuận với mức thu nhập, đời sống của người dân ở quốc gia đó. Tuy nhiên cũng nói thêm, quốc gia có chỉ số GDP cao chưa chắc đã có mức sống cao.
+
+GDP bình quân đầu người của một quốc gia tại một thời điểm được tính bằng cách lấy số liệu GDP của quốc gia chia cho tổng số dân của quốc gia đó.
+
+2.2. GDP danh nghĩa
+
+GDP danh nghĩa là một chỉ tiêu phản ánh tổng sản phẩm quốc nội GDP và được tính theo giá cả thị trường.
+
+GDP danh nghĩa là chỉ tiêu thể hiện sự thay đổi giá do lạm phát hay tốc độ tăng giá của nền kinh tế. Nếu tất cả mức giá đều có xu hướng tăng hoặc giảm thì GDP danh nghĩa sẽ lớn hơn.
+
+2.3. GDP thực tế
+
+GDP thực tế là chỉ tiêu dựa trên tổng sản phẩm, dịch vụ trong nước đã điều chỉnh theo tốc độ lạm phát lạm phát. Trường hợp lạm phát dương, GDP thực tế sẽ thấp hơn GDP danh nghĩa vì GDP thực tế bằng tỉ lệ giữa GDP danh nghĩa và hệ số giảm phát GDP.
+
+2.4. GDP xanh
+
+GDP xanh là một khái niệm mới và chưa được định nghĩa chính thức. Có thể hiểu GDP xanh là phần GDP còn lại sau khi đã khấu trừ các chi phí cần thiết để phục hồi môi trường do quá trình sản xuất gây ra.
+
+3. GDP bị ảnh hưởng bởi những yếu tố nào?
+GDP chịu ảnh hưởng bởi rất nhiều yếu tố, tuy nhiên có 03 yếu tố chính ảnh hưởng nhiều nhất đến chỉ số GDP:
+
+- Dân số
+
+Dân số là nguồn cung cấp lao động để tạo ra của cải vật chất và cũng là đối tượng tiêu thụ các sản phẩm, dịch vụ được tạo ra.
+
+Dân số và GDP có mối quan hệ tác động qua lại không thể tách rời. Dân số chính là một trong những yếu tố không thể thiếu để tính GDP bình quân đầu người.
+
+- FDI
+
+FDI (Foreign Direct Investment) là chỉ số đầu tư trực tiếp nước ngoài. FDI bao gồm tiền, phương tiện sản xuất, cơ sở hạ tầng...
+
+- Lạm phát
+
+Lạm phát là sự tăng giá chung một cách liên tục của hàng hóa, dịch vụ theo thời gian và thể hiện sự mất giá trị của một loại tiền tệ.
+
+Một quốc gia muốn tăng trưởng kinh tế ở mức độ cao thì phải chấp nhận lạm phát. Tuy nhiên, khi lạm phát cao quá mức cho phép sẽ dẫn đến khủng hoảng kinh tế, vì vậy nhà nước luôn phải có các chính sách để kiểm soát lạm phát.
+
+4. Chỉ số GDP ảnh hưởng thế nào tới nền kinh tế quốc gia?
+Sau khi đã biết GDP là gì, chúng ta tiếp tục tìm hiểu về sự quan trọng của chỉ số GDP đối với nền kinh tế của một quốc gia.
+GDP là thước đo đánh giá tốc độ tăng trưởng kinh tế của một quốc gia vào một thời điểm nhất định. Đồng thời, thể hiện và phản ánh rõ ràng sự biến động của hàng hóa, dịch vụ theo thời gian.
+
+Chỉ số GDP giảm có thể dẫn đến tình trạng suy thoái kinh tế, lạm phát, thất nghiệp, tiền mất giá… Những ảnh hưởng tiêu cực này sẽ tác động trực tiếp đến đời sống người dân.
+
+Ngoài ra, GDP còn là yếu tố giúp các các nhà đầu tư nước ngoài đánh giá về tiềm năng phát triển của một quốc gia, từ đó đưa ra quyết định đầu tư phù hợp.
+
+Dựa vào chỉ số GDP, Chính phủ mỗi quốc gia ban hành các chính sách tiền tệ phù hợp với nền kinh tế.
+
+5. Hạn chế của chỉ số GDP
+Bên cạnh những ưu điểm mà GDP mang đem lại, chỉ số này cũng xuất hiện một số nhược điểm như:
+
+- Không thể hiện đầy đủ các hoạt động sản xuất tự cung, tự cấp.
+
+- Không định lượng được một số giá trị làm ngoài giấy tờ, kinh doanh trên thị trường chợ đen, công việc tình nguyện…
+
+- Không xem xét các hoạt động trung gian mà chỉ xem xét trên hoạt động sản xuất hàng hóa cuối cùng và đầu tư vốn.
+
+- Mức tăng trưởng GDP không thể đo lường chính xác sự phát triển của một quốc gia và đời sống người dân. Bởi GDP chỉ phản ánh sản lượng vật chất mà không xét được tình hình tổng thể của quốc gia.
+
+6. Công thức tính chỉ số GDP
+Hiện nay có 03 cách tính GDP thông dụng nhất được áp dụng. Tuy nhiên, dù tính theo cách nào thì kết quả cũng như nhau.
+
+6.1. Phương pháp sản xuất
+
+Xét về góc độ sản xuất, tổng sản phẩm quốc nội chính là tổng tất cả giá trị gia tăng của nền kinh tế một nước trong một thời gian nhất định.
+
+GDP = Giá trị tăng thêm + Thuế nhập khẩu
+
+Trong đó, giá trị tăng thêm của từng ngành kinh tế có thể là thu nhập của người sản xuất, tiền công, bảo hiểm, khấu hao tài sản cố định, thuế sản xuất, giá trị thặng dư…
+
+6.2. Phương pháp sử dụng cuối cùng
+
+Xét về góc độ sử dụng hay chi tiêu, GDP bao gồm tiêu dùng cuối cùng của hộ gia đình, tiêu dùng cuối cùng của chính phủ, tích lũy tài sản và chênh lệch xuất – nhập khẩu của một đất nước.
+
+GDP = C + I + G + NX
+
+Trong đó:
+
+C: Tổng giá trị tiêu dùng cho sản phẩm và dịch vụ của các hộ gia đình trong quốc gia đó
+
+I: Tổng giá trị tiêu dùng của các nhà đầu tư
+
+G: Tổng giá trị chi tiêu của chính phủ
+
+NX: Xuất khẩu ròng
+
+6.3. Phương pháp thu nhập
+
+Xét về góc độ thu nhập, GDP gồm thu nhập của người lao động, thuế sản xuất, khấu hao tài sản cố định dùng cho sản xuất và giá trị thặng dư sản xuất trong kỳ của một đất nước.
+
+GDP = W + R + I + Pr + Ti + De
+
+Trong đó:
+
+W: Tiền lương
+
+R: Tiền thuê
+
+I: Tiền lãi
+
+Pr: Lợi nhuận
+
+Ti: Các khoản thuế dịch vụ, hàng hóa bán trên thị trường và trợ cấp của chính phủ cho sản xuất (thuế gián thu ròng).
+
+De: Khấu hao tài sản cố định
+
+7. Phân biệt GDP với các chỉ số kinh tế
+Nếu chưa hiểu rõ GDP là gì, nhiều người có thể bị nhầm lẫn và không phân biệt được GDP với một số chỉ số kinh tế khác.
+7.1. Phân biệt GDP và GNP
+
+GNP là chỉ số tổng sản phẩm quốc gia, biểu thị tổng giá trị bằng tiền thu được từ các sản phẩm và các dịch vụ mà mọi công dân tạo ra trong năm.
+
+GDP và GNP đều được sử dụng để biểu thị giá trị trong lĩnh vực kinh tế vĩ mô, nhằm đánh giá khả năng phát triển kinh tế của một đất nước.
+
+Tuy nhiên về bản chất, GDP chỉ thể hiện tổng sản phẩm quốc nội (trong nước). Còn GNP thì phản ánh tổng sản phẩm quốc dân, bao gồm trong nước và ngoài nước.
+
+7.2. Phân biệt GDP và CPI
+
+CPI là chỉ số đo lường hang hóa, dịch vụ được mua bởi người tiêu dùng. Trong đó không bao gồm giá cả hàng hóa, dịch vụ được nhà nước, Chính phủ hay các hãng mua.
+
+Hai chỉ số GDP và CPI đều biểu thị các chỉ số đo lường giá trị kinh tế vĩ mô.
+
+Tuy nhiên, giá trị GDP chỉ tính cho các hàng hóa, dịch vụ sản xuất trong nước. Còn giá trị CPI được tính cho toàn bộ hang hóa, dịch vụ được mua, bao gồm cả những hàng hóa được nhập khẩu.
+
+8. Câu hỏi thường gặp về GDP
+Khi đã có cái nhìn toàn diện và hiểu rõ GDP là gì, các câu hỏi thường gặp liên quan chủ yếu tập trung vào chỉ số GDP cụ thể của năm.
+8.1 GDP Việt Nam 2022 bao nhiêu?
+
+Theo Tổng cục Thống kê, GDP 06 tháng đầu năm 2022 của nước ta tăng 6,42%, cao hơn tốc độ tăng 2,04% của 06 tháng đầu năm 2020 và tốc độ tăng 5,74% của 06 tháng đầu năm 2021 nhưng thấp hơn tốc độ tăng 7,28% và 6,98% của cùng kỳ năm 2018, 2019.
+
+Trong mức tăng chung của nền kinh tế: Nông, lâm nghiệp và thủy sản tăng 2,78% (đóng góp 5,07%); Công nghiệp và xây dựng tăng 7,70% (đóng góp 48,33%); Dịch vụ tăng 6,60% (đóng góp 46,60%).
+
+Về cơ cấu nền kinh tế 06 tháng đầu năm 2022: Nông, lâm nghiệp và thủy sản chiếm tỷ trọng 11,05%; Công nghiệp và xây dựng chiếm 39,30%; Dịch vụ chiếm 40,63%; thuế sản phẩm trừ trợ cấp sản phẩm chiếm 9,02%.
+
+Theo Nghị quyết 43/2022/QH15, nước ta đặt mục tiêu phấn đấu giai đoạn 2021 - 2025 tăng trưởng GDP bình quân 6,5 - 7%/năm, tỷ lệ thất nghiệp ở thành thị dưới 4%; giữ vững ổn định kinh tế vĩ mô, bảo đảm cân đối trong trung hạn và dài hạn.
+
+Nhiều tổ chức quốc tế có chung nhận định, tăng trưởng GDP của Việt Nam năm 2022 sẽ ở mức cao, đạt hoặc vượt xa so với chỉ tiêu tăng trưởng mà Quốc hội giao.
+
+8.2 GDP Việt Nam 2022 đứng thứ mấy Đông Nam Á?
+
+Quỹ Tiền tệ Quốc tế (IMF) dự báo quy mô GDP Việt Nam năm 2022 sẽ đứng thứ 06 trong khu vực Đông Nam Á.
+
+8.3 GDP Việt Nam 2022 đứng thứ mấy thế giới?
+
+Quỹ Tiền tệ Quốc tế (IMF) dự báo năm 2022 Việt Nam có cải thiện trong bảng xếp hạng 50 quốc gia có quy mô GDP lớn nhất thế giới. Theo đó Việt Nam được nhảy lên 02 bậc, từ vị trí 41 lên vị trí số 39 trên thế giới.

@@ -1,0 +1,140 @@
+1.Những quan niệm sai lầm phổ biến về Big Data
+
+
+
+Những quan niệm sai lầm về Big data
+
+ 
+
+Big Data là một lĩnh vực phức tạp và thường bị hiểu sai. Dưới đây là một số quan niệm sai lầm phổ biến về Big Data:
+
+1.1. Big Data chỉ là về khối lượng dữ liệu lớn
+ 
+
+Điều này không hoàn toàn đúng. Big Data không chỉ liên quan đến khối lượng dữ liệu mà còn bao gồm tính đa dạng, tốc độ và tính chất không cấu trúc của dữ liệu. Việc xử lý và phân tích dữ liệu từ nhiều nguồn khác nhau, có thể là dữ liệu có cấu trúc hoặc không cấu trúc, mới thực sự là trọng tâm của Big Data.
+
+ 
+
+1.2. Big Data giải quyết mọi vấn đề
+ 
+
+ Big Data có thể là một công cụ mạnh mẽ, nhưng nó không phải lúc nào cũng là giải pháp cho mọi vấn đề. Đôi khi, việc thu thập và xử lý dữ liệu lớn có thể tốn kém và phức tạp hơn so với giá trị mà nó mang lại.
+
+ 
+
+1.3. Big Data giải quyết mọi vấn đề mà không cần kiến thức chuyên môn
+ 
+
+ Việc sử dụng Big Data đòi hỏi hiểu biết sâu sắc về dữ liệu, khoa học dữ liệu, và phân tích dữ liệu. Chỉ việc có dữ liệu lớn không đảm bảo sẽ tạo ra giá trị. Cần phải có kiến thức và kỹ năng để hiểu và sử dụng dữ liệu một cách hiệu quả.
+
+ 
+
+1.4. Big Data luôn đảm bảo sự riêng tư và bảo mật
+ 
+
+ Việc thu thập và xử lý dữ liệu lớn có thể tạo ra những vấn đề về riêng tư và bảo mật dữ liệu. Các tổ chức cần phải có các biện pháp bảo mật và chính sách riêng tư mạnh mẽ để đảm bảo rằng dữ liệu không bị lộ ra ngoài hoặc bị sử dụng một cách không đúng đắn.
+
+ 
+
+1.5. Big Data là giải pháp tức thì
+ 
+
+Việc xử lý và phân tích dữ liệu lớn có thể tốn thời gian và công sức. Nó không phải lúc nào cũng đem lại kết quả ngay lập tức và đôi khi cần thời gian để tinh chỉnh và điều chỉnh quá trình phân tích.
+
+ 
+
+1.6. Big Data giải quyết mọi vấn đề về dự đoán
+ 
+
+Mặc dù Big Data có thể hỗ trợ trong việc dự đoán xu hướng và kết quả, nhưng không phải lúc nào cũng là chính xác 100%. Dữ liệu có thể bị thiên vị, và việc phân tích không thể dự đoán mọi khía cạnh của tương lai.
+
+ 
+
+2.Vấn đề về lưu trữ dữ liệu gặp phải khi Big Data được ứng dụng
+
+
+
+Vấn đề về lưu trữ dữ liệu khi ứng dụng Big data
+
+ 
+
+Trong kỷ nguyên Big Data, việc lưu trữ dữ liệu đối mặt với nhiều thách thức phức tạp. Dưới đây là một số vấn đề chính mà việc lưu trữ gặp phải trong kỷ nguyên Big Data:
+
+ 
+
+2.1. Khối lượng lớn của dữ liệu
+ 
+
+Dữ liệu ngày nay được tạo ra và tích luỹ với tốc độ nhanh chóng từ nhiều nguồn khác nhau. Khối lượng dữ liệu lớn đòi hỏi các hệ thống lưu trữ phải có khả năng mở rộng linh hoạt để chứa và xử lý dữ liệu trong quy mô lớn.
+
+ 
+
+Ngoài kích thước dữ liệu khổng lồ, các ứng dụng “Big Data” còn có nghĩa là có số lượng tệp khổng lồ. Vì vậy, làm thế nào để quản lý siêu dữ liệu được tích lũy trong lớp hệ thống tập tin là một vấn đề khó khăn, nếu không được xử lý đúng cách sẽ ảnh hưởng đến khả năng mở rộng và hiệu suất của hệ thống. Điểm thắt cổ chai này tồn tại trong các hệ thống NAS truyền thống. May mắn thay, kiến ​​trúc lưu trữ dựa trên đối tượng không gặp phải vấn đề này, nó có thể quản lý số lượng hàng tỷ tệp trong hệ thống mà không gặp phải những rắc rối về quản lý siêu dữ liệu như lưu trữ truyền thống. Hệ thống lưu trữ dựa trên đối tượng cũng có khả năng mở rộng trên diện rộng và có thể được triển khai ở nhiều địa điểm khác nhau để tạo thành cơ sở hạ tầng lưu trữ quy mô lớn trên khắp các khu vực.
+
+ 
+
+2.2. Tính đa dạng của dữ liệu
+ 
+
+Dữ liệu trong kỷ nguyên Big Data không chỉ là dữ liệu có cấu trúc mà còn bao gồm dữ liệu không cấu trúc và bán cấu trúc. Các hệ thống lưu trữ phải có khả năng lưu trữ và xử lý nhiều loại dữ liệu khác nhau, bao gồm văn bản, hình ảnh, video, dữ liệu sensor, dữ liệu mạng xã hội, vv.
+
+ 
+
+2.3. Tốc độ truy xuất dữ liệu
+ 
+
+Big Data đòi hỏi việc truy xuất dữ liệu nhanh chóng và hiệu quả, đặc biệt là trong các ứng dụng yêu cầu xử lý dữ liệu thời gian thực. Hệ thống lưu trữ phải có khả năng đáp ứng nhanh chóng cho các yêu cầu truy xuất dữ liệu đồng thời từ hàng triệu người dùng.
+
+ 
+
+Các ứng dụng “Big Data” cũng có vấn đề về thời gian thực. Đặc biệt là khi nói đến các ứng dụng liên quan đến giao dịch trực tuyến hoặc tài chính. 
+
+Ví dụ: Các dịch vụ quảng cáo và khuyến mãi trực tuyến trong ngành bán quần áo trực tuyến yêu cầu phân tích thời gian thực về hồ sơ duyệt web của khách hàng và vị trí quảng cáo chính xác. Điều này đòi hỏi hệ thống lưu trữ phải có khả năng hỗ trợ các tính năng trên đồng thời duy trì tốc độ phản hồi cao, bởi kết quả của việc phản hồi chậm là hệ thống sẽ đẩy nội dung quảng cáo “hết hạn” đến cho khách hàng. Trong kịch bản này, hệ thống lưu trữ kiến ​​trúc mở rộng quy mô có thể tận dụng lợi thế của nó vì mỗi nút của nó đều có các thành phần xử lý và kết nối, đồng thời sức mạnh xử lý có thể tăng lên đồng thời với việc tăng công suất. Hệ thống lưu trữ dựa trên đối tượng có thể hỗ trợ các luồng dữ liệu đồng thời, do đó cải thiện hơn nữa thông lượng dữ liệu.
+
+ 
+
+2.4. Bảo mật và quản lý quyền truy cập
+ 
+
+Dữ liệu trong Big Data thường chứa thông tin quan trọng và nhạy cảm, nên việc đảm bảo bảo mật và quản lý quyền truy cập là rất quan trọng. Hệ thống lưu trữ cần có các biện pháp bảo mật mạnh mẽ và cơ chế quản lý quyền truy cập chặt chẽ để đảm bảo rằng dữ liệu được bảo vệ an toàn.
+
+ 
+
+Các ứng dụng trong một số ngành đặc biệt nhất định. Chẳng hạn như dữ liệu tài chính, thông tin y tế và tình báo chính phủ, có các tiêu chuẩn bảo mật và yêu cầu bảo mật riêng. Mặc dù những điều này không khác gì đối với các nhà quản lý CNTT và phải tuân theo. Nhưng phân tích Big Data thường yêu cầu tham chiếu lẫn nhau của nhiều loại dữ liệu. Trước đây không có quyền truy cập dữ liệu hỗn hợp như vậy. đối với một số vấn đề bảo mật mới cần được xem xét.
+
+ 
+
+2.5. Tính đồng nhất của dữ liệu
+ 
+
+ Dữ liệu trong môi trường Big Data thường được phân tán trên nhiều hệ thống và nền tảng khác nhau. Điều này đặt ra thách thức trong việc đảm bảo tính đồng nhất của dữ liệu và tránh việc dữ liệu bị phân mảnh hoặc trích xuất không chính xác.
+
+ 
+
+2.6. Tính tăng cường và tiết kiệm chi phí
+ 
+
+Việc lưu trữ dữ liệu lớn có thể tạo ra chi phí lớn cho các doanh nghiệp. Do đó, một trong những thách thức là tìm cách tối ưu hóa chi phí lưu trữ mà vẫn đảm bảo hiệu suất và khả năng mở rộng của hệ thống.
+
+ 
+
+Yếu tố có tác động lớn nhất đến việc kiểm soát chi phí chính là các thiết bị phần cứng thương mại đó. Vì vậy, nhiều người dùng lần đầu trong lĩnh vực này cũng như những người có ứng dụng lớn nhất sẽ tùy chỉnh “nền tảng phần cứng” của riêng mình thay vì sử dụng các sản phẩm thương mại sẵn có. Động thái này có thể được sử dụng để cân bằng việc kiểm soát chi phí trong quá trình họ sử dụng. mở rộng kinh doanh. Để đáp ứng nhu cầu này, ngày càng có nhiều sản phẩm lưu trữ được cung cấp dưới dạng phần mềm thuần túy, có thể cài đặt trực tiếp trên các thiết bị phần cứng có sẵn, đa dụng hoặc có sẵn của người dùng. Ngoài ra, nhiều công ty phần mềm lưu trữ vẫn đang bán các thiết bị phần cứng và phần mềm tích hợp lấy sản phẩm phần mềm làm cốt lõi hoặc liên minh với các nhà sản xuất phần cứng để tung ra các sản phẩm hợp tác.
+
+ 
+
+2.7. Tích lũy dữ liệu
+ 
+
+Nhiều ứng dụng Big Data liên quan đến các vấn đề tuân thủ quy định, thường yêu cầu dữ liệu phải được lưu giữ trong nhiều năm hoặc nhiều thập kỷ. Ví dụ, thông tin y tế thường được lưu giữ để đảm bảo an toàn cho người bệnh, trong khi thông tin tài chính thường được lưu giữ trong 7 năm. 
+
+ 
+
+Một số người dùng sử dụng bộ lưu trữ Big Data hy vọng rằng dữ liệu có thể được lưu trong thời gian dài hơn. Vì mọi dữ liệu đều là một phần của hồ sơ lịch sử và việc phân tích dữ liệu chủ yếu dựa trên các khoảng thời gian để đạt được khả năng lưu trữ dữ liệu lâu dài, các nhà sản xuất bộ lưu trữ phải phát triển các chức năng có thể liên tục phát hiện tính nhất quán của dữ liệu và các tính năng khác đảm bảo tính sẵn sàng cao trong thời gian dài. Đồng thời, cũng cần nhận thức được yêu cầu chức năng của việc cập nhật dữ liệu trực tiếp tại chỗ.
+
+ 
+
+3. Kết luận
+
+ 
+
+Big data ra đời là sự tất yếu của cuộc cách mạng công nghệ 4.0 cùng sự bùng nổ của thị trường Internet. Bài viết trên đã đưa ra những ứng dụng cũng như các vấn đề mà việc lưu trữ gặp phải trong kỷ nguyên Big data. Hy vọng sẽ cung cấp những thông tin cần thiết cho các bạn.

@@ -1,0 +1,205 @@
+{
+  "files": {
+    "bigdata.txt": {
+      "hash": "004326d411084f52e1932edb028092e1",
+      "processed_at": "1765891537.916041",
+      "status": "new"
+    },
+    "bvmt.txt": {
+      "hash": "8c93d70a0748207b62f69a18a772551a",
+      "processed_at": "1765891537.92106",
+      "status": "new"
+    },
+    "bvmt2.txt": {
+      "hash": "524148ece673fa3f50379f8739731222",
+      "processed_at": "1765891537.893636",
+      "status": "new"
+    },
+    "chinhtri.txt": {
+      "hash": "812b77e5b0b3ed29b028057a23a111c2",
+      "processed_at": "1765902432.083584",
+      "status": "new"
+    },
+    "cl.txt": {
+      "hash": "92ebf4bce8422cb65a1f75cbaf5ffd46",
+      "processed_at": "1765891537.877643",
+      "status": "new"
+    },
+    "dantoc.txt": {
+      "hash": "09bb1e96ba20dff94a75fcc098a80576",
+      "processed_at": "1765902432.083584",
+      "status": "new"
+    },
+    "dayhoc.txt": {
+      "hash": "a54bb19af274d0a6917a1e287976a964",
+      "processed_at": "1765891537.8234377",
+      "status": "new"
+    },
+    "dialy.txt": {
+      "hash": "aa14e3b51b1e2227f053d0cce286e6d9",
+      "processed_at": "1765902432.083584",
+      "status": "new"
+    },
+    "dialyyy.txt": {
+      "hash": "373300baf1c199ccad303d147a1a6785",
+      "processed_at": "1765902432.083584",
+      "status": "new"
+    },
+    "dn.txt": {
+      "hash": "bd38cdc1b4731f65b2beeea8772f5051",
+      "processed_at": "1765891537.903711",
+      "status": "new"
+    },
+    "gdp.txt": {
+      "hash": "cfb47cc2484853db8f9e61dfbdb59403",
+      "processed_at": "1765891537.93502",
+      "status": "new"
+    },
+    "GIÁO TRÌNH CƠ SỞ VĂN HÓA VIỆT NAM BẢN HOÀN CHỈNH.txt": {
+      "hash": "9b474c5b81588427b850b8dd33f9ecd5",
+      "processed_at": "1765902432.0309334",
+      "status": "new"
+    },
+    "hcm.txt": {
+      "hash": "0320f9178341ee3c4143c7265af62770",
+      "processed_at": "1765902432.083584",
+      "status": "new"
+    },
+    "hienphap.txt": {
+      "hash": "6584298bde4f5305cd170831c7dd0912",
+      "processed_at": "1765902432.083584",
+      "status": "new"
+    },
+    "lenin.txt": {
+      "hash": "a6e2ee97389555f36c4733b3108cbf61",
+      "processed_at": "1765891537.93502",
+      "status": "new"
+    },
+    "lenin2.txt": {
+      "hash": "7f416231d3bedb1b9bac3c96fd44e3a7",
+      "processed_at": "1765891537.8716207",
+      "status": "new"
+    },
+    "lenin3.txt": {
+      "hash": "1ad8a5e148b3eefacac475c120558334",
+      "processed_at": "1765891537.8601956",
+      "status": "new"
+    },
+    "lenin4.txt": {
+      "hash": "150cc2cc65108f74a88d77f7acd5bc82",
+      "processed_at": "1765891537.8394878",
+      "status": "new"
+    },
+    "lenin5.txt": {
+      "hash": "62b4e7c5bfe64d2240c66af048323bdc",
+      "processed_at": "1765891537.8819656",
+      "status": "new"
+    },
+    "Lịch sử Việt Nam tập 08 Từ năm 1919 đến năm 1930-Tạ Thị Thúy-2017.txt": {
+      "hash": "2ad8faf296704bfb5f37c898b4ee0904",
+      "processed_at": "1765902432.0334399",
+      "status": "new"
+    },
+    "Lịch sử Việt Nam tập 09 Từ năm 1930 đến năm 1945-Tạ Thị Thúy-2017.txt": {
+      "hash": "d9a04c36560e22a75556bdeaa85863e4",
+      "processed_at": "1765902432.0477664",
+      "status": "new"
+    },
+    "Lịch sử Việt Nam tập 10 Từ năm 1945 đến năm 1950-Đinh Thị Thu Cúc-2017.txt": {
+      "hash": "c206fbf70c6c6082907b457c5266bf47",
+      "processed_at": "1765902432.053344",
+      "status": "new"
+    },
+    "Lịch sử Việt Nam tập 11 Từ năm 1951 đến năm 1954-Nguyễn Văn Nhật-2017.txt": {
+      "hash": "77ea206b0ca699c5f6674addaecad1ad",
+      "processed_at": "1765902432.0582535",
+      "status": "new"
+    },
+    "Lịch sử Việt Nam tập 12 Từ năm 1954 đến năm 1965-Trần Đức Cường-2017.txt": {
+      "hash": "482d5d368e7467e01ebc7c4d969293c4",
+      "processed_at": "1765902432.0643353",
+      "status": "new"
+    },
+    "Lịch sử Việt Nam tập 13 Từ năm 1965 đến năm 1975-Nguyễn Văn Nhật-2017.txt": {
+      "hash": "7fa902b01353bea6e1ad23b74ef1643f",
+      "processed_at": "1765902432.0732026",
+      "status": "new"
+    },
+    "Lịch sử Việt Nam tập 14 Từ năm 1975 đến năm 1986-Trần Đức Cường-2017.txt": {
+      "hash": "2673be67c4946103eee1ec308d7f5cf2",
+      "processed_at": "1765902432.0810766",
+      "status": "new"
+    },
+    "Lịch sử Việt Nam tập 15 Từ năm 1986 đến năm 2000-Nguyễn Ngọc Mão-2017.txt": {
+      "hash": "e96f5fd31a3e9f131d0d3c459592e3fe",
+      "processed_at": "1765902432.083584",
+      "status": "new"
+    },
+    "quocky.txt": {
+      "hash": "6c1494480b91a544b660b4b866d13dd7",
+      "processed_at": "1765902432.083584",
+      "status": "new"
+    },
+    "tam-ly-hoc-dai-cuong.txt": {
+      "hash": "0666d8cfcc57e17c4dc090589acf8c86",
+      "processed_at": "1765891537.9280932",
+      "status": "new"
+    },
+    "test.json": {
+      "hash": "dd530a65124fd5dc303b62edd7444694",
+      "processed_at": "1765902432.0964859",
+      "status": "new"
+    },
+    "tthcm.txt": {
+      "hash": "e25256a887cddbf8fe8e65920d28f7b0",
+      "processed_at": "1765891537.8394878",
+      "status": "new"
+    },
+    "tthcm2.txt": {
+      "hash": "25fa268461fc131e1e011d3ee1aec546",
+      "processed_at": "1765891537.8622053",
+      "status": "new"
+    },
+    "tthcm3.txt": {
+      "hash": "762cb1e65a9435a90993f9b5f7a6bf13",
+      "processed_at": "1765891537.8394878",
+      "status": "new"
+    },
+    "tthcm4.txt": {
+      "hash": "7048338ef9fecf886f79fe52befcd94d",
+      "processed_at": "1765891537.903711",
+      "status": "new"
+    },
+    "tthcm5.txt": {
+      "hash": "ec71524b552dc5207db7007e177c7dae",
+      "processed_at": "1765891537.899659",
+      "status": "new"
+    },
+    "tthcmgpdt.txt": {
+      "hash": "3f47f707105ff01410f858342f2c8275",
+      "processed_at": "1765891537.8561769",
+      "status": "new"
+    },
+    "tuongvidai.txt": {
+      "hash": "df2659757b1da63a17999b6c75e37a8c",
+      "processed_at": "1765902432.0964859",
+      "status": "new"
+    },
+    "val.json": {
+      "hash": "092d51d4d3aac3551e538465d7002f06",
+      "processed_at": "1765902432.0964859",
+      "status": "new"
+    },
+    "vanhoa.txt": {
+      "hash": "14033456fbd075e8eee0cbc3f5349e49",
+      "processed_at": "1765902432.0964859",
+      "status": "new"
+    },
+    "vh.txt": {
+      "hash": "f4a0dc5982f7d67c4d50188e2fab94f6",
+      "processed_at": "1765891537.887613",
+      "status": "new"
+    }
+  },
+  "version": "1.0"
+}

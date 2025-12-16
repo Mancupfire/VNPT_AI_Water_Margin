@@ -27,7 +27,7 @@ logger = get_logger(__name__)
 # Default configuration (can be overridden by .env)
 DEFAULT_CHUNK_SIZE = 500  # characters
 DEFAULT_CHUNK_OVERLAP = 50  # characters
-DEFAULT_EMBEDDING_DIM = 768  # Common embedding dimension
+DEFAULT_EMBEDDING_DIM = 1024  # Common embedding dimension
 
 
 def compute_file_hash(filepath: str) -> str:
@@ -78,7 +78,7 @@ def load_existing_index(index_path: str, texts_path: str, bm25_path: str) -> tup
     if os.path.exists(index_path):
         try:
             faiss_index = faiss.read_index(index_path)
-            logger.info(f"✓ Loaded existing FAISS index with {faiss_index.ntotal} vectors")
+            logger.info(f"[OK] Loaded existing FAISS index with {faiss_index.ntotal} vectors")
         except Exception as e:
             logger.error(f"Error loading FAISS index: {e}")
     
@@ -87,7 +87,7 @@ def load_existing_index(index_path: str, texts_path: str, bm25_path: str) -> tup
         try:
             with open(texts_path, 'r', encoding='utf-8') as f:
                 text_chunks = json.load(f)
-            logger.info(f"✓ Loaded {len(text_chunks)} existing text chunks")
+            logger.info(f"[OK] Loaded {len(text_chunks)} existing text chunks")
         except Exception as e:
             logger.error(f"Error loading text chunks: {e}")
     
@@ -96,7 +96,7 @@ def load_existing_index(index_path: str, texts_path: str, bm25_path: str) -> tup
         try:
             with open(bm25_path, 'rb') as f:
                 bm25_index = pickle.load(f)
-            logger.info(f"✓ Loaded existing BM25 index")
+            logger.info(f"[OK] Loaded existing BM25 index")
         except Exception as e:
             logger.error(f"Error loading BM25 index: {e}")
     
@@ -334,22 +334,100 @@ async def generate_embeddings_async(texts: List[str], config: Dict[str, Any]) ->
     
     all_embeddings = []
     
+    logger.info(f"[EMBED] Starting embedding generation for {len(texts)} texts")
+    logger.info(f"[EMBED] Expected embedding dimension: {embedding_dim}")
+    logger.info(f"[EMBED] Batch size: {batch_size}")
+    
     try:
         # Process in batches with progress bar
         for i in tqdm(range(0, len(texts), batch_size), desc="Generating embeddings", unit="batch"):
             batch = texts[i:i + batch_size]
+            batch_num = i//batch_size + 1
+            
             try:
+                logger.debug(f"[EMBED] Batch {batch_num}: Processing {len(batch)} texts")
                 batch_embeddings = await embedding_provider.aembed(batch, config)
-                all_embeddings.extend(batch_embeddings)
+                
+                # Detailed validation
+                if batch_embeddings is None:
+                    logger.error(f"[EMBED] Batch {batch_num}: Received None from embedding provider!")
+                    all_embeddings.extend([np.zeros(embedding_dim, dtype=np.float32) for _ in batch])
+                    continue
+                
+                logger.debug(f"[EMBED] Batch {batch_num}: Received {len(batch_embeddings)} embeddings")
+                
+                # Check each embedding with retry logic
+                for idx, emb in enumerate(batch_embeddings):
+                    valid_emb = None
+                    
+                    # Validate and potentially retry
+                    if emb is None:
+                        logger.warning(f"[EMBED] Batch {batch_num}, item {idx}: Embedding is None, retrying individual item...")
+                        # Retry this specific item
+                        for retry in range(3):
+                            try:
+                                retry_result = await embedding_provider.aembed([batch[idx]], config)
+                                if retry_result and len(retry_result) > 0 and retry_result[0] is not None:
+                                    emb = retry_result[0]
+                                    logger.info(f"[EMBED] Batch {batch_num}, item {idx}: Retry {retry + 1} successful")
+                                    break
+                            except Exception as e:
+                                logger.warning(f"[EMBED] Batch {batch_num}, item {idx}: Retry {retry + 1} failed: {e}")
+                                if retry < 2:
+                                    await asyncio.sleep(1 * (retry + 1))
+                    
+                    if emb is None:
+                        logger.error(f"[EMBED] Batch {batch_num}, item {idx}: Still None after retries, using zero vector")
+                        all_embeddings.append(np.zeros(embedding_dim, dtype=np.float32))
+                    elif not isinstance(emb, (list, np.ndarray)):
+                        logger.error(f"[EMBED] Batch {batch_num}, item {idx}: Invalid type {type(emb)}, using zero vector")
+                        all_embeddings.append(np.zeros(embedding_dim, dtype=np.float32))
+                    else:
+                        emb_array = np.array(emb, dtype=np.float32)
+                        if emb_array.shape[0] != embedding_dim:
+                            logger.warning(f"[EMBED] Batch {batch_num}, item {idx}: Wrong dimension {emb_array.shape[0]}, expected {embedding_dim}, retrying...")
+                            # Retry this specific item
+                            for retry in range(3):
+                                try:
+                                    retry_result = await embedding_provider.aembed([batch[idx]], config)
+                                    if retry_result and len(retry_result) > 0:
+                                        retry_emb = np.array(retry_result[0], dtype=np.float32)
+                                        if retry_emb.shape[0] == embedding_dim:
+                                            emb_array = retry_emb
+                                            logger.info(f"[EMBED] Batch {batch_num}, item {idx}: Retry {retry + 1} successful, got correct dimension")
+                                            break
+                                except Exception as e:
+                                    logger.warning(f"[EMBED] Batch {batch_num}, item {idx}: Retry {retry + 1} failed: {e}")
+                                    if retry < 2:
+                                        await asyncio.sleep(1 * (retry + 1))
+                            
+                            # Final check after retries
+                            if emb_array.shape[0] != embedding_dim:
+                                logger.error(f"[EMBED] Batch {batch_num}, item {idx}: Still wrong dimension after retries, using zero vector")
+                                all_embeddings.append(np.zeros(embedding_dim, dtype=np.float32))
+                            else:
+                                all_embeddings.append(emb_array)
+                        else:
+                            all_embeddings.append(emb_array)
+            
             except Exception as e:
-                logger.error(f"Error generating embeddings for batch {i//batch_size + 1}: {e}")
+                logger.error(f"[EMBED] Batch {batch_num} failed: {e}")
                 # Add zero vectors for failed batch
-                all_embeddings.extend([np.zeros(embedding_dim) for _ in batch])
+                all_embeddings.extend([np.zeros(embedding_dim, dtype=np.float32) for _ in batch])
         
-        return np.array(all_embeddings)
+        # Final validation
+        result_array = np.array(all_embeddings, dtype=np.float32)
+        logger.info(f"[EMBED] Final result shape: {result_array.shape}")
+        logger.info(f"[EMBED] Expected shape: ({len(texts)}, {embedding_dim})")
+        
+        if result_array.shape != (len(texts), embedding_dim):
+            logger.error(f"[EMBED] Shape mismatch! Got {result_array.shape}, expected ({len(texts)}, {embedding_dim})")
+        
+        return result_array
+        
     except Exception as e:
-        logger.error(f"Error generating embeddings: {e}")
-        return np.zeros((len(texts), embedding_dim))  # Return zeros for failed embedding
+        logger.error(f"[EMBED] Fatal error generating embeddings: {e}")
+        return np.zeros((len(texts), embedding_dim), dtype=np.float32)  # Return zeros for failed embedding
 
 
 
@@ -403,10 +481,10 @@ async def build_index(docs_dir: str, index_path: str, texts_path: str, bm25_inde
             files_skipped += 1
     
     if not files_to_process:
-        logger.info(f"✓ All {len(all_files)} files already indexed. No new documents to process.")
+        logger.info(f"[COMPLETE] All {len(all_files)} files already indexed. No new documents to process.")
         return
     
-    logger.info(f"📊 Status: {len(files_to_process)} files to process, {files_skipped} files unchanged")
+    logger.info(f"[STATUS] {len(files_to_process)} files to process, {files_skipped} files unchanged")
     
     # Process new/modified files
     for filename, filepath, file_hash, status in tqdm(files_to_process, desc="Processing documents", unit="file"):
@@ -419,7 +497,7 @@ async def build_index(docs_dir: str, index_path: str, texts_path: str, bm25_inde
                 if chunks:
                     new_chunks.extend(chunks)
                     new_chunk_sources.extend([filename] * len(chunks))
-                    logger.info(f"✓ {status.upper()}: {filename} (tabular) → {len(chunks)} chunks")
+                    logger.info(f"[OK] {status.upper()}: {filename} (tabular) -> {len(chunks)} chunks")
             else:
                 # Regular text-based chunking
                 text = extract_text_from_file(filepath)
@@ -428,7 +506,7 @@ async def build_index(docs_dir: str, index_path: str, texts_path: str, bm25_inde
                     chunks = chunk_text(text, chunk_size, chunk_overlap, is_markdown=is_markdown)
                     new_chunks.extend(chunks)
                     new_chunk_sources.extend([filename] * len(chunks))
-                    logger.info(f"✓ {status.upper()}: {filename} → {len(chunks)} chunks")
+                    logger.info(f"[OK] {status.upper()}: {filename} -> {len(chunks)} chunks")
             
             # Update metadata
             metadata["files"][filename] = {
@@ -443,21 +521,34 @@ async def build_index(docs_dir: str, index_path: str, texts_path: str, bm25_inde
                 files_updated += 1
                 
         except Exception as e:
-            logger.error(f"❌ Error processing {filename}: {e}")
+            logger.error(f"[ERROR] Error processing {filename}: {e}")
     
     if not new_chunks:
-        logger.warning("⚠️  No new text chunks extracted. Index unchanged.")
+        logger.warning("[WARNING] No new text chunks extracted. Index unchanged.")
         return
     
-    logger.info(f"📝 Extracted {len(new_chunks)} new chunks from {files_processed + files_updated} files")
+    logger.info(f"[EXTRACT] Extracted {len(new_chunks)} new chunks from {files_processed + files_updated} files")
     
     # Generate embeddings for new chunks
-    logger.info("🔧 Generating embeddings for new chunks...")
+    logger.info("[EMBED] Generating embeddings for new chunks...")
     new_embeddings = await generate_embeddings_async(new_chunks, config)
     
     # Merge with existing index or create new
     if existing_faiss is not None and existing_faiss.ntotal > 0:
-        logger.info(f"🔄 Merging {len(new_chunks)} new chunks into existing index ({existing_faiss.ntotal} vectors)")
+        logger.info(f"[MERGE] Merging {len(new_chunks)} new chunks into existing index ({existing_faiss.ntotal} vectors)")
+        
+        # Validate dimensions match before adding
+        existing_dim = existing_faiss.d
+        new_dim = new_embeddings.shape[1] if len(new_embeddings.shape) > 1 else 0
+        
+        logger.info(f"[MERGE] Existing FAISS index dimension: {existing_dim}")
+        logger.info(f"[MERGE] New embeddings dimension: {new_dim}")
+        logger.info(f"[MERGE] New embeddings shape: {new_embeddings.shape}")
+        
+        if new_dim != existing_dim:
+            logger.error(f"[ERROR] Dimension mismatch! Index expects {existing_dim}, got {new_dim}")
+            logger.error(f"[ERROR] Cannot merge. Please rebuild the index from scratch.")
+            raise ValueError(f"Dimension mismatch: index has {existing_dim}, embeddings have {new_dim}")
         
         # Add new vectors to existing FAISS index
         existing_faiss.add(new_embeddings)
@@ -467,7 +558,7 @@ async def build_index(docs_dir: str, index_path: str, texts_path: str, bm25_inde
         final_chunks = existing_chunks + new_chunks
         
     else:
-        logger.info(f"🆕 Creating new index with {len(new_chunks)} chunks")
+        logger.info(f"[NEW] Creating new index with {len(new_chunks)} chunks")
         
         # Create new FAISS index
         d = new_embeddings.shape[1] if new_embeddings.shape[0] > 0 else embedding_dim
@@ -483,26 +574,26 @@ async def build_index(docs_dir: str, index_path: str, texts_path: str, bm25_inde
     with open(texts_path, 'w', encoding='utf-8') as f:
         json.dump(final_chunks, f, ensure_ascii=False)
     
-    logger.info(f"✅ FAISS index updated: {final_index.ntotal} total vectors")
-    logger.info(f"✅ Text chunks saved: {len(final_chunks)} total chunks")
+    logger.info(f"[SAVED] FAISS index updated: {final_index.ntotal} total vectors")
+    logger.info(f"[SAVED] Text chunks saved: {len(final_chunks)} total chunks")
     
     # Rebuild BM25 index with all chunks (BM25 doesn't support incremental updates easily)
-    logger.info("🔧 Rebuilding BM25 index with all chunks...")
+    logger.info("[BM25] Rebuilding BM25 index with all chunks...")
     tokenized_corpus = [ViTokenizer.tokenize(doc).split() for doc in tqdm(final_chunks, desc="Tokenizing for BM25", unit="chunk")]
     bm25 = BM25Okapi(tokenized_corpus)
     
     with open(bm25_index_path, 'wb') as f:
         pickle.dump(bm25, f)
     
-    logger.info(f"✅ BM25 index rebuilt: {len(final_chunks)} documents")
+    logger.info(f"[SAVED] BM25 index rebuilt: {len(final_chunks)} documents")
     
     # Save metadata
     save_metadata(metadata_path, metadata)
-    logger.info(f"✅ Metadata saved: tracking {len(metadata['files'])} files")
+    logger.info(f"[SAVED] Metadata saved: tracking {len(metadata['files'])} files")
     
     # Summary
     logger.info("=" * 70)
-    logger.info("📊 INDEX UPDATE SUMMARY")
+    logger.info("[SUMMARY] INDEX UPDATE SUMMARY")
     logger.info("=" * 70)
     logger.info(f"  New files added: {files_processed}")
     logger.info(f"  Files updated: {files_updated}")
@@ -536,7 +627,7 @@ if __name__ == "__main__":
         # RAG chunking parameters
         "CHUNK_SIZE": int(os.getenv("RAG_CHUNK_SIZE", "500")),
         "CHUNK_OVERLAP": int(os.getenv("RAG_CHUNK_OVERLAP", "50")),
-        "EMBEDDING_DIM": int(os.getenv("EMBEDDING_DIM", "768")),
+        "EMBEDDING_DIM": int(os.getenv("EMBEDDING_DIM", "1024")),
     }
 
     # Use RETRIEVE_DOCS_DIR from .env, or default to relative path

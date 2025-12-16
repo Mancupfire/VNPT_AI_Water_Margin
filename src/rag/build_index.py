@@ -20,6 +20,7 @@ if _project_root not in sys.path:
 
 from src.providers.factory import load_embedding_provider
 from src.logger import get_logger
+import hashlib
 
 logger = get_logger(__name__)
 
@@ -27,6 +28,80 @@ logger = get_logger(__name__)
 DEFAULT_CHUNK_SIZE = 500  # characters
 DEFAULT_CHUNK_OVERLAP = 50  # characters
 DEFAULT_EMBEDDING_DIM = 768  # Common embedding dimension
+
+
+def compute_file_hash(filepath: str) -> str:
+    """Compute MD5 hash of a file to detect changes."""
+    hash_md5 = hashlib.md5()
+    try:
+        with open(filepath, "rb") as f:
+            for chunk in iter(lambda: f.read(4096), b""):
+                hash_md5.update(chunk)
+        return hash_md5.hexdigest()
+    except Exception as e:
+        logger.error(f"Error computing hash for {filepath}: {e}")
+        return ""
+
+
+def load_existing_metadata(metadata_path: str) -> Dict[str, Any]:
+    """Load existing metadata tracking processed files."""
+    if os.path.exists(metadata_path):
+        try:
+            with open(metadata_path, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except Exception as e:
+            logger.error(f"Error loading metadata: {e}")
+            return {"files": {}, "version": "1.0"}
+    return {"files": {}, "version": "1.0"}
+
+
+def save_metadata(metadata_path: str, metadata: Dict[str, Any]):
+    """Save metadata tracking processed files."""
+    try:
+        os.makedirs(os.path.dirname(metadata_path), exist_ok=True)
+        with open(metadata_path, 'w', encoding='utf-8') as f:
+            json.dump(metadata, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        logger.error(f"Error saving metadata: {e}")
+
+
+def load_existing_index(index_path: str, texts_path: str, bm25_path: str) -> tuple:
+    """
+    Load existing FAISS index, text chunks, and BM25 index if they exist.
+    Returns (faiss_index, text_chunks, bm25_index) or (None, [], None) if not found.
+    """
+    faiss_index = None
+    text_chunks = []
+    bm25_index = None
+    
+    # Load FAISS index
+    if os.path.exists(index_path):
+        try:
+            faiss_index = faiss.read_index(index_path)
+            logger.info(f"✓ Loaded existing FAISS index with {faiss_index.ntotal} vectors")
+        except Exception as e:
+            logger.error(f"Error loading FAISS index: {e}")
+    
+    # Load text chunks
+    if os.path.exists(texts_path):
+        try:
+            with open(texts_path, 'r', encoding='utf-8') as f:
+                text_chunks = json.load(f)
+            logger.info(f"✓ Loaded {len(text_chunks)} existing text chunks")
+        except Exception as e:
+            logger.error(f"Error loading text chunks: {e}")
+    
+    # Load BM25 index
+    if os.path.exists(bm25_path):
+        try:
+            with open(bm25_path, 'rb') as f:
+                bm25_index = pickle.load(f)
+            logger.info(f"✓ Loaded existing BM25 index")
+        except Exception as e:
+            logger.error(f"Error loading BM25 index: {e}")
+    
+    return faiss_index, text_chunks, bm25_index
+
 
 def chunk_text(text: str, chunk_size: int, chunk_overlap: int, is_markdown: bool = False) -> List[str]:
     """
@@ -278,75 +353,165 @@ async def generate_embeddings_async(texts: List[str], config: Dict[str, Any]) ->
 
 
 
+
+
 async def build_index(docs_dir: str, index_path: str, texts_path: str, bm25_index_path: str, config: Dict[str, Any]):
+    """
+    Build or update RAG indices incrementally.
+    Only processes new or modified files, preserves existing index data.
+    """
     # Get chunking parameters from config
     chunk_size = config.get("CHUNK_SIZE", DEFAULT_CHUNK_SIZE)
     chunk_overlap = config.get("CHUNK_OVERLAP", DEFAULT_CHUNK_OVERLAP)
     embedding_dim = config.get("EMBEDDING_DIM", DEFAULT_EMBEDDING_DIM)
     
-    all_chunks = []
-    logger.info(f"Loading documents from {docs_dir}...")
+    # Metadata file to track processed files
+    metadata_path = os.path.join(os.path.dirname(index_path), "index_metadata.json")
+    
+    # Load existing metadata and indices
+    metadata = load_existing_metadata(metadata_path)
+    existing_faiss, existing_chunks, existing_bm25 = load_existing_index(index_path, texts_path, bm25_index_path)
+    
+    # Track what's new
+    new_chunks = []
+    new_chunk_sources = []  # Track which file each chunk came from
+    files_processed = 0
+    files_skipped = 0
+    files_updated = 0
+    
+    logger.info(f"Scanning documents in {docs_dir}...")
     
     # Supported file extensions
     supported_extensions = {'.pdf', '.json', '.csv', '.xlsx', '.xls', '.docx', '.doc', '.md', '.txt'}
-    tabular_extensions = {'.json', '.csv', '.xlsx', '.xls'}  # Formats needing specialized chunking
+    tabular_extensions = {'.json', '.csv', '.xlsx', '.xls'}
     
     # Get list of files to process
-    files_to_process = [f for f in os.listdir(docs_dir) if Path(f).suffix.lower() in supported_extensions]
+    all_files = [f for f in os.listdir(docs_dir) if Path(f).suffix.lower() in supported_extensions]
     
-    for filename in tqdm(files_to_process, desc="Processing documents", unit="file"):
-        file_ext = Path(filename).suffix.lower()
+    # Determine which files need processing
+    files_to_process = []
+    for filename in all_files:
         filepath = os.path.join(docs_dir, filename)
+        file_hash = compute_file_hash(filepath)
+        
+        # Check if file is new or modified
+        if filename not in metadata["files"]:
+            files_to_process.append((filename, filepath, file_hash, "new"))
+        elif metadata["files"][filename].get("hash") != file_hash:
+            files_to_process.append((filename, filepath, file_hash, "modified"))
+        else:
+            files_skipped += 1
+    
+    if not files_to_process:
+        logger.info(f"✓ All {len(all_files)} files already indexed. No new documents to process.")
+        return
+    
+    logger.info(f"📊 Status: {len(files_to_process)} files to process, {files_skipped} files unchanged")
+    
+    # Process new/modified files
+    for filename, filepath, file_hash, status in tqdm(files_to_process, desc="Processing documents", unit="file"):
+        file_ext = Path(filename).suffix.lower()
+        
         try:
             # Use specialized chunking for tabular data
             if file_ext in tabular_extensions:
                 chunks = chunk_tabular_data(filepath, file_ext, chunk_size)
                 if chunks:
-                    all_chunks.extend(chunks)
-                    logger.info(f"Processed {filename} (tabular): {len(chunks)} chunks.")
+                    new_chunks.extend(chunks)
+                    new_chunk_sources.extend([filename] * len(chunks))
+                    logger.info(f"✓ {status.upper()}: {filename} (tabular) → {len(chunks)} chunks")
             else:
-                # Regular text-based chunking for other formats
+                # Regular text-based chunking
                 text = extract_text_from_file(filepath)
-                if text:  # Only process if we got text
-                    # Use markdown-aware chunking for .md files
+                if text:
                     is_markdown = (file_ext == '.md')
                     chunks = chunk_text(text, chunk_size, chunk_overlap, is_markdown=is_markdown)
-                    all_chunks.extend(chunks)
-                    logger.info(f"Processed {filename}: {len(chunks)} chunks.")
+                    new_chunks.extend(chunks)
+                    new_chunk_sources.extend([filename] * len(chunks))
+                    logger.info(f"✓ {status.upper()}: {filename} → {len(chunks)} chunks")
+            
+            # Update metadata
+            metadata["files"][filename] = {
+                "hash": file_hash,
+                "processed_at": str(Path(filepath).stat().st_mtime),
+                "status": status
+            }
+            
+            if status == "new":
+                files_processed += 1
+            else:
+                files_updated += 1
+                
         except Exception as e:
-            logger.error(f"Error processing {filename}: {e}")
-
-    if not all_chunks:
-        logger.warning("No text chunks extracted from PDFs. Index will be empty.")
-
-    if not all_chunks:
-        logger.warning("No text chunks extracted from PDFs. Index will be empty.")
+            logger.error(f"❌ Error processing {filename}: {e}")
+    
+    if not new_chunks:
+        logger.warning("⚠️  No new text chunks extracted. Index unchanged.")
         return
-
-    logger.info(f"Total chunks: {len(all_chunks)}")
-    logger.info("Generating embeddings (this may take a while)...")
-
-    embeddings = await generate_embeddings_async(all_chunks, config)
-
-    d = embeddings.shape[1] if embeddings.shape[0] > 0 else embedding_dim
-    index = faiss.IndexFlatL2(d)
-    index.add(embeddings)
-
-    os.makedirs(os.path.dirname(index_path), exist_ok=True) # Create directory if it doesn't exist
-    faiss.write_index(index, index_path)
+    
+    logger.info(f"📝 Extracted {len(new_chunks)} new chunks from {files_processed + files_updated} files")
+    
+    # Generate embeddings for new chunks
+    logger.info("🔧 Generating embeddings for new chunks...")
+    new_embeddings = await generate_embeddings_async(new_chunks, config)
+    
+    # Merge with existing index or create new
+    if existing_faiss is not None and existing_faiss.ntotal > 0:
+        logger.info(f"🔄 Merging {len(new_chunks)} new chunks into existing index ({existing_faiss.ntotal} vectors)")
+        
+        # Add new vectors to existing FAISS index
+        existing_faiss.add(new_embeddings)
+        final_index = existing_faiss
+        
+        # Merge text chunks
+        final_chunks = existing_chunks + new_chunks
+        
+    else:
+        logger.info(f"🆕 Creating new index with {len(new_chunks)} chunks")
+        
+        # Create new FAISS index
+        d = new_embeddings.shape[1] if new_embeddings.shape[0] > 0 else embedding_dim
+        final_index = faiss.IndexFlatL2(d)
+        final_index.add(new_embeddings)
+        
+        final_chunks = new_chunks
+    
+    # Save updated FAISS index and text chunks
+    os.makedirs(os.path.dirname(index_path), exist_ok=True)
+    faiss.write_index(final_index, index_path)
+    
     with open(texts_path, 'w', encoding='utf-8') as f:
-        json.dump(all_chunks, f, ensure_ascii=False)
-
-    logger.info(f"FAISS index built and saved to {index_path}")
-    logger.info(f"Text chunks saved to {texts_path}")
-
-    # Build and save BM25 index
-    logger.info("Building BM25 index...")
-    tokenized_corpus = [ViTokenizer.tokenize(doc).split() for doc in tqdm(all_chunks, desc="Tokenizing for BM25", unit="chunk")]
+        json.dump(final_chunks, f, ensure_ascii=False)
+    
+    logger.info(f"✅ FAISS index updated: {final_index.ntotal} total vectors")
+    logger.info(f"✅ Text chunks saved: {len(final_chunks)} total chunks")
+    
+    # Rebuild BM25 index with all chunks (BM25 doesn't support incremental updates easily)
+    logger.info("🔧 Rebuilding BM25 index with all chunks...")
+    tokenized_corpus = [ViTokenizer.tokenize(doc).split() for doc in tqdm(final_chunks, desc="Tokenizing for BM25", unit="chunk")]
     bm25 = BM25Okapi(tokenized_corpus)
+    
     with open(bm25_index_path, 'wb') as f:
         pickle.dump(bm25, f)
-    logger.info(f"BM25 index built and saved to {bm25_index_path}")
+    
+    logger.info(f"✅ BM25 index rebuilt: {len(final_chunks)} documents")
+    
+    # Save metadata
+    save_metadata(metadata_path, metadata)
+    logger.info(f"✅ Metadata saved: tracking {len(metadata['files'])} files")
+    
+    # Summary
+    logger.info("=" * 70)
+    logger.info("📊 INDEX UPDATE SUMMARY")
+    logger.info("=" * 70)
+    logger.info(f"  New files added: {files_processed}")
+    logger.info(f"  Files updated: {files_updated}")
+    logger.info(f"  Files unchanged: {files_skipped}")
+    logger.info(f"  Total indexed files: {len(metadata['files'])}")
+    logger.info(f"  Total vectors in FAISS: {final_index.ntotal}")
+    logger.info(f"  Total text chunks: {len(final_chunks)}")
+    logger.info("=" * 70)
+
 
 
 if __name__ == "__main__":

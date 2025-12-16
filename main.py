@@ -59,19 +59,21 @@ def _build_config_from_env():
 
 if __name__ == "__main__":
     config = _build_config_from_env()
+
+    file_name = "test"
     
     # Chạy phân loại test
-    # process_classification_dataset(
-    #     input_file='data/test.json',
-    #     output_file='data/test_classification.json',
-    #     config=config
-    # )
+    process_classification_dataset(
+        input_file=f'data/{file_name}.json',
+        output_file=f'data/{file_name}_classification.json',
+        config=config
+    )
     
     # Chạy phân loại async (giữ nguyên)
     asyncio.run(
         process_dataset_async(
-            input_file='data/test_classification.json',
-            output_file=f'results/test_{config.get("CHAT_PROVIDER", "")}_async.csv',
+            input_file=f'data/{file_name}_classification.json',
+            output_file=f'results/{file_name}_{config.get("CHAT_PROVIDER", "")}_async.csv',
             config=config,
             mode='test'
         )

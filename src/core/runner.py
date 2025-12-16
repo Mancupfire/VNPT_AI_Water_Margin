@@ -25,13 +25,45 @@ async def run_test_mode(input_file: str, output_file: str, config: Dict[str, Any
     """
     print(f"--- Processing (test mode): {input_file} -> {output_file} ---")
     
-    # Load dataset
+    # Load classification dataset (contains `predicted_domain` but only snippets)
     try:
         with open(input_file, 'r', encoding='utf-8') as f:
-            data = json.load(f)
+            classification_data = json.load(f)
+        print(f"✓ Loaded {len(classification_data)} items from classification file")
     except FileNotFoundError:
-        print(f"❌ File not found: {input_file}")
+        print(f"❌ Classification file not found: {input_file}")
         return
+    
+    # Load original test file (contains full questions and choices)
+    original_file = input_file.replace('_classification', '')  # e.g., test_classification.json -> test.json
+    if not os.path.exists(original_file):
+        print(f"⚠️  Original test file not found: {original_file}")
+        print(f"   Using classification file only (may have incomplete questions)")
+        data = classification_data
+    else:
+        try:
+            with open(original_file, 'r', encoding='utf-8') as f:
+                original_data = json.load(f)
+            print(f"✓ Loaded {len(original_data)} items from original test file")
+            
+            # Merge: Add predicted_domain from classification to original data
+            qid_to_domain = {item['qid']: item.get('predicted_domain', 'RAG_NECESSITY') 
+                            for item in classification_data}
+            
+            for item in original_data:
+                qid = item.get('qid')
+                if qid in qid_to_domain:
+                    item['predicted_domain'] = qid_to_domain[qid]
+                else:
+                    item['predicted_domain'] = 'RAG_NECESSITY'  # Default
+            
+            data = original_data
+            print(f"✓ Merged classification domains into original questions")
+            
+        except Exception as e:
+            print(f"⚠️  Error loading original file: {e}")
+            print(f"   Using classification file only")
+            data = classification_data
     
     # Initialize provider and semaphore
     provider = load_chat_provider(config)

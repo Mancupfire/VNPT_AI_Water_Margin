@@ -4,6 +4,10 @@ Production-ready runner for VNPT-hosted LLMs to answer multiple-choice questions
 
 ## ✨ Key Features
 
+- 🎯 **Domain-Based Routing** - Intelligent model selection based on question type (NEW!)
+  - SAFETY_REFUSAL → Small model (cost-effective)
+  - NON_RAG → Large model with Chain-of-Thought reasoning
+  - RAG_NECESSITY → Large model with knowledge retrieval
 - 🚀 **Progress Resume** - Automatic checkpoint/resume on interruption
 - 📁 **Multi-Format Support** - PDF, JSON, CSV, XLSX, DOCX, MD, TXT
 - 🧠 **Smart Chunking** - LangChain-powered semantic chunking with special handling for markdown and tabular data
@@ -56,10 +60,60 @@ Copy `.env.example` to `.env` (credentials auto-loaded from JSON):
 copy .env.example .env
 ```
 
+**New in v2.0**: Enable intelligent question routing:
+```dotenv
+# Domain-Based Routing (automatically uses small/large model based on question type)
+DOMAIN_ROUTING_ENABLED=true  # Default: enabled
+```
+
 ### 4. Run
 
 ```pwsh
 uv run main.py
+```
+
+## 🎯 Domain-Based Routing (NEW!)
+
+Automatically routes questions to optimal models based on classification:
+
+| Domain | Model | Temperature | RAG | Use Case |
+|--------|-------|-------------|-----|----------|
+| **SAFETY_REFUSAL** | Small | 0.3 | No | Ethical/legal violations |
+| **NON_RAG** | Large | 0.7 | No | Math, code, reading comprehension |
+| **RAG_NECESSITY** | Large | 0.5 | Yes | Knowledge-based questions |
+
+### How It Works
+
+1. **Classify questions** (if not already done):
+   ```python
+   from src.classification.classify import process_classification_dataset
+   
+   process_classification_dataset(
+       input_file='data/test.json',
+       output_file='data/test_classification.json',
+       config=config
+   )
+   ```
+
+2. **Run with routing** (automatic):
+   ```pwsh
+   # Loads data/test_classification.json
+   # Merges with data/test.json for full questions
+   # Routes each question to appropriate model
+   uv run main.py
+   ```
+
+3. **Customize routing** (optional):
+   - Edit `src/utils/prompts_config.py` for custom prompts
+   - Modify LLM parameters per domain
+   - Change model selection rules
+
+### Disable Routing
+
+To use traditional single-model approach:
+```dotenv
+# In .env
+DOMAIN_ROUTING_ENABLED=false
 ```
 
 ## 🔄 Progress Resume
@@ -138,6 +192,22 @@ USE_PRE_RETRIEVED_CONTEXT=true
 ```
 
 ##  Configuration
+
+### Domain-Based Routing (NEW!)
+
+Control intelligent question routing:
+
+```dotenv
+# Enable/disable smart routing
+DOMAIN_ROUTING_ENABLED=true
+
+# Routing automatically selects:
+# - Small model for SAFETY_REFUSAL (temperature=0.3)
+# - Large model + CoT for NON_RAG (temperature=0.7)
+# - Large model + RAG for RAG_NECESSITY (temperature=0.5)
+```
+
+**Customize routing**: Edit `src/utils/prompts_config.py`
 
 ### LLM Hyperparameters
 
@@ -445,6 +515,8 @@ Markdown files maintain:
 
 ## 📖 Additional Documentation
 
+- **[CHANGELOG.md](CHANGELOG.md)**: Version history and migration guide
+- **[docs/domain_routing_config.md](docs/domain_routing_config.md)**: Domain routing configuration guide
 - **[ARCHITECTURE.md](docs/ARCHITECTURE.md)**: Code architecture & workflow guide with diagrams
 - **[AGENTS.md](AGENTS.md)**: Comprehensive agent/architecture overview
 - **[docs/credentials.md](docs/credentials.md)**: Credential management details

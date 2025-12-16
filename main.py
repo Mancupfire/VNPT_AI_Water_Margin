@@ -30,6 +30,9 @@ def _build_config_from_env():
         "CONCURRENT_REQUESTS": int(os.getenv("CONCURRENT_REQUESTS", "2")),
         "SLEEP_TIME": int(os.getenv("SLEEP_TIME", "0")),  # Can be 0 with infinite retry
         
+        # Domain-Based Routing
+        "DOMAIN_ROUTING_ENABLED": os.getenv("DOMAIN_ROUTING_ENABLED", "true").lower() == "true",
+        
         # LLM Hyperparameters (all configurable via .env)
         "PAYLOAD_HYPERPARAMS": {
             "temperature": float(os.getenv("LLM_TEMPERATURE", "0.5")),
@@ -60,14 +63,14 @@ if __name__ == "__main__":
     # Chạy phân loại test
     # process_classification_dataset(
     #     input_file='data/test.json',
-    #     output_file='results/test_classification.json',
+    #     output_file='data/test_classification.json',
     #     config=config
     # )
     
     # Chạy phân loại async (giữ nguyên)
     asyncio.run(
         process_dataset_async(
-            input_file='results/test_classification.json',
+            input_file='data/test_classification.json',
             output_file=f'results/test_{config.get("CHAT_PROVIDER", "")}_async.csv',
             config=config,
             mode='test'

@@ -20,7 +20,7 @@ data/curated-data/
 pyproject.toml
 uv.lock
 
-logs/
+# logs/
 results/
 
 .secret

@@ -10,7 +10,7 @@
 *.pyc
 __pycache__/
 
-knowledge_base/
+# knowledge_base/
 pred/
 
 data/raw-data/

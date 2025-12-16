@@ -9,6 +9,10 @@ from src.utils.prompt import format_prompt
 from src.utils.prediction import clean_prediction
 from src.rag.retriever import retrieve_context
 from .config import DEFAULT_CONFIG, merge_config
+from src.logger import get_logger
+
+# Initialize logger
+logger = get_logger(__name__)
 
 
 async def call_llm_async(
@@ -58,12 +62,63 @@ async def process_item(
         Result dictionary with 'qid', 'answer', 'prediction_raw', and optional 'ground_truth', 'is_correct'
     """
     async with semaphore:
+        # ======================================================================
+        # DOMAIN-BASED ROUTING (Optional - enable via DOMAIN_ROUTING_ENABLED)
+        # ======================================================================
+        if config.get("DOMAIN_ROUTING_ENABLED", True):
+            # Get predicted domain from item (defaults to RAG_NECESSITY if not specified)
+            predicted_domain = item.get('predicted_domain', 'RAG_NECESSITY')
+            
+            # Import routing configuration
+            from src.utils.prompts_config import (
+                get_model_for_domain,
+                get_llm_params_for_domain,
+                should_use_rag_for_domain
+            )
+            
+            # Override model name based on domain
+            domain_model = get_model_for_domain(predicted_domain)
+            original_model = config.get("MODEL_NAME")
+            config["MODEL_NAME"] = domain_model
+            
+            # Override LLM parameters based on domain
+            domain_params = get_llm_params_for_domain(predicted_domain)
+            original_params = config.get("PAYLOAD_HYPERPARAMS", {})
+            config["PAYLOAD_HYPERPARAMS"] = domain_params
+            
+            # Determine if RAG should be used for this domain
+            domain_rag_enabled = should_use_rag_for_domain(predicted_domain) and config.get("RAG_ENABLED", False)
+            
+            # Log routing decision
+            logger.info(
+                f"[ROUTING] QID {item.get('qid')}: Domain={predicted_domain} | "
+                f"Model={domain_model} | "
+                f"Temp={domain_params.get('temperature')} | "
+                f"TopP={domain_params.get('top_p')} | "
+                f"RAG={'YES' if domain_rag_enabled else 'NO'}"
+            )
+        else:
+            # Domain routing disabled - use default behavior
+            predicted_domain = None
+            original_model = None
+            original_params = config.get("PAYLOAD_HYPERPARAMS", {})
+            domain_rag_enabled = config.get("RAG_ENABLED", False)
+            
+            # Log default behavior
+            logger.info(
+                f"[DEFAULT] QID {item.get('qid')}: Routing disabled | "
+                f"Model={config.get('MODEL_NAME')} | "
+                f"Temp={original_params.get('temperature')} | "
+                f"RAG={'YES' if domain_rag_enabled else 'NO'}"
+            )
+        
         context = None
         
-        # Retrieve context if RAG is enabled
-        if config.get("RAG_ENABLED") and text_chunks is not None:
+        # Retrieve context if RAG is enabled (either domain-specific or global)
+        if domain_rag_enabled and text_chunks is not None:
             question_text = item.get("question", "")
             if question_text:
+                logger.debug(f"[RAG] QID {item.get('qid')}: Retrieving context...")
                 context = await retrieve_context(
                     question_text,
                     provider,
@@ -73,10 +128,18 @@ async def process_item(
                     text_chunks,
                     cross_encoder
                 )
+                if context:
+                    context_preview = context[:100] + "..." if len(context) > 100 else context
+                    logger.debug(f"[RAG] QID {item.get('qid')}: Retrieved {len(context)} chars: {context_preview}")
         
-        # Format prompt and call LLM
-        messages = format_prompt(item, context)
+        # Format prompt with domain-specific system prompt (if routing enabled)
+        messages = format_prompt(item, context, domain=predicted_domain)
         prediction_text = await call_llm_async(provider, messages, config)
+        
+        # Restore original configuration (if routing was enabled)
+        if config.get("DOMAIN_ROUTING_ENABLED", True) and original_model:
+            config["MODEL_NAME"] = original_model
+            config["PAYLOAD_HYPERPARAMS"] = original_params
         
         # Sleep if configured
         sleep_time = config.get("SLEEP_TIME", DEFAULT_CONFIG['SLEEP_TIME'])
@@ -85,6 +148,8 @@ async def process_item(
         
         # Parse and clean prediction
         clean_pred = _extract_answer(prediction_text, item)
+        
+        logger.info(f"[ANSWER] QID {item.get('qid')}: Predicted = {clean_pred}")
         
         # Build result
         result = {

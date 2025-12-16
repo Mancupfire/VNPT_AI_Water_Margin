@@ -28,7 +28,7 @@ def clean_prediction(pred_text: str) -> str:
     
     # Strategy 1: "Đáp án:" pattern
     if "Đáp án:" in pred_text:
-        parts = pred_text.split("Đáp án:", 1)[1]
+        parts = pred_text.split("Đáp án:", 1)[-1]
         for char in parts:
             if char.isalpha() and char.isupper():
                 return char
@@ -42,12 +42,19 @@ def clean_prediction(pred_text: str) -> str:
     
     # Strategy 3: "Vậy đáp án là" pattern
     if "Vậy đáp án là" in pred_text:
-        parts = pred_text.split("Vậy đáp án là", 1)[1]
+        parts = pred_text.split("Vậy đáp án là", 1)[-1]
         for char in parts:
             if char.isalpha() and char.isupper():
                 return char
     
-    # Strategy 4: Check last few characters
+    # Strategy 4: "Đáp án là:" pattern
+    if "Đáp án là:" in pred_text:
+        parts = pred_text.split("Đáp án là:", 1)[-1]
+        for char in parts:
+            if char.isalpha() and char.isupper():
+                return char
+    
+    # Strategy 5: Check last few characters
     if len(pred_text) >= 3 and pred_text[-3].isalpha():
         return pred_text[-3].upper()
     if len(pred_text) >= 4 and pred_text[-4].isalpha():

@@ -9,6 +9,7 @@ DEFAULT_CONFIG: Dict[str, Any] = {
     "CONCURRENT_REQUESTS": int(os.getenv("CONCURRENT_REQUESTS", "2")),
     "SLEEP_TIME": int(os.getenv("SLEEP_TIME", "90")),
     "PROVIDER": os.getenv("PROVIDER", "vnpt"),
+    "DOMAIN_ROUTING_ENABLED": os.getenv("DOMAIN_ROUTING_ENABLED", "true").lower() == "true",
     "PAYLOAD_HYPERPARAMS": {
         "temperature": 0.5,
         "top_p": 0.7,

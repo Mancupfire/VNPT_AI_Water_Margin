@@ -45,7 +45,7 @@ def chunk_text(text: str, chunk_size: int, chunk_overlap: int, is_markdown: bool
     try:
         if is_markdown:
             # Use MarkdownTextSplitter for markdown files
-            from langchain.text_splitter import MarkdownTextSplitter
+            from langchain_text_splitters import MarkdownTextSplitter
             
             splitter = MarkdownTextSplitter(
                 chunk_size=chunk_size,
@@ -53,7 +53,7 @@ def chunk_text(text: str, chunk_size: int, chunk_overlap: int, is_markdown: bool
             )
         else:
             # Use RecursiveCharacterTextSplitter for all other files
-            from langchain.text_splitter import RecursiveCharacterTextSplitter
+            from langchain_text_splitters import RecursiveCharacterTextSplitter
             
             splitter = RecursiveCharacterTextSplitter(
                 chunk_size=chunk_size,

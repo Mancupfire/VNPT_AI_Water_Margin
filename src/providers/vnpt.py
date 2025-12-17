@@ -7,6 +7,7 @@ import asyncio
 import time
 from functools import wraps
 
+DEFAULT_EMBEDDING_DIMENSION = 1024
 
 class VNPTProvider:
     def __init__(self, base_url: str = None):
@@ -265,13 +266,17 @@ class VNPTProvider:
                                 raise Exception(f"Quota error: {error_msg}")
                             raise Exception(f"Error from VNPT Embedding API: {error_msg}")
                         if isinstance(data, dict) and "data" in data and len(data["data"]) > 0:
-                            all_embeddings.append(data["data"][0]["embedding"])
+                            embedding = data["data"][0]["embedding"]
+                            # Validate embedding dimension (must be 1024)
+                            if len(embedding) != DEFAULT_EMBEDDING_DIMENSION:
+                                raise Exception(f"Invalid embedding dimension: expected {DEFAULT_EMBEDDING_DIMENSION}, got {len(embedding)}. Retrying...")
+                            all_embeddings.append(embedding)
                         else:
                             all_embeddings.append([])
                 except Exception as e:
-                    # Check if it's a quota error that should be retried
+                    # Check if it's a quota error or dimension error that should be retried
                     error_str = str(e).lower()
-                    if any(keyword in error_str for keyword in ['quota', 'rate limit', 'too many requests']):
+                    if any(keyword in error_str for keyword in ['quota', 'rate limit', 'too many requests', 'invalid embedding dimension']):
                         raise  # Re-raise to trigger retry
                     # Other errors: log and continue with empty embedding
                     print(f"Warning: Failed to generate embedding for text (length {len(text)}): {str(e)}")

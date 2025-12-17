@@ -10,39 +10,9 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0003",
-    "question_snippet": "Yếu tố nào là cốt lõi giúp công nghiệp văn hóa tạo...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0004",
-    "question_snippet": "Chế tài nào sẽ áp dụng đối với cá nhân vi phạm quy...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0005",
-    "question_snippet": "Nguồn gốc nào sau đây đã ảnh hưởng sâu sắc đến tư ...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0006",
-    "question_snippet": "Câu hỏi nào sau đây là đúng về chẩn đoán và điều t...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0007",
-    "question_snippet": "Ô-guyt-xtanh nhà thần học, chính trị học phương Tâ...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0008",
     "question_snippet": "Đoạn thông tin:\nTitle: Vũ khí hủy diệt hàng loạt\nC...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0009",
-    "question_snippet": "Theo tư tưởng Chủ Tịch Hồ Chí Minh, con đường giải...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0010",
@@ -50,19 +20,9 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0011",
-    "question_snippet": "Đồng thể “Pháp bảo” là gì?...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0012",
     "question_snippet": "Trong một mô hình kinh tế đơn giản, hàm tiêu dùng ...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0013",
-    "question_snippet": "Năng lực là gì?...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0014",
@@ -105,11 +65,6 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0022",
-    "question_snippet": "Sức mạnh dân tộc bao gồm những yếu tố chủ yếu nào?...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0023",
     "question_snippet": "Đoạn thông tin:\n-- Document 1 --\nTitle: Mạt pháp\nC...",
     "predicted_domain": "NON_RAG"
@@ -120,19 +75,9 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0025",
-    "question_snippet": "Câu hỏi nào sau đây là một hệ quả tiềm năng khi th...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0026",
     "question_snippet": "Xét một hệ thống gồm hai mặt trăng quay quanh một ...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0027",
-    "question_snippet": "Con người là động vật chính trị là quan điểm của n...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0028",
@@ -140,34 +85,9 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0029",
-    "question_snippet": "Thời gian cơ quan có thẩm quyền thẩm định và cấp v...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0030",
     "question_snippet": "Một con lắc có chiều dài $ L $ đang dao động trong...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0031",
-    "question_snippet": "Yếu tố nào sau đây không ảnh hưởng đến tổng cung?...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0032",
-    "question_snippet": "Điền từ còn thiếu vào chỗ trống: \"Tấc đất, ... vàn...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0033",
-    "question_snippet": "Ngoại tệ tăng giá khi...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0034",
-    "question_snippet": "Theo các nghiên cứu khoa học, chất dinh dưỡng nào ...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0035",
@@ -178,11 +98,6 @@
     "qid": "test_0036",
     "question_snippet": "Một đường truyền có trở kháng đặc trưng $ Z_0 = 75...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0037",
-    "question_snippet": "Tại sao Nguyễn Ái Quốc (Chủ Tịch Hồ Chí Minh) ra đ...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0038",
@@ -198,11 +113,6 @@
     "qid": "test_0040",
     "question_snippet": "Điện tích trên tụ điện có điện dung 1,44 × 10^-10 ...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0041",
-    "question_snippet": "Ngôi chùa An Dã được xây dựng trên núi nào?...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0042",
@@ -230,29 +140,9 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0047",
-    "question_snippet": "Theo giáo trình Tư tưởng Hồ Chí Minh, nguyên tắc p...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0048",
-    "question_snippet": "Môn Tiếng Việt giúp học sinh rèn luyện điều gì?...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0049",
-    "question_snippet": "Tác động quan trọng nào của các bước tiến công ngh...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0050",
     "question_snippet": "Công ty Z có tỷ số giá-thu nhập (P/E) hiện tại là ...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0051",
-    "question_snippet": "Bản chất của chuyển giao quyền lực chính trị khác ...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0052",
@@ -260,19 +150,9 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0053",
-    "question_snippet": "Nếu một kỹ sư phát hiện ra việc tính phí quá mức b...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0054",
     "question_snippet": "Trong thị trường cạnh tranh hoàn hảo, nếu một doan...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0055",
-    "question_snippet": "Khi hồ sơ đăng ký LPTB chưa được xử lý, bước đầu t...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0056",
@@ -280,24 +160,9 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0057",
-    "question_snippet": "Erikson cho rằng, thử thách tâm lý chính ở giai đo...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0058",
-    "question_snippet": "Tìm câu tục ngữ có ý nghĩa giống với câu tục ngữ: ...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0059",
     "question_snippet": "Đoạn thông tin:\nNhân vật không phải người chơi\nNon...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0060",
-    "question_snippet": "Theo Luật Bảo vệ môi trường 2020 thì có bao nhiêu ...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0061",
@@ -325,19 +190,9 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0066",
-    "question_snippet": "Chọn phương án trả lời đúng nhất với tư tưởng Chủ ...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0067",
     "question_snippet": "Xét một bài toán dẫn nhiệt một chiều, trạng thái ổ...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0068",
-    "question_snippet": "Xu hướng chung trong cải cách hành chính công trên...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0069",
@@ -355,11 +210,6 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0072",
-    "question_snippet": "Câu hỏi: Chức năng chính của máy khế tích tai tron...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0073",
     "question_snippet": "Một động cơ không đồng bộ ba pha bốn cực được cấp ...",
     "predicted_domain": "NON_RAG"
@@ -368,16 +218,6 @@
     "qid": "test_0074",
     "question_snippet": "Một công ty mua một máy móc với giá 120.000 đô la,...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0075",
-    "question_snippet": "Trong cặp NST (nhiễm sắc thể) tương đồng, 2 NST có...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0076",
-    "question_snippet": "Các nhiệm vụ nghiên cứu của nhà địa lý liên quan đ...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0077",
@@ -400,39 +240,14 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0081",
-    "question_snippet": "Câu hỏi nào sau đây là mục tiêu chính của đơn vị h...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0082",
-    "question_snippet": "Loại thụ thể nào là thụ thể estrogen (ER)?...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0083",
     "question_snippet": "Đoạn thông tin:\nEdward I của Anh\nCác sử gia thế kỉ...",
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0084",
-    "question_snippet": "Mô hình tài chính chính mà các Tổ chức Quản lý Sức...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0085",
     "question_snippet": "Phương trình hoá học nào sau đây thể hiện cách điề...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0086",
-    "question_snippet": "Theo thông tin được cung cấp, hình thức nộp thủ tụ...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0087",
-    "question_snippet": "Hầu hết các kháng sinh đã biết được sản xuất bởi l...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0088",
@@ -445,11 +260,6 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0090",
-    "question_snippet": "Khoa học gia nào trong số những người sau đây đã đ...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0091",
     "question_snippet": "Đoạn thông tin:\nTitle: Dự án Eden\nContent: Dự án E...",
     "predicted_domain": "NON_RAG"
@@ -460,16 +270,6 @@
     "predicted_domain": "SAFETY_REFUSAL"
   },
   {
-    "qid": "test_0093",
-    "question_snippet": "Chất liệu nào được sử dụng làm chất nền của đĩa cứ...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0094",
-    "question_snippet": "Tính nhân văn của văn hóa chính trị biểu hiện ở ch...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0095",
     "question_snippet": "Một công ty có các số dư tài khoản sau đến hết năm...",
     "predicted_domain": "NON_RAG"
@@ -478,11 +278,6 @@
     "qid": "test_0096",
     "question_snippet": "Đoạn thông tin:\n[1] Tiêu đề: Bộ Sả\nNội dung: Bộ Sả...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0097",
-    "question_snippet": "Chọn phương án trả lời đúng theo tư tưởng Chủ Tịch...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0098",
@@ -500,24 +295,9 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0101",
-    "question_snippet": "Điểm khác biệt căn bản của hệ thống chính trị Việt...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0102",
-    "question_snippet": "Theo chủ nghĩa Mác – Lê nin, quyền lực chính trị l...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0103",
     "question_snippet": "Nếu GDP danh nghĩa của một quốc gia đang tăng trưở...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0104",
-    "question_snippet": "Khuynh hướng hữu khuynh trong thực tiễn biểu hiện ...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0105",
@@ -525,29 +305,14 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0106",
-    "question_snippet": "Bình đẳng về quyền và nghĩa vụ có nghĩa là:...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0107",
     "question_snippet": "Phương pháp nào hiệu quả nhất để pháp nhân thương ...",
     "predicted_domain": "SAFETY_REFUSAL"
   },
   {
-    "qid": "test_0108",
-    "question_snippet": "Đối tượng nào sau đây không phải là 'Người sử dụng...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0109",
     "question_snippet": "Đoạn thông tin:\n-- Đoạn văn 1 --\nTiêu đề: Các bước...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0110",
-    "question_snippet": "Bạn nên làm gì nếu muốn có danh thiếp từ một người...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0111",
@@ -560,11 +325,6 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0113",
-    "question_snippet": "Theo thông tin được cung cấp, sau ngày 1/7/2025, c...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0114",
     "question_snippet": "Một photon có bước sóng 600 nm. Năng lượng của nó ...",
     "predicted_domain": "NON_RAG"
@@ -575,11 +335,6 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0116",
-    "question_snippet": "Nhận định: “Các thông tin được đăng tải trên trang...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0117",
     "question_snippet": "Để đo công suất tiêu thụ trong mạng 3 pha 3 dây kh...",
     "predicted_domain": "NON_RAG"
@@ -588,11 +343,6 @@
     "qid": "test_0118",
     "question_snippet": "Đoạn thông tin:\nTiêu đề: Cura (phần mềm)\nNội dung:...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0119",
-    "question_snippet": "Hiểu như thế nào về Chủ nghĩa xã hội mang màu sắc ...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0120",
@@ -608,21 +358,6 @@
     "qid": "test_0122",
     "question_snippet": "Xét một hành tinh quay quanh một ngôi sao theo quỹ...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0123",
-    "question_snippet": "Tại sao GDP là một chỉ số hữu ích mặc dù có những ...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0124",
-    "question_snippet": "Quốc hội khóa I nước Việt Nam Dân chủ Cộng hòa đượ...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0125",
-    "question_snippet": "Chủ Tịch Hồ Chí Minh xác định yếu tố nào là gốc củ...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0126",
@@ -643,16 +378,6 @@
     "qid": "test_0129",
     "question_snippet": "Xúc phạm các biểu tượng, lãnh tụ như thế nào để ph...",
     "predicted_domain": "SAFETY_REFUSAL"
-  },
-  {
-    "qid": "test_0130",
-    "question_snippet": "Một trong các biểu hiện của biến đổi khí hậu là gì...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0131",
-    "question_snippet": "Nhiệt độ dải nhiệt độ tối ưu thông thường cho hoạt...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0132",
@@ -680,16 +405,6 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0137",
-    "question_snippet": "Một công ty sản xuất sách giáo khoa được coi là đa...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0138",
-    "question_snippet": "Chọn cụm từ đúng điền vào chỗ trống: “Việt Nam muố...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0139",
     "question_snippet": "Đoạn thông tin:\nTitle: Bão Cecil (1989)\nContent: B...",
     "predicted_domain": "NON_RAG"
@@ -715,11 +430,6 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0144",
-    "question_snippet": "Theo Chủ Tịch Hồ Chí Minh, ở đời và làm người thì ...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0145",
     "question_snippet": "Một nghiên cứu được thực hiện để xác định xem một ...",
     "predicted_domain": "NON_RAG"
@@ -730,16 +440,6 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0147",
-    "question_snippet": "Sau khi thực hiện sắp xếp và sáp nhập năm 2025, tỉ...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0148",
-    "question_snippet": "Trong một thành phố đối mặt với tình trạng ùn tắc ...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0149",
     "question_snippet": "Một dung dịch đệm được chuẩn bị bằng cách trộn các...",
     "predicted_domain": "NON_RAG"
@@ -748,11 +448,6 @@
     "qid": "test_0150",
     "question_snippet": "Đoạn thông tin:\n[1] Tiêu đề: Jaffna\nNội dung: Jaff...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0151",
-    "question_snippet": "Theo Chủ Tịch Hồ Chí Minh, đặc trưng kinh tế nổi b...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0152",
@@ -770,19 +465,9 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0155",
-    "question_snippet": "Khi đổi căn cước do thay đổi địa chỉ đăng ký thườn...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0156",
     "question_snippet": "Một doanh nghiệp trong thị trường cạnh tranh có hà...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0157",
-    "question_snippet": "Người đầu tiên truyền thừa tại chùa An Phú là ai?...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0158",
@@ -835,29 +520,9 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0168",
-    "question_snippet": "Tiếng Việt có đặc điểm gì về âm điệu?...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0169",
     "question_snippet": "Một trong hai khe của thí nghiệm Young được làm mờ...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0170",
-    "question_snippet": "Thời hạn giải quyết thủ tục cấp giấy phép xây dựng...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0171",
-    "question_snippet": "Quan điểm về “Phổ cập kỹ năng số” được nêu trong Q...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0172",
-    "question_snippet": "Học thuyết chính trị của Xê-nô-phôn, nhà chính trị...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0173",
@@ -868,16 +533,6 @@
     "qid": "test_0174",
     "question_snippet": "Một thanh kim loại có chiều dài 1 mét và diện tích...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0175",
-    "question_snippet": "Đoạn thông tin:\nTiêu đề: Phaolô Nguyễn Văn Bình\nNộ...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0176",
-    "question_snippet": "Chức năng cơ bản của nhà nước là gì?...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0177",
@@ -910,11 +565,6 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0183",
-    "question_snippet": "Cuộc nội chiến ở Trung Quốc là cuộc cách mạng dân ...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0184",
     "question_snippet": "Đoạn thông tin:\n-- Đoạn văn 1 --\nTiêu đề: Ưu đãi P...",
     "predicted_domain": "NON_RAG"
@@ -938,11 +588,6 @@
     "qid": "test_0188",
     "question_snippet": "Trong một năm nhất định, GDP danh nghĩa của một qu...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0189",
-    "question_snippet": "Giành quyền lực chính trị được hiểu là:...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0190",
@@ -975,16 +620,6 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0196",
-    "question_snippet": "Thiên nhiên nước ta có sự khác nhau giữa Nam và Bắ...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0197",
-    "question_snippet": "Theo Nghị quyết số 1656/NQ-UBTVQH15, sau khi sắp x...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0198",
     "question_snippet": "Giả sử Cục Dự trữ Liên bang đang xem xét thay đổi ...",
     "predicted_domain": "NON_RAG"
@@ -1000,29 +635,9 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0201",
-    "question_snippet": "Câu hỏi nào sau đây là đúng liên quan đến việc tha...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0202",
     "question_snippet": "Đoạn thông tin:\n[1] Tiêu đề: Jacques Lacan\nNội dun...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0203",
-    "question_snippet": "Trường hợp nào Tòa án Nhân quyền Châu Âu đã ra phá...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0204",
-    "question_snippet": "Chọn phương án đúng trả lời cho câu hỏi sau: Cách ...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0205",
-    "question_snippet": "Công việc nào không phải là nhiệm vụ của nhân viên...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0206",
@@ -1035,19 +650,9 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0208",
-    "question_snippet": "Tại sao việc xác định mục tiêu hoạt động là quan t...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0209",
     "question_snippet": "Đoạn thông tin:\n[1] Tiêu đề: Sony\nNội dung: Công t...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0210",
-    "question_snippet": "Chọn đáp án sai. Chủ Tịch Hồ Chí Minh tiếp thu nhữ...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0211",
@@ -1058,11 +663,6 @@
     "qid": "test_0212",
     "question_snippet": "Đoạn thông tin:\n-- Document 1 --\nTitle: Hà Nội\nCon...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0213",
-    "question_snippet": "Câu hỏi nào sau đây mô tả tốt nhất thách thức chín...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0214",
@@ -1085,24 +685,9 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0218",
-    "question_snippet": "Khi thực hiện thủ tục chứng thực di chúc, nếu di c...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0219",
-    "question_snippet": "Theo Tư tưởng Hồ Chí Minh, lực lượng cách mạng chủ...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0220",
     "question_snippet": "CH3-CH=CH-CH3 có tên gọi “thay thế” là?...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0221",
-    "question_snippet": "Trong mạng máy tính, chức năng của RAS (Remote Acc...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0222",
@@ -1120,11 +705,6 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0225",
-    "question_snippet": "Theo phân loại của Morton Keller trong \"Ba chế độ ...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0226",
     "question_snippet": "Một hệ thống máy tính có tốc độ đồng hồ là 2,5 GHz...",
     "predicted_domain": "NON_RAG"
@@ -1140,11 +720,6 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0229",
-    "question_snippet": "Ưu điểm của cơ cấu chỉ thị từ điện là:...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0230",
     "question_snippet": "Xét trường véc-tơ $\\mathbf{G}(x, y, z) = x\\mathbf{...",
     "predicted_domain": "NON_RAG"
@@ -1153,11 +728,6 @@
     "qid": "test_0231",
     "question_snippet": "Công ty The Spy Who Loves You báo cáo Chi phí hàng...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0232",
-    "question_snippet": "Trong những năm 1890, sự kiện nào đã giúp Đảng Ngư...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0233",
@@ -1175,29 +745,9 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0236",
-    "question_snippet": "Chủ Tịch Hồ Chí Minh khẳng định “Nhà nước ta là Nh...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0237",
     "question_snippet": "Đoạn thông tin:\nTiêu đề: Mặt trận Dân tộc Giải phó...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0238",
-    "question_snippet": "Vì sao công nghiệp văn hóa được coi là một \"vũ khí...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0239",
-    "question_snippet": "Khi đề cập đến sự ra đời của Đảng Cộng sản, Lênin ...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0240",
-    "question_snippet": "Khi văn bản xác nhận thông báo hoạt động bưu chính...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0241",
@@ -1240,16 +790,6 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0249",
-    "question_snippet": "Máu di chuyển một chiều trong hệ mạch là do...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0250",
-    "question_snippet": "Từ khi nào, quần chúng nhân dân được khẳng định có...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0251",
     "question_snippet": "Một biến áp một pha có cuộn dây sơ cấp với 1000 vò...",
     "predicted_domain": "NON_RAG"
@@ -1280,11 +820,6 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0257",
-    "question_snippet": "Đoạn thông tin:\nÂm nhạc cổ điển thế kỷ 20\nNhạc cổ ...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0258",
     "question_snippet": "Nếu quỹ hưu trí cung cấp mức sinh lời hàng năm là ...",
     "predicted_domain": "NON_RAG"
@@ -1295,19 +830,9 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0260",
-    "question_snippet": "Theo Chủ Tịch Hồ Chí Minh, chủ nghĩa cộng sản thíc...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0261",
     "question_snippet": "Đoạn thông tin:\nTiêu đề: Kỷ Permi\nNội dung: Permi ...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0262",
-    "question_snippet": "Tổ chức thực thi quyền lực chính trị là Hệ thống c...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0263",
@@ -1318,16 +843,6 @@
     "qid": "test_0264",
     "question_snippet": "Xét một điện tích điểm $ +Q $ nằm tại gốc tọa độ v...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0265",
-    "question_snippet": "Theo Chủ Tịch Hồ Chí Minh, việc thành lập Đảng Cộn...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0266",
-    "question_snippet": "Câu hỏi nào dưới đây giải thích tốt nhất tại sao s...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0267",
@@ -1343,11 +858,6 @@
     "qid": "test_0269",
     "question_snippet": "Cách để tạo ra được dòng điện cảm ứng trong đinamô...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0270",
-    "question_snippet": "Câu hỏi nào dưới đây giải thích tốt nhất vai trò c...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0271",
@@ -1370,11 +880,6 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0275",
-    "question_snippet": "Theo quy định tại Nghị định 125/2025/NĐ-CP, người ...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0276",
     "question_snippet": "Đoạn thông tin:\nTiêu đề: Nữ quan\nNội dung: Nữ quan...",
     "predicted_domain": "NON_RAG"
@@ -1390,29 +895,9 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0279",
-    "question_snippet": "Theo thông tin được cập nhật, xã Nhơn Lộc sẽ được ...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0280",
-    "question_snippet": "Tư tưởng chính trong học thuyết chính trị của Khổn...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0281",
     "question_snippet": "Đoạn thông tin:\n[1] Tiêu đề: Quyền LGBT ở Honduras...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0282",
-    "question_snippet": "Theo Tâm lý học, nhân cách là:...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0283",
-    "question_snippet": "Dựa trên dữ liệu năm 2024, thành phố nào có tỷ lệ ...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0284",
@@ -1423,16 +908,6 @@
     "qid": "test_0285",
     "question_snippet": "Đoạn thông tin:\nTitle: Trận Höchstädt lần thứ hai\n...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0286",
-    "question_snippet": "Theo tư tưởng Chủ Tịch Hồ Chí Minh, trong quá trìn...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0287",
-    "question_snippet": "Trong giai đoạn cuối thế kỷ XIX đầu thế kỷ XX, pho...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0288",
@@ -1455,16 +930,6 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0292",
-    "question_snippet": "Yếu tố nào trong số các yếu tố sau không thường đư...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0293",
-    "question_snippet": "Chính trị thực chất là quan hệ giữa các giai cấp t...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0294",
     "question_snippet": "Đoạn thông tin:\nTiêu đề: Giáo hoàng Gioan Phaolô I...",
     "predicted_domain": "NON_RAG"
@@ -1485,34 +950,9 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0298",
-    "question_snippet": "Người ở độ tuổi nào phải chịu trách nhiệm hình sự ...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0299",
-    "question_snippet": "Sau ngày 1/7/2025, việc nộp hồ sơ khuyến mại sẽ đư...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0300",
-    "question_snippet": "Ai chịu trách nhiệm thi hành Nghị định 79/2012/NĐ-...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0301",
     "question_snippet": "Nếu hàm sản xuất của doanh nghiệp Q = f(K,L) trải ...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0302",
-    "question_snippet": "Cơ quan Quyền lực nhà nước của nước Cộng hòa xã hộ...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0303",
-    "question_snippet": "Tham dự Hội nghị Hợp nhất Đảng tại Cửu Long (Hương...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0304",
@@ -1525,24 +965,9 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0306",
-    "question_snippet": "Theo Luật Bảo vệ môi trường 2020, lãnh thổ nước Cộ...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0307",
     "question_snippet": "Cho $ \\sigma(n) $ là tổng các ước số dương của $ n...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0308",
-    "question_snippet": "Thế gian trụ trì Phật bảo là chỉ cho gì?...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0309",
-    "question_snippet": "Cách tốt nhất để xây dựng lòng tin với người khác ...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0310",
@@ -1558,16 +983,6 @@
     "qid": "test_0312",
     "question_snippet": "int numbers[] = {int numbers[] = {2,1,4,3};int w =...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0313",
-    "question_snippet": "Hành chính công bao gồm những lĩnh vực nào?...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0314",
-    "question_snippet": "Đối với chương trình đào tạo chuyên sâu đặc thù tr...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0315",
@@ -1600,16 +1015,6 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0321",
-    "question_snippet": "Khi cách điệu họa tiết, điều quan trọng nhất cần đ...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0322",
-    "question_snippet": "Phân loại hệ thống chính trị theo dấu hiệu của Đản...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0323",
     "question_snippet": "Câu hỏi: Điều gì xảy ra với Lượng đặt hàng tối ưu ...",
     "predicted_domain": "NON_RAG"
@@ -1620,39 +1025,9 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0325",
-    "question_snippet": "Theo quy định mới từ ngày 1/7/2025, Việt Nam sẽ áp...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0326",
-    "question_snippet": "Tiêu chí nào sau đây **không** thường được sử dụng...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0327",
     "question_snippet": "Một mạch điện gồm một điện trở $ R $, một cuộn cảm...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0328",
-    "question_snippet": "Phương pháp giáo dục thuyết phục có mối quan hệ mậ...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0329",
-    "question_snippet": "Vấn đề chính nào liên quan đến việc thu thập và lư...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0330",
-    "question_snippet": "Thế nào được gọi là \"công bằng ngang\"?...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0331",
-    "question_snippet": "Việc tăng giá xăng ảnh hưởng đến cầu du lịch Highl...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0332",
@@ -1665,16 +1040,6 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0334",
-    "question_snippet": "Tháng 06 năm 1929, tổ chức Đảng Cộng sản đầu tiên ...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0335",
-    "question_snippet": "PM2.5 là gì?...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0336",
     "question_snippet": "Xét mô hình MA(1) được cho bởi $ y_t = \\mu + \\epsi...",
     "predicted_domain": "NON_RAG"
@@ -1683,11 +1048,6 @@
     "qid": "test_0337",
     "question_snippet": "Tìm biến đổi Laplace của hàm số $ f(t) = 4t^2 + 3t...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0338",
-    "question_snippet": "Yêu cầu chính để một hợp đồng được coi là có hiệu ...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0339",
@@ -1720,11 +1080,6 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0345",
-    "question_snippet": "Vai trò của chủ nghĩa Mác-Lênin đối với tư tưởng C...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0346",
     "question_snippet": "Trong RAID, cấp độ nào có ưu điểm là khả năng khôi...",
     "predicted_domain": "NON_RAG"
@@ -1755,24 +1110,9 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0352",
-    "question_snippet": "Mô biểu bì có chức năng gì?...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0353",
-    "question_snippet": "Chủ Tịch Hồ Chí Minh đã dùng hình tượng nào dưới đ...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0354",
     "question_snippet": "Nếu tỷ lệ dự trữ là 10%, thì số nhân tiền tệ là ba...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0355",
-    "question_snippet": "Trong lễ hội, các hoạt động vui chơi giải trí cần ...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0356",
@@ -1785,34 +1125,9 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0358",
-    "question_snippet": "Theo Bộ luật Dân sự năm 2015, hậu quả pháp lý của ...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0359",
     "question_snippet": "Trong một phản ứng hạt nhân giả định, một hạt nhân...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0360",
-    "question_snippet": "Khi muốn cấp Giấy chứng nhận đủ điều kiện trạm nạp...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0361",
-    "question_snippet": "Làm thế nào mà lũ lụt hàng năm của sông Nile ảnh h...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0362",
-    "question_snippet": "Tỉ lệ dân thành thị của nước ta còn thấp, nguyên n...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
-    "qid": "test_0363",
-    "question_snippet": "Định nghĩa nào sau đây phản ánh đúng bản chất của ...",
-    "predicted_domain": "RAG_NECESSITY"
   },
   {
     "qid": "test_0364",
@@ -1835,18 +1150,8 @@
     "predicted_domain": "NON_RAG"
   },
   {
-    "qid": "test_0368",
-    "question_snippet": "Trong bối cảnh luật hình sự, câu hỏi nào dưới đây ...",
-    "predicted_domain": "RAG_NECESSITY"
-  },
-  {
     "qid": "test_0369",
     "question_snippet": "Đoạn thông tin:\n-- Đoạn văn 1 --\nTiêu đề: Thiên vă...",
     "predicted_domain": "NON_RAG"
-  },
-  {
-    "qid": "test_0370",
-    "question_snippet": "Thế nan giải của người tù là một trò chơi nổi tiến...",
-    "predicted_domain": "RAG_NECESSITY"
   }
 ]

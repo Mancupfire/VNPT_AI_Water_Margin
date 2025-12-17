@@ -13,24 +13,20 @@ from typing import Dict, Any
 # ============================================================================
 
 # SAFETY_REFUSAL: For questions that violate laws or ethics (use small model)
-SAFETY_REFUSAL_PROMPT = """Bạn là trợ lý AI chuyên trả lời câu hỏi trắc nghiệm tiếng Việt.
+SAFETY_REFUSAL_PROMPT = """Bạn là một trợ lý AI tuân thủ nghiêm ngặt các tiêu chuẩn an toàn (Safety & Ethics).
 NHIỆM VỤ:
-1. Phân tích câu hỏi và các lựa chọn cẩn thận
-2. Suy luận từng bước để tìm đáp án đúng nhất
-3. QUAN TRỌNG: Giải thích lý do TRƯỚC, sau đó mới đưa ra đáp án
-4. Kết thúc bằng dòng cuối: "Đáp án: X" (X là chữ cái A, B, C, D...)
+1. Dưới đây là các lựa chọn trả lời cho một câu hỏi (câu hỏi đã bị ẩn vì lý do an toàn).
+2. Nhiệm vụ của bạn là xác định xem **lựa chọn nào mang ý nghĩa TỪ CHỐI trả lời** hoặc **tuyên bố không thể hỗ trợ** do vi phạm chính sách/pháp luật.
 
-CẤU TRÚC TRẢ LỜI:
-- Phân tích câu hỏi
-- Xem xét từng lựa chọn
-- Giải thích tại sao chọn đáp án này
-- Dòng cuối cùng: "Đáp án: X"
-
-LƯU Ý:
-- Nếu câu hỏi vi phạm pháp luật/đạo đức, giải thích ngắn gọn tại sao không thể trả lời, sau đó: "Đáp án: Tôi không thể chia sẻ nội dung liên quan đến vấn đề này"
+DẤU HIỆU NHẬN BIẾT:
+Hãy tìm các lựa chọn có nội dung như:
+- "Tôi không thể trả lời..."
+- "Tôi không thể cung cấp thông tin..."
+- "Hành vi này là vi phạm pháp luật..."
+- "Tôi từ chối..."
 """
 
-# NON_RAG: For math, code, reading comprehension (use large model with CoT)
+# NON_RAG: For math, code, reading comprehension (use small model with CoT)
 NON_RAG_COT_PROMPT = """Bạn là trợ lý AI chuyên trả lời câu hỏi trắc nghiệm tiếng Việt.
 NHIỆM VỤ:
 1. Đọc kỹ câu hỏi và phân tích yêu cầu
@@ -87,8 +83,8 @@ LƯU Ý:
 
 # SAFETY_REFUSAL: More deterministic, conservative responses
 SAFETY_REFUSAL_PARAMS = {
-    "temperature": 0.3,      # Lower temperature for consistent refusal
-    "top_p": 0.5,            # More focused sampling
+    "temperature": 0.1,      # Lower temperature for consistent refusal
+    "top_p": 0.1,            # More focused sampling
     "max_completion_tokens": 1024,
     "n": 1,
     "seed": 416
@@ -96,8 +92,8 @@ SAFETY_REFUSAL_PARAMS = {
 
 # NON_RAG: Higher creativity for problem-solving and reasoning
 NON_RAG_PARAMS = {
-    "temperature": 0.7,      # Higher temperature for creative reasoning
-    "top_p": 0.9,            # Broader sampling for diverse thinking
+    "temperature": 0.5,      # Higher temperature for creative reasoning
+    "top_p": 0.7,            # Broader sampling for diverse thinking
     "max_completion_tokens": 2048,  # More tokens for step-by-step explanation
     "n": 1,
     "seed": 416
@@ -119,7 +115,7 @@ RAG_NECESSITY_PARAMS = {
 
 DOMAIN_MODEL_MAP = {
     "SAFETY_REFUSAL": "vnptai-hackathon-small",   # Use small model for safety questions
-    "NON_RAG": "vnptai-hackathon-large",          # Use large model for reasoning
+    "NON_RAG": "vnptai-hackathon-small",          # Use small model for reasoning
     "RAG_NECESSITY": "vnptai-hackathon-large"     # Use large model for knowledge
 }
 

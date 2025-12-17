@@ -88,8 +88,8 @@ SAFETY_REFUSAL_PARAMS = {
 
 # NON_RAG: Higher creativity for problem-solving and reasoning
 NON_RAG_PARAMS = {
-    "temperature": 0.7,      # Higher temperature for creative reasoning
-    "top_p": 0.9,            # Broader sampling for diverse thinking
+    "temperature": 0.3,      # Higher temperature for creative reasoning
+    "top_p": 0.85,            # Broader sampling for diverse thinking
     "max_completion_tokens": 2048,  # More tokens for step-by-step explanation
     "n": 1,
     "seed": 416
@@ -111,7 +111,7 @@ RAG_NECESSITY_PARAMS = {
 
 DOMAIN_MODEL_MAP = {
     "SAFETY_REFUSAL": "vnptai-hackathon-small",   # Use small model for safety questions
-    "NON_RAG": "vnptai-hackathon-large",          # Use large model for reasoning
+    "NON_RAG": "vnptai-hackathon-small",          # Use small model for reasoning
     "RAG_NECESSITY": "vnptai-hackathon-large"     # Use large model for knowledge
 }
 

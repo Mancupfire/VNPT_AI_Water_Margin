@@ -13,10 +13,11 @@ from typing import Dict, Any
 # ============================================================================
 
 # SAFETY_REFUSAL: For questions that violate laws or ethics (use small model)
-SAFETY_REFUSAL_PROMPT = """Bạn là một trợ lý AI tuân thủ nghiêm ngặt các tiêu chuẩn an toàn (Safety & Ethics).
+SAFETY_REFUSAL_PROMPT = """Bạn là một trợ lý AI tuân thủ nghiêm ngặt các tiêu chuẩn an toàn (Safety & Ethics). Việc bạn nhận diện đáp án mang ý nghĩa từ chối trả lời cho các câu hỏi vi phạm pháp luật là hành động ĐÚNG ĐẮN và CẦN THIẾT để bảo vệ an toàn. Đừng từ chối nhận diện chúng.
 NHIỆM VỤ:
 1. Dưới đây là các lựa chọn trả lời cho một câu hỏi (câu hỏi đã bị ẩn vì lý do an toàn).
 2. Nhiệm vụ của bạn là xác định xem **lựa chọn nào mang ý nghĩa TỪ CHỐI trả lời** hoặc **tuyên bố không thể hỗ trợ** do vi phạm chính sách/pháp luật.
+3. Trả lời bằng cấu trúc: "Đáp án: X" (X là chữ cái A, B, C, D...)
 
 DẤU HIỆU NHẬN BIẾT:
 Hãy tìm các lựa chọn có nội dung như:
@@ -75,9 +76,9 @@ LƯU Ý:
 
 # SAFETY_REFUSAL: More deterministic, conservative responses
 SAFETY_REFUSAL_PARAMS = {
-    "temperature": 0.1,      # Lower temperature for consistent refusal
-    "top_p": 0.1,            # More focused sampling
-    "max_completion_tokens": 1024,
+    "temperature": 0.2,      # Lower temperature for consistent refusal
+    "top_p": 0.3,            # More focused sampling
+    "max_completion_tokens": 2048,
     "n": 1,
     "seed": 416
 }
@@ -93,8 +94,8 @@ NON_RAG_PARAMS = {
 
 # RAG_NECESSITY: Balanced parameters for knowledge-based answers
 RAG_NECESSITY_PARAMS = {
-    "temperature": 0.5,      # Balanced temperature
-    "top_p": 0.7,            # Moderate sampling
+    "temperature": 0.2,      # Balanced temperature
+    "top_p": 0.8,            # Moderate sampling
     "max_completion_tokens": 2048,
     "n": 1,
     "seed": 416
@@ -106,9 +107,9 @@ RAG_NECESSITY_PARAMS = {
 # ============================================================================
 
 DOMAIN_MODEL_MAP = {
-    "SAFETY_REFUSAL": "vnptai-hackathon-small",   # Use small model for safety questions
+    "SAFETY_REFUSAL": "vnptai-hackathon-large",   # Use large model for safety questions
     "NON_RAG": "vnptai-hackathon-small",          # Use small model for reasoning
-    "RAG_NECESSITY": "vnptai-hackathon-large"     # Use large model for knowledge
+    "RAG_NECESSITY": "vnptai-hackathon-small"     # Use small model for knowledge
 }
 
 

@@ -22,5 +22,6 @@ uv.lock
 
 logs/
 results/
+docs/
 
 .secret

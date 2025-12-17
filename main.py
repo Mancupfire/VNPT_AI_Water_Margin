@@ -63,11 +63,11 @@ if __name__ == "__main__":
     file_name = "test"
     
     # Chạy phân loại test
-    process_classification_dataset(
-        input_file=f'data/{file_name}.json',
-        output_file=f'data/{file_name}_classification.json',
-        config=config
-    )
+    # process_classification_dataset(
+    #     input_file=f'data/{file_name}.json',
+    #     output_file=f'data/{file_name}_classification.json',
+    #     config=config
+    # )
     
     # Chạy phân loại async (giữ nguyên)
     asyncio.run(

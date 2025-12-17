@@ -1,0 +1,20 @@
+{
+  "files": {
+    "val.json": {
+      "hash": "092d51d4d3aac3551e538465d7002f06",
+      "processed_at": "1765606978.9130545",
+      "status": "new"
+    },
+    "vanhoa.txt": {
+      "hash": "14033456fbd075e8eee0cbc3f5349e49",
+      "processed_at": "1765900221.449747",
+      "status": "new"
+    },
+    "vh.txt": {
+      "hash": "f4a0dc5982f7d67c4d50188e2fab94f6",
+      "processed_at": "1765892221.8700747",
+      "status": "new"
+    }
+  },
+  "version": "1.0"
+}

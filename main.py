@@ -72,7 +72,7 @@ if __name__ == "__main__":
     # Chạy phân loại async (giữ nguyên)
     asyncio.run(
         process_dataset_async(
-            input_file=f'data/{file_name}_classification.json',
+            input_file=f'data/{file_name}_classification_full.json',
             output_file=f'results/{file_name}_{config.get("CHAT_PROVIDER", "")}_async.csv',
             config=config,
             mode='test'

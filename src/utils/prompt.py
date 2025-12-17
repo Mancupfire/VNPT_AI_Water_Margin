@@ -44,7 +44,10 @@ def format_prompt(item: Dict[str, Any], context: Optional[str] = None, domain: O
             formatted_choices.append(f"{labels[i]}. {choice}")
 
     # Build prompt text
-    prompt_text = f"{question}\n" + "\n".join(formatted_choices)
+    if (domain == "SAFETY_REFUSAL"):
+        prompt_text = "\n".join(formatted_choices)
+    else:
+        prompt_text = f"{question}\n" + "\n".join(formatted_choices)
     
     # Add context if provided
     if context:

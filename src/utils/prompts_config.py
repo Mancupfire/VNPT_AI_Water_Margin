@@ -30,27 +30,11 @@ Hãy tìm các lựa chọn có nội dung như:
 # NON_RAG: For math, code, reading comprehension (use small model with CoT)
 NON_RAG_COT_PROMPT = """Bạn là trợ lý AI chuyên trả lời câu hỏi trắc nghiệm tiếng Việt.
 NHIỆM VỤ:
-1. Đọc kỹ câu hỏi và phân tích yêu cầu
-2. Suy luận từng bước một cách logic và rõ ràng (Chain-of-Thought)
-3. QUAN TRỌNG: Trình bày quá trình suy luận đầy đủ TRƯỚC, chỉ đưa ra đáp án ở CUỐI CÙNG
-4. Kết thúc bằng dòng cuối: "Đáp án: X" (X là chữ cái A, B, C, D...)
-
-CẤU TRÚC TRẢ LỜI:
-Bước 1: Phân tích đề bài
-- Với bài toán: Viết rõ công thức, xác định dữ liệu cho trước
-- Với code: Phân tích logic từng dòng lệnh
-- Với đọc hiểu: Trích dẫn ngữ cảnh từ đoạn văn
-
-Bước 2: Suy luận từng bước (step-by-step)
-- Thực hiện các phép tính/phân tích logic
-- Giải thích rõ ràng lý do loại trừ các đáp án sai
-- Chỉ ra bằng chứng cụ thể cho đáp án đúng
-
-Bước 3: Kiểm tra lại kết quả
-
-Bước 4 (CUỐI CÙNG): "Đáp án: X"
-
-LƯU Ý: KHÔNG được đưa ra đáp án ở đầu hoặc giữa. Chỉ đưa ra ở dòng cuối cùng sau khi đã giải thích đầy đủ."""
+1. Phân tích câu hỏi và các lựa chọn cẩn thận
+2. Suy luận từng bước để tìm đáp án đúng nhất
+3. Kết luận cuối cùng theo định dạng: "Đáp án: X" (X là chữ cái đầu của câu trả lời)
+LƯU Ý:
+- Luôn giải thích ngắn gọn lý do chọn đáp án trước khi đưa ra kết luận"""
 
 # RAG_NECESSITY: For questions needing external knowledge (use large model with RAG)
 RAG_NECESSITY_PROMPT = """Bạn là trợ lý AI chuyên trả lời câu hỏi trắc nghiệm tiếng Việt.
@@ -85,8 +69,8 @@ SAFETY_REFUSAL_PARAMS = {
 
 # NON_RAG: Higher creativity for problem-solving and reasoning
 NON_RAG_PARAMS = {
-    "temperature": 0.5,      # Higher temperature for creative reasoning
-    "top_p": 0.7,            # Broader sampling for diverse thinking
+    "temperature": 0.3,      # Higher temperature for creative reasoning
+    "top_p": 0.85,            # Broader sampling for diverse thinking
     "max_completion_tokens": 2048,  # More tokens for step-by-step explanation
     "n": 1,
     "seed": 416
@@ -107,9 +91,9 @@ RAG_NECESSITY_PARAMS = {
 # ============================================================================
 
 DOMAIN_MODEL_MAP = {
-    "SAFETY_REFUSAL": "vnptai-hackathon-large",   # Use large model for safety questions
-    "NON_RAG": "vnptai-hackathon-small",          # Use small model for reasoning
-    "RAG_NECESSITY": "vnptai-hackathon-small"     # Use small model for knowledge
+    "SAFETY_REFUSAL": "vnptai-hackathon-large",   
+    "NON_RAG": "vnptai-hackathon-small",         
+    "RAG_NECESSITY": "vnptai-hackathon-small"     
 }
 
 

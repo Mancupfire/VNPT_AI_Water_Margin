@@ -1,8 +1,8 @@
 # VNPT AI Water Margin - Docker Submission
 # Track 2: The Builder
 
-# Use CUDA 12.2 base image (required by competition)
-FROM nvidia/cuda:12.2.0-devel-ubuntu20.04
+# Use CUDA 12.2 base image with Ubuntu 22.04 (required by competition)
+FROM nvidia/cuda:12.2.0-devel-ubuntu22.04
 
 # Prevent interactive prompts during build
 ENV DEBIAN_FRONTEND=noninteractive
@@ -13,7 +13,7 @@ WORKDIR /code
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
-    python3.9 \
+    python3.10 \
     python3-pip \
     python3-dev \
     git \

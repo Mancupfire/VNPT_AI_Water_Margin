@@ -103,7 +103,7 @@ DOMAIN_MODEL_MAP = {
 
 DOMAIN_RAG_ENABLED = {
     "SAFETY_REFUSAL": False,  # No RAG needed for safety refusal
-    "NON_RAG": False,         # No RAG for math/code/reading comprehension
+    "NON_RAG": True,         # No RAG for math/code/reading comprehension
     "RAG_NECESSITY": True     # Enable RAG for knowledge questions
 }
 

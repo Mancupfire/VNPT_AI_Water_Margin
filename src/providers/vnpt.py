@@ -7,6 +7,7 @@ import asyncio
 import time
 from functools import wraps
 
+# Default embedding dimension for VNPT embedding model
 DEFAULT_EMBEDDING_DIMENSION = 1024
 
 class VNPTProvider:
@@ -174,9 +175,21 @@ class VNPTProvider:
                 await asyncio.sleep(delay)
                 delay = min(delay * 2, self.max_retry_delay)
             except Exception as e:
-                # Check if error message contains quota-related keywords
+                # Check if error message contains quota-related or dimension-related keywords
                 error_str = str(e).lower()
-                if any(keyword in error_str for keyword in ['quota', 'rate limit', 'too many requests']):
+                
+                # Check for embedding dimension errors first
+                if 'invalid embedding dimension' in error_str or 'dimension' in error_str:
+                    if not self.enable_infinite_retry:
+                        raise
+                    
+                    retry_count += 1
+                    print(f"\n⚠️  Abnormal embedding dimension: {str(e)}. Retry #{retry_count} after {delay:.1f}s...")
+                    await asyncio.sleep(delay)
+                    delay = min(delay * 2, self.max_retry_delay)
+                
+                # Check for quota/rate limit errors
+                elif any(keyword in error_str for keyword in ['quota', 'rate limit', 'too many requests']):
                     if not self.enable_infinite_retry:
                         raise
                     
@@ -184,8 +197,14 @@ class VNPTProvider:
                     print(f"\n⚠️  Quota error detected: {str(e)}. Retry #{retry_count} after {delay:.1f}s...")
                     await asyncio.sleep(delay)
                     delay = min(delay * 2, self.max_retry_delay)
+                
+                # Other unexpected errors
                 else:
-                    print(f"Unexpected error: {str(e)}. Retry #{retry_count} after {delay:.1f}s...")
+                    if not self.enable_infinite_retry:
+                        raise
+                    
+                    retry_count += 1
+                    print(f"\n⚠️  Unexpected error: {str(e)}. Retry #{retry_count} after {delay:.1f}s...")
                     await asyncio.sleep(delay)
                     delay = min(delay * 2, self.max_retry_delay)
 

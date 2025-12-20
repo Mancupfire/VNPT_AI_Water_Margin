@@ -24,4 +24,4 @@ logs/
 results/
 docs/
 
-.secret
+# .secret
